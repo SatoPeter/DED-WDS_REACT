@@ -77,6 +77,7 @@ export const Primary: Story = {
       },
     ],
     limit: 1,
+    placement: 'right-top',
     className: '',
   },
   render(args) {

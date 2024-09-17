@@ -1,12 +1,58 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import '@style/globals.scss';
+
 import NxWelcome from './nx-welcome';
 import { range } from 'lodash';
+import { useState } from 'react';
 // import { Switch } from 'ded-wds';
-import { Radio } from '@ui';
+import { Radio, Input, Button, Tooltip } from '../../libs/src/ui';
 
 export function App() {
+  const [value, setValue] = useState('option3');
+
+  const handleChange = (e: string) => {
+    setValue(e);
+    console.log(e);
+  };
+
   return (
     <div>
+      <div
+        style={{
+          display: 'flex',
+          gap: '16px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: '20px',
+        }}
+      >
+        <Tooltip content="提示內容" placement="right-top" showArrow>
+          <Button variant="outlined">提示內容</Button>
+        </Tooltip>
+
+        <Tooltip content="提示內容" placement="bottom" showArrow>
+          <Button variant="text">提示內容</Button>
+        </Tooltip>
+      </div>
+
+      <div
+        style={{
+          display: 'flex',
+          gap: '16px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: '20px',
+        }}
+      >
+        <Tooltip content="提示內容" placement="top" showArrow>
+          <Button variant="outlined">提示內容</Button>
+        </Tooltip>
+
+        <Tooltip content="提示內容" placement="left-bottom" showArrow>
+          <Button variant="text">提示內容</Button>
+        </Tooltip>
+      </div>
+
       <div
         style={{
           display: 'flex',
@@ -71,6 +117,7 @@ export function App() {
             themeColor="warning"
             value="option3"
           />
+          {/* <Input value={value} /> */}
         </div>
       </div>
 

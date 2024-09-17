@@ -29,12 +29,6 @@ interface ButtonProps {
  * @param {string} props.variant - 按鈕的樣式變體
  * @param {string} props.themeColor - 按鈕的主題顏色
  * @param {function} props.onClick - 按鈕的點擊事件處理函數
- * @example
- * ```tsx
- * <Button variant="outlined" themeColor="secondary" onClick={handleClick}>
- *   Click me
- * </Button>
- * ```
  */
 export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   const {

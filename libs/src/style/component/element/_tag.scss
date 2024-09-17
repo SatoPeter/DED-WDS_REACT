@@ -1,0 +1,48 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid $color-gray90;
+  border-radius: 16px;
+  padding-inline: 8px;
+  color: $text-color-secondary;
+
+  &:hover {
+    background-color: getBorderColor($mode, 'primary', 'hover');
+    border-color: getBorderColor($mode, 'primary', 'hover');
+  }
+
+  &-text {
+    font-size: 14px;
+  }
+
+  &-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-close {
+    color: $color-gray40;
+    width: 18px;
+    height: 18px;
+
+    &-disabled {
+      color: $color-gray20;
+    }
+  }
+
+  &-contained-disabled {
+    pointer-events: none;
+    background-color: $color-gray20 !important;
+    border-color: $color-gray20 !important;
+    color: $color-white !important;
+  }
+
+  &-outlined-disabled {
+    pointer-events: none;
+    background-color: transparent !important;
+    border-color: $color-gray20 !important;
+    color: $color-gray20 !important;
+  }
+}

@@ -1,22 +1,34 @@
 @use 'sass:math';
 
+// 模式
 $mode: 'light';
+// 麵包屑分隔符號
 $separate: '/';
 
+// 按鈕樣式清單
 $variants: ['contained', 'outlined', 'text'];
+// 主題清單
 $themes: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'info'];
+// 尺寸清單
 $sizes: ['xsmall', 'small', 'medium', 'large'];
+// 形狀清單
 $borderStyles: ['line', 'shadow'];
+// Avatar 狀態清單
 $avatarStatus: ['online', 'idle', 'busy', 'offline'];
+// Avatar 外型樣式清單
 $avatarShape: ['circle', 'square'];
+// 圖示比例清單
 $aspectRatio: ['11', '43', '54', '169'];
+// Tooltip Arrow 位置擺放清單
 $arrowPosition: ['top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom', 'right-top', 'right-bottom'];
 
+// 圖示比例
 $aspect-ratio-11: math.div(1, 1);
 $aspect-ratio-43: math.div(4, 3);
 $aspect-ratio-54: math.div(5, 4);
 $aspect-ratio-169: math.div(16, 9);
 
+// 亮度基礎色票
 $lightness10: #ffffff1a;
 $lightness20: #ffffff33;
 $lightness30: #ffffff4d;
@@ -27,6 +39,7 @@ $lightness70: #ffffffb3;
 $lightness80: #ffffffcc;
 $lightness90: #ffffffe6;
 
+// 暗度基礎色票
 $darkness10: #0000001a;
 $darkness20: #00000033;
 $darkness30: #0000004d;
@@ -37,13 +50,19 @@ $darkness70: #000000b3;
 $darkness80: #000000cc;
 $darkness90: #000000e6;
 
+// 輸入框邊框尺寸
 $input-border-width: 1px;
+// 按鈕邊框尺寸
 $btn-border-width: 2px;
-
+// 圖片圓角尺寸
 $image-size-rounded: 8px;
+// 按鈕圓角尺寸
 $button-size-rounded: 8px;
+// 文字框圓角尺寸
 $textarea-size-rounded: 4px;
+// Avatar 圓角尺寸
 $avatar-size-rounded: 4px;
+// 圓角尺寸
 $size-circle: 50%;
 
 // avatar 尺寸
@@ -80,15 +99,13 @@ $dark-color-primary: #533BD4FF;
 $dark-color-secondary: #68E1FEFF;
 $dark-color-tertiary: #EF68FFFF;
 
-// 支援色票
-// light
+// Light 支援色票
 $light-color-success: #28C76FFF;
 $light-color-warning: #FF9F43FF;
 $light-color-error: #FF4C51FF;
 $light-color-info: #00BAD1FF;
 
-// 支援色票
-// dark
+// Dark 支援色票
 $dark-color-success: #B1F04CFF;
 $dark-color-warning: #FFBE77FF;
 $dark-color-error: #FF5E5EFF;
@@ -159,7 +176,6 @@ $breakpoint-size-large-desktop: 1920px;
 
 // 字體設定
 // 語系: 依照需求填入字型
-// e.g. cn: Noto Sans, sans-serif
 $text-cn: 'Noto Sans, sans-serif';
 $text-en: 'Arial, sans-serif';
 
@@ -195,23 +211,23 @@ $text-size-caption2: 13px;
 $color-disabled: $color-gray20;
 
 // 連結色票
-$color-link: getDarkLightColor($mode, $color-gray50, $color-gray20);
+// $color-link: getDarkLightColor($mode, $color-gray50, $color-gray20);
 
 // 外框色票
-$border-color: getDarkLightColor($mode, $color-gray10, $color-gray60);
+// $border-color: getDarkLightColor($mode, $color-gray10, $color-gray60);
 
 
 // 色彩設定
 // light
-$light-color-layout-header: getDarkLightColor($mode, #EBEBEB, #020202);
-$light-color-layout-background: getDarkLightColor($mode, $color-white, #1b1616);
-$light-color-layout-sidebar: getDarkLightColor($mode, $color-white, #222222);
+// $light-color-layout-header: getDarkLightColor($mode, #EBEBEB, #020202);
+// $light-color-layout-background: getDarkLightColor($mode, $color-white, #1b1616);
+// $light-color-layout-sidebar: getDarkLightColor($mode, $color-white, #222222);
 
 // 色彩設定
 // dark
-$dark-color-layout-header: #020202;
-$dark-color-layout-background: #292929;
-$dark-color-layout-sidebar: #222222;
+// $dark-color-layout-header: #020202;
+// $dark-color-layout-background: #292929;
+// $dark-color-layout-sidebar: #222222;
 
 // 色彩設定
 // 圖示背景: 依照需求填入色票
@@ -229,8 +245,8 @@ $icon-color-disabled: $color-disabled;
 // 邊框: 依照需求填入色票
 $border-color-default: $color-gray40;
 $border-color-selected: $light-color-primary;
-$border-color-focus: getStatusColor(getDarkLightColor($mode, $light-color-primary, $dark-color-primary), "20%");
-$border-color-error: getDarkLightColor($mode, $light-color-error, $light-color-error);
+// $border-color-focus: getStatusColor(getDarkLightColor($mode, $light-color-primary, $dark-color-primary), "20%");
+// $border-color-error: getDarkLightColor($mode, $light-color-error, $light-color-error);
 $border-color-disabled: $color-gray20;
 
 // 色彩設定
@@ -242,47 +258,11 @@ $text-color-placeholder: $color-gray40;
 
 // 色彩設定
 // 表格: 依照需求填入色票
-$table-color-header: getDarkLightColor($mode, #F1F1F1, #020202);
-$table-color-background: getDarkLightColor($mode, $color-white, #292929);
-$table-color-sprite: getDarkLightColor($mode, #FCFCFC, #666666);
+// $table-color-header: getDarkLightColor($mode, #F1F1F1, #020202);
+// $table-color-background: getDarkLightColor($mode, $color-white, #292929);
+// $table-color-sprite: getDarkLightColor($mode, #FCFCFC, #666666);
 
 // 色彩設定
 // 骨架屏: 依照需求填入色票
 $skeleton-color-element: #E0E0E0;
 $skeleton-color-background: #F0F0F0;
-
-// 標題顏色設定
-// Primary
-$title-color-primary: getDarkLightColor($mode, $light-color-primary, $dark-color-primary);
-
-// 標題顏色設定
-// Secondary
-$title-color-secondary: getDarkLightColor($mode, $light-color-secondary, $dark-color-secondary);
-
-// 標題顏色設定
-// Tertiary
-$title-color-tertiary: getDarkLightColor($mode, $light-color-tertiary, $dark-color-tertiary);
-
-// 標題顏色設定
-// Success
-$title-color-success: getDarkLightColor($mode, $light-color-success, $dark-color-success);
-
-// 標題顏色設定
-// Warning
-$title-color-warning: getDarkLightColor($mode, $light-color-warning, $dark-color-warning);
-
-// 標題顏色設定
-// Error
-$title-color-error: getDarkLightColor($mode, $light-color-error, $dark-color-error);
-
-// 標題顏色設定
-// Info
-$title-color-info: getDarkLightColor($mode, $light-color-info, $dark-color-info);
-
-// 提示顏色設定
-// Description
-$hint-color-desc: getDarkLightColor($mode, $color-gray40, $color-gray40);
-
-// 提示顏色設定
-// Error
-$hint-color-error: getDarkLightColor($mode, $light-color-error, $dark-color-error);

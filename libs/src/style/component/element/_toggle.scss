@@ -9,7 +9,7 @@
   border-radius: 15px;
 
   &:focus {
-    box-shadow: 0 0 1px 2px $color-white, 0 0 1px 4px $border-color-focus;
+    box-shadow: 0 0 1px 2px $color-white, 0 0 1px 4px blend-rgba(getThemeColor($mode, 'primary', 'default'), $lightness50);
   }
 
   &-thumb {

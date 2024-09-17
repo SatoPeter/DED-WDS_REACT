@@ -150,6 +150,14 @@ $text-colors: (
   // 可以添加更多顏色主題
 );
 
+// 連結狀態
+$link-colors: (
+  'primary': ('light': ('default': $light-color-primary,
+      'hover': $light-color-primary,
+      'visited': $light-color-primary,
+    ))
+);
+
 // 主題邊框
 $border-colors: (
   // 主要主題色

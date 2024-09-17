@@ -45,6 +45,7 @@ export const Primary: Story = {
       { label: '第n層', href: '/first/second/third/n' },
       { label: '當前頁' },
     ],
+    placement: 'bottom',
   },
   render(args) {
     return <Breadcrumb {...args} />;

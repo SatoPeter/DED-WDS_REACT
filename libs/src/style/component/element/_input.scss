@@ -1,8 +1,11 @@
+.input-container {
+  flex: 1;
+}
+
 .input-group {
   display: flex;
   gap: 8px;
   align-items: center;
-  min-width: 300px;
   color: $color-gray40;
   padding-inline: 8px;
   border-width: $input-border-width;

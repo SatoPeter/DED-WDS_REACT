@@ -1,5 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
-
+# ready to remove
+/libs/backup
 # compiled output
 build
 tmp

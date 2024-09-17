@@ -7,6 +7,7 @@ import {
   VisibilityIcon,
   VisibilityOffIcon,
   CloseIcon,
+  LockIcon,
 } from '@src/assets';
 
 export default {
@@ -36,6 +37,7 @@ export default {
         'Visibility',
         'VisibilityOff',
         'Close',
+        'Lock',
       ],
       mapping: {
         None: null,
@@ -44,25 +46,7 @@ export default {
         Visibility: <VisibilityIcon />,
         VisibilityOff: <VisibilityOffIcon />,
         Close: <CloseIcon />,
-      },
-    },
-    suffix: {
-      description: '後置元素',
-      options: [
-        'None',
-        'Account',
-        'Search',
-        'Visibility',
-        'VisibilityOff',
-        'Close',
-      ],
-      mapping: {
-        None: null,
-        Account: <AccountIcon />,
-        Search: <SearchIcon />,
-        Visibility: <VisibilityIcon />,
-        VisibilityOff: <VisibilityOffIcon />,
-        Close: <CloseIcon />,
+        Lock: <LockIcon />,
       },
     },
     label: {
@@ -126,7 +110,11 @@ export const Primary: Story = {
     onChange: (e) => action('onChange')(e),
   },
   render(args) {
-    return <Input {...args} />;
+    return (
+      <div style={{ width: '300px' }}>
+        <Input {...args} />
+      </div>
+    );
   },
 };
 
@@ -135,18 +123,23 @@ export const InputWithStatus: Story = {
   args: {
     className: '',
     prefix: <AccountIcon />,
-    label: '帳號',
+
     type: 'text',
     placeholder: '請輸入帳號 ...',
-    suffix: <CloseIcon />,
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '16px' }}>
-        <Input {...args} />
-        <Input {...args} hint={{ error: 'Error Message', description: '' }} />
+      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+        <Input {...args} label="帳號" />
+        <Input {...args} label="密碼" type={'password'} prefix={<LockIcon />} />
         <Input
           {...args}
+          label="帳號"
+          hint={{ error: 'Error Message', description: '' }}
+        />
+        <Input
+          {...args}
+          label="帳號"
           hint={{ error: '', description: 'Something Description' }}
         />
       </div>

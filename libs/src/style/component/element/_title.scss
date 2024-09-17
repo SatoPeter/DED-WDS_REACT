@@ -19,6 +19,7 @@ $text-levels: (
   font-size: inherit;
   font-weight: $text-regular;
   color: currentColor;
+  word-break: keep-all;
 
   @each $theme in $themes {
     &-#{$theme} {

@@ -60,7 +60,7 @@ export const Primary: Story = {
     shape: 'circle',
     size: 'medium',
     userName: 'Kevin',
-    // status: 'online',
+    status: 'online',
     imageSrc: 'https://picsum.photos/320/240',
     className: '',
   },
@@ -69,22 +69,22 @@ export const Primary: Story = {
   },
 };
 
-export const Multiple: Story = {
-  name: '忙碌頭像',
-  args: {
-    // 設定參數預設值
-    userName: 'Kevin',
-    imageSrc: 'https://picsum.photos/320/240',
-    className: '',
-  },
-  render(args) {
-    return (
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
-        <Avatar {...args} size="large" shape="circle" status="online" />
-        <Avatar {...args} size="large" shape="square" status="idle" />
-        <Avatar {...args} size="medium" shape="circle" status="busy" />
-        <Avatar {...args} size="medium" shape="square" status="offline" />
-      </div>
-    );
-  },
-};
+// export const Multiple: Story = {
+//   name: '忙碌頭像',
+//   args: {
+//     // 設定參數預設值
+//     userName: 'Kevin',
+//     imageSrc: 'https://picsum.photos/320/240',
+//     className: '',
+//   },
+//   render(args) {
+//     return (
+//       <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
+//         <Avatar {...args} size="large" shape="circle" status="online" />
+//         <Avatar {...args} size="large" shape="square" status="idle" />
+//         <Avatar {...args} size="medium" shape="circle" status="busy" />
+//         <Avatar {...args} size="medium" shape="square" status="offline" />
+//       </div>
+//     );
+//   },
+// };

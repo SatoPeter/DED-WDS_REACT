@@ -7,9 +7,10 @@ import { Radio } from './element/radio';
 import { Breadcrumb } from './element/breadcrumb';
 import { Avatar } from './element/avatar';
 import { AvatarGroup } from './module/avatar-group';
-import { Menu } from './module/menu';
-import { Password } from './module/password';
+import { List, Item } from './module/list';
+import { Password } from '../../backup/password';
 import { Tooltip } from './module/tooltip';
+import { Dropdown } from './module/dropdown';
 
 export {
   Title,
@@ -21,7 +22,9 @@ export {
   Breadcrumb,
   Avatar,
   AvatarGroup,
-  Menu,
+  List,
+  Item,
   Password,
   Tooltip,
+  Dropdown,
 };

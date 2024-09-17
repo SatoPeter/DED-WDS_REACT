@@ -134,7 +134,7 @@ export const Primary: Story = {
             {...args}
             showArrow
             content="提示內容"
-            placement="bottom-right"
+            placement="bottom-left"
           >
             <Button variant="outlined">驗證</Button>
           </Tooltip>
@@ -145,7 +145,7 @@ export const Primary: Story = {
             {...args}
             showArrow
             content="提示內容"
-            placement="bottom-left"
+            placement="bottom-right"
           >
             <Button variant="outlined">提示</Button>
           </Tooltip>
