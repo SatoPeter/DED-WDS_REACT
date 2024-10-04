@@ -33,7 +33,7 @@ export const Item: React.FC<ItemProps> = (props: ItemProps) => {
 
   return (
     <div
-      className={`item ${href || onClick ? 'menu-link' : ''} ${className}`}
+      className={`item ${href ? 'menu-link' : ''} ${className}`}
       onClick={handleClick}
     >
       {prefix && <div className="icon">{prefix}</div>}

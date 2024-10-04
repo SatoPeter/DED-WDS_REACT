@@ -12,6 +12,20 @@ import AddIcon from '@assets/add.svg?react';
 import ArrowDownIcon from '@assets/arrow_down.svg?react';
 import CheckIcon from '@assets/check.svg?react';
 import MoreIcon from '@assets/more_vert.svg?react';
+import MinusIcon from '@assets/minus.svg?react';
+import PlusIcon from '@assets/plus.svg?react';
+import PowerIcon from '@assets/power.svg?react';
+import AirIcon from '@assets/air-condition.svg?react';
+import FanIcon from '@assets/fan.svg?react';
+import LightIcon from '@assets/light.svg?react';
+import WindowIcon from '@assets/window.svg?react';
+import CurtainIcon from '@assets/curtain.svg?react';
+import HomeIcon from '@assets/home.svg?react';
+import HumidityIcon from '@assets/humidity.svg?react';
+import TemperatureIcon from '@assets/temperature.svg?react';
+import DoorIcon from '@assets/door.svg?react';
+import AUOIcon from '@assets/auo.svg?react';
+import DragonballIcon from '@assets/dragonball.svg?react';
 
 export {
   AccountIcon,
@@ -28,4 +42,18 @@ export {
   ArrowDownIcon,
   CheckIcon,
   MoreIcon,
+  MinusIcon,
+  PlusIcon,
+  PowerIcon,
+  AirIcon,
+  FanIcon,
+  LightIcon,
+  WindowIcon,
+  CurtainIcon,
+  HomeIcon,
+  HumidityIcon,
+  TemperatureIcon,
+  DoorIcon,
+  AUOIcon,
+  DragonballIcon,
 };

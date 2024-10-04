@@ -1,0 +1,111 @@
+:root {
+  --progress: 0%;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  padding-block: 16px;
+  margin-block: 16px;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+}
+
+// @each $theme in $themes {
+//   .slider-#{$theme} {
+//     background-color: getThemeColor($mode, $theme, 'default');
+//   }
+// }
+
+.tooltip {
+  position: absolute;
+  top: -20px;
+  // color: getThemeColor($mode, 'warning', 'default');
+  width: 40px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* remove default style */
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 6px;
+  background-color: #ccc;
+  // border-radius: 5px;
+  // outline: none;
+  // padding: 0;
+  // margin: 0;
+}
+
+input[type="range"]::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  width: 2px;
+  height: 6px;
+  background-color: #ccc;
+  transform: translateX(-50%);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+}
+
+@each $theme in $themes {
+  input[type="range"].slider-#{$theme}::-webkit-slider-thumb {
+    background-color: getThemeColor($mode, $theme, 'default');
+  }
+
+  input[type="range"].slider-#{$theme}::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, getThemeColor($mode, $theme, 'default') 0%, getThemeColor($mode, $theme, 'default') var(--progress), #ccc var(--progress), #ccc 100%);
+  }
+
+  .tooltip-#{$theme} {
+    color: getThemeColor($mode, $theme, 'default');
+  }
+}
+
+input[type="range"].slider-disable::-webkit-slider-thumb {
+  background-color: #ccc;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+input[type="range"].slider-disable::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #ccc 0%, #ccc var(--progress), #ccc var(--progress), #ccc 100%);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.tooltip-disable {
+  color: #ccc;
+  pointer-events: none;
+}

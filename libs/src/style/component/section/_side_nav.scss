@@ -1,0 +1,19 @@
+.side-nav {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 12px;
+  padding: 16px 12px;
+
+  &-header {
+    display: flex;
+    justify-content: center;
+
+    &-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: auto;
+    }
+  }
+}

@@ -45,3 +45,32 @@
   background-color: #f26940;
   color: #ffffff;
 }
+
+.card-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.card-feature {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-button {
+  width: 60px;
+  height: 76px;
+  padding: 8px;
+  background-color: #ccc;
+  color: #5B5B5B;
+}
+
+.card-button-active {
+  background-color: #ff9f43;
+  color: #000000;
+}
+
+.card-button-empty {
+  background-color: transparent;
+}

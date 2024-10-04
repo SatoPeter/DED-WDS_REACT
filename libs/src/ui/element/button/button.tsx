@@ -52,8 +52,8 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
         ${
           isDisabled
             ? getDisableClass(variant)
-            : className || getThemeClass(variant, themeColor)
-        }`}
+            : getThemeClass(variant, themeColor)
+        } ${className}`}
       onClick={onClick}
     >
       {prefix && <div className={getSizeClass('icon', size)}>{prefix}</div>}

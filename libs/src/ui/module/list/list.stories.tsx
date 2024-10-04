@@ -72,7 +72,11 @@ export const Primary: Story = {
     onSelect: action('onSelect'),
   },
   render(args) {
-    return <List {...args} />;
+    return (
+      <div style={{ width: '200px' }}>
+        <List {...args} />
+      </div>
+    );
   },
 };
 
@@ -115,6 +119,10 @@ export const Menu: Story = {
     onSelect: action('onSelect'),
   },
   render(args) {
-    return <List {...args} />;
+    return (
+      <div style={{ width: '200px' }}>
+        <List {...args} />
+      </div>
+    );
   },
 };
