@@ -4,7 +4,7 @@ import { ButtonSlider } from '@src/ui';
 import { PlusIcon, MinusIcon } from '@src/assets';
 
 export default {
-  title: 'Design System/Module/ButtonSlider',
+  title: 'Design System/Button-Slider',
   component: ButtonSlider,
   tags: ['autodocs'],
   argTypes: {
@@ -58,29 +58,38 @@ export default {
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
+    },
+    initValue: {
+      description: '初始值',
+    },
+    onChange: {
+      description: '變更事件',
     },
     onClick: {
       description: '點擊事件',
+      action: 'onClick',
     },
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: '按鈕滑桿',
       description: {
-        /* 組件描述 */
-        component: '組件的呈現及說明。',
+        component: '按鈕滑桿輸入的呈現及說明。',
       },
     },
   },
+  args: {
+    themeColor: 'primary',
+    isDisabled: false,
+    onChange: action('onChange'),
+    onClick: action('onClick'),
+    className: '',
+  },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof ButtonSlider>;
 
 export const Primary: Story = {
-  name: '搜尋輸入框',
+  name: '主要項目',
   args: {
     prefix: 'Decrease',
     suffix: 'Increase',
@@ -88,12 +97,37 @@ export const Primary: Story = {
     max: 100,
     step: 1,
     unit: '℃',
-    themeColor: 'primary',
-    isDisabled: false,
-    className: '',
+    initValue: 50,
     onClick: action('onClick'),
   },
   render(args) {
     return <ButtonSlider {...args} />;
+  },
+};
+
+export const ThemeColor: Story = {
+  name: '主題色按鈕滑桿',
+  args: {
+    prefix: 'Decrease',
+    suffix: 'Increase',
+    min: 0,
+    max: 100,
+    step: 1,
+    unit: '%',
+    initValue: 50,
+    onClick: action('onClick'),
+  },
+  render(args) {
+    return (
+      <div>
+        <ButtonSlider {...args} initValue={40} themeColor="primary" />
+        <ButtonSlider {...args} initValue={50} themeColor="secondary" />
+        <ButtonSlider {...args} initValue={60} themeColor="tertiary" />
+        <ButtonSlider {...args} initValue={70} themeColor="success" />
+        <ButtonSlider {...args} initValue={80} themeColor="info" />
+        <ButtonSlider {...args} initValue={90} themeColor="warning" />
+        <ButtonSlider {...args} initValue={100} themeColor="error" />
+      </div>
+    );
   },
 };

@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { getHintClass, getCountClass, getBorderClass } from './styled';
 
 interface TextareaProps {
@@ -8,7 +8,8 @@ interface TextareaProps {
   isDisabled?: boolean;
   total?: number;
   hint?: { error: string; description: string };
-  value?: string;
+  initValue?: string;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 /**
  * Textarea 組件。
@@ -27,18 +28,24 @@ interface TextareaProps {
 export const Textarea: React.FC<TextareaProps> = (props: TextareaProps) => {
   const {
     label,
-    className,
+    className = '',
     placeholder = '請輸入...',
     isDisabled = false,
     total = 10,
+    initValue = '',
     hint = { error: '', description: '' },
+    onChange,
     ...rest
   } = props;
 
   const [value, setValue] = useState('');
 
+  useEffect(() => {
+    setValue(initValue);
+  }, [initValue]);
+
   return (
-    <div className={`textarea-container ${className ? className : ''}`}>
+    <div className={`textarea-container ${className}`}>
       {label && (
         <label
           className={`${isDisabled ? 'textarea-disable' : 'textarea-label'}`}
@@ -59,6 +66,7 @@ export const Textarea: React.FC<TextareaProps> = (props: TextareaProps) => {
             setValue(e.target.value);
             console.log(e.target.value);
           }}
+          value={value}
           maxLength={total || undefined}
           className={`${isDisabled ? 'textarea-disable' : 'textarea'}`}
           placeholder={placeholder}

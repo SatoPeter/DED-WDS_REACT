@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import Tag from './tag';
+import { Tag } from './tag';
 import {
   AccountIcon,
   SearchIcon,
@@ -9,7 +9,7 @@ import {
 } from '@src/assets';
 
 export default {
-  title: 'Design System/Element/Tag',
+  title: 'Design System/Tag',
   component: Tag,
   tags: ['autodocs'],
   argTypes: {
@@ -17,7 +17,7 @@ export default {
       description: '是否禁用',
     },
     icon: {
-      description: '圖式',
+      description: '圖示',
       options: ['None', 'Account', 'Search', 'Visibility', 'VisibilityOff'],
       mapping: {
         None: null,
@@ -31,29 +31,29 @@ export default {
       description: '是否可關閉',
     },
     closeIcon: {
-      description: '關閉圖式',
+      description: '關閉圖示',
     },
     className: {
       description: '客製化樣式',
     },
-    onClick: {
-      description: '點擊事件',
+    onClose: {
+      description: '關閉事件',
+      action: 'closed',
     },
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: '標籤',
       description: {
         component: '標籤的呈現及說明。',
       },
     },
   },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof Tag>;
 
 export const Primary: Story = {
-  name: '搜尋輸入框',
+  name: '主要項目',
   args: {
     closable: true,
     isDisabled: false,

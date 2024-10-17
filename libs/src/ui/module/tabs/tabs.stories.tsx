@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from './tabs';
 
 export default {
-  title: 'Design System/Module/Tabs',
+  title: 'Design System/Tabs',
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {
@@ -25,15 +25,12 @@ export default {
     type: {
       description: '頁籤樣式',
       control: {
-        type: 'radio',
+        type: 'select',
         options: ['card', 'default'],
       },
     },
     isDisabled: {
       description: '是否禁用',
-      control: {
-        type: 'boolean',
-      },
     },
     activeIndex: {
       description: '活動頁籤索引',
@@ -43,15 +40,15 @@ export default {
         max: 2,
       },
     },
+    tabs: {
+      description: '頁籤列表',
+    },
     onClick: {
       description: '點擊事件',
       action: 'clicked',
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
     },
   },
   args: {
@@ -72,13 +69,14 @@ export default {
 type Story = StoryObj<typeof Tabs>;
 
 export const Primary: Story = {
-  name: '標準頁籤',
+  name: '主要項目',
   args: {
     tabs: [
       { title: '頁籤 1', content: '內容一' },
       { title: '頁籤 2', content: '內容二' },
       { title: '頁籤 3', content: '內容三' },
     ],
+    activeIndex: 0,
   },
   render(args) {
     return <Tabs {...args} />;
@@ -94,6 +92,7 @@ export const PrimaryWithCard: Story = {
       { title: '頁籤 2', content: '內容二' },
       { title: '頁籤 3', content: '內容三' },
     ],
+    activeIndex: 1,
   },
   render(args) {
     return <Tabs {...args} />;

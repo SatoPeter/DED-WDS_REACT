@@ -9,7 +9,6 @@ import { Avatar } from './element/avatar';
 import { LineProgress, CircleProgress } from './element/progress';
 import { AvatarGroup } from './module/avatar-group';
 import { List, Item } from './module/list';
-import { Password } from '../../backup/password';
 import { Tooltip } from './module/tooltip';
 import { Dropdown } from './module/dropdown';
 import { Slider } from './element/slider';
@@ -31,7 +30,6 @@ export {
   CircleProgress,
   List,
   Item,
-  Password,
   Tooltip,
   Dropdown,
   Slider,

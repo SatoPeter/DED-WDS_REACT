@@ -115,7 +115,7 @@ export function App() {
               },
             ]}
             themeColor="warning"
-            value="option3"
+            initValue="option3"
           />
           {/* <Input value={value} /> */}
         </div>

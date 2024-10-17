@@ -30,9 +30,7 @@ interface LineProgressProps {
 export const LineProgress: React.FC<LineProgressProps> = ({
   themeColor = 'primary',
   label = '',
-  // 進度
   percent,
-  // 線條寬度
   height = 10,
 }) => {
   // 確保進度在0到100之間

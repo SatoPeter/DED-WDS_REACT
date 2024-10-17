@@ -53,9 +53,9 @@ export const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
   return (
     <div
       {...rest}
-      className={`toggle ${
-        className || getThemeClass(themeColor)
-      } ${getPositionClass(checked)} ${isDisabled ? 'toggle-disable' : ''}`}
+      className={`toggle ${getThemeClass(themeColor)} ${getPositionClass(
+        checked
+      )} ${className} ${isDisabled ? 'toggle-disable' : ''}`}
       onClick={(e) => {
         setChecked((prev) => !prev);
         onChange && onChange(!checked);

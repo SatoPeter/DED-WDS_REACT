@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { CircleProgress } from './circle-progress';
 
 export default {
-  title: 'Design System/Element/Circle-Progress',
+  title: 'Design System/Circle-Progress',
   component: CircleProgress,
   tags: ['autodocs'],
   argTypes: {
@@ -32,9 +32,6 @@ export default {
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
     },
     percent: {
       description: '進度',
@@ -63,6 +60,9 @@ export default {
         step: 1,
       },
     },
+    label: {
+      description: '進度指示標籤',
+    },
   },
   args: {
     percent: 0,
@@ -71,9 +71,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: 'Radio Button',
+      title: '圓形進度指示',
       description: {
-        component: 'Radio Button 組件的呈現及說明。',
+        component: '圓形進度指示組件的呈現及說明。',
       },
     },
   },
@@ -81,7 +81,7 @@ export default {
 type Story = StoryObj<typeof CircleProgress>;
 
 export const Primary: Story = {
-  name: '圓形進度指示',
+  name: '主要項目',
   args: {
     className: '',
   },

@@ -4,7 +4,7 @@ import { Avatar, Item } from '@src/ui';
 import { AccountIcon, ArrowDownIcon } from '@src/assets';
 
 export default {
-  title: 'Design System/Element/Item',
+  title: 'Design System/Item',
   component: Item,
   tags: ['autodocs'],
   argTypes: {

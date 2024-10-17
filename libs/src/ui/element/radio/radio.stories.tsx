@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Radio } from './radio';
 
 export default {
-  title: 'Design System/Element/Radio',
+  title: 'Design System/Radio',
   component: Radio,
   tags: ['autodocs'],
   argTypes: {
@@ -33,29 +33,19 @@ export default {
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
     },
     options: {
       description: '選項',
-      control: {
-        type: 'object',
-      },
     },
     direction: {
       description: '方向',
-      options: ['row', 'column'],
       control: {
-        type: 'radio',
+        type: 'select',
         options: ['row', 'column'],
       },
     },
-    value: {
-      description: '值',
-      control: {
-        type: 'text',
-      },
+    initValue: {
+      description: '預設值',
     },
     onChange: {
       description: '選擇選項後的事件',
@@ -77,7 +67,7 @@ export default {
 type Story = StoryObj<typeof Radio>;
 
 export const Primary: Story = {
-  name: '標準 radio button',
+  name: '主要項目',
   args: {
     className: '',
     options: [
@@ -85,7 +75,7 @@ export const Primary: Story = {
       { label: '選項二', value: 'option2' },
       { label: '選項三', value: 'option3' },
     ],
-    value: 'option3',
+    initValue: 'option3',
     onChange: (e) => {
       action('onChange')(e);
     },

@@ -3,75 +3,102 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Slider } from '@src/ui';
 
 export default {
-  title: 'Design System/Element/Slider',
+  title: 'Design System/Slider',
   component: Slider,
   tags: ['autodocs'],
   argTypes: {
-    /* 設定參數 */
+    themeColor: {
+      description: '主題顏色',
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'tertiary',
+          'success',
+          'warning',
+          'error',
+          'info',
+        ],
+      },
+    },
+    isDisabled: {
+      description: '是否禁用',
+    },
     max: {
       description: '最大值',
-      control: {
-        type: 'number',
-      },
     },
     min: {
       description: '最小值',
-      control: {
-        type: 'number',
-      },
+    },
+    unit: {
+      description: '單位',
     },
     step: {
       description: '步進值',
-      control: {
-        type: 'number',
-      },
     },
-    initialValue: {
+    initValue: {
       description: '初始值',
-      control: {
-        type: 'number',
-      },
+    },
+    className: {
+      description: '客製化樣式',
     },
     onChange: {
       description: '值改變事件',
       action: 'onChange',
     },
-    className: {
-      description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
-    },
-    onClick: {
-      description: '點擊事件',
-    },
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: '滑桿',
       description: {
-        /* 組件描述 */
-        component: 'Slider 的呈現及說明。',
+        component: '滑桿的呈現及說明。',
       },
     },
   },
+  args: {
+    themeColor: 'primary',
+    isDisabled: false,
+    onChange: action('onChange'),
+    className: '',
+  },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof Slider>;
 
 export const Primary: Story = {
-  name: 'Slider',
+  name: '主要項目',
+  args: {
+    min: -100,
+    max: 100,
+    step: 1,
+    initValue: 50,
+    unit: '℃',
+  },
+  render(args) {
+    return <Slider {...args} />;
+  },
+};
+
+export const ThemeColor: Story = {
+  name: '主題色滑桿',
   args: {
     min: 0,
     max: 100,
     step: 1,
-    initialValue: 0,
-    themeColor: 'primary',
-    isDisabled: false,
-    unit: '℃',
-    onChange: action('onChange'),
+    initValue: 10,
+    unit: '%',
   },
   render(args) {
-    return <Slider {...args} />;
+    return (
+      <div>
+        <Slider {...args} initValue={40} themeColor="primary" />
+        <Slider {...args} initValue={50} themeColor="secondary" />
+        <Slider {...args} initValue={60} themeColor="tertiary" />
+        <Slider {...args} initValue={70} themeColor="info" />
+        <Slider {...args} initValue={80} themeColor="success" />
+        <Slider {...args} initValue={90} themeColor="warning" />
+        <Slider {...args} initValue={100} themeColor="error" />
+      </div>
+    );
   },
 };

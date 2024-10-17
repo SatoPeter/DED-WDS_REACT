@@ -11,22 +11,22 @@ import {
 } from '@src/assets';
 
 export default {
-  title: 'Design System/Element/Input',
+  title: 'Design System/Input',
   component: Input,
   tags: ['autodocs'],
   argTypes: {
     size: {
       description: '輸入框尺寸',
       control: {
-        type: 'radio',
+        type: 'select',
         options: ['small', 'medium', 'large'],
       },
     },
+    isDisabled: {
+      description: '是否禁用',
+    },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
     },
     prefix: {
       description: '前置元素',
@@ -51,9 +51,6 @@ export default {
     },
     label: {
       description: '標題',
-      control: {
-        type: 'text',
-      },
     },
     type: {
       description: '輸入類型',
@@ -70,15 +67,9 @@ export default {
     },
     hint: {
       description: '提示訊息',
-      control: {
-        type: 'object',
-      },
     },
     value: {
       description: '輸入值',
-      control: {
-        type: 'text',
-      },
     },
     onChange: {
       description: '輸入事件',
@@ -96,17 +87,18 @@ export default {
   args: {
     size: 'medium',
     isDisabled: false,
+    label: '',
+    type: 'text',
   },
 } as Meta;
 type Story = StoryObj<typeof Input>;
 
 export const Primary: Story = {
-  name: '文字輸入框',
+  name: '主要項目',
   args: {
     className: '',
     placeholder: '請輸入帳號 ...',
     hint: { error: '', description: '' },
-    type: 'text',
     onChange: (e) => action('onChange')(e),
   },
   render(args) {
@@ -123,8 +115,6 @@ export const InputWithStatus: Story = {
   args: {
     className: '',
     prefix: <AccountIcon />,
-
-    type: 'text',
     placeholder: '請輸入帳號 ...',
   },
   render(args) {

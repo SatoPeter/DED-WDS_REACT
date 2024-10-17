@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Avatar, AvatarProps } from '../../element/avatar';
+import { Avatar, AvatarProps } from '@src/ui/element/avatar';
 import { List, Button } from '@src/ui';
-import { splitArray } from '../../../utils';
+import { splitArray } from '@src/utils';
 import { ItemProps } from '../list/item';
 import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
 
-// 組件介面參數 props
 interface AvatarGroupProps {
   users: AvatarProps[];
   placement:
@@ -27,11 +26,9 @@ interface AvatarGroupProps {
   className?: string;
 }
 
-// 定義組件
 export const AvatarGroup: React.FC<AvatarGroupProps> = (
   props: AvatarGroupProps
 ) => {
-  // 解構組件參數
   const { users, limit, placement, className, ...rest } = props;
   const restCount = users.length - limit;
   const result = splitArray(users, limit);
@@ -52,10 +49,10 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
         return {
           prefix: (
             <Avatar
-              size="xsmall"
+              size="small"
               shape="circle"
               userName={user.userName}
-              imageSrc={user.imageSrc || ''}
+              imgSrc={user.imgSrc || ''}
             />
           ),
           content: {
@@ -66,13 +63,13 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
         };
       })
     );
-  }, []);
+  }, [result.restList]);
 
   return (
     <>
       <div className="avatar-group">
         {result.currList.map((user, index) => {
-          const { shape, size, userName, status, imageSrc } = user;
+          const { shape, size, userName, status, imgSrc } = user;
           return (
             <Avatar
               key={index}
@@ -80,7 +77,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
               size={size}
               userName={userName}
               status={status}
-              imageSrc={imageSrc || ''}
+              imgSrc={imgSrc || ''}
               {...rest}
             />
           );

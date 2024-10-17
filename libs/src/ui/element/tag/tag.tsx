@@ -4,41 +4,25 @@ import { CloseIcon } from '@src/assets';
 import { getDisableClass } from './styled';
 
 interface TagProps {
-  // size?: 'small' | 'medium' | 'large';
   isDisabled?: boolean;
   icon?: React.ReactNode;
   closeIcon?: React.ReactNode;
   closable?: boolean;
-  // themeColor?:
-  //   | 'primary'
-  //   | 'secondary'
-  //   | 'tertiary'
-  //   | 'success'
-  //   | 'warning'
-  //   | 'error'
-  //   | 'info';
-  // bordered?: boolean;
   onClose?: () => void;
   children: React.ReactNode;
   className?: string;
 }
 
 export const Tag: React.FC<TagProps> = (props: TagProps) => {
-  /* 解構組件參數 */
   const {
-    // size,
     isDisabled,
     icon,
     closeIcon,
-    // themeColor = 'primary',
-    // bordered,
     onClose,
     closable,
     className,
     children,
   } = props;
-
-  /* 事件控制 */
 
   return (
     <div

@@ -14,7 +14,7 @@ export interface SliderProps {
   min: number;
   max: number;
   step?: number;
-  initialValue?: number;
+  initValue?: number;
   onChange?: (value: number) => void;
   unit?: string;
   className?: string;
@@ -26,20 +26,17 @@ export const Slider: React.FC<SliderProps> = ({
   min = 0,
   max = 100,
   step = 1,
-  initialValue = 0,
+  initValue = 0,
   onChange,
-  unit = '',
+  unit = '%',
   className,
 }) => {
-  const [value, setValue] = useState<number>(initialValue || min);
+  const [value, setValue] = useState<number>(initValue || min);
   const [thumbPosition, setThumbPosition] = useState<number>(0);
   const rangeRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const thumbWidth = 20;
   const tooltipWidth = 40;
-
-  useEffect(() => {
-    setValue(initialValue);
-  }, [initialValue]);
 
   const updateThumbPosition = (val: number) => {
     if (!rangeRef.current) return;
@@ -50,7 +47,9 @@ export const Slider: React.FC<SliderProps> = ({
 
   const updateRangeBackground = (val: number) => {
     const value = ((val - min) / (max - min)) * 100;
-    document.documentElement.style.setProperty('--progress', `${value}%`);
+    if (containerRef.current) {
+      containerRef.current.style.setProperty('--progress', `${value}%`);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,12 +63,28 @@ export const Slider: React.FC<SliderProps> = ({
   };
 
   useEffect(() => {
+    setValue(initValue);
+  }, [initValue]);
+
+  useEffect(() => {
     updateRangeBackground(value);
     updateThumbPosition(value);
+
+    window.addEventListener('resize', () => {
+      updateRangeBackground(value);
+      updateThumbPosition(value);
+    });
+
+    return () => {
+      window.removeEventListener('resize', () => {
+        updateRangeBackground(value);
+        updateThumbPosition(value);
+      });
+    };
   }, [value, min, max]);
 
   return (
-    <div className="slider-container">
+    <div className="slider-container" ref={containerRef}>
       <div
         style={{
           display: 'flex',
@@ -78,14 +93,6 @@ export const Slider: React.FC<SliderProps> = ({
           gap: '8px',
         }}
       >
-        {/* {prefix && (
-          <Button
-            variant="text"
-            onClick={() => setValue((prev) => prev - step)}
-          >
-            {prefix}
-          </Button>
-        )} */}
         <input
           ref={rangeRef}
           type="range"
@@ -102,14 +109,6 @@ export const Slider: React.FC<SliderProps> = ({
                 : className || getThemeClass(themeColor, 'slider')
             }`}
         />
-        {/* {suffix && (
-          <Button
-            variant="text"
-            onClick={() => setValue((prev) => prev + step)}
-          >
-            {suffix}
-          </Button>
-        )} */}
       </div>
 
       <div
@@ -128,11 +127,6 @@ export const Slider: React.FC<SliderProps> = ({
         <span>{value}</span>
         {unit && <span>{unit}</span>}
       </div>
-      {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={{ width: '48px', textAlign: 'left' }}>0%</div>
-        <div style={{ width: '48px', textAlign: 'center' }}>50%</div>
-        <div style={{ width: '48px', textAlign: 'right' }}>100%</div>
-      </div> */}
     </div>
   );
 };

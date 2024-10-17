@@ -13,7 +13,7 @@ interface InputProps {
     | 'info';
   className?: string;
   options?: { label: string; value: string }[];
-  value?: string[];
+  initValue?: string[];
   direction?: 'row' | 'column';
   onChange?: (value: string[]) => void;
 }
@@ -37,15 +37,15 @@ export const Checkbox: React.FC<InputProps> = (props: InputProps) => {
     className,
     options = [],
     direction = 'row',
-    value = [],
+    initValue = [],
     onChange,
     ...rest
   } = props;
   const [currOptions, setCurrOptions] = useState<string[]>([]);
 
   useEffect(() => {
-    setCurrOptions(value || []);
-  }, [value]);
+    setCurrOptions(initValue || []);
+  }, [initValue]);
 
   return (
     <div

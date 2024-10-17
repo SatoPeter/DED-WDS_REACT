@@ -10,17 +10,22 @@ import {
   AirIcon,
   FanIcon,
   LightIcon,
-  CurtainIcon,
   HumidityIcon,
   TemperatureIcon,
   DoorIcon,
 } from '@src/assets';
 
 export default {
-  title: 'Design System/Section/Card',
+  title: 'Design System/Card',
   component: Card,
   tags: ['autodocs'],
   argTypes: {
+    width: {
+      description: '寬度',
+    },
+    height: {
+      description: '高度',
+    },
     cardHeader: {
       description: '卡片標題',
     },
@@ -29,6 +34,9 @@ export default {
     },
     cardFooter: {
       description: '卡片底部',
+    },
+    hasHeaderDivider: {
+      description: '是否有標題分隔線',
     },
     className: {
       description: '客製化樣式',
@@ -40,18 +48,17 @@ export default {
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: '卡片',
       description: {
         component: '卡片的呈現及說明。',
       },
     },
   },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof Card>;
 
 export const Primary: Story = {
-  name: '搜尋輸入框',
+  name: '主要項目',
   args: {
     className: '',
     onClick: action('onClick'),
@@ -171,6 +178,7 @@ export const Primary: Story = {
             }}
           >
             <ButtonSlider
+              initValue={0}
               themeColor="warning"
               unit="℃"
               prefix={<MinusIcon fill="#fff" width={24} height={24} />}

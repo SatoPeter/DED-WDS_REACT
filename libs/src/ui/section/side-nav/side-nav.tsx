@@ -71,6 +71,10 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
           </div>
         )}
         <ArrowDownIcon
+          style={{
+            cursor: 'pointer',
+            transform: isCollapsed ? 'rotate(270deg)' : 'rotate(90deg)',
+          }}
           onClick={() => setIsCollapsed((prev) => !prev)}
           fill={color}
           width={24}

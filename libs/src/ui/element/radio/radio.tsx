@@ -14,7 +14,7 @@ interface InputProps {
   className?: string;
   options?: { label: string; value: string }[];
   direction?: 'row' | 'column';
-  value?: string;
+  initValue?: string;
   onChange?: (value: string) => void;
 }
 
@@ -35,7 +35,7 @@ export const Radio: React.FC<InputProps> = (props: InputProps) => {
     className,
     options = [],
     direction = 'row',
-    value = '',
+    initValue = '',
     onChange,
     ...rest
   } = props;
@@ -43,8 +43,8 @@ export const Radio: React.FC<InputProps> = (props: InputProps) => {
   const [currOptions, setCurrOptions] = useState<string>('');
 
   useEffect(() => {
-    setCurrOptions(value || '');
-  }, [value]);
+    setCurrOptions(initValue || '');
+  }, [initValue]);
 
   return (
     <div

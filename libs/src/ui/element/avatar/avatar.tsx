@@ -1,17 +1,11 @@
 import React from 'react';
-import { IdleIcon, OnlineIcon, BusyIcon, OfflineIcon } from '../../../assets';
-import {
-  getSizeClass,
-  getStatusClass,
-  // getPositionClass,
-  getShapeClass,
-} from './styled';
-import { getAbbrFullName } from '../../../utils';
+import { IdleIcon, OnlineIcon, BusyIcon, OfflineIcon } from '@src/assets';
+import { getSizeClass, getStatusClass, getShapeClass } from './styled';
+import { getAbbrFullName } from '@src/utils';
 
 const getStatusIcon = (size: string, status: string) => {
   const sizeClass = getSizeClass('avatar-icon', size);
   const statusClass = getStatusClass('avatar-icon', status);
-  // const positionClass = getPositionClass('avatar-icon', position);
 
   const statusIcons: {
     [key: string]: React.FunctionComponent<
@@ -30,22 +24,18 @@ const getStatusIcon = (size: string, status: string) => {
   ) : null;
 };
 
-// 組件介面參數 props
 export interface AvatarProps {
-  size: 'xsmall' | 'small' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large';
   shape: 'circle' | 'square';
-  // iconPos: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   userName: string;
   status?: 'online' | 'busy' | 'idle' | 'offline';
-  imageSrc?: string;
+  imgSrc?: string;
   alt?: string;
   className?: string;
 }
 
-// 定義組件
 export const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
-  // 解構組件參數
-  const { size, shape, userName, status, imageSrc, alt } = props;
+  const { size, shape, userName, status, imgSrc, alt } = props;
 
   return (
     <div
@@ -53,8 +43,8 @@ export const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
         ${getSizeClass('avatar-container', size)}`}
     >
       <div className={`avatar ${getShapeClass('avatar', shape)}`}>
-        {imageSrc ? (
-          <img className="avatar-pic" src={imageSrc} alt={alt} />
+        {imgSrc ? (
+          <img className="avatar-pic" src={imgSrc} alt={alt} />
         ) : (
           <span className={`avatar-text ${getSizeClass('text', size)}`}>
             {getAbbrFullName(userName, 2)}

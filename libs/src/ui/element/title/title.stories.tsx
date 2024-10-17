@@ -2,12 +2,12 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Title } from './title';
 
 export default {
-  title: 'Design System/Element/Title',
+  title: 'Design System/Title',
   component: Title,
   tags: ['autodocs'],
   argTypes: {
     themeColor: {
-      description: '標題顏色',
+      description: '主題顏色',
       control: {
         type: 'select',
         options: [
@@ -30,15 +30,9 @@ export default {
     },
     children: {
       description: '標題內容',
-      control: {
-        type: 'text',
-      },
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
     },
   },
   parameters: {
@@ -53,11 +47,12 @@ export default {
 type Story = StoryObj<typeof Title>;
 
 export const Primary: Story = {
-  name: '標題',
+  name: '主要項目',
   args: {
     themeColor: 'primary',
     level: 0,
     children: '標題',
+    className: '',
   },
   render(args) {
     return <Title {...args}>{args.children}</Title>;

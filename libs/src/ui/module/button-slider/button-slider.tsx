@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Slider, Button } from '@src/ui';
 
-/* 組件介面參數 props */
 export interface ButtonSliderProps {
-  // size?: 'small' | 'medium' | 'large';
   themeColor?:
     | 'primary'
     | 'secondary'
@@ -12,6 +10,7 @@ export interface ButtonSliderProps {
     | 'warning'
     | 'error'
     | 'info';
+  initValue: number;
   isDisabled?: boolean;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -24,11 +23,9 @@ export interface ButtonSliderProps {
   className?: string;
 }
 
-/* 定義組件 */
 export const ButtonSlider: React.FC<ButtonSliderProps> = (
   props: ButtonSliderProps
 ) => {
-  /* 解構組件參數 */
   const {
     themeColor = 'primary',
     prefix,
@@ -37,9 +34,9 @@ export const ButtonSlider: React.FC<ButtonSliderProps> = (
     max = 100,
     step = 1,
     unit,
+    initValue,
     onClick,
     onChange,
-    // size,
     isDisabled,
     className,
     ...rest
@@ -47,7 +44,6 @@ export const ButtonSlider: React.FC<ButtonSliderProps> = (
 
   const [value, setValue] = React.useState<number>(0);
 
-  /* 事件控制 */
   const handleIncreaseClick = () => {
     setValue((prev) => Math.min(prev + step, max));
   };
@@ -56,21 +52,17 @@ export const ButtonSlider: React.FC<ButtonSliderProps> = (
     setValue((prev) => Math.max(prev - step, min));
   };
 
-  const handleChange = (value: number) => {
-    setValue(value);
-    onChange && onChange(value);
+  const handleChange = (val: number) => {
+    setValue(val);
+    onChange && onChange(val);
   };
 
+  useEffect(() => {
+    setValue(initValue);
+  }, [initValue]);
+
   return (
-    <div
-      style={{
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: '16px',
-      }}
-    >
+    <div className={`button-slider ${className}`}>
       <Button
         variant="text"
         themeColor={themeColor}
@@ -87,7 +79,7 @@ export const ButtonSlider: React.FC<ButtonSliderProps> = (
         unit={unit}
         step={step}
         isDisabled={isDisabled}
-        initialValue={value}
+        initValue={value}
         onChange={handleChange}
       />
       <Button
@@ -101,5 +93,4 @@ export const ButtonSlider: React.FC<ButtonSliderProps> = (
     </div>
   );
 };
-/* 修改匯出組件定義名稱 Component */
 export default ButtonSlider;

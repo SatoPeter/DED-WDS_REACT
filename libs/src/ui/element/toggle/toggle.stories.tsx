@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Toggle } from './toggle';
 
 export default {
-  title: 'Design System/Element/Toggle',
+  title: 'Design System/Toggle',
   component: Toggle,
   tags: ['autodocs'],
   argTypes: {
@@ -23,27 +23,15 @@ export default {
     },
     checkChildren: {
       description: '開啟文字',
-      control: {
-        type: 'text',
-      },
     },
     unCheckChildren: {
       description: '關閉文字',
-      control: {
-        type: 'text',
-      },
     },
     isChecked: {
       description: '是否開啟',
-      control: {
-        type: 'boolean',
-      },
     },
     isDisabled: {
       description: '是否禁用',
-      control: {
-        type: 'boolean',
-      },
     },
     onChange: {
       description: '開關事件',
@@ -51,9 +39,6 @@ export default {
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
     },
   },
   parameters: {
@@ -68,7 +53,7 @@ export default {
 type Story = StoryObj<typeof Toggle>;
 
 export const Primary: Story = {
-  name: '切換按鈕',
+  name: '主要項目',
   args: {
     themeColor: 'primary',
     isChecked: false,
@@ -79,5 +64,30 @@ export const Primary: Story = {
   },
   render(args) {
     return <Toggle {...args} />;
+  },
+};
+
+export const ThemeColor: Story = {
+  name: '主題色開關按鈕',
+  args: {
+    themeColor: 'primary',
+    isChecked: true,
+    isDisabled: false,
+    checkChildren: 'on',
+    unCheckChildren: 'off',
+    className: '',
+  },
+  render(args) {
+    return (
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <Toggle {...args} themeColor="primary" />
+        <Toggle {...args} themeColor="secondary" />
+        <Toggle {...args} themeColor="tertiary" />
+        <Toggle {...args} themeColor="info" />
+        <Toggle {...args} themeColor="success" />
+        <Toggle {...args} themeColor="warning" />
+        <Toggle {...args} themeColor="error" />
+      </div>
+    );
   },
 };

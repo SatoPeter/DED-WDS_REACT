@@ -1,15 +1,20 @@
-import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Breadcrumb } from './breadcrumb';
 
 export default {
-  title: 'Design System/Element/Breadcrumb',
+  title: 'Design System/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
   argTypes: {
-    onClick: {
-      description: '點擊事件',
-      action: 'clicked',
+    breadcrumbItems: {
+      description: '麵包屑項目',
+    },
+    placement: {
+      description: '麵包屑位置',
+      control: {
+        type: 'select',
+        options: ['top', 'bottom'],
+      },
     },
     className: {
       description: '客製化樣式',
@@ -18,11 +23,7 @@ export default {
       },
     },
   },
-  args: {
-    onClick: () => {
-      action('onClick')();
-    },
-  },
+  args: {},
   parameters: {
     docs: {
       title: '麵包屑',
@@ -35,7 +36,7 @@ export default {
 type Story = StoryObj<typeof Breadcrumb>;
 
 export const Primary: Story = {
-  name: '標準麵包屑',
+  name: '主要項目',
   args: {
     breadcrumbItems: [
       { label: '首頁', href: '/' },

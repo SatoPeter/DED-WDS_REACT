@@ -71,6 +71,7 @@ interface TabsProps {
   isDisabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   tabs: Tab[];
+  className?: string;
 }
 /**
  * 渲染帶有相關內容的標籤組。
@@ -85,7 +86,15 @@ interface TabsProps {
  * @returns {JSX.Element} 渲染的 Tabs 組件。
  */
 export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
-  const { tabs, themeColor, type, activeIndex, isDisabled, onClick } = props;
+  const {
+    tabs,
+    themeColor,
+    type,
+    activeIndex,
+    isDisabled,
+    onClick,
+    className,
+  } = props;
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -100,7 +109,7 @@ export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
   }, [activeIndex]);
 
   return (
-    <div className="tabs-container">
+    <div className={`tabs-container ${className}`}>
       <div className="tabs">
         {tabs.map((tab, index) => (
           <TabItem

@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 
-/* 組件介面參數 props */
 interface CardProps {
   width?: string;
   height?: string;
@@ -12,9 +11,7 @@ interface CardProps {
   className?: string;
 }
 
-/* 定義組件 */
 export const Card: React.FC<CardProps> = (props: CardProps) => {
-  /* 解構組件參數 */
   const {
     width,
     height,
@@ -26,7 +23,6 @@ export const Card: React.FC<CardProps> = (props: CardProps) => {
     className,
   } = props;
 
-  /* 事件控制 */
   const handleClick = () => {
     console.log('click');
     onClick && onClick();

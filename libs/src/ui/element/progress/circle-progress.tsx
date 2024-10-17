@@ -31,11 +31,8 @@ interface CircleProgressProps {
 export const CircleProgress: React.FC<CircleProgressProps> = ({
   themeColor = 'primary',
   label = '',
-  // 進度
   percent,
-  // 直徑
   size = 100,
-  // 線條寬度
   strokeWidth = 10,
 }) => {
   const textRef = useRef<SVGTextElement>(null);

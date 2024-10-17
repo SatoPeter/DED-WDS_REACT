@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { List } from '@src/ui';
 
 export default {
-  title: 'Design System/Module/List',
+  title: 'Design System/List',
   component: List,
   tags: ['autodocs'],
   argTypes: {

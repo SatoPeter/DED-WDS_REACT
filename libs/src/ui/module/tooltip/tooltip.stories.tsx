@@ -2,27 +2,18 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Button, Tooltip } from '@src/ui';
 
 export default {
-  title: 'Design System/Module/Tooltip',
+  title: 'Design System/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {
     children: {
       description: '顯示內容',
-      control: {
-        type: 'text',
-      },
     },
     content: {
       description: '提示內容',
-      control: {
-        type: 'text',
-      },
     },
     showArrow: {
       description: '是否顯示箭頭',
-      control: {
-        type: 'boolean',
-      },
     },
     placement: {
       description: '提示框位置',
@@ -46,29 +37,21 @@ export default {
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
-    },
-    onClick: {
-      description: '點擊事件',
     },
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: '提示工具',
       description: {
-        /* 組件描述 */
-        component: '組件的呈現及說明。',
+        component: '提示工具的呈現及說明。',
       },
     },
   },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof Tooltip>;
 
 export const Primary: Story = {
-  name: '搜尋輸入框',
+  name: '主要項目',
   args: {
     content: '請設定參數',
     children: '可操作參數',

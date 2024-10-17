@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { LineProgress } from './line-progress';
 
 export default {
-  title: 'Design System/Element/Line-Progress',
+  title: 'Design System/Line-Progress',
   component: LineProgress,
   tags: ['autodocs'],
   argTypes: {
@@ -32,9 +32,6 @@ export default {
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
     },
     percent: {
       description: '進度',
@@ -54,6 +51,9 @@ export default {
         step: 1,
       },
     },
+    label: {
+      description: '進度指示標籤',
+    },
   },
   args: {
     themeColor: 'primary',
@@ -62,9 +62,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: 'Radio Button',
+      title: '長條進度指示',
       description: {
-        component: 'Radio Button 組件的呈現及說明。',
+        component: '長條進度指示組件的呈現及說明。',
       },
     },
   },
@@ -72,7 +72,7 @@ export default {
 type Story = StoryObj<typeof LineProgress>;
 
 export const Primary: Story = {
-  name: '長條進度指示',
+  name: '主要項目',
   args: {
     className: '',
   },

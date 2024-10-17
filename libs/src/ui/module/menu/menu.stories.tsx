@@ -4,7 +4,7 @@ import { ItemProps } from '@src/hooks/useMenu';
 import Menu from './menu';
 
 export default {
-  title: 'Design System/Module/Menu',
+  title: 'Design System/Menu',
   component: Menu,
   tags: ['autodocs'],
   argTypes: {
@@ -20,18 +20,22 @@ export default {
     width: {
       description: '寬度',
     },
+    color: {
+      description: '顏色',
+      control: {
+        type: 'color',
+      },
+    },
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: '選單',
       description: {
-        /* 組件描述 */
-        component: '組件的呈現及說明。',
+        component: '選單的呈現及說明。',
       },
     },
   },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof Menu>;
 
 const menuData: ItemProps[] = [
@@ -54,18 +58,6 @@ const menuData: ItemProps[] = [
         title: 'Account',
         icon: <AccountIcon width={24} height={24} />,
         path: '/settings/account',
-        children: [
-          {
-            title: 'Profile',
-            icon: <AccountIcon width={24} height={24} />,
-            path: '/settings/profile',
-          },
-          {
-            title: 'Account',
-            icon: <AccountIcon width={24} height={24} />,
-            path: '/settings/account',
-          },
-        ],
       },
     ],
   },
@@ -77,7 +69,7 @@ const menuData: ItemProps[] = [
 ];
 
 export const Primary: Story = {
-  name: '搜尋輸入框',
+  name: '主要項目',
   args: {
     className: '',
     menuData,

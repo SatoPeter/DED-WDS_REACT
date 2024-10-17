@@ -20,6 +20,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     <li>
       <div className="menu-item">
         <div
+          style={{ color: color }}
           className="menu-item-content"
           onClick={() => {
             if (item.path) {
@@ -32,7 +33,6 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
             className="menu-item-content-title"
             style={{
               opacity: isCollapsed ? 0 : 1,
-              color: color,
             }}
           >
             {item.title}

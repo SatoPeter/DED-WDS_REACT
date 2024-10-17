@@ -84,13 +84,13 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
         <Input
           type="text"
           onChange={() => console.log('change')}
-          suffix={
-            <ArrowDownIcon
-              className={`icon ${
-                isVisible ? 'dropdown-icon-open' : 'dropdown-icon-close'
-              }`}
-            />
-          }
+          // suffix={
+          //   <ArrowDownIcon
+          //     className={`icon ${
+          //       isVisible ? 'dropdown-icon-open' : 'dropdown-icon-close'
+          //     }`}
+          //   />
+          // }
         />
         <span className="dropdown-selected">
           {selected.length > 0 ? selected.join(', ') : '請選擇項目'}

@@ -1,17 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import {
-  AccountIcon,
-  HomeIcon,
-  AUOIcon,
-  AirIcon,
-  PowerIcon,
-  FanIcon,
-} from '@src/assets';
+import { HomeIcon, AUOIcon, AirIcon, PowerIcon, FanIcon } from '@src/assets';
 import { ItemProps } from '@src/hooks/useMenu';
 import SideNav from './side-nav';
 
 export default {
-  title: 'Design System/Section/SideNav',
+  title: 'Design System/SideNav',
   component: SideNav,
   tags: ['autodocs'],
   argTypes: {
@@ -50,15 +43,13 @@ export default {
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: '側邊導覽',
       description: {
-        /* 組件描述 */
         component: '側邊導覽的呈現及說明。',
       },
     },
   },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof SideNav>;
 
 const menuData: ItemProps[] = [
@@ -81,18 +72,6 @@ const menuData: ItemProps[] = [
         title: 'Account',
         icon: <FanIcon width={24} height={24} />,
         path: '/settings/account',
-        children: [
-          {
-            title: 'Profile',
-            icon: <AccountIcon width={24} height={24} />,
-            path: '/settings/profile',
-          },
-          {
-            title: 'Account',
-            icon: <AccountIcon width={24} height={24} />,
-            path: '/settings/account',
-          },
-        ],
       },
     ],
   },
@@ -104,7 +83,7 @@ const menuData: ItemProps[] = [
 ];
 
 export const Primary: Story = {
-  name: '搜尋輸入框',
+  name: '主要項目',
   args: {
     themeColor: 'Blue',
     logo: <AUOIcon width={90} height={30} />,

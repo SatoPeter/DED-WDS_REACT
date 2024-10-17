@@ -2,45 +2,34 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Textarea } from './textarea';
 
 export default {
-  title: 'Design System/Element/Textarea',
+  title: 'Design System/Textarea',
   component: Textarea,
   tags: ['autodocs'],
   argTypes: {
     label: {
       description: '標題',
-      control: {
-        type: 'text',
-      },
     },
     className: {
-      description: '標題樣式',
-      control: {
-        type: 'text',
-      },
+      description: '客製化樣式',
     },
     placeholder: {
       description: '輸入提示',
-      control: {
-        type: 'text',
-      },
     },
     isDisabled: {
       description: '是否禁用',
-      control: {
-        type: 'boolean',
-      },
+    },
+    total: {
+      description: '字數限制',
     },
     hint: {
       description: '提示訊息',
-      control: {
-        type: 'object',
-      },
     },
-    value: {
+    initValue: {
       description: '輸入值',
-      control: {
-        type: 'text',
-      },
+    },
+    onChange: {
+      description: '輸入事件',
+      action: 'onChange',
     },
   },
   parameters: {
@@ -51,14 +40,18 @@ export default {
       },
     },
   },
+  args: {
+    isDisabled: false,
+    placeholder: '請輸入 ...',
+    className: '',
+  },
 } as Meta;
 type Story = StoryObj<typeof Textarea>;
 
 export const Primary: Story = {
-  name: '文字輸入框',
+  name: '主要項目',
   args: {
     label: '留下你的想法',
-    placeholder: '請輸入 ...',
     total: 10,
     hint: { error: '', description: '' },
   },
@@ -67,10 +60,22 @@ export const Primary: Story = {
   },
 };
 
-export const TextareaWithStatus: Story = {
-  name: '文字輸入框狀態',
+export const Limit: Story = {
+  name: '字數限制',
   args: {
-    className: '',
+    label: '留下你的想法',
+    total: 20,
+    initValue: 'Hello World',
+    hint: { error: '', description: '' },
+  },
+  render(args) {
+    return <Textarea {...args} />;
+  },
+};
+
+export const TextareaStatus: Story = {
+  name: '輸入框狀態',
+  args: {
     label: '內文描述',
     total: 10,
     placeholder: '請輸入描述 ...',
