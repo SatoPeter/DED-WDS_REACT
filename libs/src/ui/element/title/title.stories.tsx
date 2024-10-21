@@ -14,10 +14,10 @@ export default {
           'primary',
           'secondary',
           'tertiary',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
     },
@@ -43,18 +43,71 @@ export default {
       },
     },
   },
-} as Meta;
-type Story = StoryObj<typeof Title>;
-
-export const Primary: Story = {
-  name: '主要項目',
   args: {
     themeColor: 'primary',
-    level: 0,
+    level: 1,
     children: '標題',
     className: '',
   },
+} as Meta;
+type Story = StoryObj<typeof Title>;
+
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <Title {...args}>{args.children}</Title>;
+  },
+};
+
+export const Size: Story = {
+  name: '標題大小',
+  args: {},
+  render(args) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <Title level={1}>level 1: {args.children}</Title>
+        <Title level={2}>level 2: {args.children}</Title>
+        <Title level={3}>level 3: {args.children}</Title>
+        <Title level={4}>level 4: {args.children}</Title>
+        <Title level={5}>level 5: {args.children}</Title>
+        <Title level={6}>level 6: {args.children}</Title>
+        <Title level={0}>level 0: {args.children}</Title>
+      </div>
+    );
+  },
+};
+
+export const Theme: Story = {
+  name: '主題色彩',
+  args: {
+    level: 3,
+  },
+  render(args) {
+    return (
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <Title level={args.level} themeColor="primary">
+          {args.children}
+        </Title>
+        <Title level={args.level} themeColor="secondary">
+          {args.children}
+        </Title>
+        <Title level={args.level} themeColor="tertiary">
+          {args.children}
+        </Title>
+        <Title level={args.level} themeColor="info">
+          {args.children}
+        </Title>
+        <Title level={args.level} themeColor="success">
+          {args.children}
+        </Title>
+        <Title level={args.level} themeColor="warning">
+          {args.children}
+        </Title>
+        <Title level={args.level} themeColor="error">
+          {args.children}
+        </Title>
+      </div>
+    );
   },
 };

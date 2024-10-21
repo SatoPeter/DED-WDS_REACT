@@ -25,17 +25,24 @@ const getStatusIcon = (size: string, status: string) => {
 };
 
 export interface AvatarProps {
-  size: 'small' | 'medium' | 'large';
+  size: 'xsmall' | 'small' | 'medium' | 'large';
   shape: 'circle' | 'square';
   userName: string;
-  status?: 'online' | 'busy' | 'idle' | 'offline';
+  status?: 'none' | 'online' | 'busy' | 'idle' | 'offline';
   imgSrc?: string;
   alt?: string;
   className?: string;
 }
 
 export const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
-  const { size, shape, userName, status, imgSrc, alt } = props;
+  const {
+    size = 'medium',
+    shape = 'circle',
+    userName = 'default',
+    status = '',
+    imgSrc = '',
+    alt = '無圖顯示',
+  } = props;
 
   return (
     <div

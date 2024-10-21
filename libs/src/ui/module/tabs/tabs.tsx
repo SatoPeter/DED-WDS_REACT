@@ -2,12 +2,32 @@ import React, { useState, MouseEvent, useEffect } from 'react';
 import { Button } from '@src/ui';
 import { getActiveClass, getThemeClass } from './styled';
 
-interface Tab {
+/**
+ * 代表一個標籤頁的介面。
+ *
+ * @interface Tab
+ * @property {string} title - 標籤頁的標題。
+ * @property {string} content - 標籤頁的內容。
+ */
+export interface Tab {
   title: string;
   content: string;
 }
 
-interface TabItemProps {
+/**
+ * TabItemProps 介面定義了標籤項目的屬性。
+ *
+ * @property { 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info' } [themeColor] - 標籤的主題顏色。
+ * @property { 'card' | 'default' } [type] - 標籤的類型，可以是卡片或預設。
+ * @property {string} title - 標籤的標題。
+ * @property {number} index - 標籤的索引。
+ * @property {number} [activeIndex] - 當前活動標籤的索引。
+ * @property {boolean} isActive - 標籤是否處於活動狀態。
+ * @property {boolean} [isDisabled] - 標籤是否被禁用。
+ * @property {(event: MouseEvent<HTMLButtonElement>) => void} onClick - 點擊標籤時的回調函數。
+ * @property {string} [className] - 標籤的自定義 CSS 類名。
+ */
+export interface TabItemProps {
   themeColor?:
     | 'primary'
     | 'secondary'
@@ -57,7 +77,18 @@ const TabItem: React.FC<TabItemProps> = ({
   </Button>
 );
 
-interface TabsProps {
+/**
+ * TabsProps 介面定義了 Tabs 組件的屬性。
+ *
+ * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 選擇 Tabs 的主題顏色。
+ * @property {('card' | 'default')} [type] - 設定 Tabs 的類型，可以是卡片樣式或預設樣式。
+ * @property {number} [activeIndex] - 設定當前活躍的 Tab 索引。
+ * @property {boolean} [isDisabled] - 設定 Tabs 是否被禁用。
+ * @property {(event: MouseEvent<HTMLButtonElement>) => void} [onClick] - 點擊事件的處理函數。
+ * @property {Tab[]} tabs - Tabs 的數據陣列，每個 Tab 包含標題和內容。
+ * @property {string} [className] - 自定義的 CSS 類名。
+ */
+export interface TabsProps {
   themeColor?:
     | 'primary'
     | 'secondary'
@@ -87,13 +118,13 @@ interface TabsProps {
  */
 export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
   const {
-    tabs,
-    themeColor,
-    type,
-    activeIndex,
-    isDisabled,
+    tabs = [],
+    themeColor = 'primary',
+    type = 'default',
+    activeIndex = 0,
+    isDisabled = false,
     onClick,
-    className,
+    className = '',
   } = props;
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 

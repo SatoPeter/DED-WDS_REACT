@@ -1,22 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { CircleProgress } from './circle-progress';
+import { CircleProgress } from './progress-circle';
 
 export default {
-  title: 'Design System/Circle-Progress',
+  title: 'Design System/Progress-Circle',
   component: CircleProgress,
   tags: ['autodocs'],
   argTypes: {
     themeColor: {
       description: '主題顏色',
-      options: [
-        'primary',
-        'secondary',
-        'tertiary',
-        'success',
-        'warning',
-        'error',
-        'info',
-      ],
       control: {
         type: 'select',
         options: [
@@ -30,9 +21,7 @@ export default {
         ],
       },
     },
-    className: {
-      description: '客製化樣式',
-    },
+
     percent: {
       description: '進度',
       control: {
@@ -63,11 +52,17 @@ export default {
     label: {
       description: '進度指示標籤',
     },
+    className: {
+      description: '客製化樣式',
+    },
   },
   args: {
-    percent: 0,
+    themeColor: 'primary',
+    percent: 50,
     size: 100,
     strokeWidth: 10,
+    label: '',
+    className: '',
   },
   parameters: {
     docs: {
@@ -80,12 +75,41 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof CircleProgress>;
 
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    className: '',
-  },
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <CircleProgress {...args} />;
+  },
+};
+
+export const Label: Story = {
+  name: '顯示標籤',
+  args: {},
+  render(args) {
+    return (
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <CircleProgress {...args} label="測試" size={70} />
+        <CircleProgress {...args} label="測試" size={100} />
+      </div>
+    );
+  },
+};
+
+export const Theme: Story = {
+  name: '主題色彩',
+  args: {},
+  render(args) {
+    return (
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <CircleProgress {...args} percent={40} themeColor="primary" />
+        <CircleProgress {...args} percent={50} themeColor="secondary" />
+        <CircleProgress {...args} percent={60} themeColor="tertiary" />
+        <CircleProgress {...args} percent={70} themeColor="info" />
+        <CircleProgress {...args} percent={80} themeColor="success" />
+        <CircleProgress {...args} percent={90} themeColor="warning" />
+        <CircleProgress {...args} percent={100} themeColor="error" />
+      </div>
+    );
   },
 };

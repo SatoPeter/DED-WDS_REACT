@@ -32,7 +32,7 @@ export default {
       description: '最小值',
     },
     unit: {
-      description: '單位',
+      description: '顯示單位',
     },
     step: {
       description: '步進值',
@@ -59,28 +59,27 @@ export default {
   args: {
     themeColor: 'primary',
     isDisabled: false,
+    min: -100,
+    max: 100,
+    step: 1,
+    initValue: 0,
+    unit: '℃',
     onChange: action('onChange'),
     className: '',
   },
 } as Meta;
 type Story = StoryObj<typeof Slider>;
 
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    min: -100,
-    max: 100,
-    step: 1,
-    initValue: 50,
-    unit: '℃',
-  },
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <Slider {...args} />;
   },
 };
 
 export const ThemeColor: Story = {
-  name: '主題色滑桿',
+  name: '主題色彩',
   args: {
     min: 0,
     max: 100,

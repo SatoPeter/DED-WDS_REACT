@@ -13,13 +13,6 @@ export default {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      description: '按鈕樣式',
-      control: {
-        type: 'select',
-        options: ['contained', 'outlined', 'text'],
-      },
-    },
     themeColor: {
       description: '主題顏色',
       control: {
@@ -35,12 +28,12 @@ export default {
         ],
       },
     },
-    isDisabled: {
-      description: '是否禁用',
-    },
-    children: {
-      description: '按鈕內容',
-      options: ['標題按鈕', '客製化按鈕'],
+    variant: {
+      description: '按鈕樣式',
+      control: {
+        type: 'select',
+        options: ['contained', 'outlined', 'text'],
+      },
     },
     size: {
       description: '按鈕尺寸',
@@ -48,6 +41,9 @@ export default {
         type: 'select',
         options: ['small', 'medium', 'large'],
       },
+    },
+    isDisabled: {
+      description: '是否禁用',
     },
     prefix: {
       description: '前置元素',
@@ -71,6 +67,10 @@ export default {
         VisibilityOff: <VisibilityOffIcon />,
       },
     },
+    children: {
+      description: '按鈕內容',
+      options: ['標題按鈕', '客製化按鈕'],
+    },
     onClick: {
       description: '點擊事件',
       action: 'clicked',
@@ -80,9 +80,12 @@ export default {
     },
   },
   args: {
-    variant: 'contained',
     themeColor: 'primary',
+    variant: 'contained',
+    size: 'medium',
     isDisabled: false,
+    prefix: null,
+    suffix: null,
     children: '按鈕',
     onClick: action('onClick'),
   },
@@ -97,44 +100,96 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    themeColor: 'primary',
-    children: <Title>標題按鈕</Title>,
-    size: 'large',
-    prefix: <AccountIcon />,
-    onClick: (e) => action('onClick')(e),
-    className: '',
-  },
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <Button {...args}>{args.children}</Button>;
   },
 };
 
-export const Multiple: Story = {
-  name: '多個按鈕',
+export const Additional: Story = {
+  name: '附加元素',
   args: {
-    variant: 'outlined',
     themeColor: 'primary',
+    variant: 'outlined',
     children: <Title>標題按鈕</Title>,
-    prefix: <AccountIcon />,
     onClick: () => action('onClick')('點擊事件'),
     className: '',
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '16px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <Button {...args} prefix={<AccountIcon />}>
+          {args.children}
+        </Button>
+        <Button {...args} suffix={<SearchIcon />}>
+          {args.children}
+        </Button>
+      </div>
+    );
+  },
+};
+
+export const Shape: Story = {
+  name: '按鈕樣式',
+  args: {
+    themeColor: 'primary',
+    variant: 'outlined',
+    children: <Title>標題按鈕</Title>,
+    suffix: null,
+    onClick: () => action('onClick')('點擊事件'),
+    className: '',
+  },
+  render(args) {
+    return (
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
         <Button {...args} variant="contained">
           {args.children}
         </Button>
-        <Button {...args} variant="contained" themeColor="secondary">
+        <Button {...args} variant="outlined">
           {args.children}
         </Button>
-        <Button {...args} variant="contained" themeColor="error">
+        <Button {...args} variant="text">
           {args.children}
         </Button>
-        <Button {...args} variant="contained" themeColor="tertiary">
+      </div>
+    );
+  },
+};
+
+export const Theme: Story = {
+  name: '主題色彩',
+  args: {
+    variant: 'outlined',
+    children: <Title>標題按鈕</Title>,
+    prefix: <AccountIcon />,
+    suffix: null,
+    onClick: () => action('onClick')('點擊事件'),
+    className: '',
+  },
+  render(args) {
+    return (
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <Button {...args} themeColor="primary">
+          {args.children}
+        </Button>
+        <Button {...args} themeColor="secondary">
+          {args.children}
+        </Button>
+        <Button {...args} themeColor="tertiary">
+          {args.children}
+        </Button>
+        <Button {...args} themeColor="info">
+          {args.children}
+        </Button>
+        <Button {...args} themeColor="success">
+          {args.children}
+        </Button>
+        <Button {...args} themeColor="warning">
+          {args.children}
+        </Button>
+        <Button {...args} themeColor="error">
           {args.children}
         </Button>
       </div>

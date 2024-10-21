@@ -51,12 +51,6 @@ export default {
       description: '客製化樣式',
     },
   },
-  args: {
-    themeColor: 'primary',
-    type: 'default',
-    isDisabled: false,
-    onClick: action('onClick'),
-  },
   parameters: {
     docs: {
       title: '頁籤',
@@ -65,17 +59,25 @@ export default {
       },
     },
   },
-} as Meta;
-type Story = StoryObj<typeof Tabs>;
-
-export const Primary: Story = {
-  name: '主要項目',
   args: {
+    themeColor: 'primary',
+    type: 'default',
+    isDisabled: false,
     tabs: [
       { title: '頁籤 1', content: '內容一' },
       { title: '頁籤 2', content: '內容二' },
       { title: '頁籤 3', content: '內容三' },
     ],
+    activeIndex: 0,
+    className: '',
+    onClick: action('onClick'),
+  },
+} as Meta;
+type Story = StoryObj<typeof Tabs>;
+
+export const Default: Story = {
+  name: '預設項目',
+  args: {
     activeIndex: 0,
   },
   render(args) {
@@ -87,11 +89,6 @@ export const PrimaryWithCard: Story = {
   name: '卡片式頁籤',
   args: {
     type: 'card',
-    tabs: [
-      { title: '頁籤 1', content: '內容一' },
-      { title: '頁籤 2', content: '內容二' },
-      { title: '頁籤 3', content: '內容三' },
-    ],
     activeIndex: 1,
   },
   render(args) {

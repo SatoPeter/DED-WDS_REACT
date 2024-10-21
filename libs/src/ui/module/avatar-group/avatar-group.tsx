@@ -6,8 +6,17 @@ import { ItemProps } from '../list/item';
 import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
+import { AccountIcon } from '@src/assets';
 
-interface AvatarGroupProps {
+/**
+ * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
+ *
+ * @param {AvatarProps[]} users - Avatar 的使用者陣列。
+ * @param {'top-left' | 'top' | 'top-right' | 'right-top' | 'right' | 'right-bottom' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left-bottom' | 'left' | 'left-top'} placement - Avatar 群組的排列位置。
+ * @param {number} limit - Avatar 顯示的最大數量。
+ * @param {string} [className] - 自訂的 CSS 類名。
+ */
+export interface AvatarGroupProps {
   users: AvatarProps[];
   placement:
     | 'top-left'
@@ -26,10 +35,33 @@ interface AvatarGroupProps {
   className?: string;
 }
 
+/**
+ * AvatarGroup 組件
+ *
+ * @param {AvatarGroupProps} props - AvatarGroup 的屬性
+ * @param {User[]} props.users - 用戶數組
+ * @param {number} props.limit - 顯示的用戶數量限制
+ * @param {string} props.placement - 下拉菜單的位置
+ * @param {string} [props.className] - 額外的 CSS 類名
+ * @param {object} [props.rest] - 其他屬性
+ *
+ * @returns {JSX.Element} AvatarGroup 組件
+ *
+ * @throws {Error} 當 limit 小於 1 時拋出錯誤
+ *
+ * @description
+ * AvatarGroup 組件用於顯示一組用戶頭像，並在超過限制時顯示更多用戶的下拉菜單。
+ */
 export const AvatarGroup: React.FC<AvatarGroupProps> = (
   props: AvatarGroupProps
 ) => {
-  const { users, limit, placement, className, ...rest } = props;
+  const {
+    users = [],
+    limit = 1,
+    placement = 'right-top',
+    className = ' ',
+    ...rest
+  } = props;
   const restCount = users.length - limit;
   const result = splitArray(users, limit);
 
@@ -49,13 +81,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
         return {
           prefix: (
             <Avatar
-              size="small"
+              size="xsmall"
               shape="circle"
               userName={user.userName}
               imgSrc={user.imgSrc || ''}
             />
           ),
           content: {
+            prefix: <AccountIcon />,
             label: user.userName,
             value: user.userName,
             href: '',
@@ -63,7 +96,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
         };
       })
     );
-  }, [result.restList]);
+  }, []);
 
   return (
     <>
@@ -88,7 +121,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
           if (index !== 0) return;
           const { shape, size } = user;
           return (
-            <div ref={avatarRef} key={index} className="rest-container">
+            <div ref={avatarRef} key={index} className="avatar-group-container">
               <Button
                 variant="text"
                 size="large"
@@ -109,7 +142,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
         {isVisible && (
           <div
             style={getTargetPosition(position, childrenSize, placement, '6px')}
-            className={`rest-container-menu ${className}`}
+            className={`dropdown-menu ${className}`}
           >
             <List options={menu} isMenu />
           </div>

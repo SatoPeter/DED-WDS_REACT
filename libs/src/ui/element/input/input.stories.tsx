@@ -25,9 +25,6 @@ export default {
     isDisabled: {
       description: '是否禁用',
     },
-    className: {
-      description: '客製化樣式',
-    },
     prefix: {
       description: '前置元素',
       options: [
@@ -75,6 +72,9 @@ export default {
       description: '輸入事件',
       action: 'changed',
     },
+    className: {
+      description: '客製化樣式',
+    },
   },
   parameters: {
     docs: {
@@ -89,16 +89,19 @@ export default {
     isDisabled: false,
     label: '',
     type: 'text',
+    placeholder: '請輸入...',
+    prefix: null,
+    hint: { error: '', description: '' },
+    value: '',
+    className: '',
   },
 } as Meta;
 type Story = StoryObj<typeof Input>;
 
-export const Primary: Story = {
-  name: '主要項目',
+export const Default: Story = {
+  name: '預設項目',
   args: {
-    className: '',
     placeholder: '請輸入帳號 ...',
-    hint: { error: '', description: '' },
     onChange: (e) => action('onChange')(e),
   },
   render(args) {
@@ -113,7 +116,6 @@ export const Primary: Story = {
 export const InputWithStatus: Story = {
   name: '輸入框狀態',
   args: {
-    className: '',
     prefix: <AccountIcon />,
     placeholder: '請輸入帳號 ...',
   },

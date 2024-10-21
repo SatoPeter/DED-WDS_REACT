@@ -1,7 +1,25 @@
 import React from 'react';
 import { getThemeClass } from './styled';
 
-interface LineProgressProps {
+/**
+ * LineProgressProps 介面定義了 LineProgress 元件的屬性。
+ *
+ * @屬性 { 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info' } [themeColor]
+ *   指定進度條的主題顏色。
+ *
+ * @屬性 {string} [label]
+ *   進度條的標籤。
+ *
+ * @屬性 {number} percent
+ *   進度百分比，範圍從 0 到 100。
+ *
+ * @屬性 {number} [height]
+ *   進度條的高度，預設大小為 100。
+ *
+ * @屬性 {string} [className]
+ *   自訂的 CSS 類名。
+ */
+export interface LineProgressProps {
   themeColor?:
     | 'primary'
     | 'secondary'
@@ -10,10 +28,10 @@ interface LineProgressProps {
     | 'warning'
     | 'error'
     | 'info';
-  className?: string;
   label?: string;
   percent: number; // 0 to 100
   height?: number; // default size is 100
+  className?: string;
 }
 
 /**
@@ -30,7 +48,7 @@ interface LineProgressProps {
 export const LineProgress: React.FC<LineProgressProps> = ({
   themeColor = 'primary',
   label = '',
-  percent,
+  percent = 0,
   height = 10,
 }) => {
   // 確保進度在0到100之間

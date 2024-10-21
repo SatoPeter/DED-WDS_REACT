@@ -9,15 +9,6 @@ export default {
   argTypes: {
     themeColor: {
       description: '主題顏色',
-      options: [
-        'primary',
-        'secondary',
-        'tertiary',
-        'success',
-        'warning',
-        'error',
-        'info',
-      ],
       control: {
         type: 'select',
         options: [
@@ -30,9 +21,6 @@ export default {
           'info',
         ],
       },
-    },
-    className: {
-      description: '客製化樣式',
     },
     options: {
       description: '選項',
@@ -51,9 +39,14 @@ export default {
       description: '選擇選項後的事件',
       action: 'onChange',
     },
+    className: {
+      description: '客製化樣式',
+    },
   },
   args: {
+    themeColor: 'primary',
     direction: 'row',
+    className: '',
   },
   parameters: {
     docs: {
@@ -66,21 +59,43 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Radio>;
 
-export const Primary: Story = {
-  name: '主要項目',
+const options = [
+  { label: '選項一', value: 'option1' },
+  { label: '選項二', value: 'option2' },
+  { label: '選項三', value: 'option3' },
+];
+
+export const Default: Story = {
+  name: '預設項目',
   args: {
-    className: '',
-    options: [
-      { label: '選項一', value: 'option1' },
-      { label: '選項二', value: 'option2' },
-      { label: '選項三', value: 'option3' },
-    ],
-    initValue: 'option3',
+    options: options,
+    initValue: 'option1',
     onChange: (e) => {
       action('onChange')(e);
     },
   },
   render(args) {
     return <Radio {...args} />;
+  },
+};
+
+export const Theme: Story = {
+  name: '主題色彩',
+  args: {
+    options: options,
+    initValue: 'option1',
+  },
+  render(args) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <Radio {...args} themeColor="primary" />
+        <Radio {...args} themeColor="secondary" />
+        <Radio {...args} themeColor="tertiary" />
+        <Radio {...args} themeColor="info" />
+        <Radio {...args} themeColor="success" />
+        <Radio {...args} themeColor="warning" />
+        <Radio {...args} themeColor="error" />
+      </div>
+    );
   },
 };

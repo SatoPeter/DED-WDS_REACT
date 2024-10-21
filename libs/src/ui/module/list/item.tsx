@@ -2,26 +2,21 @@ import React from 'react';
 
 /* 組件介面參數 props */
 export interface ItemProps {
-  // isDisabled?: boolean;
-  prefix?: React.ReactNode;
   content: {
     label: string;
+    prefix?: React.ReactNode;
     value: string;
     href?: string;
   };
-  suffix?: React.ReactNode;
   onClick?: (value: string) => void;
   className?: string;
 }
 
 export const Item: React.FC<ItemProps> = (props: ItemProps) => {
   const {
-    // isDisabled,
-    prefix,
-    content: { label, value, href },
-    suffix,
+    content: { label, prefix, value, href },
     onClick,
-    className,
+    className = '',
   } = props;
 
   const handleClick = () => {
@@ -33,12 +28,11 @@ export const Item: React.FC<ItemProps> = (props: ItemProps) => {
 
   return (
     <div
-      className={`item ${href ? 'menu-link' : ''} ${className}`}
+      className={`item ${href ? 'item-link' : ''} ${className}`}
       onClick={handleClick}
     >
       {prefix && <div className="icon">{prefix}</div>}
       <div className="item-label">{label}</div>
-      {suffix && <div className="icon">{suffix}</div>}
     </div>
   );
 };

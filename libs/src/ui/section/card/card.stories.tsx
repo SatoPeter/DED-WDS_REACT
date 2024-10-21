@@ -21,10 +21,10 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     width: {
-      description: '寬度',
+      description: '卡片寬度',
     },
     height: {
-      description: '高度',
+      description: '卡片高度',
     },
     cardHeader: {
       description: '卡片標題',
@@ -38,12 +38,12 @@ export default {
     hasHeaderDivider: {
       description: '是否有標題分隔線',
     },
-    className: {
-      description: '客製化樣式',
-    },
     onClick: {
       action: 'clicked',
       description: '點擊事件',
+    },
+    className: {
+      description: '客製化樣式',
     },
   },
   parameters: {
@@ -54,15 +54,21 @@ export default {
       },
     },
   },
-} as Meta;
-type Story = StoryObj<typeof Card>;
-
-export const Primary: Story = {
-  name: '主要項目',
   args: {
+    width: '',
+    cardHeader: '',
+    hasHeaderDivider: false,
+    children: '',
+    cardFooter: '',
     className: '',
     onClick: action('onClick'),
   },
+} as Meta;
+type Story = StoryObj<typeof Card>;
+
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return (
       <div

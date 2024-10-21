@@ -16,9 +16,9 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        method: '',
+        method: 'alphabetical',
         order: ['Components', 'Intro'],
-        locales: '',
+        locales: 'en-US',
       },
     },
   },

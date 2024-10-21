@@ -1,7 +1,17 @@
 import React, { useRef, useEffect } from 'react';
 import { getThemeClass } from './styled';
 
-interface CircleProgressProps {
+/**
+ * `CircleProgressProps` 介面定義了圓形進度條的屬性。
+ *
+ * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
+ * @property {string} [label] - 進度條的標籤。
+ * @property {number} percent - 進度百分比，範圍從 0 到 100。
+ * @property {number} [size] - 進度條的大小，預設大小為 100。
+ * @property {number} [strokeWidth] - 進度條的線條寬度，預設寬度為 10。
+ * @property {string} [className] - 自訂的 CSS 類名。
+ */
+export interface CircleProgressProps {
   themeColor?:
     | 'primary'
     | 'secondary'
@@ -10,23 +20,25 @@ interface CircleProgressProps {
     | 'warning'
     | 'error'
     | 'info';
-  className?: string;
   label?: string;
   percent: number; // 0 to 100
   size?: number; // default size is 100
   strokeWidth?: number; // default stroke width is 10
+  className?: string;
 }
 
 /**
- * CircleProgress 組件顯示一個圓形進度條。
+ * CircleProgress 元件
  *
  * @component
- * @param {string} themeColor - 進度條的顏色主題。默認為 'primary'。
- * @param {string} label - 顯示在進度條內的標籤。默認為空字符串。
- * @param {number} percent - 進度百分比。必須在 0 到 100 之間。
- * @param {number} size - 進度條的直徑。默認為 100。
- * @param {number} strokeWidth - 進度條的線條寬度。默認為 10。
- * @returns {JSX.Element} 渲染的 CircleProgress 組件。
+ * @param {CircleProgressProps} props - 元件屬性
+ * @param {string} [props.themeColor='primary'] - 主題顏色
+ * @param {string} [props.label=''] - 圓形進度條的標籤
+ * @param {number} props.percent - 進度百分比
+ * @param {number} [props.size=100] - 圓形進度條的大小
+ * @param {number} [props.strokeWidth=10] - 圓形進度條的線條寬度
+ *
+ * @returns {JSX.Element} CircleProgress 元件
  */
 export const CircleProgress: React.FC<CircleProgressProps> = ({
   themeColor = 'primary',

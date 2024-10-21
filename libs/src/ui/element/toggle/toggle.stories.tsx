@@ -33,13 +33,21 @@ export default {
     isDisabled: {
       description: '是否禁用',
     },
+    className: {
+      description: '客製化樣式',
+    },
     onChange: {
       description: '開關事件',
       action: 'onChange',
     },
-    className: {
-      description: '客製化樣式',
-    },
+  },
+  args: {
+    themeColor: 'primary',
+    isChecked: false,
+    isDisabled: false,
+    checkChildren: 'on',
+    unCheckChildren: 'off',
+    className: '',
   },
   parameters: {
     docs: {
@@ -52,30 +60,18 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Toggle>;
 
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    themeColor: 'primary',
-    isChecked: false,
-    isDisabled: false,
-    checkChildren: 'on',
-    unCheckChildren: 'off',
-    className: '',
-  },
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <Toggle {...args} />;
   },
 };
 
-export const ThemeColor: Story = {
-  name: '主題色開關按鈕',
+export const Theme: Story = {
+  name: '主題色彩',
   args: {
-    themeColor: 'primary',
     isChecked: true,
-    isDisabled: false,
-    checkChildren: 'on',
-    unCheckChildren: 'off',
-    className: '',
   },
   render(args) {
     return (

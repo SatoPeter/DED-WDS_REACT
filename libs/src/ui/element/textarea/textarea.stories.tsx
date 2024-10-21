@@ -9,9 +9,6 @@ export default {
     label: {
       description: '標題',
     },
-    className: {
-      description: '客製化樣式',
-    },
     placeholder: {
       description: '輸入提示',
     },
@@ -31,6 +28,9 @@ export default {
       description: '輸入事件',
       action: 'onChange',
     },
+    className: {
+      description: '客製化樣式',
+    },
   },
   parameters: {
     docs: {
@@ -43,16 +43,27 @@ export default {
   args: {
     isDisabled: false,
     placeholder: '請輸入 ...',
+    total: 0,
     className: '',
   },
 } as Meta;
 type Story = StoryObj<typeof Textarea>;
 
-export const Primary: Story = {
-  name: '主要項目',
+export const Default: Story = {
+  name: '預設項目',
   args: {
-    label: '留下你的想法',
-    total: 10,
+    label: '',
+    hint: { error: '', description: '' },
+  },
+  render(args) {
+    return <Textarea {...args} />;
+  },
+};
+
+export const Label: Story = {
+  name: '顯示標籤',
+  args: {
+    label: '內文描述',
     hint: { error: '', description: '' },
   },
   render(args) {
@@ -63,8 +74,8 @@ export const Primary: Story = {
 export const Limit: Story = {
   name: '字數限制',
   args: {
-    label: '留下你的想法',
-    total: 20,
+    label: '內文描述',
+    limit: 20,
     initValue: 'Hello World',
     hint: { error: '', description: '' },
   },
@@ -77,7 +88,7 @@ export const TextareaStatus: Story = {
   name: '輸入框狀態',
   args: {
     label: '內文描述',
-    total: 10,
+    limit: 10,
     placeholder: '請輸入描述 ...',
   },
   render(args) {

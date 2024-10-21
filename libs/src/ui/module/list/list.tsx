@@ -17,7 +17,7 @@ export const List: React.FC<ListProps> = (props: ListProps) => {
       {options.map((option, index) => {
         return (
           <li key={index}>
-            <Item onClick={onSelect} {...option} key={index}></Item>
+            <Item {...option} onClick={onSelect} key={index}></Item>
           </li>
         );
       })}

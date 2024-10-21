@@ -7,27 +7,27 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     size: {
-      description: 'Avatar 尺寸',
+      description: '頭像尺寸',
       control: {
         type: 'select',
-        options: ['small', 'medium', 'large'],
+        options: ['xsmall', 'small', 'medium', 'large'],
       },
     },
     shape: {
-      description: '形狀',
+      description: '頭像形狀',
       control: {
         type: 'select',
         options: ['circle', 'square'],
       },
     },
     userName: {
-      description: '使用者名稱',
+      description: '登入者名稱',
     },
     status: {
-      description: '狀態',
+      description: '登入者狀態',
       control: {
         type: 'select',
-        options: ['online', 'idle', 'busy', 'offline'],
+        options: ['none', 'online', 'idle', 'busy', 'offline'],
       },
     },
     imgSrc: {
@@ -52,15 +52,14 @@ export default {
 type Story = StoryObj<typeof Avatar>;
 
 export const Primary: Story = {
-  name: '主要項目',
+  name: '預設項目',
   args: {
+    size: 'medium',
     shape: 'circle',
-    size: 'large',
-    userName: 'Kevin',
-    status: 'online',
-    imgSrc: 'https://picsum.photos/320/240',
-    alt: `Kevin's avatar`,
-    className: '',
+    userName: 'default',
+    status: 'none',
+    imgSrc: '',
+    alt: '無圖顯示',
   },
   render(args) {
     return <Avatar {...args} />;
