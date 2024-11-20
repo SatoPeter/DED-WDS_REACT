@@ -6,7 +6,7 @@
  */
 export const getBorderClass = (error: string) => {
   if (error.length <= 0) return;
-  return 'textarea-border-error';
+  return 'ded-textarea-border-error';
 };
 
 /**
@@ -24,11 +24,11 @@ export const getHintClass = ({
   description: string;
 }) => {
   if (error.length > 0) {
-    return 'textarea-hint-error';
+    return 'ded-textarea-hint-error';
   }
 
   if (description.length > 0) {
-    return 'textarea-hint-desc';
+    return 'ded-textarea-hint-desc';
   }
 };
 
@@ -40,6 +40,6 @@ export const getHintClass = ({
  */
 export const getCountClass = (value: string) => {
   if (value.length > 0) {
-    return 'textarea-hint-count';
+    return 'ded-textarea-hint-count';
   }
 };

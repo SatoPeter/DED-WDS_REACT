@@ -2,8 +2,14 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Radio } from './radio';
 
+const options = [
+  { label: 'Option1', value: 'option1' },
+  { label: 'Option2', value: 'option2' },
+  { label: 'Option3', value: 'option3' },
+];
+
 export default {
-  title: 'Design System/Radio',
+  title: 'Component/Radio',
   component: Radio,
   tags: ['autodocs'],
   argTypes: {
@@ -21,32 +27,53 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    options: {
-      description: '選項',
-    },
-    direction: {
-      description: '方向',
-      control: {
-        type: 'select',
-        options: ['row', 'column'],
+    dataSource: {
+      description: '資料來源',
+      table: {
+        category: 'PROPS',
       },
     },
     initValue: {
       description: '預設值',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    direction: {
+      description: '排列方向',
+      control: {
+        type: 'select',
+        options: ['row', 'column'],
+      },
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '選擇選項後的事件',
       action: 'onChange',
+      table: {
+        category: 'EVENTS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {
     themeColor: 'primary',
+    dataSource: options,
+    initValue: 'option1',
     direction: 'row',
     className: '',
+    onChange: action('onChange'),
   },
   parameters: {
     docs: {
@@ -59,21 +86,9 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Radio>;
 
-const options = [
-  { label: '選項一', value: 'option1' },
-  { label: '選項二', value: 'option2' },
-  { label: '選項三', value: 'option3' },
-];
-
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    options: options,
-    initValue: 'option1',
-    onChange: (e) => {
-      action('onChange')(e);
-    },
-  },
+  args: {},
   render(args) {
     return <Radio {...args} />;
   },
@@ -82,7 +97,7 @@ export const Default: Story = {
 export const Theme: Story = {
   name: '主題色彩',
   args: {
-    options: options,
+    dataSource: options,
     initValue: 'option1',
   },
   render(args) {

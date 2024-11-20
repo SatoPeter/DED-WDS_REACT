@@ -7,9 +7,9 @@
  */
 export const getThemeClass = (themeColor: string, type: string) => {
   if (type === 'card') {
-    return `tab-${type}-${themeColor}`;
+    return `ded-tab-${type}-${themeColor}`;
   }
-  return `tab-${themeColor}`;
+  return `ded-tab-${themeColor}`;
 };
 
 /**
@@ -20,7 +20,7 @@ export const getThemeClass = (themeColor: string, type: string) => {
  */
 export const getActiveClass = (themeColor: string, type: string) => {
   if (type === 'card') {
-    return `tab-${type}-${themeColor}-active`;
+    return `ded-tab-${type}-${themeColor}-active`;
   }
-  return `tab-${themeColor}-active`;
+  return `ded-tab-${themeColor}-active`;
 };

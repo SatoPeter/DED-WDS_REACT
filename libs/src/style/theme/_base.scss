@@ -1,20 +1,22 @@
+@use 'sass:map';
+
 // Loop: 尺寸樣式
 @each $size in $sizes {
-  .icon-#{$size} {
+  .ded-icon-#{$size} {
     display: flex;
     align-items: center;
-    width: map-get($icon-size, $size);
-    height: map-get($icon-size, $size);
+    width: map.get($icon-size, $size);
+    height: map.get($icon-size, $size);
   }
 
-  .text-#{$size} {
+  .ded-text-#{$size} {
     display: flex;
     align-items: center;
-    font-size: map-get($text-size, $size);
+    font-size: map.get($text-size, $size);
   }
 
-  .component-#{$size} {
-    height: map-get($component-size, $size);
+  .ded-component-#{$size} {
+    height: map.get($component-size, $size);
   }
 }
 
@@ -31,4 +33,9 @@
       box-shadow: getBorderStyle($mode, $style, 'fill');
     }
   }
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
 }

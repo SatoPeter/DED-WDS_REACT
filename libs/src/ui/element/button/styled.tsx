@@ -6,7 +6,7 @@
  * @returns 按鈕的主題類。
  */
 export const getThemeClass = (variant: string, themeColor: string) => {
-  return `button-${variant} button-${variant}-${themeColor}`;
+  return `ded-button-${variant} ded-button-${variant}-${themeColor}`;
 };
 
 /**
@@ -16,14 +16,14 @@ export const getThemeClass = (variant: string, themeColor: string) => {
  */
 export const getDisableClass = (variant: string) => {
   if (variant === 'contained') {
-    return 'button-container-disable';
+    return 'ded-button-container-disable';
   }
 
   if (variant === 'outlined') {
-    return 'button-outline-disable';
+    return 'ded-button-outline-disable';
   }
 
   if (variant === 'text') {
-    return 'button-text-disable';
+    return 'ded-button-text-disable';
   }
 };

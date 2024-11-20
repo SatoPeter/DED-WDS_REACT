@@ -5,5 +5,5 @@
  * @returns {string} - 主題類別名稱。
  */
 export const getThemeClass = (type: string, themeColor: string) => {
-  return `progress-${type}-percent-${themeColor}`;
+  return `ded-progress-${type}-percent-${themeColor}`;
 };

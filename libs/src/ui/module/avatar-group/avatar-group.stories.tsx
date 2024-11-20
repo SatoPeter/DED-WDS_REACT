@@ -1,25 +1,72 @@
 import { Meta, StoryObj } from '@storybook/react';
 import AvatarGroup from './avatar-group';
 import { AvatarProps } from '@src/ui/element/avatar';
+import { size } from 'lodash';
+
+const users: AvatarProps[] = [
+  {
+    userName: 'eason',
+  },
+  {
+    userName: 'KevinYang',
+  },
+  {
+    userName: 'AmosLee',
+    src: 'https://picsum.photos/320/240',
+  },
+  {
+    userName: 'JohnWu',
+    src: 'https://picsum.photos/320/340',
+  },
+  {
+    userName: 'Peter',
+    src: 'https://picsum.photos/320/340',
+  },
+];
 
 export default {
-  title: 'Design System/Avatar-Group',
+  title: 'Component/Avatar-Group',
   component: AvatarGroup,
   tags: ['autodocs'],
   argTypes: {
-    users: {
-      description: '使用者清單',
+    dataSource: {
+      description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    size: {
+      description: '尺寸',
+      control: {
+        type: 'select',
+        options: ['xsmall', 'small', 'medium', 'large'],
+      },
+      table: {
+        category: 'PROPS',
+      },
     },
     limit: {
-      description: '限制顯示數量',
+      description: '展開數量上限',
       control: {
         type: 'number',
         min: 1,
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
+  },
+  args: {
+    dataSource: users,
+    size: 'large',
+    limit: 2,
+    className: '',
   },
   parameters: {
     docs: {
@@ -32,39 +79,9 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof AvatarGroup>;
 
-const users: AvatarProps[] = [
-  {
-    userName: 'eason',
-    shape: 'circle',
-    size: 'medium',
-  },
-  {
-    userName: 'KevinYang',
-    shape: 'circle',
-    size: 'medium',
-  },
-  {
-    userName: 'AmosLee',
-    shape: 'circle',
-    size: 'medium',
-    imgSrc: 'https://picsum.photos/320/240',
-  },
-  {
-    userName: 'JohnWu',
-    shape: 'circle',
-    size: 'medium',
-    imgSrc: 'https://picsum.photos/320/340',
-  },
-];
-
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    users: users,
-    placement: 'right-top',
-    limit: 1,
-    className: '',
-  },
+  args: {},
   render(args) {
     return <AvatarGroup {...args} />;
   },

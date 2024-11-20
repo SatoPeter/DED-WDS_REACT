@@ -1,8 +1,8 @@
-.input-container {
+.ded-input-container {
   flex: 1;
 }
 
-.input-group {
+.ded-input-group {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -55,35 +55,35 @@
   }
 }
 
-.input {
+.ded-input {
   height: 100%;
   width: 100%;
   padding-block: 4px;
 }
 
-.input-border-error {
+.ded-input-border-error {
   border-color: getBorderColor($mode, 'error', 'default') !important;
 }
 
-.input-label {
+.ded-input-label {
   font-size: $text-size-caption1;
   color: $text-color-secondary;
 }
 
-.input-hint {
+.ded-input-hint {
   display: block;
   font-size: $text-size-caption2;
 }
 
-.input-hint-desc {
+.ded-input-hint-desc {
   color: $color-gray60;
 }
 
-.input-hint-error {
+.ded-input-hint-error {
   color: getTextColor($mode, 'error') !important;
 }
 
-.input-disable {
+.ded-input-disable {
   pointer-events: none !important;
   color: $color-gray20 !important;
   border-color: $color-gray20 !important;

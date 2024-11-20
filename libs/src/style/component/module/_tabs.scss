@@ -1,4 +1,4 @@
-  .tab {
+  .ded-tab {
     color: $color-gray60;
     background-color: transparent;
     border-radius: 4px 4px 0 0;
@@ -55,12 +55,16 @@
     }
   }
 
-  .tabs {
+  .ded-tab.ded-button-text {
+    padding: 0.5rem 1rem;
+  }
+
+  .ded-tabs {
     display: inline-flex;
     // border-bottom: 1px solid $color-gray40;
   }
 
-  .tab-disable {
+  .ded-tab-disable {
     pointer-events: none !important;
     color: $color-gray20 !important;
     background-color: transparent !important;

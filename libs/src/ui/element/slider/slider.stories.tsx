@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Slider } from '@src/ui';
 
 export default {
-  title: 'Design System/Slider',
+  title: 'Component/Slider',
   component: Slider,
   tags: ['autodocs'],
   argTypes: {
@@ -21,31 +21,58 @@ export default {
           'info',
         ],
       },
-    },
-    isDisabled: {
-      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     max: {
       description: '最大值',
+      table: {
+        category: 'PROPS',
+      },
     },
     min: {
       description: '最小值',
+      table: {
+        category: 'PROPS',
+      },
     },
-    unit: {
+    label: {
       description: '顯示單位',
+      table: {
+        category: 'PROPS',
+      },
     },
     step: {
       description: '步進值',
+      table: {
+        category: 'PROPS',
+      },
     },
     initValue: {
       description: '初始值',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isDisabled: {
+      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '值改變事件',
       action: 'onChange',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   parameters: {
@@ -58,12 +85,12 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    isDisabled: false,
     min: -100,
     max: 100,
     step: 1,
     initValue: 0,
-    unit: '℃',
+    label: '℃',
+    isDisabled: false,
     onChange: action('onChange'),
     className: '',
   },
@@ -85,7 +112,22 @@ export const ThemeColor: Story = {
     max: 100,
     step: 1,
     initValue: 10,
-    unit: '%',
+    label: '%',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Slider {...args} initValue={40} themeColor="primary" />
+<Slider {...args} initValue={50} themeColor="secondary" />
+<Slider {...args} initValue={60} themeColor="tertiary" />
+<Slider {...args} initValue={70} themeColor="info" />
+<Slider {...args} initValue={80} themeColor="success" />
+<Slider {...args} initValue={90} themeColor="warning" />
+<Slider {...args} initValue={100} themeColor="error" />
+`,
+      },
+    },
   },
   render(args) {
     return (

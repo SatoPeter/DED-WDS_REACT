@@ -1,0 +1,11 @@
+.ded-avatar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+
+  &-container {
+    position: relative;
+    margin-left: -20px;
+  }
+}

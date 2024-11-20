@@ -3,29 +3,71 @@ import { Meta, StoryObj } from '@storybook/react';
 import { List } from '@src/ui';
 import { AccountIcon } from '@src/assets';
 
+const options = [
+  {
+    content: {
+      label: 'Option1',
+      value: 'option1',
+      prefix: <AccountIcon />,
+    },
+  },
+  {
+    content: {
+      label: 'Option2',
+      value: 'option2',
+      prefix: <AccountIcon />,
+    },
+  },
+  {
+    content: {
+      label: 'Option3',
+      value: 'option3',
+      prefix: <AccountIcon />,
+    },
+  },
+];
+
 export default {
-  title: 'Design System/List',
+  title: 'Component/List',
   component: List,
   tags: ['autodocs'],
   argTypes: {
-    options: {
-      description: '選項清單',
+    dataSource: {
+      description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
     },
     isMenu: {
       description: '是否為選單',
       control: {
         type: 'boolean',
       },
-    },
-    onSelect: {
-      description: '選擇事件',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
       control: {
         type: 'text',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
+    onSelect: {
+      description: '選擇事件',
+      table: {
+        category: 'EVENTS',
+      },
+    },
+  },
+  args: {
+    dataSource: options,
+    isMenu: false,
+    className: '',
+    onSelect: action('onSelect'),
   },
   parameters: {
     docs: {
@@ -38,34 +80,16 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof List>;
 
-const options = [
-  {
-    content: {
-      label: '選項一',
-      value: 'option1',
-      prefix: <AccountIcon />,
-    },
-  },
-  {
-    content: {
-      label: '選項二',
-      value: 'option2',
-      prefix: <AccountIcon />,
-    },
-  },
-  {
-    content: {
-      label: '選項三',
-      value: 'option3',
-      prefix: <AccountIcon />,
-    },
-  },
-];
-
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    options: options,
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<List {...args} />`,
+      },
+    },
   },
   render(args) {
     return (
@@ -78,15 +102,19 @@ export const Default: Story = {
 
 export const Menu: Story = {
   name: '選單樣式',
-  args: {
-    isMenu: true,
-    options: options,
-    onSelect: action('onSelect'),
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<List {...args} isMenu />`,
+      },
+    },
   },
   render(args) {
     return (
       <div style={{ width: '200px' }}>
-        <List {...args} />
+        <List {...args} isMenu />
       </div>
     );
   },

@@ -2,13 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
-import { ArrowDownIcon } from '@src/assets';
 import { List, Input } from '@src/ui';
-import { ItemProps } from '../list';
+import { ItemProps } from '@src/ui/module/list';
 
 interface DropdownProps {
   // isDisabled?: boolean;
-  options: ItemProps[];
+  dataSource: ItemProps[];
   placement:
     | 'top-left'
     | 'top'
@@ -39,6 +38,7 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
   const [selected, setSelected] = useState<string[]>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { childrenSize, position } = usePosition(dropdownRef);
+  const [value, setValue] = useState('');
 
   const handleSelect = (value: string) => {
     setSelected((prev) => {
@@ -82,6 +82,7 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
     <>
       <div className="dropdown" ref={dropdownRef} onClick={handleClick}>
         <Input
+          initValue={value}
           type="text"
           onChange={() => console.log('change')}
           // suffix={

@@ -2,7 +2,7 @@ import { ReactNode, useState, useEffect, useRef } from 'react';
 
 export interface ItemProps {
   title: string;
-  icon: ReactNode;
+  prefix: ReactNode;
   path?: string;
   children?: ItemProps[];
 }

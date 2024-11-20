@@ -268,3 +268,18 @@ $text-color-placeholder: $color-gray40;
 // 骨架屏: 依照需求填入色票
 $skeleton-color-element: #E0E0E0;
 $skeleton-color-background: #F0F0F0;
+
+// 格線系統斷點設定
+$breakpoint-size-mobile: 576px;
+$breakpoint-size-tablet: 768px;
+$breakpoint-size-desktop: 992px;
+$breakpoint-size-large-desktop: 1200px;
+
+// 格線系統最大寬度設定
+$layout-max-width-mobile: 540px;
+$layout-max-width-tablet: 720px;
+$layout-max-width-desktop: 960px;
+$layout-max-width-large-desktop: 1140px;
+
+// 格線系統間距設定
+$grid-gap: 8px;

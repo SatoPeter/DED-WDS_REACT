@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { CircleProgress } from './progress-circle';
 
 export default {
-  title: 'Design System/Progress-Circle',
+  title: 'Component/Progress-Circle',
   component: CircleProgress,
   tags: ['autodocs'],
   argTypes: {
@@ -20,8 +20,16 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-
+    label: {
+      description: '進度指示標籤',
+      table: {
+        category: 'PROPS',
+      },
+    },
     percent: {
       description: '進度',
       control: {
@@ -29,6 +37,9 @@ export default {
         min: 0,
         max: 100,
         step: 1,
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     size: {
@@ -39,29 +50,35 @@ export default {
         max: 200,
         step: 1,
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     strokeWidth: {
       description: '線條寬度',
       control: {
         type: 'range',
         min: 1,
-        max: 10,
+        max: 20,
         step: 1,
       },
-    },
-    label: {
-      description: '進度指示標籤',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {
     themeColor: 'primary',
-    percent: 50,
+    label: 'Label',
+    percent: 65,
     size: 100,
     strokeWidth: 10,
-    label: '',
     className: '',
   },
   parameters: {
@@ -86,11 +103,21 @@ export const Default: Story = {
 export const Label: Story = {
   name: '顯示標籤',
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<CircleProgress {...args} label="Label" size={70} />
+<CircleProgress {...args} label="Label" size={100} />
+`,
+      },
+    },
+  },
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <CircleProgress {...args} label="測試" size={70} />
-        <CircleProgress {...args} label="測試" size={100} />
+        <CircleProgress {...args} label="Label" size={70} />
+        <CircleProgress {...args} label="Label" size={100} />
       </div>
     );
   },
@@ -99,6 +126,21 @@ export const Label: Story = {
 export const Theme: Story = {
   name: '主題色彩',
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<CircleProgress {...args} percent={40} themeColor="primary" />
+<CircleProgress {...args} percent={50} themeColor="secondary" />
+<CircleProgress {...args} percent={60} themeColor="tertiary" />
+<CircleProgress {...args} percent={70} themeColor="info" />
+<CircleProgress {...args} percent={80} themeColor="success" />
+<CircleProgress {...args} percent={90} themeColor="warning" />
+<CircleProgress {...args} percent={100} themeColor="error" />
+`,
+      },
+    },
+  },
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>

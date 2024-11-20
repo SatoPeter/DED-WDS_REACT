@@ -1,5 +1,6 @@
 import { Title } from './element/title';
 import { Button } from './element/button';
+import { Checkbox } from './element/checkbox';
 import { Input } from './element/input';
 import { Textarea } from './element/textarea';
 import { Toggle } from './element/toggle';
@@ -10,15 +11,15 @@ import { LineProgress, CircleProgress } from './element/progress';
 import { AvatarGroup } from './module/avatar-group';
 import { List, Item } from './module/list';
 import { Tooltip } from './module/tooltip';
-import { Dropdown } from './module/dropdown';
 import { Slider } from './element/slider';
-import { ButtonSlider } from './module/button-slider';
+import { SliderControl } from './module/slider-control';
 import { Card } from './section/card';
 import { Menu } from './module/menu';
 
 export {
   Title,
   Button,
+  Checkbox,
   Input,
   Textarea,
   Toggle,
@@ -31,9 +32,8 @@ export {
   List,
   Item,
   Tooltip,
-  Dropdown,
   Slider,
-  ButtonSlider,
+  SliderControl,
   Card,
   Menu,
 };

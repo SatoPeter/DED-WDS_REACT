@@ -1,31 +1,30 @@
-.list {
+.ded-list {
   display: inline-flex;
   flex-direction: column;
-  // min-width: 200px;
   width: 100%;
-  padding-block: 8px;
   border-radius: 8px;
+  list-style: none;
 }
 
-.menu {
+.ded-menu {
   box-shadow: $shadow-light2;
   list-style: none;
   background-color: $color-white;
 }
 
-.item {
+.ded-item {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 8px;
   gap: 8px;
+  padding: 8px;
 
   &-label {
     margin-right: auto;
   }
 }
 
-.list-link {
+.ded-list-link {
   cursor: pointer;
 
   &:hover {
@@ -37,7 +36,7 @@
   }
 }
 
-.menu-link {
+.ded-item-link {
   cursor: pointer;
 
   &:hover {
@@ -47,4 +46,9 @@
   &:focus {
     box-shadow: 0 0 0 2px inset $color-gray60;
   }
+}
+
+.ded-item-link-disabled {
+  cursor: not-allowed;
+  color: $color-gray40;
 }

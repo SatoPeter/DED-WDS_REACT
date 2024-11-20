@@ -26,6 +26,9 @@ import TemperatureIcon from '@assets/temperature.svg?react';
 import DoorIcon from '@assets/door.svg?react';
 import AUOIcon from '@assets/auo.svg?react';
 import DragonballIcon from '@assets/dragonball.svg?react';
+import GoogleIcon from '@assets/google.svg?react';
+import FacebookIcon from '@assets/facebook.svg?react';
+import MailIcon from '@assets/mail.svg?react';
 
 export {
   AccountIcon,
@@ -56,4 +59,7 @@ export {
   DoorIcon,
   AUOIcon,
   DragonballIcon,
+  GoogleIcon,
+  FacebookIcon,
+  MailIcon,
 };

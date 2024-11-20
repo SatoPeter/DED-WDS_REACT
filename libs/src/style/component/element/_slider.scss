@@ -2,40 +2,43 @@
   --progress: 0%;
 }
 
-.slider-container {
+.ded-slider-container {
   position: relative;
   width: 100%;
   padding-block: 16px;
   margin-block: 16px;
 }
 
-.slider {
+.ded-slider {
   position: relative;
   width: 100%;
+  border-radius: 8px;
 }
 
-.tooltip {
+.ded-tooltip {
   position: absolute;
   top: -20px;
-  width: 40px;
   height: 30px;
   display: flex;
-  justify-content: center;
   align-items: center;
   border-radius: 4px;
   font-size: 14px;
   white-space: nowrap;
+
+  &-center {
+    justify-content: center;
+  }
 }
 
 /* remove default style */
-input[type="range"].slider,
-input[type="range"].slider::-webkit-slider-runnable-track,
-input[type="range"].slider::-webkit-slider-thumb {
+input[type="range"].ded-slider,
+input[type="range"].ded-slider::-webkit-slider-runnable-track,
+input[type="range"].ded-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
 }
 
-input[type="range"].slider {
+input[type="range"].ded-slider {
   width: 100%;
   height: 6px;
   background-color: $color-gray20;
@@ -45,7 +48,7 @@ input[type="range"].slider {
   // margin: 0;
 }
 
-input[type="range"].slider::before {
+input[type="range"].ded-slider::before {
   content: '';
   position: absolute;
   left: 50%;
@@ -56,7 +59,7 @@ input[type="range"].slider::before {
   transform: translateX(-50%);
 }
 
-input[type="range"].slider::-webkit-slider-thumb {
+input[type="range"].ded-slider::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -64,41 +67,42 @@ input[type="range"].slider::-webkit-slider-thumb {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  background-color: #000;
 }
 
-input[type="range"].slider::-webkit-slider-runnable-track {
+input[type="range"].ded-slider::-webkit-slider-runnable-track {
   width: 100%;
   height: 6px;
   border-radius: 5px;
 }
 
 @each $theme in $themes {
-  input[type="range"].slider-#{$theme}::-webkit-slider-thumb {
+  input[type="range"].ded-slider-#{$theme}::-webkit-slider-thumb {
     background-color: getThemeColor($mode, $theme, 'default');
   }
 
-  input[type="range"].slider-#{$theme}::-webkit-slider-runnable-track {
+  input[type="range"].ded-slider-#{$theme}::-webkit-slider-runnable-track {
     background: linear-gradient(to right, getThemeColor($mode, $theme, 'default') 0%, getThemeColor($mode, $theme, 'default') var(--progress), $color-gray20 var(--progress), $color-gray20 100%);
   }
 
-  .tooltip-#{$theme} {
+  .ded-tooltip-#{$theme} {
     color: getThemeColor($mode, $theme, 'default');
   }
 }
 
-input[type="range"].slider-disable::-webkit-slider-thumb {
+input[type="range"].ded-slider-disable::-webkit-slider-thumb {
   background-color: $color-gray20;
   pointer-events: none;
   cursor: not-allowed;
 }
 
-.slider-container input[type="range"].slider-disable::-webkit-slider-runnable-track {
+.ded-slider-container input[type="range"].ded-slider-disable::-webkit-slider-runnable-track {
   background: linear-gradient(to right, $color-gray20 0%, $color-gray20 var(--progress), $color-gray20 var(--progress), $color-gray20 100%);
   pointer-events: none;
   cursor: not-allowed;
 }
 
-.slider-container input[type="range"].slider-disable::-webkit-slider-runnable-track {
+.ded-slider-container input[type="range"].ded-slider-disable::-webkit-slider-runnable-track {
   background: linear-gradient(to right,
       $color-gray20 0%,
       $color-gray20 var(--progress),
@@ -108,7 +112,7 @@ input[type="range"].slider-disable::-webkit-slider-thumb {
   cursor: not-allowed;
 }
 
-.tooltip-disable {
+.ded-tooltip-disable {
   color: $color-gray20;
   pointer-events: none;
 }

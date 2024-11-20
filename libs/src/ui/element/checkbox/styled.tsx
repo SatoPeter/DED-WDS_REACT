@@ -5,5 +5,5 @@
  * @returns 主題類別
  */
 export const getThemeClass = (key: string, themeColor: string) => {
-  return `checkbox-${key}-${themeColor} `;
+  return `ded-checkbox-${key}-${themeColor} `;
 };

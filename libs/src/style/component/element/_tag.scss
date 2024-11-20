@@ -1,4 +1,4 @@
-.tag {
+.ded-tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -8,27 +8,43 @@
   padding-inline: 8px;
   color: $text-color-secondary;
 
-  &:hover {
-    background-color: getBorderColor($mode, 'primary', 'hover');
-    border-color: getBorderColor($mode, 'primary', 'hover');
-  }
-
   &-text {
     font-size: 14px;
   }
 
   &-icon {
+    display: flex;
+    align-items: center;
     width: 18px;
     height: 18px;
   }
 
   &-close {
-    color: $color-gray40;
+    color: $color-white;
     width: 18px;
     height: 18px;
 
     &-disabled {
       color: $color-gray20;
+    }
+  }
+
+  &-contained {
+    background-color: $color-black;
+    color: #fff;
+  }
+
+  &-outlined {
+    background-color: transparent;
+    border-width: $btn-border-width;
+    border-style: solid;
+
+    &:focus {
+      box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, 'primary', 'default'), $lightness50);
+    }
+
+    &:active {
+      box-shadow: unset;
     }
   }
 
@@ -44,5 +60,61 @@
     background-color: transparent !important;
     border-color: $color-gray20 !important;
     color: $color-gray20 !important;
+  }
+
+  @each $variant in $variants {
+    @each $theme in $themes {
+      &-#{$variant}-#{$theme} {
+
+        @if($variant =='contained') {
+          border-color: getThemeColor($mode, $theme, 'default');
+          background-color: getThemeColor($mode, $theme, 'default');
+        }
+
+        @else {
+          border-color: getThemeColor($mode, $theme, 'default');
+          color: getThemeColor($mode, $theme, 'default');
+        }
+
+        &:hover {
+
+          @if($variant =='contained') {
+            border-color: getThemeColor($mode, $theme, 'hover');
+            background-color: getThemeColor($mode, $theme, 'hover');
+          }
+
+          @else {
+            border-color: getThemeColor($mode, $theme, 'hover');
+            color: getThemeColor($mode, $theme, 'hover');
+          }
+        }
+
+        &:focus {
+
+          @if($variant =='contained') {
+            border-color: getThemeColor($mode, $theme, 'focus');
+            background-color: getThemeColor($mode, $theme, 'focus');
+          }
+
+          @else {
+            border-color: getThemeColor($mode, $theme, 'focus');
+            color: getThemeColor($mode, $theme, 'focus');
+          }
+        }
+
+        &:active {
+
+          @if($variant =='contained') {
+            border-color: getThemeColor($mode, $theme, 'active');
+            background-color: getThemeColor($mode, $theme, 'active');
+          }
+
+          @else {
+            border-color: getThemeColor($mode, $theme, 'active');
+            color: getThemeColor($mode, $theme, 'active');
+          }
+        }
+      }
+    }
   }
 }

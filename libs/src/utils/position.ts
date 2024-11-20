@@ -20,7 +20,7 @@ export const getTargetPosition = (
       transform: `translate(calc(${
         childrenSize.width / 2
       }px - 50%), calc(-100% - ${gap}))`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -29,7 +29,7 @@ export const getTargetPosition = (
       top: `${position.top + childrenSize.height}px`,
       left: `${position.left}px`,
       transform: `translate(calc(${childrenSize.width / 2}px - 50%), ${gap})`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -40,7 +40,7 @@ export const getTargetPosition = (
       transform: `translate(calc(-100% - ${gap}), calc(${
         childrenSize.height / 2
       }px - 50%))`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -49,7 +49,7 @@ export const getTargetPosition = (
       top: `${position.top}px`,
       left: `${position.left + childrenSize.width}px`,
       transform: `translate(${gap}, calc(${childrenSize.height / 2}px - 50%))`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -58,7 +58,7 @@ export const getTargetPosition = (
       top: `${position.top}px`,
       left: `${position.left}px`,
       transform: `translate(0, calc(-100% - ${gap}))`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -67,7 +67,7 @@ export const getTargetPosition = (
       top: `${position.top}px`,
       left: `${position.left + childrenSize.width}px`,
       transform: `translate(calc(-100%), calc(-100% - ${gap}))`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -76,7 +76,7 @@ export const getTargetPosition = (
       top: `${position.top + childrenSize.height}px`,
       left: `${position.left}px`,
       transform: `translate(0, ${gap})`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -85,7 +85,7 @@ export const getTargetPosition = (
       top: `${position.top + childrenSize.height}px`,
       left: `${position.left + childrenSize.width}px`,
       transform: `translate(calc(-100%), ${gap})`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -94,7 +94,7 @@ export const getTargetPosition = (
       top: `${position.top}px`,
       left: `${position.left}px`,
       transform: `translate(calc(-100% - ${gap}), 0)`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -103,7 +103,7 @@ export const getTargetPosition = (
       top: `${position.top + childrenSize.height}px`,
       left: `${position.left}px`,
       transform: `translate(calc(-100% - ${gap}), -100%)`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -112,7 +112,7 @@ export const getTargetPosition = (
       top: `${position.top}px`,
       left: `${position.left + childrenSize.width}px`,
       transform: `translate(${gap}, 0)`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 
@@ -121,7 +121,7 @@ export const getTargetPosition = (
       top: `${position.top + childrenSize.height}px`,
       left: `${position.left + childrenSize.width}px`,
       transform: `translate(${gap}, -100%)`,
-      width: `${childrenSize.width}px`,
+      // width: `${childrenSize.width}px`,
     };
   }
 };

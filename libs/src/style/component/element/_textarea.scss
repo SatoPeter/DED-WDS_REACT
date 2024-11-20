@@ -1,10 +1,10 @@
-.textarea-container {
+.ded-textarea-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.textarea-group {
+.ded-textarea-group {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@
     border: 1px solid getBorderColor($mode, 'primary', 'focus');
   }
 
-  .textarea {
+  .ded-textarea {
     display: flex;
     align-items: center;
     height: 128px;
@@ -42,7 +42,7 @@
     }
   }
 
-  .textarea-hint-count {
+  .ded-textarea-hint-count {
     position: absolute;
     font-size: $text-size-caption2;
     color: $color-gray40;
@@ -51,7 +51,7 @@
   }
 }
 
-.textarea-disable {
+.ded-textarea-disable {
   pointer-events: none !important;
   color: $color-gray20 !important;
   border-color: $color-gray20 !important;
@@ -61,24 +61,24 @@
   }
 }
 
-.textarea-border-error {
+.ded-textarea-border-error {
   border-color: getBorderColor($mode, 'error', 'default') !important;
 }
 
-.textarea-label {
+.ded-textarea-label {
   font-size: $text-size-caption1;
   color: $text-color-secondary;
 }
 
-.textarea-hint {
+.ded-textarea-hint {
   display: block;
   font-size: $text-size-caption2;
 }
 
-.textarea-hint-desc {
+.ded-textarea-hint-desc {
   color: $color-gray60;
 }
 
-.textarea-hint-error {
+.ded-textarea-hint-error {
   color: getTextColor($mode, 'error') !important;
 }

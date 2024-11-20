@@ -9,7 +9,7 @@
   font-family: 'Noto Sans', Arial, sans-serif;
 }
 
-.icon {
+.ded-icon {
   width: 24px;
   height: 24px;
   display: flex;
@@ -19,4 +19,12 @@
 
 svg {
   vertical-align: middle;
+}
+
+.ded-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -50%;
+  min-width: 200px;
+  border-radius: 4px;
 }

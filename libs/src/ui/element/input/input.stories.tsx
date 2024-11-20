@@ -11,19 +11,40 @@ import {
 } from '@src/assets';
 
 export default {
-  title: 'Design System/Input',
+  title: 'Component/Input',
   component: Input,
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      description: '輸入框尺寸',
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
+    label: {
+      description: '標題',
+      table: {
+        category: 'PROPS',
       },
     },
-    isDisabled: {
-      description: '是否禁用',
+    type: {
+      description: '輸入類型',
+      control: {
+        type: 'select',
+        options: ['text', 'password', 'number', 'email'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    placeholder: {
+      description: '輸入提示',
+      control: {
+        type: 'text',
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    initValue: {
+      description: '初始值',
+      table: {
+        category: 'PROPS',
+      },
     },
     prefix: {
       description: '前置元素',
@@ -45,35 +66,44 @@ export default {
         Close: <CloseIcon />,
         Lock: <LockIcon />,
       },
-    },
-    label: {
-      description: '標題',
-    },
-    type: {
-      description: '輸入類型',
-      control: {
-        type: 'select',
-        options: ['text', 'password', 'number', 'email'],
+      table: {
+        category: 'PROPS',
       },
     },
-    placeholder: {
-      description: '輸入提示',
+    size: {
+      description: '輸入框尺寸',
       control: {
-        type: 'text',
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     hint: {
       description: '提示訊息',
+      table: {
+        category: 'PROPS',
+      },
     },
-    value: {
-      description: '輸入值',
+    isDisabled: {
+      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '輸入事件',
       action: 'changed',
-    },
-    className: {
-      description: '客製化樣式',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   parameters: {
@@ -85,31 +115,25 @@ export default {
     },
   },
   args: {
-    size: 'medium',
-    isDisabled: false,
-    label: '',
+    label: 'Label',
     type: 'text',
-    placeholder: '請輸入...',
-    prefix: null,
-    hint: { error: '', description: '' },
-    value: '',
+    placeholder: 'Placeholder...',
+    prefix: <AccountIcon />,
+    size: 'medium',
+    initValue: '',
+    hint: { error: '', description: 'Prompt message' },
+    isDisabled: false,
     className: '',
+    onChange: (e: string) => action('changed')(e),
   },
 } as Meta;
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    placeholder: '請輸入帳號 ...',
-    onChange: (e) => action('onChange')(e),
-  },
+  args: {},
   render(args) {
-    return (
-      <div style={{ width: '300px' }}>
-        <Input {...args} />
-      </div>
-    );
+    return <Input {...args} />;
   },
 };
 
@@ -117,22 +141,39 @@ export const InputWithStatus: Story = {
   name: '輸入框狀態',
   args: {
     prefix: <AccountIcon />,
-    placeholder: '請輸入帳號 ...',
+    placeholder: 'Placeholder...',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Input {...args} label="Account" />
+<Input {...args} label="Password" type={'password'} prefix={<LockIcon />} />
+<Input {...args} label="Account" hint={{ error: 'Error message', description: '' }} />
+<Input {...args} label="Account" hint={{ error: '', description: 'Prompt message' }} />
+`,
+      },
+    },
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-        <Input {...args} label="帳號" />
-        <Input {...args} label="密碼" type={'password'} prefix={<LockIcon />} />
+      <div>
+        <Input {...args} label="Account" />
         <Input
           {...args}
-          label="帳號"
-          hint={{ error: 'Error Message', description: '' }}
+          label="Password"
+          type={'password'}
+          prefix={<LockIcon />}
         />
         <Input
           {...args}
-          label="帳號"
-          hint={{ error: '', description: 'Something Description' }}
+          label="Account"
+          hint={{ error: 'Error message', description: '' }}
+        />
+        <Input
+          {...args}
+          label="Account"
+          hint={{ error: '', description: 'Prompt message' }}
         />
       </div>
     );

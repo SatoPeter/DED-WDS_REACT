@@ -3,8 +3,38 @@ import { HomeIcon, AUOIcon, AirIcon, PowerIcon, FanIcon } from '@src/assets';
 import { ItemProps } from '@src/hooks/useMenu';
 import SideNav from './side-nav';
 
+const menuData: ItemProps[] = [
+  {
+    title: 'Dashboard',
+    prefix: <HomeIcon width={24} height={24} />,
+    path: '/dashboard',
+  },
+  {
+    title: 'Settings',
+    prefix: <AirIcon width={24} height={24} />,
+    path: '/settings',
+    children: [
+      {
+        title: 'Profile',
+        prefix: <FanIcon width={24} height={24} />,
+        path: '/settings/profile',
+      },
+      {
+        title: 'Account',
+        prefix: <FanIcon width={24} height={24} />,
+        path: '/settings/account',
+      },
+    ],
+  },
+  {
+    title: 'Help',
+    prefix: <PowerIcon width={24} height={24} />,
+    path: '/help',
+  },
+];
+
 export default {
-  title: 'Design System/SideNav',
+  title: 'Component/SideNav',
   component: SideNav,
   tags: ['autodocs'],
   argTypes: {
@@ -20,9 +50,12 @@ export default {
       control: {
         type: 'select',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     logo: {
-      description: 'Logo',
+      description: 'Logo 圖示',
       mapping: {
         AUOIcon: <AUOIcon width={90} height={30} />,
       },
@@ -30,16 +63,28 @@ export default {
       control: {
         type: 'select',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    menuData: {
-      description: '選單資料',
-    },
-    width: {
-      description: '寬度',
+    dataSource: {
+      description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
+  },
+  args: {
+    themeColor: 'Blue',
+    logo: <AUOIcon width={90} height={30} />,
+    dataSource: menuData,
+    className: '',
   },
   parameters: {
     docs: {
@@ -52,45 +97,9 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof SideNav>;
 
-const menuData: ItemProps[] = [
-  {
-    title: 'Dashboard',
-    icon: <HomeIcon width={24} height={24} />,
-    path: '/dashboard',
-  },
-  {
-    title: 'Settings',
-    icon: <AirIcon width={24} height={24} />,
-    path: '/settings',
-    children: [
-      {
-        title: 'Profile',
-        icon: <FanIcon width={24} height={24} />,
-        path: '/settings/profile',
-      },
-      {
-        title: 'Account',
-        icon: <FanIcon width={24} height={24} />,
-        path: '/settings/account',
-      },
-    ],
-  },
-  {
-    title: 'Help',
-    icon: <PowerIcon width={24} height={24} />,
-    path: '/help',
-  },
-];
-
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    themeColor: 'Blue',
-    logo: <AUOIcon width={90} height={30} />,
-    menuData,
-    width: '240px',
-    className: '',
-  },
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <SideNav {...args} />;
   },

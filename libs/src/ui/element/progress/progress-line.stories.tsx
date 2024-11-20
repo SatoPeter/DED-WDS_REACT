@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { LineProgress } from './progress-line';
 
 export default {
-  title: 'Design System/Progress-Line',
+  title: 'Component/Progress-Line',
   component: LineProgress,
   tags: ['autodocs'],
   argTypes: {
@@ -21,6 +21,9 @@ export default {
         ],
       },
     },
+    label: {
+      description: '進度指示標籤',
+    },
     percent: {
       description: '進度',
       control: {
@@ -30,17 +33,14 @@ export default {
         step: 1,
       },
     },
-    height: {
+    strokeWidth: {
       description: '線條寬度',
       control: {
         type: 'range',
         min: 1,
-        max: 10,
+        max: 20,
         step: 1,
       },
-    },
-    label: {
-      description: '進度指示標籤',
     },
     className: {
       description: '客製化樣式',
@@ -48,9 +48,9 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    percent: 50,
-    height: 10,
-    label: '',
+    label: 'Label',
+    percent: 65,
+    strokeWidth: 10,
     className: '',
   },
   parameters: {
@@ -76,13 +76,28 @@ export const Label: Story = {
   name: '顯示標籤',
   args: {},
   render(args) {
-    return <LineProgress {...args} label="測試" />;
+    return <LineProgress {...args} label="Label" />;
   },
 };
 
 export const Theme: Story = {
   name: '主題色彩',
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<LineProgress {...args} percent={40} themeColor="primary" />
+<LineProgress {...args} percent={50} themeColor="secondary" />
+<LineProgress {...args} percent={60} themeColor="tertiary" />
+<LineProgress {...args} percent={70} themeColor="info" />
+<LineProgress {...args} percent={80} themeColor="success" />
+<LineProgress {...args} percent={90} themeColor="warning" />
+<LineProgress {...args} percent={100} themeColor="error" />
+`,
+      },
+    },
+  },
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>

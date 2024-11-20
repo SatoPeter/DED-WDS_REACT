@@ -1,6 +1,6 @@
 @use 'sass:color';
 
-.checkbox-container {
+.ded-checkbox-container {
   display: inline-flex;
   gap: 8px;
 
@@ -13,14 +13,12 @@
   }
 }
 
-.checkbox {
+.ded-checkbox {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
   cursor: pointer;
-
-
 
   &-input {
     display: none;

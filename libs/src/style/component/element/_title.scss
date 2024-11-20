@@ -15,11 +15,12 @@ $text-levels: (
   // 可以添加更多文字 level
 );
 
-.title {
+.ded-title {
   font-size: inherit;
   font-weight: $text-regular;
   color: currentColor;
   word-break: keep-all;
+  line-height: 1;
 
   @each $theme in $themes {
     &-#{$theme} {

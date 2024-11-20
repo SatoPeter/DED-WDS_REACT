@@ -43,10 +43,11 @@ export interface CircleProgressProps {
 export const CircleProgress: React.FC<CircleProgressProps> = ({
   themeColor = 'primary',
   label = '',
-  percent,
+  percent = 0,
   size = 100,
   strokeWidth = 10,
-}) => {
+  className = '',
+}: CircleProgressProps): JSX.Element => {
   const textRef = useRef<SVGTextElement>(null);
   const [contentLength, setContentLength] = React.useState(0);
   useEffect(() => {
@@ -69,10 +70,10 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
   };
 
   return (
-    <div className="progress-circle-container">
-      <svg className="progress" width={size} height={size}>
+    <div className={`ded-progress-circle-container ${className}`}>
+      <svg className="ded-progress" width={size} height={size}>
         <circle
-          className="progress-circle-track"
+          className="ded-progress-circle-track"
           fill="transparent"
           strokeWidth={strokeWidth}
           r={radius}
@@ -118,7 +119,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
         )}
       </svg>
       {size < getLimitBorder() && (
-        <div className="progress-circle-label">
+        <div className="ded-progress-circle-label">
           <span>{label}</span>
           <span>{`${normalizedProgress}%`}</span>
         </div>

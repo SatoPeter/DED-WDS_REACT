@@ -2,8 +2,14 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from './checkbox';
 
+const options = [
+  { label: 'Option1', value: 'option1' },
+  { label: 'Option2', value: 'option2' },
+  { label: 'Option3', value: 'option3' },
+];
+
 export default {
-  title: 'Design System/Checkbox',
+  title: 'Component/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
@@ -30,32 +36,54 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    className: {
-      description: '客製化樣式',
+    dataSource: {
+      description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
+      required: true,
     },
-    options: {
-      description: '選項',
+    initValue: {
+      description: '選中的項目',
+      table: {
+        category: 'PROPS',
+      },
     },
     direction: {
-      description: '方向',
+      description: '排列方向',
       control: {
         type: 'select',
         options: ['row', 'column'],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    initValue: {
-      description: '選中的選項',
+    className: {
+      description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '選中選項改變時的回調函數',
       action: 'onChange',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   args: {
-    direction: 'row',
     themeColor: 'primary',
-    value: '',
+    dataSource: options,
+    initValue: ['option1', 'option3'],
+    direction: 'row',
+    className: '',
+    onChange: (e: string[]) => action('onChange')(e),
   },
   parameters: {
     docs: {
@@ -68,19 +96,48 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Checkbox>;
 
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    className: '',
-    options: [
-      { label: '選項一', value: 'option1' },
-      { label: '選項二', value: 'option2' },
-      { label: '選項三', value: 'option3' },
-    ],
-    initValue: ['option2'],
-    onChange: (e) => action('onChange')(e),
-  },
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <Checkbox {...args} />;
+  },
+};
+
+export const Theme: Story = {
+  name: '主題色彩',
+  args: {
+    dataSource: options,
+    initValue: ['option1'],
+    className: '',
+    onChange: (e) => action('onChange')(e),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Checkbox {...args} themeColor="primary" />
+<Checkbox {...args} themeColor="secondary" />
+<Checkbox {...args} themeColor="tertiary" />
+<Checkbox {...args} themeColor="info" />
+<Checkbox {...args} themeColor="success" />
+<Checkbox {...args} themeColor="warning" />
+<Checkbox {...args} themeColor="error" />
+        `,
+      },
+    },
+  },
+  render(args) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Checkbox {...args} themeColor="primary" />
+        <Checkbox {...args} themeColor="secondary" />
+        <Checkbox {...args} themeColor="tertiary" />
+        <Checkbox {...args} themeColor="info" />
+        <Checkbox {...args} themeColor="success" />
+        <Checkbox {...args} themeColor="warning" />
+        <Checkbox {...args} themeColor="error" />
+      </div>
+    );
   },
 };

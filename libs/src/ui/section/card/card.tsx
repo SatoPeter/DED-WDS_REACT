@@ -41,18 +41,16 @@ export interface CardProps {
  *
  * @returns {JSX.Element} 回傳卡片元件
  */
-export const Card: React.FC<CardProps> = (props: CardProps) => {
-  const {
-    width,
-    height,
-    cardHeader,
-    hasHeaderDivider,
-    children,
-    cardFooter,
-    onClick,
-    className,
-  } = props;
-
+export const Card: React.FC<CardProps> = ({
+  width = '100%',
+  height = '100%',
+  cardHeader = null,
+  hasHeaderDivider = false,
+  children = null,
+  cardFooter = null,
+  onClick = () => ({}),
+  className = '',
+}: CardProps): JSX.Element => {
   const handleClick = () => {
     console.log('click');
     onClick && onClick();
@@ -61,20 +59,20 @@ export const Card: React.FC<CardProps> = (props: CardProps) => {
   return (
     <div
       style={{ width: width, height: height }}
-      className={`card card-container ${className}`}
+      className={`ded-card ded-card-container ${className}`}
       onClick={handleClick}
     >
       {cardHeader && (
         <div
-          className={`card-header ${
-            hasHeaderDivider ? 'card-header-divider' : ''
+          className={`ded-card-header ${
+            hasHeaderDivider ? 'ded-card-header-divider' : ''
           }`}
         >
           {cardHeader}
         </div>
       )}
-      <div className="card-body">{children}</div>
-      {cardFooter && <div className="card-footer">{cardFooter}</div>}
+      <div className="ded-card-body">{children}</div>
+      {cardFooter && <div className="ded-card-footer">{cardFooter}</div>}
     </div>
   );
 };

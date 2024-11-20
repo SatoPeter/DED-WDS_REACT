@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEventHandler } from 'react';
 
-export const useInput = (initialValue: string, type: string) => {
-  const [value, setValue] = useState(initialValue);
+export const useInput = (
+  initValue: string,
+  type: string,
+  onChange: ChangeEventHandler<HTMLInputElement> | undefined
+) => {
+  const [value, setValue] = useState(initValue);
   const [inputType, setInputType] = useState(type);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
+    onChange && onChange(e);
   };
 
   const reset = () => {
@@ -20,10 +25,14 @@ export const useInput = (initialValue: string, type: string) => {
     setInputType(type);
   }, [type]);
 
+  useEffect(() => {
+    setValue(initValue);
+  }, [initValue]);
+
   return {
     inputType,
     value,
-    onChange: handleChange,
+    handleInputChange: handleInputChange,
     action: type === 'password' ? switchPassword : reset,
   };
 };

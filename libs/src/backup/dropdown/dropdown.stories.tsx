@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { Dropdown } from '@src/ui';
+import { Dropdown } from '../dropdown';
 
 export default {
-  title: 'Design System/Dropdown',
+  title: 'Component/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   argTypes: {
@@ -57,10 +57,10 @@ export default {
 /* 設定組件類型 */
 type Story = StoryObj<typeof Dropdown>;
 
-export const Primary: Story = {
+export const Default: Story = {
   name: '搜尋輸入框',
   args: {
-    options: [
+    dataSource: [
       {
         content: {
           label: '選項一',

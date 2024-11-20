@@ -1,6 +1,8 @@
-.tooltip-container {}
+.ded-tooltip-container {
+  display: inline-flex;
+}
 
-.tooltip {
+.ded-tooltip {
   position: absolute;
   z-index: 999;
 

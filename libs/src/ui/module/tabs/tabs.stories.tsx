@@ -2,13 +2,19 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from './tabs';
 
+const tabs = [
+  { title: 'Tab 1', content: 'Content 1' },
+  { title: 'Tab 2', content: 'Content 2' },
+  { title: 'Tab 3', content: 'Content 3' },
+];
+
 export default {
-  title: 'Design System/Tabs',
+  title: 'Component/Tabs',
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {
     themeColor: {
-      description: '頁籤顏色',
+      description: '主題顏色',
       control: {
         type: 'select',
         options: [
@@ -21,16 +27,15 @@ export default {
           'info',
         ],
       },
-    },
-    type: {
-      description: '頁籤樣式',
-      control: {
-        type: 'select',
-        options: ['card', 'default'],
+      table: {
+        category: 'PROPS',
       },
     },
-    isDisabled: {
-      description: '是否禁用',
+    dataSource: {
+      description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
     },
     activeIndex: {
       description: '活動頁籤索引',
@@ -39,17 +44,48 @@ export default {
         min: 0,
         max: 2,
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    tabs: {
-      description: '頁籤列表',
+    type: {
+      description: '頁籤樣式',
+      control: {
+        type: 'select',
+        options: ['default', 'card'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isDisabled: {
+      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onClick: {
       description: '點擊事件',
       action: 'clicked',
+      table: {
+        category: 'EVENTS',
+      },
     },
-    className: {
-      description: '客製化樣式',
-    },
+  },
+  args: {
+    themeColor: 'primary',
+    dataSource: tabs,
+    activeIndex: 0,
+    type: 'default',
+    isDisabled: false,
+    className: '',
+    onClick: action('onClick'),
   },
   parameters: {
     docs: {
@@ -59,27 +95,12 @@ export default {
       },
     },
   },
-  args: {
-    themeColor: 'primary',
-    type: 'default',
-    isDisabled: false,
-    tabs: [
-      { title: '頁籤 1', content: '內容一' },
-      { title: '頁籤 2', content: '內容二' },
-      { title: '頁籤 3', content: '內容三' },
-    ],
-    activeIndex: 0,
-    className: '',
-    onClick: action('onClick'),
-  },
 } as Meta;
 type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    activeIndex: 0,
-  },
+  args: {},
   render(args) {
     return <Tabs {...args} />;
   },

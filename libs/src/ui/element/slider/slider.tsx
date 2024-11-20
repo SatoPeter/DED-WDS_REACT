@@ -6,14 +6,14 @@ import { getThemeClass } from './styled';
  *
  * @interface SliderProps
  * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
- * @property {boolean} [isDisabled] - 是否禁用滑桿。
  * @property {number} min - 最小值。
  * @property {number} max - 最大值。
  * @property {number} [step] - 每次變動的步長。
+ * @property {boolean} [isDisabled] - 是否禁用滑桿。
  * @property {string} [unit] - 值的單位。
  * @property {number} [initValue] - 初始值。
- * @property {(value: number) => void} [onChange] - 當值變動時的回調函數。
  * @property {string} [className] - 自訂樣式類名。
+ * @property {(value: number) => void} [onChange] - 當值變動時的回調函數。
  */
 export interface SliderProps {
   themeColor?:
@@ -24,14 +24,14 @@ export interface SliderProps {
     | 'warning'
     | 'error'
     | 'info';
-  isDisabled?: boolean;
   min: number;
   max: number;
   step?: number;
-  unit?: string;
-  initValue?: number;
-  onChange?: (value: number) => void;
+  label?: string;
+  initValue: number;
+  isDisabled?: boolean;
   className?: string;
+  onChange?: (value: number) => void;
 }
 
 /**
@@ -46,8 +46,8 @@ export interface SliderProps {
  * @param {number} [props.step=1] - Slider 的步進值
  * @param {string} [props.unit='%'] - Slider 值的單位
  * @param {number} [props.initValue=0] - Slider 的初始值
- * @param {function} [props.onChange] - 當 Slider 值改變時的回調函數
  * @param {string} [props.className] - 自定義 CSS 類名
+ * @param {function} [props.onChange] - 當 Slider 值改變時的回調函數
  *
  * @returns {JSX.Element} Slider 元件的 JSX
  */
@@ -57,11 +57,11 @@ export const Slider: React.FC<SliderProps> = ({
   min = 0,
   max = 100,
   step = 1,
-  unit = '℃',
+  label = '',
   initValue = 0,
   onChange,
   className,
-}) => {
+}: SliderProps): JSX.Element => {
   const [value, setValue] = useState<number>(initValue || min);
   const [thumbPosition, setThumbPosition] = useState<number>(0);
   const rangeRef = useRef<HTMLInputElement>(null);
@@ -115,7 +115,7 @@ export const Slider: React.FC<SliderProps> = ({
   }, [value, min, max]);
 
   return (
-    <div className="slider-container" ref={containerRef}>
+    <div className="ded-slider-container" ref={containerRef}>
       <div
         style={{
           display: 'flex',
@@ -133,21 +133,21 @@ export const Slider: React.FC<SliderProps> = ({
           value={value}
           disabled={isDisabled}
           onChange={handleChange}
-          className={`slider 
+          className={`ded-slider 
             ${
               isDisabled
-                ? 'slider-disable'
-                : className || getThemeClass(themeColor, 'slider')
+                ? 'ded-slider-disable'
+                : className || getThemeClass(themeColor, 'ded-slider')
             }`}
         />
       </div>
 
       <div
-        className={`tooltip 
+        className={`ded-tooltip 
         ${
           isDisabled
-            ? 'tooltip-disable'
-            : className || getThemeClass(themeColor, 'tooltip')
+            ? 'ded-tooltip-disable'
+            : className || getThemeClass(themeColor, 'ded-tooltip')
         }`}
         style={{
           left: `calc(${thumbPosition}px + ${thumbWidth / 2}px - ${
@@ -156,7 +156,7 @@ export const Slider: React.FC<SliderProps> = ({
         }}
       >
         <span>{value}</span>
-        {unit && <span>{unit}</span>}
+        {label && <span>{label}</span>}
       </div>
     </div>
   );

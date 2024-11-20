@@ -4,7 +4,7 @@
  * @returns {string} - 主題類別。
  */
 export const getThemeClass = (themeColor: string) => {
-  return `toggle-${themeColor}`;
+  return `ded-toggle-${themeColor}`;
 };
 
 /**
@@ -13,7 +13,7 @@ export const getThemeClass = (themeColor: string) => {
  * @returns - 位置類別，如果元素被選中則返回 'toggle-on'，否則返回 'toggle-off'。
  */
 export const getPositionClass = (checked: boolean) => {
-  return checked ? 'toggle-on' : 'toggle-off';
+  return checked ? 'ded-toggle-on' : 'ded-toggle-off';
 };
 
 /**
@@ -22,7 +22,7 @@ export const getPositionClass = (checked: boolean) => {
  * @returns - 標籤位置的 CSS 類別。
  */
 export const getLabelPositionClass = (checked: boolean) => {
-  return checked ? 'toggle-label-on' : 'toggle-label-off';
+  return checked ? 'ded-toggle-label-on' : 'ded-toggle-label-off';
 };
 
 /**
@@ -31,5 +31,5 @@ export const getLabelPositionClass = (checked: boolean) => {
  * @returns - 滑桿位置的 CSS 類別。
  */
 export const getThumbPositionClass = (checked: boolean) => {
-  return checked ? 'toggle-thumb-on' : 'toggle-thumb-off';
+  return checked ? 'ded-toggle-thumb-on' : 'ded-toggle-thumb-off';
 };

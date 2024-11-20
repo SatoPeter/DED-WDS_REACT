@@ -1,10 +1,10 @@
-.progress-circle-container {
+.ded-progress-circle-container {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.progress {
+.ded-progress {
   &-circle-track {
     stroke: $color-gray10;
   }
@@ -41,7 +41,7 @@
   }
 }
 
-.progress-circle-label {
+.ded-progress-circle-label {
   display: flex;
   gap: 4px;
 
@@ -51,7 +51,7 @@
 }
 
 // 後續要確認百分比間距是否正確
-.progress-line-percent {
+.ded-progress-line-percent {
   width: calc(3ch + 1em);
   font-size: 14px;
 }

@@ -1,46 +1,52 @@
 import React from 'react';
 import { Button } from '@src/ui';
 import { CloseIcon } from '@src/assets';
-import { getDisableClass } from './styled';
+import { getDisableClass, getThemeClass } from './styled';
 
-interface TagProps {
-  isDisabled?: boolean;
-  icon?: React.ReactNode;
-  closeIcon?: React.ReactNode;
+export interface TagProps {
+  themeColor?:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info';
+  label: string;
+  prefix?: React.ReactNode;
   closable?: boolean;
-  onClose?: () => void;
-  children: React.ReactNode;
+  isDisabled?: boolean;
   className?: string;
+  children: React.ReactNode;
+  onClose?: () => void;
 }
 
-export const Tag: React.FC<TagProps> = (props: TagProps) => {
-  const {
-    isDisabled,
-    icon,
-    closeIcon,
-    onClose,
-    closable,
-    className,
-    children,
-  } = props;
-
+export const Tag: React.FC<TagProps> = ({
+  themeColor = 'primary',
+  label,
+  prefix,
+  closable = true,
+  isDisabled = false,
+  className,
+  onClose = () => ({}),
+}) => {
   return (
     <div
-      className={`tag ${className} ${
-        isDisabled ? getDisableClass('outlined') : ''
+      className={`ded-tag ${className} ${
+        isDisabled
+          ? getDisableClass('outlined')
+          : getThemeClass('contained', themeColor)
       }`}
     >
-      {icon && <div className="tag-icon">{icon}</div>}
-      <span className="tag-text">{children}</span>
+      {prefix && <div className="ded-tag-icon">{prefix}</div>}
+      <span className="ded-tag-text">{label}</span>
       {closable && (
         <Button variant="text" onClick={onClose}>
-          {closeIcon ? (
-            closeIcon
-          ) : (
-            <CloseIcon
-              className={`tag-close ${isDisabled ? 'tag-close-disabled' : ''}`}
-            />
-          )}
+          <CloseIcon
+            className={`ded-tag-close ${
+              isDisabled ? 'ded-tag-close-disabled' : ''
+            }`}
+          />
         </Button>
       )}
     </div>

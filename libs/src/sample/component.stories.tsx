@@ -4,7 +4,7 @@ import Component from './component';
 
 export default {
   /* 定義組件路徑及匯入名稱: Element/Component */
-  title: 'Design System/Sample/Component',
+  title: 'Component/Sample/Component',
   /* 設定對應的組件名稱: Component */
   component: Component,
   tags: ['autodocs'],
