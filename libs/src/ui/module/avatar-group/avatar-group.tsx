@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Avatar } from '@src/ui/element/avatar';
-import { List, Button } from '@src/ui';
+import { List } from '@src/ui';
 import { splitArray } from '@src/utils';
 import { ItemProps } from '../list/item';
 import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
-import { AccountIcon } from '@src/assets';
 import { useClickOutside } from '@src/hooks';
+import { getSizeClass } from './styled';
 
 /**
  * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
@@ -53,7 +53,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   const menuRef = useRef<HTMLDivElement>(null);
   const { childrenSize, position } = usePosition(avatarRef);
 
-  useClickOutside(menuRef, () => setIsVisible(false));
+  useClickOutside([menuRef, avatarRef], () => setIsVisible(false));
 
   if (limit < 1) {
     throw new Error('Limit must be at least 1');
@@ -72,7 +72,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             />
           ),
           content: {
-            prefix: <AccountIcon />,
+            prefix: (
+              <Avatar
+                size="xsmall"
+                shape="circle"
+                userName={user.userName}
+                src={user.imgSrc || ''}
+              />
+            ),
             label: user.userName,
             value: user.userName,
             href: '',
@@ -106,19 +113,17 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             <div
               ref={avatarRef}
               key={index}
-              className="ded-avatar-group-container"
+              className={`ded-avatar-container ${getSizeClass(
+                'ded-avatar-container',
+                size
+              )}`}
             >
-              <Button
-                variant="text"
-                size="large"
+              <button
+                className={`ded-avatar ded-avatar-circle`}
                 onClick={() => setIsVisible((prev) => !prev)}
               >
-                <Avatar
-                  shape="circle"
-                  size={size}
-                  userName={`+${restCount}`}
-                ></Avatar>
-              </Button>
+                <span className={`ded-avatar-text`}>+{restCount}</span>
+              </button>
             </div>
           );
         })}
@@ -130,12 +135,13 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             style={getTargetPosition(
               position,
               childrenSize,
-              'right-top',
-              '6px'
+              'bottom-left',
+              '6px',
+              false
             )}
             className={`ded-dropdown-menu ${className}`}
           >
-            <List dataSource={menu} isMenu />
+            <List dataSource={menu} hasOutline />
           </div>
         )}
       </Portal>

@@ -1,4 +1,4 @@
-## V1.2.5 (2024/11/13)
+## V1.2.12 (2024/12/14)
 
 ✨ New Feature
 
@@ -6,10 +6,12 @@
 
 🆙 Update
 
-- Modify all component order by
-- Sync all component parameter name
-- Category all component parameter
-
----
+- refactor: refactor styling and data handling in checkbox and radio
+  components
+- style: standardize styling across toggle components
+- style: refactor tooltip component styles and functionality
+- refactor: refactor input and textarea components for styling
+  improvements
+- feat: implement UI updates with primary theme color palette
 
 🪲 Bug Fix

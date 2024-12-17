@@ -1,0 +1,66 @@
+@use 'sass:list';
+
+:root {
+  interpolate-size: allow-keywords;
+}
+
+.ded-accordion {
+  list-style: none;
+
+  &-item {
+    background-color: list.nth($neutral-0, $site);
+    border-bottom: 1px solid list.nth($neutral-50, $site);
+
+    &:hover {
+      background-color: $accordion-colors;
+    }
+
+    &:focus {
+      border: 2px solid $accordion-colors;
+    }
+
+    &-open {
+      transition: transform .3s;
+      transform: rotate(180deg);
+    }
+
+    &-close {
+      transition: transform .3s;
+      transform: rotate(0deg);
+    }
+  }
+
+  .ded-accordion-detail {
+    .ded-accordion-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px 8px;
+      cursor: pointer;
+      font-weight: 700;
+
+      &::marker {
+        content: '';
+      }
+    }
+
+    p {
+      padding: 0 12px 8px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+  }
+}
+
+/* Animation */
+::details-content {
+  transition: height 0.5s ease, content-visibility 0.5s ease allow-discrete;
+  height: 0;
+  overflow: clip;
+  content-visibility: visible !important;
+}
+
+[open]::details-content {
+  height: auto;
+  height: calc-size(auto);
+}

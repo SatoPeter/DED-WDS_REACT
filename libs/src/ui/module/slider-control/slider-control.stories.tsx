@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { SliderControl } from '@src/ui';
+import { SliderControl } from '../../module/slider-control';
 import { PlusIcon, MinusIcon } from '@src/assets';
 
 export default {
@@ -13,9 +13,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'success',
           'warning',
           'error',
@@ -109,14 +109,14 @@ export default {
   },
   parameters: {
     docs: {
-      title: '按鈕滑桿',
+      title: 'Slider Control',
       description: {
         component: '按鈕滑桿輸入的呈現及說明。',
       },
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     min: -100,
     max: 100,
     step: 1,
@@ -157,9 +157,9 @@ export const ThemeColor: Story = {
     docs: {
       source: {
         code: `
+<SliderControl {...args} initValue={60} themeColor="neutral" />
 <SliderControl {...args} initValue={40} themeColor="primary" />
 <SliderControl {...args} initValue={50} themeColor="secondary" />
-<SliderControl {...args} initValue={60} themeColor="tertiary" />
 <SliderControl {...args} initValue={70} themeColor="success" />
 <SliderControl {...args} initValue={80} themeColor="info" />
 <SliderControl {...args} initValue={90} themeColor="warning" />
@@ -171,9 +171,9 @@ export const ThemeColor: Story = {
   render(args) {
     return (
       <div>
+        <SliderControl {...args} initValue={60} themeColor="neutral" />
         <SliderControl {...args} initValue={40} themeColor="primary" />
         <SliderControl {...args} initValue={50} themeColor="secondary" />
-        <SliderControl {...args} initValue={60} themeColor="tertiary" />
         <SliderControl {...args} initValue={70} themeColor="success" />
         <SliderControl {...args} initValue={80} themeColor="info" />
         <SliderControl {...args} initValue={90} themeColor="warning" />

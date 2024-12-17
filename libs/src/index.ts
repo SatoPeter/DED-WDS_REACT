@@ -12,9 +12,10 @@ import { AvatarGroup } from './ui/module/avatar-group';
 import { List, Item } from './ui/module/list';
 import { Tooltip } from './ui/module/tooltip';
 import { Slider } from './ui/element/slider';
-import { ButtonSlider } from './ui/module/slider-control';
+import { SliderControl } from './ui/module/slider-control';
 import { Card } from './ui/section/card';
 import { Menu } from './ui/module/menu';
+import { Image } from './ui/element/image';
 
 export {
   Title,
@@ -33,7 +34,8 @@ export {
   Item,
   Tooltip,
   Slider,
-  ButtonSlider,
+  SliderControl,
   Card,
   Menu,
+  Image,
 };

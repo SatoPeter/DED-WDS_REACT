@@ -1,28 +1,26 @@
+@use 'sass:list';
+
 .ded-toggle {
   position: relative;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   height: 24px;
-  padding: 4px 6px;
+  padding: 0.25em 0.375em;
   font-size: 14px;
   border-radius: 15px;
-
-  &:focus {
-    box-shadow: 0 0 1px 2px $color-white, 0 0 1px 4px blend-rgba(getThemeColor($mode, 'primary', 'default'), $lightness50);
-  }
 
   &-thumb {
     position: absolute;
     width: 18px;
     height: 18px;
-    background-color: $color-white;
+    background-color: list.nth($neutral-0, $site);
     border-radius: 50%;
 
 
-    &-disable {
+    &-disabled {
       pointer-events: none !important;
-      background-color: $color-gray10 !important;
+      background-color: list.nth($neutral-50, $site) !important;
     }
 
     &-on {
@@ -44,12 +42,12 @@
     align-items: center;
     min-width: 20px;
     padding: 0 2px;
-    color: $color-white;
+    color: list.nth($neutral-0, $site);
     cursor: pointer;
 
-    &-disable {
+    &-disabled {
       pointer-events: none !important;
-      color: $color-gray10 !important;
+      color: list.nth($neutral-0, $site) !important;
     }
   }
 
@@ -65,23 +63,27 @@
 
   &-on {
     // flex-direction: row-reverse;
-    background-color: getThemeColor($mode, 'success', 'default');
+    // background-color: getThemeColor('success', 'default');
   }
 
   &-off {
     // flex-direction: row;
-    background-color: $color-gray40 !important;
+    background-color: list.nth($neutral-300, $site) !important;
   }
 
-  &-disable {
+  &-disabled {
     pointer-events: none !important;
-    background-color: $color-disabled !important;
-    color: $color-gray10 !important;
+    background-color: list.nth($neutral-100, $site) !important;
+    color: list.nth($neutral-0, $site) !important;
   }
 
   @each $theme in $themes {
     &-#{$theme} {
-      background-color: getThemeColor($mode, $theme, 'default');
+      background-color: getThemeColor($theme, 'default');
+
+      &:focus {
+        box-shadow: 0 0 1px 4px getThemeColor($theme, 'outline');
+      }
     }
   }
 }

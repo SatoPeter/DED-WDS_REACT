@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 .ded-textarea-container {
   display: flex;
   flex-direction: column;
@@ -11,19 +13,19 @@
   padding-bottom: 16px;
   border-width: $input-border-width;
   border-style: solid;
-  border-color: $border-color-default;
-  border-radius: $textarea-size-rounded;
-  background-color: $color-white;
+  border-color: $form-border;
+  border-radius: $radius;
+  background-color: $form-background;
   overflow: hidden;
 
   &:hover {
-    box-shadow: 0 0 0 2px getBorderColor($mode, 'primary', 'hover');
-    border: 1px solid getBorderColor($mode, 'primary', 'hover');
+    // box-shadow: 0 0 0 2px getBorderColor('primary', 'hover');
+    border: 1px solid $form-hover;
   }
 
   &:focus-within {
-    box-shadow: 0 0 0 3px getBorderColor($mode, 'primary', 'focus');
-    border: 1px solid getBorderColor($mode, 'primary', 'focus');
+    box-shadow: 0 0 0 3px $form-hover;
+    // border: 1px solid getBorderColor('primary', 'focus');
   }
 
   .ded-textarea {
@@ -36,33 +38,34 @@
     word-break: break-all;
     padding-top: 16px;
     padding-inline: 16px;
+    color: list.nth($text-secondary, $site);
 
     &::placeholder {
-      color: $text-color-placeholder;
+      color: list.nth($text-placeholder, $site);
     }
-  }
 
-  .ded-textarea-hint-count {
-    position: absolute;
-    font-size: $text-size-caption2;
-    color: $color-gray40;
-    right: 12px;
-    bottom: 4px;
+    &-hint-count {
+      position: absolute;
+      font-size: $text-size-caption2;
+      color: $color-gray40;
+      right: 12px;
+      bottom: 4px;
+    }
   }
 }
 
 .ded-textarea-disable {
   pointer-events: none !important;
-  color: $color-gray20 !important;
-  border-color: $color-gray20 !important;
+  color: list.nth($disabled-text, $site) !important;
+  border-color: list.nth($disabled-border, $site) !important;
 
   &::placeholder {
-    color: $color-gray20 !important;
+    color: list.nth($text-placeholder, $site) !important;
   }
 }
 
 .ded-textarea-border-error {
-  border-color: getBorderColor($mode, 'error', 'default') !important;
+  border-color: getThemeColor('error', 'default');
 }
 
 .ded-textarea-label {
@@ -80,5 +83,5 @@
 }
 
 .ded-textarea-hint-error {
-  color: getTextColor($mode, 'error') !important;
+  color: getThemeColor('error', 'default');
 }

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
-import { getArrowPositionClass } from './styled';
+import { getCombinedClassName } from '@src/utils/string';
 import { usePosition } from '@src/hooks/usePosition';
 
 /**
@@ -70,16 +70,21 @@ export const Tooltip: React.FC<TooltipProps> = ({
       <Portal>
         {isVisible && (
           <div
-            style={getTargetPosition(position, childrenSize, placement, '6px')}
+            style={getTargetPosition(
+              position,
+              childrenSize,
+              placement,
+              '6px',
+              false
+            )}
             className={`ded-tooltip ${className}`}
           >
             <div className="ded-tooltip-content">
               {content}
               {showArrow && (
                 <div
-                  className={`ded-tooltip-arrow ${getArrowPositionClass(
-                    placement
-                  )}`}
+                  className={`ded-tooltip-arrow 
+                    ${getCombinedClassName('ded-tooltip-arrow', placement)}`}
                 >
                   <div className="ded-tooltip-arrow-shape" />
                 </div>

@@ -24,7 +24,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Components', 'Intro'],
+        order: ['Introduction', 'Components'],
         locales: 'en-US',
       },
     },

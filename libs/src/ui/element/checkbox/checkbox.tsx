@@ -5,8 +5,8 @@ import { getThemeClass } from './styled';
 /**
  * CheckboxProps 介面定義了 Checkbox 元件的屬性。
  *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 選擇框的主題顏色。
- * @property {{ label: string; value: string }[]} [dataSource] - 選項的陣列，每個選項包含標籤和值。
+ * @property {('primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 選擇框的主題顏色。
+ * @property {{ label: string; value: string; isDisabled: boolean }[]} [dataSource] - 選項的陣列，每個選項包含標籤和值。
  * @property {string[]} [initValue] - 初始選中的值。
  * @property {('row' | 'column')} [direction] - 選項排列的方向，可以是 'row' 或 'column'。
  * @property {string} [className] - 自訂的 CSS 類名。
@@ -16,12 +16,12 @@ export interface CheckboxProps {
   themeColor?:
     | 'primary'
     | 'secondary'
-    | 'tertiary'
+    | 'neutral'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
-  dataSource: { label: string; value: string }[];
+    | 'error';
+  dataSource: { label: string; value: string; isDisabled: boolean }[];
   initValue: string[];
   direction?: 'row' | 'column';
   className?: string;
@@ -46,7 +46,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   dataSource,
   initValue,
   direction = 'row',
-  className,
+  className = '',
   onChange,
 }: CheckboxProps) => {
   const [currOptions, setCurrOptions] = useState<string[]>(initValue);
@@ -74,7 +74,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         <label
           key={option.value}
           htmlFor={option.value}
-          className={`ded-checkbox ${className}`}
+          className={`ded-checkbox             
+            ${option.isDisabled ? 'ded-checkbox-input-disabled' : ''} 
+            ${className}`}
         >
           <input
             className="ded-checkbox-input"
@@ -86,14 +88,21 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             type="checkbox"
           />
           <div
-            className={`ded-checkbox-icon ${getThemeClass(
-              currOptions.includes(option.value) ? 'checked' : 'unchecked',
-              themeColor
-            )}`}
+            className={`ded-checkbox-icon 
+              ${getThemeClass(
+                currOptions.includes(option.value) ? 'checked' : 'unchecked',
+                themeColor
+              )}
+              ${option.isDisabled ? 'ded-checkbox-icon-disabled' : ''}`}
           >
             {currOptions.includes(option.value) && <CheckIcon />}
           </div>
-          <span className="ded-checkbox-text">{option.label}</span>
+          <span
+            className={`ded-checkbox-text 
+              ${option.isDisabled ? 'ded-checkbox-text-disabled' : ''}`}
+          >
+            {option.label}
+          </span>
         </label>
       ))}
     </div>

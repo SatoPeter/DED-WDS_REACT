@@ -15,6 +15,8 @@ import { Menu, Input } from '@src/ui';
  */
 export interface SideNavProps {
   logo: ReactNode;
+  logoLink?: string;
+  hasSearch?: boolean;
   dataSource: ItemProps[];
   themeColor?: string;
   className?: string;
@@ -40,9 +42,11 @@ const THEME_COLOR = {
  */
 export const SideNav: React.FC<SideNavProps> = ({
   logo = '',
+  logoLink = '',
+  hasSearch = false,
   themeColor = THEME_COLOR.Blue,
   dataSource,
-  className,
+  className = '',
 }: SideNavProps) => {
   const [color, setColor] = useState(THEME_COLOR.White);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -94,16 +98,13 @@ export const SideNav: React.FC<SideNavProps> = ({
 
   return (
     <div
-      className={`ded-side-nav ${className}`}
-      style={{ backgroundColor: themeColor }}
+      className={`ded-side-nav ${className} `}
+      style={{
+        backgroundColor: themeColor,
+        width: isCollapsed ? 'auto' : '100%',
+      }}
     >
-      <div className="ded-side-nav-header">
-        {!isCollapsed && (
-          <div className="ded-side-nav-header-logo">
-            <div>{coloredLogo}</div>
-            <div style={{ color: color }}>DesignLogo</div>
-          </div>
-        )}
+      <button className="side-nav-toggle">
         <ArrowDownIcon
           style={{
             cursor: 'pointer',
@@ -114,18 +115,28 @@ export const SideNav: React.FC<SideNavProps> = ({
           width={24}
           height={24}
         />
-      </div>
+      </button>
+
       {!isCollapsed && (
-        <div>
-          <Input
-            initValue={searchValue}
-            onChange={() => ({})}
-            placeholder="請輸項目..."
-            prefix={<SearchIcon />}
-            size="medium"
-            type="text"
-          />
+        <div className="ded-side-nav-header">
+          <div className="ded-side-nav-header-logo">
+            {logoLink ? (
+              <a href={logoLink}>{coloredLogo}</a>
+            ) : (
+              <div>{coloredLogo}</div>
+            )}
+          </div>
         </div>
+      )}
+      {!isCollapsed && hasSearch && (
+        <Input
+          initValue={searchValue}
+          onChange={() => ({})}
+          placeholder="請輸項目..."
+          prefix={<SearchIcon />}
+          size="medium"
+          type="text"
+        />
       )}
       <Menu dataSource={dataSource} isCollapsed={isCollapsed} color={color} />
     </div>

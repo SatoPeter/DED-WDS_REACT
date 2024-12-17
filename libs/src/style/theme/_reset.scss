@@ -6,7 +6,18 @@
   border: none;
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Noto Sans', Arial, sans-serif;
+  font-family: $font-family;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  // src: url('font/Mabry-Black-Pro.woff') format('woff');
+  // src: url('font/Mabry-Bold-Pro.woff') format('woff');
+  src: url('../../assets/font/Mabry-Italic-Pro.woff') format('woff');
+  src: url('../../assets/font/Mabry-Medium-Pro.woff') format('woff');
+  // src: url('font/Mabry-Regular-Pro.woff') format('woff');
+  // src: url('font/Mabry-Black-Pro.woff') format('woff');
+  // src: url('font/Mabry-BoldItalic-Pro.woff') format('woff');
 }
 
 .ded-icon {

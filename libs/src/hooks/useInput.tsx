@@ -33,6 +33,7 @@ export const useInput = (
     inputType,
     value,
     handleInputChange: handleInputChange,
-    action: type === 'password' ? switchPassword : reset,
+    onVisibility: switchPassword,
+    onClear: reset,
   };
 };

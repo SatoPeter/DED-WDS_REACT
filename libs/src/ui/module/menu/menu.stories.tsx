@@ -74,9 +74,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '選單',
+      title: 'Menu',
       description: {
-        component: '選單的呈現及說明。',
+        component: '選單組件的呈現及說明。',
       },
     },
   },

@@ -130,19 +130,24 @@ export const Default: Story = {
             </Column>
 
             <Column md={6}>
-              <Button className="link-button" variant="text">
+              <Button
+                onClick={() => ({})}
+                className="link-button"
+                variant="text"
+              >
                 Forgot Password?
               </Button>
             </Column>
 
             <Column md={6} align="end">
               <Checkbox
+                initValue={[]}
                 dataSource={[{ label: 'Remember me', value: '1' }]}
               ></Checkbox>
             </Column>
 
             <Column md={12}>
-              <Button variant="contained" width="100%">
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Login
               </Button>
             </Column>
@@ -155,9 +160,10 @@ export const Default: Story = {
         <Row justify="center">
           <Column md={10}>
             <Button
+              onClick={() => ({})}
               className="social-button"
-              variant="contained"
-              width="100%"
+              variant="filled"
+              width="fluid"
               prefix={<GoogleIcon />}
             >
               Sign in with Google
@@ -166,9 +172,10 @@ export const Default: Story = {
 
           <Column md={10}>
             <Button
+              onClick={() => ({})}
               className="social-button"
-              variant="contained"
-              width="100%"
+              variant="filled"
+              width="fluid"
               prefix={<FacebookIcon />}
             >
               Sign in with Facebook
@@ -182,7 +189,7 @@ export const Default: Story = {
         <Row>
           <Column md={12} align="center">
             <span>Don't have an account?</span>
-            <Button className="link-button" variant="text">
+            <Button onClick={() => ({})} className="link-button" variant="text">
               Sign up
             </Button>
           </Column>
@@ -268,13 +275,24 @@ export const SignUp: Story = {
                   alignItems: 'center',
                 }}
               >
-                <Checkbox dataSource={[{ label: '', value: '1' }]}></Checkbox>
+                <Checkbox
+                  initValue={[]}
+                  dataSource={[{ label: '', value: '1' }]}
+                ></Checkbox>
                 <span style={{ marginRight: '8px' }}>I agree to all the</span>
-                <Button className="link-button" variant="text">
+                <Button
+                  onClick={() => ({})}
+                  className="link-button"
+                  variant="text"
+                >
                   Terms
                 </Button>
                 <span style={{ marginInline: '8px' }}>and</span>
-                <Button className="link-button" variant="text">
+                <Button
+                  onClick={() => ({})}
+                  className="link-button"
+                  variant="text"
+                >
                   Privacy Policies
                 </Button>
               </div>
@@ -285,13 +303,13 @@ export const SignUp: Story = {
         <Grid fluid>
           <Row justify="flex-end">
             <Column md={4}>
-              <Button variant="contained" width="100%">
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Back
               </Button>
             </Column>
 
             <Column md={4}>
-              <Button variant="contained" width="100%">
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Sign Up
               </Button>
             </Column>
@@ -304,9 +322,10 @@ export const SignUp: Story = {
         <Row justify="center">
           <Column md={10}>
             <Button
+              onClick={() => ({})}
               className="social-button"
-              variant="contained"
-              width="100%"
+              variant="filled"
+              width="fluid"
               prefix={<GoogleIcon />}
             >
               Sign in with Google
@@ -315,9 +334,10 @@ export const SignUp: Story = {
 
           <Column md={10}>
             <Button
+              onClick={() => ({})}
               className="social-button"
-              variant="contained"
-              width="100%"
+              variant="filled"
+              width="fluid"
               prefix={<FacebookIcon />}
             >
               Sign in with Facebook
@@ -331,7 +351,9 @@ export const SignUp: Story = {
         <Row>
           <Column md={12} align="center">
             <span>Don't have an account?</span>
-            <Button variant="text">Sign up</Button>
+            <Button onClick={() => ({})} variant="text">
+              Sign up
+            </Button>
           </Column>
         </Row>
       </Grid>
@@ -365,7 +387,11 @@ export const Forgot: Story = {
             </Column>
 
             <Column md={3} lg={5} align="end">
-              <Button variant="contained" prefix={<MailIcon />}>
+              <Button
+                onClick={() => ({})}
+                variant="filled"
+                prefix={<MailIcon />}
+              >
                 Submit
               </Button>
             </Column>
@@ -402,7 +428,9 @@ export const Verify: Story = {
             </Column>
 
             <Column md={3} lg={5} align="end">
-              <Button variant="contained">Verify</Button>
+              <Button onClick={() => ({})} variant="filled">
+                Verify
+              </Button>
             </Column>
           </Row>
         </Grid>
@@ -448,11 +476,15 @@ export const Password: Story = {
             </Column>
 
             <Column md={2} lg={4} align="end">
-              <Button variant="contained">Reset</Button>
+              <Button onClick={() => ({})} variant="filled">
+                Reset
+              </Button>
             </Column>
 
             <Column md={2} lg={4} align="end">
-              <Button variant="contained">Confirm</Button>
+              <Button onClick={() => ({})} variant="filled">
+                Confirm
+              </Button>
             </Column>
           </Row>
         </Grid>

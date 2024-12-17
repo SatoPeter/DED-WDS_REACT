@@ -109,9 +109,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '格線系統',
+      title: 'Grid System',
       description: {
-        component: '格線系統的呈現及說明。',
+        component: '格線系統組件的呈現及說明。',
       },
     },
   },

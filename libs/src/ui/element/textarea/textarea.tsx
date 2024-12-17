@@ -59,45 +59,43 @@ export const Textarea: React.FC<TextareaProps> = ({
     <div className={`ded-textarea-container ${className}`}>
       {label && (
         <label
-          className={`${
-            isDisabled ? 'ded-textarea-disable' : 'ded-textarea-label'
-          }`}
+          className={`ded-textarea-label 
+            ${isDisabled ? 'ded-textarea-disable' : ''}`}
           htmlFor="id"
         >
           {label}
         </label>
       )}
       <div
-        className={`ded-textarea-group ${
-          isDisabled ? 'ded-textarea-disable' : getBorderClass(hint.error)
-        }`}
+        className={`ded-textarea-group 
+          ${getBorderClass(hint.error)} 
+          ${isDisabled ? 'ded-textarea-disable' : ''}`}
       >
         <textarea
           id="id"
           onChange={(e) => {
             onChange && onChange(e);
             setValue(e.target.value);
-            console.log(e.target.value);
           }}
           value={value}
           maxLength={limit || undefined}
-          className={`${isDisabled ? 'ded-textarea-disable' : 'ded-textarea'}`}
+          className={`ded-textarea 
+            ${isDisabled ? 'ded-textarea-disable' : ''}`}
           placeholder={placeholder}
         />
         {limit > 0 && (
           <small
-            className={`${
-              isDisabled ? 'ded-textarea-disable' : getCountClass(value)
-            }`}
+            className={`${getCountClass(value)}
+            ${isDisabled ? 'ded-textarea-disable' : ''}`}
           >
             {value.length > 0 && `${value.length}/${limit}`}
           </small>
         )}
       </div>
       <small
-        className={`ded-textarea-hint ${
-          isDisabled ? 'ded-textarea-disable' : getHintClass(hint)
-        }`}
+        className={`ded-textarea-hint 
+          ${getHintClass(hint)} 
+          ${isDisabled ? 'ded-textarea-disable' : ''}`}
       >
         {hint.error.length > 0 ? hint.error : hint.description}
       </small>

@@ -4,7 +4,7 @@
  * @returns 按鈕變體的禁用類。
  */
 export const getDisableClass = (variant: string) => {
-  return `tag-${variant}-disabled`;
+  return `ded-tag-${variant}-disabled`;
 };
 
 /**

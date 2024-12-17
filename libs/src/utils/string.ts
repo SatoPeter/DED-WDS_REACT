@@ -18,3 +18,7 @@ export const getAbbrFullName = (string: string, count: number) => {
   });
   return matchCount < 2 ? string.slice(0, count).toUpperCase() : matchString;
 };
+
+export const getCombinedClassName = (prefix: string, suffix: string) => {
+  return `${prefix}-${suffix}`;
+};

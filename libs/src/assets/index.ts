@@ -29,6 +29,9 @@ import DragonballIcon from '@assets/dragonball.svg?react';
 import GoogleIcon from '@assets/google.svg?react';
 import FacebookIcon from '@assets/facebook.svg?react';
 import MailIcon from '@assets/mail.svg?react';
+import NotificationIcon from '@assets/notification.svg?react';
+import InfoIcon from '@assets/info.svg?react';
+import WarningIcon from '@assets/warning.svg?react';
 
 export {
   AccountIcon,
@@ -62,4 +65,7 @@ export {
   GoogleIcon,
   FacebookIcon,
   MailIcon,
+  NotificationIcon,
+  InfoIcon,
+  WarningIcon,
 };

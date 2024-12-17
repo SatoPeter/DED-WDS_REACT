@@ -9,3 +9,24 @@
     margin-left: -20px;
   }
 }
+
+.ded-avatar-container {
+  &:not(:first-child) {
+    margin-left: -20px;
+  }
+}
+
+
+// jony 自訂 class
+.rest-container {
+  position: relative;
+  margin-left: -20px;
+
+  &-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: -50%;
+    min-width: 200px;
+    border-radius: 4px;
+  }
+}

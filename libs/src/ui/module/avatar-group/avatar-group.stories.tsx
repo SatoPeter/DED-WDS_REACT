@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import AvatarGroup from './avatar-group';
 import { AvatarProps } from '@src/ui/element/avatar';
-import { size } from 'lodash';
 
 const users: AvatarProps[] = [
   {
@@ -70,7 +69,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '個人頭像群組',
+      title: 'Avatar Group',
       description: {
         component: '個人頭像群組的呈現及說明。',
       },

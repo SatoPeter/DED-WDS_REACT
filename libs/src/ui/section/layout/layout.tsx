@@ -14,7 +14,7 @@ interface LayoutComponent extends React.FC<LayoutProps> {
 }
 
 export const Layout: LayoutComponent = (props: LayoutProps) => {
-  const { children, className, ...rest } = props;
+  const { children, className = '', ...rest } = props;
 
   return (
     <div className="ded-layout" {...rest}>

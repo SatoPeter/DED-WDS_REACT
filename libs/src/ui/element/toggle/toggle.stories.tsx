@@ -13,11 +13,11 @@ export default {
         options: [
           'primary',
           'secondary',
-          'tertiary',
+          'neutral',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
@@ -63,7 +63,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'success',
     checkLabel: 'on',
     unCheckLabel: 'off',
     isChecked: true,
@@ -72,7 +72,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '開關按鈕',
+      title: 'Toggle',
       description: {
         component: '開關按鈕組件的呈現及說明。',
       },
@@ -98,9 +98,9 @@ export const Theme: Story = {
     docs: {
       source: {
         code: `
+<Toggle {...args} themeColor="neutral" />
 <Toggle {...args} themeColor="primary" />
 <Toggle {...args} themeColor="secondary" />
-<Toggle {...args} themeColor="tertiary" />
 <Toggle {...args} themeColor="info" />
 <Toggle {...args} themeColor="success" />
 <Toggle {...args} themeColor="warning" />
@@ -114,7 +114,7 @@ export const Theme: Story = {
       <div style={{ display: 'flex', gap: '8px' }}>
         <Toggle {...args} themeColor="primary" />
         <Toggle {...args} themeColor="secondary" />
-        <Toggle {...args} themeColor="tertiary" />
+        <Toggle {...args} themeColor="neutral" />
         <Toggle {...args} themeColor="info" />
         <Toggle {...args} themeColor="success" />
         <Toggle {...args} themeColor="warning" />

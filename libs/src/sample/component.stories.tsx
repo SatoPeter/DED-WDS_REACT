@@ -46,8 +46,8 @@ export default {
 /* 設定組件類型 */
 type Story = StoryObj<typeof Component>;
 
-export const Primary: Story = {
-  name: '搜尋輸入框',
+export const Default: Story = {
+  name: '預設項目',
   args: {
     /* 設定參數預設值 */
     // size: 'medium',

@@ -64,7 +64,8 @@ export default {
       <Button
         prefix={<AccountIcon />}
         themeColor="primary"
-        variant="contained"
+        variant="filled"
+        radius="md"
         onClick={() => ({})}
       >
         Hover Me
@@ -73,9 +74,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '提示工具',
+      title: 'Tooltip',
       description: {
-        component: '提示工具的呈現及說明。',
+        component: '提示工具組件的呈現及說明。',
       },
     },
   },

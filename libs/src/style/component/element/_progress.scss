@@ -12,7 +12,7 @@
   &-circle-percent {
     @each $theme in $themes {
       &-#{$theme} {
-        stroke: getThemeColor($mode, $theme, 'default');
+        stroke: getThemeColor($theme, 'default');
       }
     }
   }
@@ -33,7 +33,7 @@
       @each $theme in $themes {
         &-#{$theme} {
           height: 100%;
-          background-color: getThemeColor($mode, $theme, 'default');
+          background-color: getThemeColor($theme, 'default');
           transition: width 0.35s ease;
         }
       }

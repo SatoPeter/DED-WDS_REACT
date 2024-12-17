@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from './tabs';
+import { ArrowDownIcon } from '@src/assets';
 
 const tabs = [
   { title: 'Tab 1', content: 'Content 1' },
@@ -20,11 +21,11 @@ export default {
         options: [
           'primary',
           'secondary',
-          'tertiary',
+          'neutral',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
@@ -58,6 +59,17 @@ export default {
         category: 'PROPS',
       },
     },
+    prefix: {
+      description: '前綴元素',
+      options: ['none', 'ArrowDownIcon'],
+      mapping: {
+        none: null,
+        ArrowDownIcon: <ArrowDownIcon />,
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     isDisabled: {
       description: '是否禁用',
       table: {
@@ -83,13 +95,14 @@ export default {
     dataSource: tabs,
     activeIndex: 0,
     type: 'default',
+    prefix: <ArrowDownIcon />,
     isDisabled: false,
     className: '',
     onClick: action('onClick'),
   },
   parameters: {
     docs: {
-      title: '頁籤',
+      title: 'Tabs',
       description: {
         component: '頁籤組件的呈現及說明。',
       },

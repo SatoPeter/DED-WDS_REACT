@@ -1,6 +1,8 @@
-@import './theme/_reset';
 @import './theme/_variable';
 @import './theme/_function';
+@import './theme/_default_variable';
+@import './theme/_color_schema';
+@import './theme/_reset';
 @import './theme/_map';
 @import './theme/_base';
 @import './component/element/_title';
@@ -11,7 +13,6 @@
 @import './component/element/_radio';
 @import './component/element/_checkbox';
 @import './component/module/_tabs';
-@import './component/_accordion';
 @import './component/element/_breadcrumb';
 @import './component/element/_progress';
 @import './component/module/_search';
@@ -31,4 +32,11 @@
 @import './component/section/_grid';
 @import './component/element/_divider';
 @import './component/template/_auth_flow';
+@import './component/element/_image';
+@import './component/element/_accordion';
+@import './component/element/_badge';
+@import './component/element/_toggle';
+@import './component/module/_toast';
+@import './component/element/_stepper';
+@import './component/module/_dialog';
 @import './custom';

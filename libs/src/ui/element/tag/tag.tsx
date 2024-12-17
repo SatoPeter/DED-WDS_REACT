@@ -1,18 +1,19 @@
 import React from 'react';
-import { Button } from '@src/ui';
 import { CloseIcon } from '@src/assets';
 import { getDisableClass, getThemeClass } from './styled';
 
 export interface TagProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
+    | 'error';
+  variable?: 'filled' | 'ghost';
   label: string;
+  href?: string;
   prefix?: React.ReactNode;
   closable?: boolean;
   isDisabled?: boolean;
@@ -23,31 +24,41 @@ export interface TagProps {
 
 export const Tag: React.FC<TagProps> = ({
   themeColor = 'primary',
+  variable = 'filled',
   label,
+  href = '',
   prefix,
   closable = true,
   isDisabled = false,
-  className,
+  className = '',
   onClose = () => ({}),
 }) => {
   return (
     <div
-      className={`ded-tag ${className} ${
+      className={`ded-tag ${
         isDisabled
-          ? getDisableClass('outlined')
-          : getThemeClass('contained', themeColor)
-      }`}
+          ? getDisableClass(variable)
+          : getThemeClass(variable, themeColor)
+      } ${className}`}
     >
-      {prefix && <div className="ded-tag-icon">{prefix}</div>}
-      <span className="ded-tag-text">{label}</span>
+      {href ? (
+        <a href={href} className="ded-tag-text">
+          {prefix && <div className="ded-tag-icon">{prefix}</div>}
+          {label}
+        </a>
+      ) : (
+        <span className="ded-tag-text">
+          {prefix && <div className="ded-tag-icon">{prefix}</div>}
+          {label}
+        </span>
+      )}
       {closable && (
-        <Button variant="text" onClick={onClose}>
-          <CloseIcon
-            className={`ded-tag-close ${
-              isDisabled ? 'ded-tag-close-disabled' : ''
-            }`}
-          />
-        </Button>
+        <CloseIcon
+          onClick={onClose}
+          className={`ded-tag-close ${
+            isDisabled ? 'ded-tag-close-disabled' : ''
+          }`}
+        />
       )}
     </div>
   );

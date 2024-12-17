@@ -5,7 +5,7 @@
  * @returns 如果錯誤訊息為空，則返回 undefined，否則返回 textarea 邊框的 CSS 類名。
  */
 export const getBorderClass = (error: string) => {
-  if (error.length <= 0) return;
+  if (error.length <= 0) return '';
   return 'ded-textarea-border-error';
 };
 

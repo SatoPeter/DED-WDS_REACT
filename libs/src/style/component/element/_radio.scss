@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use 'sass:list';
 
 .ded-radio-container {
   display: inline-flex;
@@ -21,20 +22,20 @@
   gap: 4px;
   cursor: pointer;
 
-
-
   &-input {
     display: none;
   }
 
   &-text {
-    color: getTextColor($mode, 'primary');
+    color: list.nth($text-primary, $site);
   }
 
   &-icon {
     width: 16px;
     height: 16px;
-    border: 1px solid $color-gray40;
+    border-width: $border-width;
+    border-style: solid;
+    border-color: list.nth($neutral-200, $site);
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -43,16 +44,17 @@
 
   @each $theme in $themes {
     &-checked-#{$theme} {
-      background-color: getThemeColor($mode, $theme, 'default');
-      border-color: getThemeColor($mode, $theme, 'default');
-      color: $color-white;
+      background-color: list.nth($neutral-0, $site);
+      border-color: getThemeColor($theme, 'default');
+      border-width: 5px;
+      transition: border-width 0.1s;
 
       &:hover {
-        border-color: getThemeColor($mode, $theme, 'default');
+        border-color: getThemeColor($theme, 'default');
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, $theme, 'default'), $lightness80);
+        box-shadow: 0 0 0 3px getThemeColor($theme, 'outline');
       }
     }
 
@@ -60,12 +62,24 @@
       background-color: transparent;
 
       &:hover {
-        border-color: getThemeColor($mode, $theme, 'default');
+        border-color: getThemeColor($theme, 'default');
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, $theme, 'default'), $lightness80);
+        box-shadow: 0 0 0 3px getThemeColor($theme, 'outline');
       }
     }
   }
+}
+
+.ded-radio-input-disabled {
+  pointer-events: none !important;
+}
+
+.ded-radio-icon-disabled {
+  border-color: list.nth($disabled-border, $site) !important;
+}
+
+.ded-radio-text-disabled {
+  color: list.nth($disabled-text, $site) !important;
 }

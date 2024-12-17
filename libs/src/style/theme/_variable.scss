@@ -1,4 +1,14 @@
 @use 'sass:math';
+@use 'sass:list';
+
+// 主題色名稱
+$theme-color: ['AUO-BLUE', 'AUO-DARK', 'AUO-PURPLE', 'AUO-YELLOW'];
+// 主題色索引
+$site: list.index($theme-color, 'AUO-BLUE');
+
+$font-family: 'Mabry Pro', Verdana, 'Noto Sans TC', 'Noto Sans SC', 'Noto Sans JP', 'Microsoft JhengHei', 'sans-serif',
+  '新細明體', '細明體';
+//＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 // 模式
 $mode: 'light';
@@ -6,9 +16,9 @@ $mode: 'light';
 $separate: '/';
 
 // 按鈕樣式清單
-$variants: ['contained', 'outlined', 'text'];
+$variants: [filled, 'soft', 'ghost', 'text'];
 // 主題清單
-$themes: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'info'];
+$themes: ['neutral', 'primary', 'secondary', 'success', 'warning', 'error', 'info'];
 // 尺寸清單
 $sizes: ['xsmall', 'small', 'medium', 'large'];
 // 形狀清單
@@ -18,7 +28,7 @@ $avatarStatus: ['online', 'idle', 'busy', 'offline'];
 // Avatar 外型樣式清單
 $avatarShape: ['circle', 'square'];
 // 圖示比例清單
-$aspectRatio: ['11', '43', '54', '169'];
+$aspectRatio: ['1x1', '4x3', '5x4', '16x9'];
 // Tooltip Arrow 位置擺放清單
 $arrowPosition: ['top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom', 'right-top', 'right-bottom'];
 
@@ -97,7 +107,7 @@ $light-color-tertiary: #F96CC0FF;
 
 // 主題色票
 // dark
-$dark-color-primary: #533BD4FF;
+$dark-color-primary: #00467CFF;
 $dark-color-secondary: #68E1FEFF;
 $dark-color-tertiary: #EF68FFFF;
 

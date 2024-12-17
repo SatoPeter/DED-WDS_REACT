@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Tag } from './tag';
 import {
   AccountIcon,
@@ -16,14 +16,24 @@ export default {
     themeColor: {
       description: '主題顏色',
       options: [
+        'neutral',
         'primary',
         'secondary',
-        'tertiary',
+        'info',
         'success',
         'warning',
         'error',
-        'info',
       ],
+      control: {
+        type: 'select',
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    variable: {
+      description: '變數',
+      options: ['filled', 'ghost'],
       control: {
         type: 'select',
       },
@@ -33,6 +43,12 @@ export default {
     },
     label: {
       description: '標籤文字',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    href: {
+      description: '超連結',
       table: {
         category: 'PROPS',
       },
@@ -78,8 +94,10 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
+    variable: 'filled',
     label: 'Tag',
+    href: '',
     prefix: 'None',
     closable: true,
     isDisabled: false,
@@ -88,9 +106,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '標籤',
+      title: 'Tag',
       description: {
-        component: '標籤的呈現及說明。',
+        component: '標籤組件的呈現及說明。',
       },
     },
   },
@@ -105,30 +123,76 @@ export const Default: Story = {
   },
 };
 
-export const ThemeColor: Story = {
-  name: '主題色彩',
+export const Additional: Story = {
+  name: '附加元素',
   args: {},
   parameters: {
     docs: {
       source: {
-        code: `
-<Tag {...args} themeColor="primary" label="primary" />
-<Tag {...args} themeColor="secondary" label="secondary" />
-<Tag {...args} themeColor="tertiary" label="tertiary" />
-<Tag {...args} themeColor="info" label="info" />
-<Tag {...args} themeColor="success" label="success" />
-<Tag {...args} themeColor="warning" label="warning" />
-<Tag {...args} themeColor="error" label="error" />
-`,
+        transform(code: string, storyContext: StoryContext) {
+          return `
+<Tag {...args} prefix={<AccountIcon></AccountIcon>} />
+          `;
+        },
+      },
+    },
+  },
+  render(args) {
+    return <Tag {...args} prefix={<AccountIcon></AccountIcon>} />;
+  },
+};
+
+export const Variable: Story = {
+  name: '外觀樣式',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          return `
+<Tag {...args} variable="filled" />
+<Tag {...args} variable="ghost" />
+`;
+        },
       },
     },
   },
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
+        <Tag {...args} variable="filled" themeColor="primary" label="Primary" />
+        <Tag {...args} variable="ghost" themeColor="primary" label="Primary" />
+      </div>
+    );
+  },
+};
+
+export const ThemeColor: Story = {
+  name: '主題色彩',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          return `
+<Tag {...args} themeColor="neutral" />
+<Tag {...args} themeColor="primary" />
+<Tag {...args} themeColor="secondary" />
+<Tag {...args} themeColor="info" />
+<Tag {...args} themeColor="success" />
+<Tag {...args} themeColor="warning" />
+<Tag {...args} themeColor="error" />
+`;
+        },
+      },
+    },
+  },
+  render(args) {
+    return (
+      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+        <Tag {...args} themeColor="neutral" label="Neutral" />
         <Tag {...args} themeColor="primary" label="Primary" />
         <Tag {...args} themeColor="secondary" label="Secondary" />
-        <Tag {...args} themeColor="tertiary" label="Tertiary" />
         <Tag {...args} themeColor="info" label="Info" />
         <Tag {...args} themeColor="success" label="Success" />
         <Tag {...args} themeColor="warning" label="Warning" />

@@ -6,24 +6,6 @@ export default {
   component: Divider,
   tags: ['autodocs'],
   argTypes: {
-    themeColor: {
-      description: '主題顏色',
-      control: {
-        type: 'select',
-      },
-      options: [
-        'primary',
-        'secondary',
-        'tertiary',
-        'success',
-        'warning',
-        'error',
-        'info',
-      ],
-      table: {
-        category: 'PROPS',
-      },
-    },
     width: {
       description: '線條寬度',
       control: {
@@ -81,8 +63,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
-    width: 'xsmall',
+    width: 'small',
     type: 'solid',
     direction: 'horizontal',
     align: 'center',
@@ -93,7 +74,7 @@ export default {
     docs: {
       title: '分隔線',
       description: {
-        component: '分隔線的呈現及說明。',
+        component: '分隔線組件的呈現及說明。',
       },
     },
   },
@@ -211,44 +192,6 @@ export const Direction: Story = {
         </Divider>
         <Divider {...args} align="end">
           End
-        </Divider>
-      </div>
-    );
-  },
-};
-
-export const ThemeColor: Story = {
-  name: '線條顏色',
-  args: {
-    width: 'small',
-    type: 'solid',
-    direction: 'horizontal',
-    align: 'center',
-    className: '',
-  },
-  render(args) {
-    return (
-      <div>
-        <Divider {...args} themeColor="primary">
-          Primary
-        </Divider>
-        <Divider {...args} themeColor="secondary">
-          Secondary
-        </Divider>
-        <Divider {...args} themeColor="tertiary">
-          Tertiary
-        </Divider>
-        <Divider {...args} themeColor="info">
-          Info
-        </Divider>
-        <Divider {...args} themeColor="success">
-          Success
-        </Divider>
-        <Divider {...args} themeColor="warning">
-          Warning
-        </Divider>
-        <Divider {...args} themeColor="error">
-          Error
         </Divider>
       </div>
     );

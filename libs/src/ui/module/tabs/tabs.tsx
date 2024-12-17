@@ -1,71 +1,10 @@
-import React, { useState, MouseEvent, useEffect } from 'react';
-import { Button } from '@src/ui';
-import { getActiveClass, getThemeClass } from './styled';
-
-/**
- * TabItemProps 介面定義了標籤項目的屬性。
- *
- * @property { 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info' } [themeColor] - 標籤的主題顏色。
- * @property { 'card' | 'default' } [type] - 標籤的類型，可以是卡片或預設。
- * @property {string} title - 標籤的標題。
- * @property {number} index - 標籤的索引。
- * @property {boolean} isActive - 標籤是否處於活動狀態。
- * @property {boolean} [isDisabled] - 標籤是否被禁用。
- * @property {(event: MouseEvent<HTMLButtonElement>) => void} onClick - 點擊標籤時的回調函數。
- * @property {string} [className] - 標籤的自定義 CSS 類名。
- */
-export interface TabItemProps {
-  themeColor?:
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'info';
-  type?: 'default' | 'card';
-  title: string;
-  isActive: boolean;
-  isDisabled?: boolean;
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
-  className?: string;
-}
-
-/**
- * TabItem 組件代表標籤組中的單個標籤項目。
- *
- * @component
- * @param {Object} props - 組件的屬性。
- * @param {string} props.label - 標籤的顯示文字。
- * @param {boolean} props.isActive - 標籤是否處於活動狀態。
- * @param {Function} props.onClick - 當標籤被點擊時觸發的回調函數。
- */
-const TabItem: React.FC<TabItemProps> = ({
-  themeColor = 'primary',
-  type = 'default',
-  title = '',
-  isActive,
-  isDisabled = false,
-  className,
-  onClick,
-}: TabItemProps) => (
-  <Button
-    className={`ded-tab ${isActive ? getActiveClass(themeColor, type) : ''} ${
-      isDisabled
-        ? 'ded-tab-disable'
-        : className || getThemeClass(themeColor, type)
-    }`}
-    variant="text"
-    onClick={onClick}
-  >
-    {title}
-  </Button>
-);
+import React, { useState, MouseEvent, useEffect, ReactNode } from 'react';
+import { TabItem } from './tab-item';
 
 /**
  * TabsProps 介面定義了 Tabs 組件的屬性。
  *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 選擇 Tabs 的主題顏色。
+ * @property {('neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 選擇 Tabs 的主題顏色。
  * @property {Tab[]} dataSource - Tabs 的數據陣列，每個 Tab 包含標題和內容。
  * @property {number} [activeIndex] - 設定當前活躍的 Tab 索引。
  * @property {('card' | 'default')} [type] - 設定 Tabs 的類型，可以是卡片樣式或預設樣式。
@@ -75,9 +14,9 @@ const TabItem: React.FC<TabItemProps> = ({
  */
 export interface TabsProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'
@@ -88,6 +27,7 @@ export interface TabsProps {
   }[];
   activeIndex: number;
   type?: 'default' | 'card';
+  prefix?: ReactNode;
   isDisabled?: boolean;
   className?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -110,6 +50,7 @@ export const Tabs: React.FC<TabsProps> = ({
   dataSource,
   activeIndex = 0,
   type = 'default',
+  prefix = '',
   isDisabled = false,
   className = '',
   onClick,
@@ -135,6 +76,7 @@ export const Tabs: React.FC<TabsProps> = ({
             title={tab.title}
             themeColor={themeColor}
             type={type}
+            prefix={prefix}
             isDisabled={isDisabled}
             isActive={index === activeTabIndex}
             onClick={(e) => handleClick(e, index)}

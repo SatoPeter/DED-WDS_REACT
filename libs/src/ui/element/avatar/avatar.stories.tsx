@@ -65,7 +65,7 @@ export default {
     docs: {
       title: 'Avatar',
       description: {
-        component: '個人頭像的呈現及說明。',
+        component: '個人頭像組件的呈現及說明。',
       },
     },
   },
@@ -147,28 +147,33 @@ export const AvatarStatus: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end' }}>
+      <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-end' }}>
         <Avatar
           {...args}
           src="https://picsum.photos/200/300?random=1"
           shape="circle"
-          status="online"
         />
         <Avatar
           {...args}
           src="https://picsum.photos/200/300?random=2"
           shape="circle"
-          status="idle"
+          status="online"
         />
         <Avatar
           {...args}
           src="https://picsum.photos/200/300?random=3"
           shape="circle"
-          status="busy"
+          status="idle"
         />
         <Avatar
           {...args}
           src="https://picsum.photos/200/300?random=4"
+          shape="circle"
+          status="busy"
+        />
+        <Avatar
+          {...args}
+          src="https://picsum.photos/200/300?random=5"
           shape="circle"
           status="offline"
         />

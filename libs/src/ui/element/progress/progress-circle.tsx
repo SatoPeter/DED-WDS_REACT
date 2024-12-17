@@ -4,7 +4,7 @@ import { getThemeClass } from './styled';
 /**
  * `CircleProgressProps` 介面定義了圓形進度條的屬性。
  *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
+ * @property {('primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 和 'info'。
  * @property {string} [label] - 進度條的標籤。
  * @property {number} percent - 進度百分比，範圍從 0 到 100。
  * @property {number} [size] - 進度條的大小，預設大小為 100。
@@ -15,11 +15,11 @@ export interface CircleProgressProps {
   themeColor?:
     | 'primary'
     | 'secondary'
-    | 'tertiary'
+    | 'neutral'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
+    | 'error';
   label?: string;
   percent: number; // 0 to 100
   size?: number; // default size is 100

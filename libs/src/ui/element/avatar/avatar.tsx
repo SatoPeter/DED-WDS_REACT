@@ -2,6 +2,7 @@ import React from 'react';
 import { IdleIcon, OnlineIcon, BusyIcon, OfflineIcon } from '@src/assets';
 import { getSizeClass, getStatusClass, getShapeClass } from './styled';
 import { getAbbrFullName } from '@src/utils';
+import { Image } from '@src/ui';
 
 /**
  * 根據給定的大小和狀態獲取對應的狀態圖標。
@@ -81,7 +82,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     >
       <div className={`ded-avatar ${getShapeClass('ded-avatar', shape)}`}>
         {src ? (
-          <img className="ded-avatar-pic" src={src} alt={alt} />
+          <Image src={src} alt={alt} ratio="1x1" objectFit="cover" />
         ) : (
           <span className={`ded-avatar-text ${getSizeClass('ded-text', size)}`}>
             {getAbbrFullName(userName, 2)}

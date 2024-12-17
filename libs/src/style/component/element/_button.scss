@@ -1,34 +1,95 @@
+@use 'sass:list';
+@use 'sass:color';
+
 .ded-button {
   display: inline-flex;
   gap: 8px;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  padding: 0.5em 1em;
   cursor: pointer;
   transition: background-color 0.3s;
 
+  &-only-icon {
+    padding: 0.5em;
+  }
+
+  &-fit {
+    width: fit-content;
+  }
+
+  &-fluid {
+    width: 100%;
+  }
+
+  &-radius-none {
+    border-radius: $radius-0;
+  }
+
+  &-radius-xs {
+    border-radius: $radius-2;
+  }
+
+  &-radius-sm {
+    border-radius: $radius-4;
+  }
+
+  &-radius-md {
+    border-radius: $radius-8;
+  }
+
+  &-radius-lg {
+    border-radius: $radius-12;
+  }
+
+  &-radius-xl {
+    border-radius: $radius-16;
+  }
+
+  &-radius-full {
+    border-radius: $radius-999;
+  }
+
+  &-border-width-none {
+    border-width: $border-width-0;
+  }
+
+  &-border-width-xs {
+    border-width: $border-width-1;
+  }
+
+  &-border-width-sm {
+    border-width: $border-width-2;
+  }
+
+  &-border-width-md {
+    border-width: $border-width-3;
+  }
+
+  &-border-width-lg {
+    border-width: $border-width-4;
+  }
+
+  &-border-width-xl {
+    border-width: $border-width-5;
+  }
+
   &:hover {
-    box-shadow: $shadow-dark1;
+    box-shadow: $shadow-dark-100;
   }
 
   &:active {
     box-shadow: unset;
   }
 
-  &-contained {
-    background-color: $color-black;
-    color: #fff;
+  &-filled,
+  &-soft {
+    color: list.nth($neutral-0, $site);
   }
 
-  &-outlined {
+  &-ghost {
     background-color: transparent;
-    border-width: $btn-border-width;
     border-style: solid;
-
-    &:focus {
-      box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, 'primary', 'default'), $lightness50);
-    }
 
     &:active {
       box-shadow: unset;
@@ -36,62 +97,91 @@
   }
 
   &-text {
-    padding: 0;
-    height: auto;
+    // padding: 0;
+    // height: auto;
     background-color: transparent;
-    color: $text-color-primary;
+    color: list.nth($text-primary, $site);
 
     &:hover {
       box-shadow: unset;
     }
   }
 
+  // 主題色與樣式回圈
   @each $variant in $variants {
     @each $theme in $themes {
       &-#{$variant}-#{$theme} {
 
-        @if($variant =='contained') {
-          background-color: getThemeColor($mode, $theme, 'default');
+        @if($variant =='filled') {
+          background-color: getThemeColor($theme, 'default');
+        }
+
+        @else if($variant =='soft') {
+          background-color: getThemeColor($theme, 'active');
+          color: getThemeColor($theme, 'default');
         }
 
         @else {
-          border-color: getThemeColor($mode, $theme, 'default');
-          color: getThemeColor($mode, $theme, 'default');
+          border-color: getThemeColor($theme, 'default');
+          color: getThemeColor($theme, 'default');
         }
 
         &:hover {
 
-          @if($variant =='contained') {
-            background-color: getThemeColor($mode, $theme, 'hover');
+          @if($variant =='filled') {
+            background-color: getThemeColor($theme, 'hover');
+          }
+
+          @else if($variant =='soft') {
+            background-color: blend-rgba($button-primary-default, $alpha-light-40);
+            color: list.nth($neutral-0, $site);
           }
 
           @else {
-            border-color: getThemeColor($mode, $theme, 'hover');
-            color: getThemeColor($mode, $theme, 'hover');
+            border-color: getThemeColor($theme, 'hover');
+            color: getThemeColor($theme, 'hover');
           }
         }
 
         &:focus {
+          box-shadow: 0 0 0 3px getThemeColor($theme, 'outline');
 
-          @if($variant =='contained') {
-            background-color: getThemeColor($mode, $theme, 'focus');
+          @if($variant =='filled') {
+            background-color: getThemeColor($theme, 'focus');
+          }
+
+          @else if($variant =='soft') {
+            background-color: getThemeColor($theme, 'active');
+            color: list.nth($neutral-0, $site);
+            background-color: getThemeColor($theme, 'focus');
           }
 
           @else {
-            border-color: getThemeColor($mode, $theme, 'focus');
-            color: getThemeColor($mode, $theme, 'focus');
+            border-color: getThemeColor($theme, 'focus');
+            color: getThemeColor($theme, 'focus');
           }
         }
 
         &:active {
 
-          @if($variant =='contained') {
-            background-color: getThemeColor($mode, $theme, 'active');
+          @if($variant =='filled') {
+            background-color: getThemeColor($theme, 'active');
+            color: getThemeColor($theme, 'default');
+          }
+
+          @else if($variant =='soft') {
+            background-color: getThemeColor($theme, 'default');
+            color: getThemeColor($theme, 'active');
+          }
+
+          @else if ($variant =='text') {
+            background-color: getThemeColor($theme, 'active');
+            color: getThemeColor($theme, 'default');
           }
 
           @else {
-            border-color: getThemeColor($mode, $theme, 'active');
-            color: getThemeColor($mode, $theme, 'active');
+            border-color: getThemeColor($theme, 'active');
+            color: getThemeColor($theme, 'active');
           }
         }
       }
@@ -99,22 +189,29 @@
   }
 }
 
-.ded-button-container-disable {
+.ded-button-filled-disabled {
   pointer-events: none !important;
-  color: $color-gray20 !important;
-  background-color: $color-gray20 !important;
-  color: $color-white !important;
+  background-color: list.nth($disabled-background, $site) !important;
+  color: list.nth($disabled-text, $site) !important;
 }
 
-.ded-button-outline-disable {
+.ded-button-soft-disabled {
   pointer-events: none !important;
-  color: $color-gray20 !important;
-  background-color: transparent !important;
-  border: $btn-border-width solid $color-gray20 !important;
+  background-color: list.nth($disabled-background, $site) !important;
+  color: list.nth($disabled-text, $site) !important;
 }
 
-.ded-button-text-disable {
+.ded-button-ghost-disabled {
   pointer-events: none !important;
-  color: $color-gray20 !important;
+  color: list.nth($disabled-text, $site) !important;
   background-color: transparent !important;
+  border-width: $border-width !important;
+  border-style: solid !important;
+  border-color: list.nth($disabled-border, $site) !important;
+}
+
+.ded-button-text-disabled {
+  pointer-events: none !important;
+  color: list.nth($disabled-text, $site) !important;
+  background-color: list.nth($disabled-background, $site) !important;
 }

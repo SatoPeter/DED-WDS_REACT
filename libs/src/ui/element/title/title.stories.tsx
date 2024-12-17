@@ -11,9 +11,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'info',
           'success',
           'warning',
@@ -49,14 +49,14 @@ export default {
   },
   parameters: {
     docs: {
-      title: '標題',
+      title: 'Title',
       description: {
         component: '標題組件的呈現及說明。',
       },
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     level: 1,
     className: '',
     children: 'Title',
@@ -114,9 +114,9 @@ export const Theme: Story = {
     docs: {
       source: {
         code: `
+<Title level={args.level} themeColor="neutral">{args.children}</Title>
 <Title level={args.level} themeColor="primary">{args.children}</Title>
 <Title level={args.level} themeColor="secondary">{args.children}</Title>
-<Title level={args.level} themeColor="tertiary">{args.children}</Title>
 <Title level={args.level} themeColor="info">{args.children}</Title>
 <Title level={args.level} themeColor="success">{args.children}</Title>
 <Title level={args.level} themeColor="warning">{args.children}</Title>
@@ -128,13 +128,13 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
+        <Title level={args.level} themeColor="neutral">
+          {args.children}
+        </Title>
         <Title level={args.level} themeColor="primary">
           {args.children}
         </Title>
         <Title level={args.level} themeColor="secondary">
-          {args.children}
-        </Title>
-        <Title level={args.level} themeColor="tertiary">
           {args.children}
         </Title>
         <Title level={args.level} themeColor="info">

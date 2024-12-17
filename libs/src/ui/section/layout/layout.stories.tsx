@@ -19,9 +19,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: 'Layout',
       description: {
-        component: '組件的呈現及說明。',
+        component: '佈局組件的呈現及說明。',
       },
     },
   },

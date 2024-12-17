@@ -9,13 +9,20 @@
   margin-block: 16px;
 }
 
+.ded-slider-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
 .ded-slider {
   position: relative;
   width: 100%;
   border-radius: 8px;
 }
 
-.ded-tooltip {
+.ded-slider-tooltip {
   position: absolute;
   top: -20px;
   height: 30px;
@@ -24,10 +31,6 @@
   border-radius: 4px;
   font-size: 14px;
   white-space: nowrap;
-
-  &-center {
-    justify-content: center;
-  }
 }
 
 /* remove default style */
@@ -78,15 +81,15 @@ input[type="range"].ded-slider::-webkit-slider-runnable-track {
 
 @each $theme in $themes {
   input[type="range"].ded-slider-#{$theme}::-webkit-slider-thumb {
-    background-color: getThemeColor($mode, $theme, 'default');
+    background-color: getThemeColor($theme, 'default');
   }
 
   input[type="range"].ded-slider-#{$theme}::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, getThemeColor($mode, $theme, 'default') 0%, getThemeColor($mode, $theme, 'default') var(--progress), $color-gray20 var(--progress), $color-gray20 100%);
+    background: linear-gradient(to right, getThemeColor($theme, 'default') 0%, getThemeColor($theme, 'default') var(--progress), $color-gray20 var(--progress), $color-gray20 100%);
   }
 
-  .ded-tooltip-#{$theme} {
-    color: getThemeColor($mode, $theme, 'default');
+  .ded-slider-tooltip-#{$theme} {
+    color: getThemeColor($theme, 'default');
   }
 }
 
@@ -112,7 +115,7 @@ input[type="range"].ded-slider-disable::-webkit-slider-thumb {
   cursor: not-allowed;
 }
 
-.ded-tooltip-disable {
+.ded-slider-tooltip-disable {
   color: $color-gray20;
   pointer-events: none;
 }

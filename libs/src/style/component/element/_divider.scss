@@ -1,10 +1,12 @@
 @use "sass:color";
+@use "sass:list";
 
 /*--- Divider ---*/
 .ded-divider {
   --line-weight: 2px;
   --line-style: solid;
   display: flex;
+  min-height: 5em;
 }
 
 /*--- Divider 方向 ---*/
@@ -22,7 +24,7 @@
   content: "";
   width: 0;
   height: 0;
-  border-top: var(--line-weight) var(--line-style) $color-gray20;
+  border-top: var(--line-weight) var(--line-style) list.nth($neutral-700, $site);
   flex-grow: 1;
 }
 
@@ -31,7 +33,7 @@
   content: "";
   width: 0;
   height: 0;
-  border-left: var(--line-weight) var(--line-style) $color-gray20;
+  border-left: var(--line-weight) var(--line-style) list.nth($neutral-700, $site);
   flex-grow: 1;
 }
 
@@ -100,20 +102,20 @@
 
 @each $theme in $themes {
   .ded-divider-#{$theme}.ded-divider-vertical::before {
-    border-left-color: getThemeColor($mode, $theme, "default");
+    border-left-color: getThemeColor($theme, "default");
   }
 
   .ded-divider-#{$theme}.ded-divider-vertical::after {
-    border-left-color: getThemeColor($mode, $theme, "default");
+    border-left-color: getThemeColor($theme, "default");
   }
 }
 
 @each $theme in $themes {
   .ded-divider-#{$theme}.ded-divider-horizontal::before {
-    border-top-color: getThemeColor($mode, $theme, "default");
+    border-top-color: getThemeColor($theme, "default");
   }
 
   .ded-divider-#{$theme}.ded-divider-horizontal::after {
-    border-top-color: getThemeColor($mode, $theme, "default");
+    border-top-color: getThemeColor($theme, "default");
   }
 }

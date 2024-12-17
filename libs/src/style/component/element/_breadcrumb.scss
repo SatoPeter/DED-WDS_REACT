@@ -1,8 +1,10 @@
+@use 'sass:list';
+
 .ded-breadcrumb-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
   list-style: none;
 }
 
@@ -22,16 +24,16 @@
 
     &+&::before {
       padding-inline: 0.5rem;
-      color: $color-gray70;
+      color: list.nth($text-secondary, $site);
       content: $separate;
     }
 
     &-label {
-      color: $color-gray70;
+      color: list.nth($text-secondary, $site);
     }
 
     &-link {
-      color: $color-gray40;
+      color: $link-default;
       text-decoration: none;
 
       &:hover {
@@ -44,9 +46,11 @@
 
 .ded-rest {
   position: relative;
+  padding: 4px 12px;
+  border-radius: 4px;
 
   &-label {
-    color: $color-gray40;
+    color: list.nth($text-secondary, $site);
     cursor: pointer;
 
     &:hover {
@@ -61,7 +65,7 @@
     border-radius: 4px;
     overflow: hidden;
     width: 200px;
-    background-color: $color-white;
+    background-color: list.nth($neutral-0, $site);
   }
 }
 

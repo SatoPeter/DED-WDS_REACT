@@ -10,23 +10,15 @@ interface ButtonProps {
 
 /* 定義組件 */
 /* 修改組件定義名稱 Component */
-export const Component: React.FC<ButtonProps> = (props: ButtonProps) => {
-  /* 解構組件參數 */
-  const {
-    onClick,
-    // size,
-    // isDisabled,
-    className,
-    ...rest
-  } = props;
-
+export const Component: React.FC<ButtonProps> = ({ onClick, className }) => {
   /* 事件控制 */
   const handleClick = () => {
     console.log('click');
+    onClick && onClick();
   };
 
   return (
-    <button {...rest} onClick={handleClick}>
+    <button className={className} onClick={handleClick}>
       搜尋
     </button>
   );

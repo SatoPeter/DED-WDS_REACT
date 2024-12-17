@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react';
 import { HomeIcon, AUOIcon, AirIcon, PowerIcon, FanIcon } from '@src/assets';
 import { ItemProps } from '@src/hooks/useMenu';
 import SideNav from './side-nav';
+import { Grid, Row, Column } from '@src/ui/section/grid';
+import { log } from 'console';
 
 const menuData: ItemProps[] = [
   {
@@ -67,6 +69,18 @@ export default {
         category: 'PROPS',
       },
     },
+    logoLink: {
+      description: 'Logo 連結',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    hasSearch: {
+      description: '是否有搜尋欄',
+      table: {
+        category: 'PROPS',
+      },
+    },
     dataSource: {
       description: '資料來源',
       table: {
@@ -83,14 +97,16 @@ export default {
   args: {
     themeColor: 'Blue',
     logo: <AUOIcon width={90} height={30} />,
+    logoLink: 'https://www.auo.com',
+    hasSearch: false,
     dataSource: menuData,
     className: '',
   },
   parameters: {
     docs: {
-      title: '側邊導覽',
+      title: 'Side Nav',
       description: {
-        component: '側邊導覽的呈現及說明。',
+        component: '側邊導覽組件的呈現及說明。',
       },
     },
   },
@@ -101,6 +117,14 @@ export const Default: Story = {
   name: '預設項目',
   args: {},
   render(args) {
-    return <SideNav {...args} />;
+    return (
+      <Grid fluid>
+        <Row>
+          <Column xs={12} sm={4} md={4}>
+            <SideNav {...args} />
+          </Column>
+        </Row>
+      </Grid>
+    );
   },
 };

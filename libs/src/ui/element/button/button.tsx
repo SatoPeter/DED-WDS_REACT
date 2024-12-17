@@ -1,13 +1,13 @@
 import { MouseEventHandler, ReactNode } from 'react';
-import { getDisableClass, getThemeClass } from './styled';
-import { getSizeClass } from '@src/utils/style';
+import { getThemeClass } from './styled';
+import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * 按鈕屬性介面。
  *
  * @interface ButtonProps
- * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 按鈕的主題顏色。
- * @property {'contained' | 'outlined' | 'text'} variant - 按鈕的樣式變體。
+ * @property {'primary' | 'secondary' |'neutral' | 'info' | 'success' | 'warning' | 'error'} [themeColor] - 按鈕的主題顏色。
+ * @property {'filled' | 'soft' | 'ghost' | 'text'} variant - 按鈕的樣式變體。
  * @property {ReactNode} [prefix] - 按鈕前綴的圖標或元素。
  * @property {ReactNode} [suffix] - 按鈕後綴的圖標或元素。
  * @property {'small' | 'medium' | 'large'} [size] - 按鈕的大小。
@@ -21,17 +21,19 @@ export interface ButtonProps {
   themeColor?:
     | 'primary'
     | 'secondary'
-    | 'tertiary'
+    | 'neutral'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
-  variant: 'contained' | 'outlined' | 'text';
+    | 'error';
+  variant: 'filled' | 'soft' | 'ghost' | 'text';
   isDisabled?: boolean;
   prefix?: ReactNode;
   suffix?: ReactNode;
   size?: 'small' | 'medium' | 'large';
   width?: 'fit' | 'fluid';
+  borderWidth?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  radius?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
   className?: string;
   children: ReactNode;
   onClick: MouseEventHandler<HTMLButtonElement>;
@@ -42,13 +44,15 @@ export interface ButtonProps {
  *
  * @component
  * @param {Object} props - 按鈕的屬性
- * @param {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [props.themeColor] - 按鈕的主題顏色
- * @param {'contained' | 'outlined' | 'text'} props.variant - 按鈕的樣式變體
+ * @param {'primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error'} [props.themeColor] - 按鈕的主題顏色
+ * @param {'filled' | 'soft' | 'ghost' | 'text'} props.variant - 按鈕的樣式變體
  * @param {boolean} [props.isDisabled] - 按鈕是否禁用
  * @param {ReactNode} [props.prefix] - 按鈕前綴圖標
  * @param {ReactNode} [props.suffix] - 按鈕後綴圖標
  * @param {'small' | 'medium' | 'large'} [props.size] - 按鈕的大小
  * @param {'fit' | 'fluid'} [props.width] - 按鈕的寬度
+ * @param {'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'} [props.borderWidth] - 按鈕的邊框寬度
+ * @param {'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'} [props.radius] - 按鈕的圓角大小
  * @param {string} [props.className] - 按鈕的自定義類名
  * @param {ReactNode} props.children - 按鈕的子元素
  * @param {MouseEventHandler<HTMLButtonElement>} [props.onClick] - 按鈕的點擊事件處理函數
@@ -61,27 +65,43 @@ export const Button: React.FC<ButtonProps> = ({
   suffix,
   size = 'medium',
   width = 'fit',
-  className,
+  borderWidth = 'none',
+  radius = 'none',
+  className = '',
   children,
   onClick,
 }: ButtonProps) => {
   return (
     <button
-      style={{ width: `${width === 'fit' ? 'fit-content' : '100%'}` }}
       className={`ded-button 
-        ${getSizeClass('ded-component', size)}
+        ${
+          children
+            ? width === 'fit'
+              ? 'ded-button-fit'
+              : 'ded-button-fluid'
+            : ''
+        }
+        ${getCombinedClassName('ded-component', size)}
         ${
           isDisabled
-            ? getDisableClass(variant)
+            ? getCombinedClassName('ded-button', `${variant}-disabled`)
             : getThemeClass(variant, themeColor)
-        } ${className}`}
+        } 
+        ${getCombinedClassName('ded-button-border-width', borderWidth)}
+        ${getCombinedClassName('ded-button-radius', radius)}
+        ${children ? '' : 'ded-button-only-icon'}
+        ${className}`}
       onClick={onClick}
     >
-      {prefix && <div className={getSizeClass('ded-icon', size)}>{prefix}</div>}
-      {children && (
-        <div className={getSizeClass('ded-text', size)}>{children}</div>
+      {prefix && (
+        <div className={getCombinedClassName('ded-icon', size)}>{prefix}</div>
       )}
-      {suffix && <div className={getSizeClass('ded-icon', size)}>{suffix}</div>}
+      {children && (
+        <div className={getCombinedClassName('ded-text', size)}>{children}</div>
+      )}
+      {suffix && (
+        <div className={getCombinedClassName('ded-icon', size)}>{suffix}</div>
+      )}
     </button>
   );
 };

@@ -1,33 +1,27 @@
-.ded-input-container {
-  flex: 1;
-}
+@use 'sass:list';
 
 .ded-input-group {
+  width: 100%;
+  position: relative;
   display: flex;
   gap: 8px;
   align-items: center;
-  color: $color-gray40;
-  padding-inline: 8px;
+  // padding-inline: 8px;
   border-width: $input-border-width;
   border-style: solid;
-  border-color: $border-color-default;
-  border-radius: $radius-size-xsmall;
-  background-color: $color-white;
+  border-color: $form-border;
+  border-radius: $radius;
+  background-color: $form-background;
   overflow: hidden;
 
   &:hover {
-    border: 1px solid getBorderColor($mode, 'primary', 'hover');
-    box-shadow: 0 0 0 2px getBorderColor($mode, 'primary', 'hover');
+    border: 1px solid $form-hover;
+    // box-shadow: 0 0 0 2px getThemeColor('primary', 'hover');
   }
 
 
   &:focus-within {
-    border: 1px solid getBorderColor($mode, 'primary', 'focus');
-    box-shadow: 0 0 0 3px getBorderColor($mode, 'primary', 'focus');
-  }
-
-  &::placeholder {
-    color: $text-color-placeholder;
+    box-shadow: 0 0 0 3px $form-hover;
   }
 
   &-icon {
@@ -55,14 +49,55 @@
   }
 }
 
+/* one icon */
+.ded-input-group:has(.ded-input-feat-icon :only-child) .ded-input {
+  padding-right: 2em;
+}
+
+/* two icon */
+.ded-input-group:has(.ded-input-feat-icon :nth-of-type(2)) .ded-input {
+  padding-right: 3.5em;
+}
+
 .ded-input {
   height: 100%;
   width: 100%;
-  padding-block: 4px;
+  padding-inline: 8px;
+  color: list.nth($text-secondary, $site);
+
+  &::placeholder {
+    color: list.nth($text-placeholder, $site);
+  }
+
+  &-prefix {
+    padding-left: 32px;
+  }
+
+  &-icon {
+    position: absolute;
+    left: 8px;
+    color: $icon-default;
+
+    &-error {
+      color: getThemeColor('error', 'default');
+    }
+
+    &-disable {
+      color: list.nth($disabled-text, $site) !important;
+    }
+  }
+}
+
+.ded-input-feat-icon {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  color: $icon-default;
 }
 
 .ded-input-border-error {
-  border-color: getBorderColor($mode, 'error', 'default') !important;
+  border-color: getThemeColor('error', 'default') !important;
 }
 
 .ded-input-label {
@@ -80,15 +115,28 @@
 }
 
 .ded-input-hint-error {
-  color: getTextColor($mode, 'error') !important;
+  color: getThemeColor('error', 'default') !important;
 }
 
 .ded-input-disable {
   pointer-events: none !important;
-  color: $color-gray20 !important;
-  border-color: $color-gray20 !important;
+  color: list.nth($disabled-text, $site) !important;
+  border-color: list.nth($disabled-border, $site) !important;
 
   &::placeholder {
-    color: $color-gray20 !important;
+    color: list.nth($text-placeholder, $site) !important;
   }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

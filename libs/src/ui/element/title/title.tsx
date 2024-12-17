@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
-import { getTitleClass } from './styled';
+import { getThemeClass, getLevelClass } from './styled';
 
 /**
  * 標題組件的屬性介面。
  *
  * @interface TitleProps
  *
- * @property {('primary' | 'secondary' | 'tertiary'  | 'info' | 'success' | 'warning' | 'error')} [themeColor]
- * 可選的主題顏色。可以是 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 或 'info'。
+ * @property {('neutral' | 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error')} [themeColor]
+ * 可選的主題顏色。可以是 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 或 'info'。
  *
  * @property {0 | 1 | 2 | 3 | 4 | 5 | 6} [level]
  * 可選的標題層級。可以是 0 到 6 之間的數字。
@@ -20,13 +20,14 @@ import { getTitleClass } from './styled';
  */
 export interface TitleProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'info'
     | 'success'
     | 'warning'
-    | 'error';
+    | 'error'
+    | 'none';
   level?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   className?: string;
   children: ReactNode;
@@ -44,14 +45,16 @@ export interface TitleProps {
  * @returns {JSX.Element} 渲染的 Title 組件。
  */
 export const Title: React.FC<TitleProps> = ({
-  themeColor = 'primary',
+  themeColor = 'none',
   level = 0,
   className = '',
   children,
 }: TitleProps): JSX.Element => {
   return (
     <div
-      className={`ded-title ${className || getTitleClass(themeColor, level)}`}
+      className={`ded-title ${className} ${
+        themeColor !== 'none' && getThemeClass(themeColor)
+      } ${getLevelClass(level)} ${className}`}
     >
       {children}
     </div>

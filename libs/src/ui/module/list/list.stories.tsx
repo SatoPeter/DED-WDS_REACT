@@ -15,6 +15,7 @@ const options = [
     content: {
       label: 'Option2',
       value: 'option2',
+      href: '#',
       prefix: <AccountIcon />,
     },
   },
@@ -22,6 +23,7 @@ const options = [
     content: {
       label: 'Option3',
       value: 'option3',
+      href: '#',
       prefix: <AccountIcon />,
     },
   },
@@ -38,8 +40,8 @@ export default {
         category: 'PROPS',
       },
     },
-    isMenu: {
-      description: '是否為選單',
+    hasOutline: {
+      description: '是否有外框',
       control: {
         type: 'boolean',
       },
@@ -65,15 +67,15 @@ export default {
   },
   args: {
     dataSource: options,
-    isMenu: false,
+    hasOutline: false,
     className: '',
     onSelect: action('onSelect'),
   },
   parameters: {
     docs: {
-      title: '清單',
+      title: 'List',
       description: {
-        component: '清單的呈現及說明。',
+        component: '清單組件的呈現及說明。',
       },
     },
   },
@@ -92,11 +94,7 @@ export const Default: Story = {
     },
   },
   render(args) {
-    return (
-      <div style={{ width: '200px' }}>
-        <List {...args} />
-      </div>
-    );
+    return <List {...args} />;
   },
 };
 
@@ -107,15 +105,11 @@ export const Menu: Story = {
     docs: {
       source: {
         code: `
-<List {...args} isMenu />`,
+<List {...args} hasOutline />`,
       },
     },
   },
   render(args) {
-    return (
-      <div style={{ width: '200px' }}>
-        <List {...args} isMenu />
-      </div>
-    );
+    return <List {...args} hasOutline />;
   },
 };

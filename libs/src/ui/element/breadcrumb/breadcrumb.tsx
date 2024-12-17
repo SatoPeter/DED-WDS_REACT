@@ -72,7 +72,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const { childrenSize, position } = usePosition(breadcrumbRef);
 
-  useClickOutside(menuRef, () => setIsVisible(false));
+  useClickOutside([menuRef], () => setIsVisible(false));
 
   const handleClick = () => {
     setIsVisible((prev) => !prev);
@@ -114,7 +114,8 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
               position,
               childrenSize,
               'bottom-left',
-              '6px'
+              '6px',
+              false
             )}
             className={`ded-dropdown-menu ${className}`}
           >

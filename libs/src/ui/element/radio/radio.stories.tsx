@@ -1,11 +1,11 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Radio } from './radio';
 
 const options = [
-  { label: 'Option1', value: 'option1' },
-  { label: 'Option2', value: 'option2' },
-  { label: 'Option3', value: 'option3' },
+  { label: 'Option1', value: 'option1', isDisabled: false },
+  { label: 'Option2', value: 'option2', isDisabled: false },
+  { label: 'Option3', value: 'option3', isDisabled: true },
 ];
 
 export default {
@@ -20,11 +20,11 @@ export default {
         options: [
           'primary',
           'secondary',
-          'tertiary',
+          'neutral',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
@@ -70,8 +70,8 @@ export default {
   args: {
     themeColor: 'primary',
     dataSource: options,
-    initValue: 'option1',
     direction: 'row',
+    initValue: 'option1',
     className: '',
     onChange: action('onChange'),
   },
@@ -79,33 +79,87 @@ export default {
     docs: {
       title: 'Radio Button',
       description: {
-        component: 'Radio Button 組件的呈現及說明。',
+        component: '單選按鈕組件的呈現及說明。',
       },
     },
   },
 } as Meta;
 type Story = StoryObj<typeof Radio>;
 
+const defaultOptions = [
+  { label: 'Option1', value: 'option1', isDisabled: false },
+  { label: 'Option2', value: 'option2', isDisabled: false },
+  { label: 'Option3', value: 'option3', isDisabled: true },
+];
+
 export const Default: Story = {
   name: '預設項目',
-  args: {},
+  args: {
+    dataSource: defaultOptions,
+  },
   render(args) {
     return <Radio {...args} />;
   },
 };
 
+export const Direction: Story = {
+  name: '直向排列',
+  args: {
+    dataSource: defaultOptions,
+    direction: 'column',
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Radio {...args} direction=${args.direction}/>
+`;
+        },
+      },
+    },
+  },
+  render(args) {
+    return <Radio {...args} />;
+  },
+};
+
+const colorOptions = [
+  { label: 'Option1', value: 'option1', isDisabled: false },
+  { label: 'Option2', value: 'option2', isDisabled: false },
+  { label: 'Option3', value: 'option3', isDisabled: false },
+];
+
 export const Theme: Story = {
   name: '主題色彩',
   args: {
-    dataSource: options,
-    initValue: 'option1',
+    dataSource: colorOptions,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Radio {...args} themeColor="primary" />
+<Radio {...args} themeColor="secondary" />
+<Radio {...args} themeColor="neutral" />
+<Radio {...args} themeColor="info" />
+<Radio {...args} themeColor="success" />
+<Radio {...args} themeColor="warning" />
+<Radio {...args} themeColor="error" />
+`;
+        },
+      },
+    },
   },
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <Radio {...args} themeColor="primary" />
         <Radio {...args} themeColor="secondary" />
-        <Radio {...args} themeColor="tertiary" />
+        <Radio {...args} themeColor="neutral" />
         <Radio {...args} themeColor="info" />
         <Radio {...args} themeColor="success" />
         <Radio {...args} themeColor="warning" />

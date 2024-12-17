@@ -63,7 +63,7 @@ export function App() {
         className="container"
       >
         {/* {range(0, 10).map((i, index) => (
-          <Button themeColor="primary" variant="contained">
+          <Button themeColor="primary" variant="filled">
             <Title level={3}>標題按鈕{index + 1}</Title>
           </Button>
         ))} */}

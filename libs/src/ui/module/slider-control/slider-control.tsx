@@ -4,7 +4,7 @@ import { Slider, Button } from '@src/ui';
 /**
  * SliderControlProps 介面定義了 SliderControl 組件的屬性。
  *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
+ * @property {('neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 和 'info'。
  * @property {number} [min] - 最小值。
  * @property {number} [max] - 最大值。
  * @property {number} [step] - 步長。
@@ -19,9 +19,9 @@ import { Slider, Button } from '@src/ui';
  */
 export interface SliderControlProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'

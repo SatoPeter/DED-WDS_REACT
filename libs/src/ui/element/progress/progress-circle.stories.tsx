@@ -13,11 +13,11 @@ export default {
         options: [
           'primary',
           'secondary',
-          'tertiary',
+          'neutral',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
@@ -83,7 +83,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '圓形進度指示',
+      title: 'Circle Progress',
       description: {
         component: '圓形進度指示組件的呈現及說明。',
       },
@@ -130,9 +130,9 @@ export const Theme: Story = {
     docs: {
       source: {
         code: `
+<CircleProgress {...args} percent={60} themeColor="neutral" />
 <CircleProgress {...args} percent={40} themeColor="primary" />
 <CircleProgress {...args} percent={50} themeColor="secondary" />
-<CircleProgress {...args} percent={60} themeColor="tertiary" />
 <CircleProgress {...args} percent={70} themeColor="info" />
 <CircleProgress {...args} percent={80} themeColor="success" />
 <CircleProgress {...args} percent={90} themeColor="warning" />
@@ -144,9 +144,9 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
+        <CircleProgress {...args} percent={60} themeColor="neutral" />
         <CircleProgress {...args} percent={40} themeColor="primary" />
         <CircleProgress {...args} percent={50} themeColor="secondary" />
-        <CircleProgress {...args} percent={60} themeColor="tertiary" />
         <CircleProgress {...args} percent={70} themeColor="info" />
         <CircleProgress {...args} percent={80} themeColor="success" />
         <CircleProgress {...args} percent={90} themeColor="warning" />

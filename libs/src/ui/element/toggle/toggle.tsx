@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react';
-import {
-  getThemeClass,
-  getPositionClass,
-  getLabelPositionClass,
-  getThumbPositionClass,
-} from './styled';
+import { getCombinedClassName } from '@src/utils/string';
+import { getPositionClass } from './styled';
 
 /**
  * 切換按鈕的屬性介面。
  *
  * @interface ToggleProps
- * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
+ * @property {'primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error'} [themeColor] - 主題顏色。
  * @property {string} [checkLabel] - 當切換按鈕被選中時顯示的子元素。
  * @property {string} [unCheckLabel] - 當切換按鈕未被選中時顯示的子元素。
  * @property {boolean} isChecked - 切換按鈕的選中狀態。
@@ -22,11 +18,11 @@ export interface ToggleProps {
   themeColor?:
     | 'primary'
     | 'secondary'
-    | 'tertiary'
+    | 'neutral'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
+    | 'error';
   checkLabel?: string;
   unCheckLabel?: string;
   isChecked: boolean;
@@ -47,7 +43,6 @@ export interface ToggleProps {
  * @param {React.string} [props.unCheckLabel='off'] - 未被選中時顯示的內容
  * @param {function} [props.onChange] - 當切換狀態改變時的回調函數
  * @param {string} [props.className=''] - 自定義樣式類名
- * @param {object} [props.rest] - 其他屬性
  */
 export const Toggle: React.FC<ToggleProps> = ({
   themeColor = 'primary',
@@ -65,19 +60,25 @@ export const Toggle: React.FC<ToggleProps> = ({
 
   return (
     <div
-      className={`ded-toggle ${getThemeClass(themeColor)} ${getPositionClass(
-        checked
-      )} ${className} ${isDisabled ? 'ded-toggle-disable' : ''}`}
+      className={`ded-toggle 
+        ${getCombinedClassName('ded-toggle', themeColor)} 
+        ${getPositionClass('ded-toggle', checked)} 
+        ${isDisabled ? 'ded-toggle-disabled' : ''}
+        ${className} `}
       onClick={(e) => {
         setChecked((prev) => !prev);
         onChange && onChange(!checked);
       }}
     >
-      <div className={`ded-toggle-thumb ${getThumbPositionClass(checked)}`} />
+      <div
+        className={`ded-toggle-thumb 
+          ${getPositionClass('ded-toggle-thumb', checked)}
+          ${isDisabled ? 'ded-toggle-thumb-disabled' : ''}`}
+      />
       <label
-        className={`ded-toggle-label ${getLabelPositionClass(checked)} ${
-          isDisabled ? 'toggle-label-disable' : ''
-        }`}
+        className={`ded-toggle-label 
+          ${getPositionClass('ded-toggle-label', checked)} 
+          ${isDisabled ? 'toggle-label-disabled' : ''}`}
       >
         {checked ? checkLabel : unCheckLabel}
       </label>

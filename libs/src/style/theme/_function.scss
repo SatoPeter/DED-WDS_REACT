@@ -2,9 +2,9 @@
 @use 'sass:color';
 @use 'sass:meta';
 
-// 動態獲取主題顏色
-@function getThemeColor($mode, $theme, $state) {
-  @return map.get(map.get(map.get($theme-colors, $theme), $mode), $state);
+// 動態獲取新主題顏色
+@function getThemeColor($theme, $state) {
+  @return map.get(map.get($theme-colors, $theme), $state);
 }
 
 // 動態獲取文字顏色
@@ -18,22 +18,22 @@
 }
 
 // 動態獲取邊框顏色
-@function getBorderColor($mode, $theme, $state) {
-  @return map.get(map.get(map.get($border-colors, $theme), $mode), $state);
+@function getBorderColor($theme, $state) {
+  @return map.get(map.get($border-colors, $theme), $state);
 }
 
 // 動態獲取邊框樣式
-@function getBorderStyle($mode, $style, $type) {
-  @return map.get(map.get(map.get($border-styles, $style), $mode), $type);
+@function getBorderStyle($style, $type) {
+  @return map.get(map.get($border-styles, $style), $type);
 }
 
 // 動態獲取 avatar 狀態顏色
-@function getAvatarStatusColor($mode, $status) {
-  @return map.get(map.get($avatar-status-colors, $mode), $status);
+@function getAvatarStatusColor($status) {
+  @return map.get($avatar-status-colors, $status);
 }
 
 // 動態獲取 avatar 形狀
-@function getAvatarShape($mode, $shape) {
+@function getAvatarShape($shape) {
   @return map.get($avatar-shape, $shape);
 }
 
@@ -80,4 +80,12 @@
   $b: $b2 * $a2 + $b1 * (1 - $a2);
 
   @return rgba($r, $g, $b, 1);
+}
+
+@function default($variable, $default: null) {
+  @if $variable !=null {
+    @return $variable;
+  }
+
+  @return $default;
 }

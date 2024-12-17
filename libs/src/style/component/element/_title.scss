@@ -24,7 +24,7 @@ $text-levels: (
 
   @each $theme in $themes {
     &-#{$theme} {
-      color: getThemeColor($mode, $theme, 'default');
+      color: getThemeColor($theme, 'default');
     }
   }
 

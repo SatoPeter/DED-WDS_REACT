@@ -2,7 +2,12 @@ import { getBorderClass, getHintClass } from './styled';
 import { getSizeClass } from '@src/utils/style';
 import { ChangeEventHandler, ReactNode } from 'react';
 import { useInput } from '@src/hooks';
-import { VisibilityIcon, VisibilityOffIcon, CloseIcon } from '@src/assets';
+import {
+  VisibilityIcon,
+  VisibilityOffIcon,
+  CloseIcon,
+  ArrowDownIcon,
+} from '@src/assets';
 import { isEmpty } from 'lodash';
 
 /**
@@ -28,6 +33,7 @@ export interface InputProps {
   initValue: string;
   hint?: { error: string; description: string };
   isDisabled?: boolean;
+  isOpen?: boolean | undefined;
   className?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }
@@ -58,19 +64,18 @@ export const Input: React.FC<InputProps> = ({
   initValue,
   hint = { error: '', description: '' },
   isDisabled = false,
+  isOpen = undefined,
   className = '',
   onChange = () => ({}),
 }: InputProps) => {
-  const { inputType, value, action, handleInputChange } = useInput(
-    initValue,
-    type,
-    onChange
-  );
+  const { inputType, value, onClear, onVisibility, handleInputChange } =
+    useInput(initValue, type, onChange);
 
   return (
     <div className={`ded-input-container ${className}`}>
       {label && (
         <label
+          htmlFor="ded-input"
           className={`${isDisabled ? 'ded-input-disable' : 'ded-input-label'}`}
         >
           {label}
@@ -80,13 +85,21 @@ export const Input: React.FC<InputProps> = ({
         className={` 
           ded-input-group
           ${getSizeClass('ded-component', size)} 
-          ${isDisabled ? 'ded-input-disable' : getBorderClass(hint)}
-          ${className ? className : ''}`}
+          ${isDisabled ? 'ded-input-disable' : getBorderClass(hint)}`}
       >
         {prefix && (
-          <div className={getSizeClass('ded-icon', size)}>{prefix}</div>
+          <label
+            htmlFor="ded-input"
+            className={`ded-input-icon 
+              ${getSizeClass('ded-icon', size)}
+              ${isDisabled ? 'ded-input-icon-disable' : ''}
+              ${hint.error.length > 0 ? 'ded-input-icon-error' : ''}`}
+          >
+            {prefix}
+          </label>
         )}
         <input
+          id="ded-input"
           value={value}
           onChange={handleInputChange}
           type={inputType}
@@ -94,25 +107,49 @@ export const Input: React.FC<InputProps> = ({
             isDisabled
               ? 'ded-input-disable'
               : `ded-input ${getSizeClass('ded-text', size)}`
-          }`}
+          } ${prefix ? 'ded-input-prefix' : ''}`}
           placeholder={placeholder}
         />
 
-        {!isEmpty(value) && (
-          <div
-            onClick={action}
-            style={{ cursor: 'pointer' }}
-            className={getSizeClass('ded-icon', size)}
-          >
-            {type === 'text' ? (
+        <div className="ded-input-feat-icon">
+          {!isEmpty(value) && (
+            <div
+              onClick={onClear}
+              style={{ cursor: 'pointer' }}
+              className={`${getSizeClass('ded-icon', size)}`}
+            >
               <CloseIcon />
-            ) : type === 'password' && inputType === 'password' ? (
-              <VisibilityOffIcon />
-            ) : (
-              <VisibilityIcon />
-            )}
-          </div>
-        )}
+            </div>
+          )}
+
+          {!isEmpty(value) && type === 'password' && (
+            <div
+              onClick={onVisibility}
+              style={{ cursor: 'pointer' }}
+              className={`${getSizeClass('ded-icon', size)}`}
+            >
+              {inputType === 'password' ? (
+                <VisibilityOffIcon />
+              ) : (
+                <VisibilityIcon />
+              )}
+            </div>
+          )}
+
+          {isOpen !== undefined && (
+            <div
+              onClick={onClear}
+              style={{ cursor: 'pointer' }}
+              className={`${getSizeClass('ded-icon', size)}`}
+            >
+              <ArrowDownIcon
+                width={20}
+                height={20}
+                className={isOpen ? 'ded-dropdown-open' : 'ded-dropdown-close'}
+              ></ArrowDownIcon>
+            </div>
+          )}
+        </div>
       </div>
       <small
         className={`ded-input-hint ${

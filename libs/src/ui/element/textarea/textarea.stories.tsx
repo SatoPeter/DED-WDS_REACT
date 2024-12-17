@@ -69,7 +69,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '文字輸入框',
+      title: 'Textarea',
       description: {
         component: '文字輸入框組件的呈現及說明。',
       },

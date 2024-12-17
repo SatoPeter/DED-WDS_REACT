@@ -1,47 +1,64 @@
-.ded-menu-item {
+.ded-nav-item {
   cursor: pointer;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  margin-inline: 8px;
-  padding: 8px;
+  column-gap: 8px;
   border-bottom: 1px solid #ccc;
   overflow: hidden;
   white-space: nowrap;
 
-  &-content {
+  &-link {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  &-icon {
+    min-width: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+  }
 
-    &-icon {
-      min-width: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  &-label {
+    flex: 1;
+    transition: opacity 0.3s;
+  }
 
-    &-title {
-      flex: 1;
-      transition: opacity 0.3s;
-    }
+  &-arrow {
+    padding: 8px;
   }
 }
 
-.ded-menu-subitem {
+.ded-nav-subitem {
+  position: relative;
   // margin-left: 24px;
+  width: 100%;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 
-  .ded-menu-item {
-    padding-left: 24px;
+  .ded-nav-item {
+    &-link {
+      padding-left: 24px;
+    }
+
+    &:first-child {
+      border-top: 1px solid #ccc;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }
 
-.ded-menu-container {
+.ded-nav-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -53,7 +70,7 @@
     overflow: hidden;
     height: 100%;
 
-    &-menu {
+    &-list {
       list-style: none;
       padding: 0;
     }

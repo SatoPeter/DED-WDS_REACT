@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use 'sass:list';
 
 .ded-checkbox-container {
   display: inline-flex;
@@ -25,13 +26,15 @@
   }
 
   &-text {
-    color: getTextColor($mode, 'primary');
+    color: list.nth($text-primary, $site);
   }
 
   &-icon {
     width: 16px;
     height: 16px;
-    border: 1px solid $color-gray40;
+    border-width: $border-width;
+    border-style: solid;
+    border-color: list.nth($neutral-200, $site);
     border-radius: 4px;
     display: inline-flex;
     align-items: center;
@@ -40,16 +43,16 @@
 
   @each $theme in $themes {
     &-checked-#{$theme} {
-      background-color: getThemeColor($mode, $theme, 'default');
-      border-color: getThemeColor($mode, $theme, 'default');
+      background-color: getThemeColor($theme, 'default');
+      border-color: getThemeColor($theme, 'default');
       color: $color-white;
 
       &:hover {
-        border-color: getThemeColor($mode, $theme, 'default');
+        border-color: getThemeColor($theme, 'default');
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, $theme, 'default'), $lightness80);
+        box-shadow: 0 0 0 3px getThemeColor($theme, 'outline');
       }
     }
 
@@ -57,12 +60,25 @@
       background-color: transparent;
 
       &:hover {
-        border-color: getThemeColor($mode, $theme, 'default');
+        border-color: getThemeColor($theme, 'default');
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, $theme, 'default'), $lightness80);
+        box-shadow: 0 0 0 3px getThemeColor($theme, 'outline');
       }
     }
   }
+}
+
+.ded-checkbox-input-disabled {
+  pointer-events: none !important;
+}
+
+.ded-checkbox-icon-disabled {
+  background-color: list.nth($disabled-background, $site) !important;
+  border-color: list.nth($disabled-border, $site) !important;
+}
+
+.ded-checkbox-text-disabled {
+  color: list.nth($disabled-text, $site) !important;
 }

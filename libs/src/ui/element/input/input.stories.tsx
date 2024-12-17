@@ -92,6 +92,12 @@ export default {
         category: 'PROPS',
       },
     },
+    isOpen: {
+      description: '是否使用選單並開啟',
+      table: {
+        disable: true,
+      },
+    },
     className: {
       description: '客製化樣式',
       table: {
@@ -108,7 +114,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '輸入框',
+      title: 'Input',
       description: {
         component: '輸入框組件的呈現及說明。',
       },

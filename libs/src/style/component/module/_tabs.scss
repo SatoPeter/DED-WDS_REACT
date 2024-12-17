@@ -1,72 +1,80 @@
-  .ded-tab {
-    color: $color-gray60;
-    background-color: transparent;
-    border-radius: 4px 4px 0 0;
-    border-bottom: 1px solid $color-gray20;
+@use 'sass:list';
 
-    &:hover {
-      box-shadow: unset;
-    }
+.ded-tab {
+  color: $color-gray60;
+  background-color: transparent;
+  border-radius: 4px 4px 0 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: list.nth($neutral-200, $site);
 
-    &-active {
-      color: $color-white;
-      border-bottom-style: solid;
-      border-bottom-width: 2px;
-    }
-
-    &-content {
-      padding: 8px;
-    }
-
-    @each $theme in $themes {
-      &-#{$theme} {
-        &:hover {
-          border-bottom: 2px solid getThemeColor($mode, $theme, 'default');
-          background-color: getBorderColor($mode, $theme, 'hover');
-          color: getThemeColor($mode, $theme, 'default');
-        }
-
-        &:focus {
-          box-shadow: 0 0 0 2px getBorderColor($mode, $theme, 'focus') inset;
-        }
-      }
-
-      &-card-#{$theme} {
-        &:hover {
-          background-color: getBorderColor($mode, $theme, 'hover');
-          color: getThemeColor($mode, $theme, 'default');
-        }
-
-        &:focus {
-          box-shadow: 0 0 0 2px getBorderColor($mode, $theme, 'focus') inset;
-        }
-      }
-
-      &-#{$theme}-active {
-        color: getThemeColor($mode, $theme, 'default');
-        border-bottom: 2px solid getThemeColor($mode, $theme, 'default');
-      }
-
-      &-card-#{$theme}-active {
-        color: getThemeColor($mode, $theme, 'default');
-        border: 1px solid $color-gray20;
-        border-bottom-width: 0px;
-      }
-    }
+  &:hover {
+    box-shadow: unset;
   }
 
-  .ded-tab.ded-button-text {
-    padding: 0.5rem 1rem;
+  &-active {
+    color: list.nth($neutral-0, $site);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
   }
 
-  .ded-tabs {
-    display: inline-flex;
-    // border-bottom: 1px solid $color-gray40;
+  &-content {
+    padding: 8px;
   }
 
-  .ded-tab-disable {
-    pointer-events: none !important;
-    color: $color-gray20 !important;
-    background-color: transparent !important;
-    border-bottom-color: $color-gray40 !important;
+  @each $theme in $themes {
+    &-#{$theme} {
+      &:hover {
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-bottom-color: getThemeColor($theme, 'default');
+        background-color: getThemeColor($theme, 'hover');
+        color: list.nth($neutral-0, $site);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px getThemeColor($theme, 'outline') inset;
+      }
+    }
+
+    &-card-#{$theme} {
+      &:hover {
+        background-color: getThemeColor($theme, 'hover');
+        color: list.nth($neutral-0, $site);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px getThemeColor($theme, 'outline') inset;
+      }
+    }
+
+    &-#{$theme}-active {
+      color: getThemeColor($theme, 'default');
+      border-bottom: 2px solid getThemeColor($theme, 'default');
+    }
+
+    &-card-#{$theme}-active {
+      color: getThemeColor($theme, 'default');
+      border-width: 1px;
+      border-style: solid;
+      border-color: list.nth($neutral-200, $site);
+      border-bottom-width: 0px;
+    }
   }
+}
+
+.ded-tab.ded-button-text {
+  padding: 0.5em 1em;
+}
+
+.ded-tabs {
+  display: inline-flex;
+  // border-bottom: 1px solid $color-gray40;
+}
+
+.ded-tab-disable {
+  pointer-events: none !important;
+  color: list.nth($disabled-text, $site) !important;
+  background-color: transparent !important;
+  border-bottom-color: list.nth($disabled-border, $site) !important;
+}
