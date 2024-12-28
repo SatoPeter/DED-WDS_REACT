@@ -16,19 +16,13 @@ import { getThemeClass } from './styled';
  * @property {(value: number) => void} [onChange] - 當值變動時的回調函數。
  */
 export interface SliderProps {
-  themeColor?:
-    | 'neutral'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'info';
   min: number;
   max: number;
   step?: number;
   label?: string;
   initValue: number;
+  isShowRange?: boolean;
+  isShowCurrValue?: boolean;
   isDisabled?: boolean;
   className?: string;
   onChange?: (value: number) => void;
@@ -52,13 +46,14 @@ export interface SliderProps {
  * @returns {JSX.Element} Slider 元件的 JSX
  */
 export const Slider: React.FC<SliderProps> = ({
-  themeColor = 'primary',
   isDisabled = false,
   min = 0,
   max = 100,
   step = 1,
   label = '',
   initValue = 0,
+  isShowRange = false,
+  isShowCurrValue = false,
   onChange,
   className = '',
 }: SliderProps): JSX.Element => {
@@ -112,15 +107,30 @@ export const Slider: React.FC<SliderProps> = ({
         updateThumbPosition(value);
       });
     };
-  }, [value, min, max]);
+  }, [value, min, max, isShowRange]);
 
   useEffect(() => {
     setLabelPosition(thumbPosition + 10);
   }, [label, thumbPosition, value]);
 
   return (
-    <div className="ded-slider-container" ref={containerRef}>
+    <div
+      className={`ded-slider-container ${
+        isShowRange
+          ? 'ded-slider-container-range'
+          : 'ded-slider-container-fluid'
+      }`}
+      ref={containerRef}
+    >
       <div className="ded-slider-wrapper">
+        {isShowRange && (
+          <div
+            className={`ded-slider-range ded-slider-range-start 
+            ${isDisabled ? 'ded-slider-range-disable' : ''}`}
+          >
+            {min}
+          </div>
+        )}
         <input
           ref={rangeRef}
           type="range"
@@ -131,31 +141,34 @@ export const Slider: React.FC<SliderProps> = ({
           disabled={isDisabled}
           onChange={handleChange}
           className={`ded-slider 
-            ${
-              isDisabled
-                ? 'ded-slider-disable'
-                : className || getThemeClass(themeColor, 'ded-slider')
-            }`}
+            ${isDisabled ? 'ded-slider-disable' : ''}`}
         />
+        {isShowRange && (
+          <div
+            className={`ded-slider-range ded-slider-range-end 
+            ${isDisabled ? 'ded-slider-range-disable' : ''}
+          `}
+          >
+            {max}
+          </div>
+        )}
       </div>
 
       <div
         id="tooltip"
         className={`ded-slider-tooltip 
-        ${
-          isDisabled
-            ? 'ded-slider-tooltip-disable'
-            : className || getThemeClass(themeColor, 'ded-slider-tooltip')
-        }`}
+        ${isDisabled ? 'ded-slider-tooltip-disable' : ''}`}
         style={{
           left: `${labelPosition}px`,
           transform: `translateX(-50%)`,
         }}
       >
-        <span>
-          {value}
-          {label && <span>{label}</span>}
-        </span>
+        {isShowCurrValue && (
+          <div>
+            {value}
+            {label && <span>{label}</span>}
+          </div>
+        )}
       </div>
     </div>
   );

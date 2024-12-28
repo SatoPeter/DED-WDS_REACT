@@ -7,19 +7,19 @@ import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
 import { useClickOutside } from '@src/hooks';
-import { getSizeClass } from './styled';
+import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
  *
  * @param {{ userName: string; src: string }[]} dataSource - Avatar 的使用者陣列。
- * @property {'xsmall' | 'small' | 'medium' | 'large'} [size] - Avatar 的大小，可選值為 'xsmall'、'small'、'medium'、'large'。
+ * @property {'small' | 'medium' | 'large'} [size] - Avatar 的大小，可選值為 'xsmall'、'small'、'medium'、'large'。
  * @param {number} limit - Avatar 顯示的最大數量。
  * @param {string} [className] - 自訂的 CSS 類名。
  */
 export interface AvatarGroupProps {
   dataSource: { userName: string; src: string }[];
-  size?: 'xsmall' | 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
   limit: number;
   className?: string;
 }
@@ -68,15 +68,17 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
               size={size}
               shape="circle"
               userName={user.userName}
+              caption={user.caption}
               src={user.imgSrc || ''}
             />
           ),
           content: {
             prefix: (
               <Avatar
-                size="xsmall"
+                size="medium"
                 shape="circle"
                 userName={user.userName}
+                caption={user.caption}
                 src={user.imgSrc || ''}
               />
             ),
@@ -93,13 +95,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
     <>
       <div className="ded-avatar-group">
         {result.currList.map((user, index) => {
-          const { userName, status, src } = user;
+          const { userName, caption, status, src } = user;
           return (
             <Avatar
               key={index}
               shape="circle"
               size={size}
               userName={userName}
+              caption={caption}
               status={status}
               src={src || ''}
             />
@@ -110,20 +113,21 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
           // eslint-disable-next-line array-callback-return
           if (index !== 0) return;
           return (
-            <div
-              ref={avatarRef}
-              key={index}
-              className={`ded-avatar-container ${getSizeClass(
-                'ded-avatar-container',
-                size
-              )}`}
-            >
-              <button
-                className={`ded-avatar ded-avatar-circle`}
-                onClick={() => setIsVisible((prev) => !prev)}
+            <div className="ded-avatar-overlay">
+              <div
+                ref={avatarRef}
+                key={index}
+                className={`ded-avatar-container 
+                  ${getCombinedClassName('ded-avatar-container', size)}
+                `}
               >
-                <span className={`ded-avatar-text`}>+{restCount}</span>
-              </button>
+                <button
+                  className="ded-avatar ded-avatar-circle"
+                  onClick={() => setIsVisible((prev) => !prev)}
+                >
+                  <span className="ded-avatar-text">+{restCount}</span>
+                </button>
+              </div>
             </div>
           );
         })}

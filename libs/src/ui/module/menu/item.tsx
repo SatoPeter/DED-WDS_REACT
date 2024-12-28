@@ -14,6 +14,7 @@ export interface MenuItemProps {
   item: ItemProps;
   isCollapsed: boolean;
   color?: string;
+  isSideNavLink?: boolean;
 }
 
 /**
@@ -32,6 +33,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   item = { title: '', prefix: '' },
   isCollapsed = false,
   color = '#000000',
+  isSideNavLink = false,
 }: MenuItemProps) => {
   const { isOpen, setIsOpen, contentRef, maxHeight, hasChildren } = useMenu(
     item,
@@ -39,7 +41,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   );
 
   return (
-    <li className="ded-nav-item">
+    <li className={`ded-nav-item ${isSideNavLink ? 'ded-nav-item-side' : ''}`}>
       <a
         href={item.path}
         style={{ color: color }}
@@ -50,7 +52,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
           }
         }}
       >
-        <div className="ded-nav-item-icon">{item.prefix}</div>
+        {item.prefix && <div className="ded-nav-item-icon">{item.prefix}</div>}
         {!isCollapsed && (
           <span className="ded-nav-item-label">{item.title}</span>
         )}

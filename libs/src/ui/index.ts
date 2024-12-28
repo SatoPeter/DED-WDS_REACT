@@ -20,6 +20,14 @@ import { Dialog } from './module/dialog';
 import { Accordion } from './element/accordion';
 import { Toast } from './module/toast';
 import { Stepper } from './module/stepper/stepper';
+import { StatusIndicator } from './module/status-indicator';
+import { Search } from './module/search';
+import { Table } from './element/table';
+import { Select } from './element/select';
+import { Pagination } from './element/pagination';
+import { CardSimple } from './section/card-simple';
+import { Navbar } from './section/navbar';
+import { Badge } from './element/badge';
 
 export {
   Title,
@@ -46,4 +54,12 @@ export {
   Accordion,
   Toast,
   Stepper,
+  StatusIndicator,
+  Search,
+  Table,
+  Select,
+  Pagination,
+  CardSimple,
+  Navbar,
+  Badge,
 };

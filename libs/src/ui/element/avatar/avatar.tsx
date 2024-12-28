@@ -1,6 +1,6 @@
 import React from 'react';
 import { IdleIcon, OnlineIcon, BusyIcon, OfflineIcon } from '@src/assets';
-import { getSizeClass, getStatusClass, getShapeClass } from './styled';
+import { getCombinedClassName } from '@src/utils/string';
 import { getAbbrFullName } from '@src/utils';
 import { Image } from '@src/ui';
 
@@ -12,9 +12,6 @@ import { Image } from '@src/ui';
  * @returns {React.FunctionComponent<React.SVGProps<SVGSVGElement>> | null} 對應狀態的圖標組件，如果狀態無效則返回 null。
  */
 const getStatusIcon = (size: string, status: string) => {
-  const sizeClass = getSizeClass('ded-avatar-icon', size);
-  const statusClass = getStatusClass('ded-avatar-icon', status);
-
   const statusIcons: {
     [key: string]: React.FunctionComponent<
       React.SVGProps<SVGSVGElement> & { title?: string | undefined }
@@ -28,7 +25,12 @@ const getStatusIcon = (size: string, status: string) => {
   const StatusIcon = statusIcons[status];
 
   return StatusIcon ? (
-    <StatusIcon className={`ded-avatar-icon ${sizeClass} ${statusClass}`} />
+    <StatusIcon
+      className={`ded-avatar-icon 
+        ${getCombinedClassName('ded-avatar-icon', size)} 
+        ${getCombinedClassName('ded-avatar-icon', status)}
+      `}
+    />
   ) : null;
 };
 
@@ -47,9 +49,11 @@ export interface AvatarProps {
   shape?: 'circle' | 'square';
   size?: 'xsmall' | 'small' | 'medium' | 'large';
   status?: 'none' | 'online' | 'busy' | 'idle' | 'offline';
+  isShowInfo?: boolean;
   alt?: string;
   src?: string;
   userName: string;
+  caption: string;
   className?: string;
 }
 
@@ -70,29 +74,49 @@ export const Avatar: React.FC<AvatarProps> = ({
   shape = 'circle',
   size = 'medium',
   status = 'none',
+  isShowInfo = false,
   src = '',
   alt = '無圖顯示',
   userName,
+  caption,
   className = '',
 }) => {
   return (
     <div
-      className={`ded-avatar-container 
-        ${getSizeClass('ded-avatar-container', size)} ${className}`}
+      className={`${
+        isShowInfo ? 'ded-avatar-wrapper' : 'ded-avatar-overlay'
+      } ${className}`}
     >
-      <div className={`ded-avatar ${getShapeClass('ded-avatar', shape)}`}>
-        {src ? (
-          <Image src={src} alt={alt} ratio="1x1" objectFit="cover" />
-        ) : (
-          <span className={`ded-avatar-text ${getSizeClass('ded-text', size)}`}>
-            {getAbbrFullName(userName, 2)}
-          </span>
-        )}
+      <div
+        className={`ded-avatar-container 
+          ${getCombinedClassName('ded-avatar-container', size)}`}
+      >
+        <div
+          className={`ded-avatar ${getCombinedClassName('ded-avatar', shape)}`}
+        >
+          {src ? (
+            <Image src={src} alt={alt} ratio="1x1" objectFit="cover" />
+          ) : (
+            <span
+              className={`ded-avatar-text
+                ${getCombinedClassName('ded-text', size)}
+              `}
+            >
+              {getAbbrFullName(userName, 2)}
+            </span>
+          )}
+        </div>
+        {status === 'online' && getStatusIcon(size, 'online')}
+        {status === 'idle' && getStatusIcon(size, 'idle')}
+        {status === 'busy' && getStatusIcon(size, 'busy')}
+        {status === 'offline' && getStatusIcon(size, 'offline')}
       </div>
-      {status === 'online' && getStatusIcon(size, 'online')}
-      {status === 'idle' && getStatusIcon(size, 'idle')}
-      {status === 'busy' && getStatusIcon(size, 'busy')}
-      {status === 'offline' && getStatusIcon(size, 'offline')}
+      {isShowInfo && (
+        <div className="ded-avatar-info">
+          <div className="ded-avatar-info-name">{userName}</div>
+          <div className="ded-avatar-info-caption">{caption}</div>
+        </div>
+      )}
     </div>
   );
 };

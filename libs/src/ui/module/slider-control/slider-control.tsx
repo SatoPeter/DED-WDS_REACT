@@ -19,13 +19,13 @@ import { Slider, Button } from '@src/ui';
  */
 export interface SliderControlProps {
   themeColor?:
-    | 'neutral'
     | 'primary'
     | 'secondary'
+    | 'neutral'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
+    | 'error';
   min?: number;
   max?: number;
   step?: number;
@@ -109,6 +109,8 @@ export const SliderControl: React.FC<SliderControlProps> = ({
         max={100}
         label={label}
         step={step}
+        isShowRange={false}
+        isShowCurrValue
         isDisabled={isDisabled}
         initValue={value}
         onChange={handleChange}

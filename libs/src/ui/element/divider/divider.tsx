@@ -1,27 +1,19 @@
 import React, { ReactNode } from 'react';
+import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * 分隔線組件的屬性介面。
  *
  * @property {('solid' | 'dashed' | 'dotted')} [type] - 分隔線類型。
- * @property {('xsmall' | 'small' | 'medium' | 'large' | 'xlarge')} [width] - 分隔線寬度。
+ * @property {('1px' | '2px' | '3px' | '4px' | '5px')} [width] - 分隔線寬度。
  * @property {('horizontal' | 'vertical')} [direction] - 分隔線方向。
  * @property {('start' | 'center' | 'end')} [align] - 分隔線對齊方式。
  * @property {string} [className] - 自訂樣式類別名稱。
  * @property {ReactNode} [children] - 子元素。
  */
 export interface DividerProps {
-  // themeColor?:
-  //   | 'primary'
-  //   | 'secondary'
-  //   | 'neutral'
-  //   | 'success'
-  //   | 'warning'
-  //   | 'error'
-  //   | 'info'
-  //   | string;
   type?: 'solid' | 'dashed' | 'dotted';
-  width?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  width?: '1px' | '2px' | '3px' | '4px' | '5px';
   direction?: 'horizontal' | 'vertical';
   align?: 'start' | 'center' | 'end';
   className?: string;
@@ -41,8 +33,7 @@ export interface DividerProps {
  * @returns {JSX.Element} 分隔線元件
  */
 export const Divider: React.FC<DividerProps> = ({
-  // themeColor = '',
-  width = 'xsmall',
+  width = '',
   type = 'solid',
   direction = 'horizontal',
   align = 'center',
@@ -51,7 +42,13 @@ export const Divider: React.FC<DividerProps> = ({
 }) => {
   return (
     <div
-      className={`ded-divider ded-divider-${direction} ded-divider-width-${width} ded-divider-${type} ded-divider-${align} ${className}`}
+      className={`ded-divider 
+        ${getCombinedClassName('ded-divider', direction)} 
+        ${getCombinedClassName('ded-divider', width)} 
+        ${getCombinedClassName('ded-divider', type)} 
+        ${getCombinedClassName('ded-divider', align)} 
+        ${className}
+      `}
     >
       {children && <div className="ded-divider-content">{children}</div>}
     </div>

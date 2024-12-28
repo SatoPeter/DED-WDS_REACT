@@ -12,13 +12,13 @@ export default {
       control: {
         type: 'select',
         options: [
-          'neutral',
           'primary',
           'secondary',
+          'neutral',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
@@ -55,6 +55,18 @@ export default {
         category: 'PROPS',
       },
     },
+    isShowRange: {
+      description: '是否顯示範圍',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isShowCurrValue: {
+      description: '是否顯示目前值',
+      table: {
+        category: 'PROPS',
+      },
+    },
     isDisabled: {
       description: '是否禁用',
       table: {
@@ -84,12 +96,14 @@ export default {
     },
   },
   args: {
-    themeColor: 'neutral',
+    themeColor: 'primary',
     min: -100,
     max: 100,
     step: 1,
     initValue: 0,
     label: '℃',
+    isShowRange: true,
+    isShowCurrValue: true,
     isDisabled: false,
     onChange: action('onChange'),
     className: '',
@@ -105,41 +119,22 @@ export const Default: Story = {
   },
 };
 
-export const ThemeColor: Story = {
-  name: '主題色彩',
+export const Current: Story = {
+  name: '顯示目前值',
   args: {
-    min: 0,
-    max: 100,
-    step: 1,
-    initValue: 10,
-    label: '%',
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Slider {...args} initValue={60} themeColor="neutral" />
-<Slider {...args} initValue={40} themeColor="primary" />
-<Slider {...args} initValue={50} themeColor="secondary" />
-<Slider {...args} initValue={70} themeColor="info" />
-<Slider {...args} initValue={80} themeColor="success" />
-<Slider {...args} initValue={90} themeColor="warning" />
-<Slider {...args} initValue={100} themeColor="error" />
-`,
-      },
-    },
+    isShowRange: false,
   },
   render(args) {
-    return (
-      <div>
-        <Slider {...args} initValue={60} themeColor="neutral" />
-        <Slider {...args} initValue={40} themeColor="primary" />
-        <Slider {...args} initValue={50} themeColor="secondary" />
-        <Slider {...args} initValue={70} themeColor="info" />
-        <Slider {...args} initValue={80} themeColor="success" />
-        <Slider {...args} initValue={90} themeColor="warning" />
-        <Slider {...args} initValue={100} themeColor="error" />
-      </div>
-    );
+    return <Slider {...args} isShowCurrValue />;
+  },
+};
+
+export const Range: Story = {
+  name: '顯示範圍',
+  args: {
+    isShowCurrValue: false,
+  },
+  render(args) {
+    return <Slider {...args} isShowRange />;
   },
 };

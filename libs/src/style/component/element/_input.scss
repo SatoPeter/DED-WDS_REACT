@@ -1,68 +1,48 @@
 @use 'sass:list';
 
+.ded-input-container {
+  width: 100%;
+  min-width: 240px;
+}
+
 .ded-input-group {
   width: 100%;
   position: relative;
   display: flex;
-  gap: 8px;
+  gap: $spacing-8;
   align-items: center;
-  // padding-inline: 8px;
   border-width: $input-border-width;
   border-style: solid;
-  border-color: $form-border;
+  border-color: $auo-form-border;
   border-radius: $radius;
-  background-color: $form-background;
+  background-color: $auo-form-background;
   overflow: hidden;
 
   &:hover {
-    border: 1px solid $form-hover;
-    // box-shadow: 0 0 0 2px getThemeColor('primary', 'hover');
+    border-width: $border-width-1;
+    border-style: solid;
+    border-color: $auo-form-hover;
   }
-
 
   &:focus-within {
-    box-shadow: 0 0 0 3px $form-hover;
-  }
-
-  &-icon {
-    width: 24px;
-    height: 24px;
-  }
-
-  &-small {
-    font-size: $text-size-small;
-    height: $component-size-small
-  }
-
-  &-medium {
-    padding-left: 12px;
-    padding-right: 12px;
-    font-size: $text-size-medium;
-    height: $component-size-medium ;
-  }
-
-  &-large {
-    padding-left: 16px;
-    padding-right: 16px;
-    font-size: $text-size-large;
-    height: $component-size-large ;
+    box-shadow: 0 0 0 3px $auo-form-hover;
   }
 }
 
 /* one icon */
 .ded-input-group:has(.ded-input-feat-icon :only-child) .ded-input {
-  padding-right: 2em;
+  padding-right: 1.25em;
 }
 
 /* two icon */
 .ded-input-group:has(.ded-input-feat-icon :nth-of-type(2)) .ded-input {
-  padding-right: 3.5em;
+  padding-right: 2.5em;
 }
 
 .ded-input {
   height: 100%;
   width: 100%;
-  padding-inline: 8px;
+  padding: 0.5em 0.75em;
   color: list.nth($text-secondary, $site);
 
   &::placeholder {
@@ -70,13 +50,13 @@
   }
 
   &-prefix {
-    padding-left: 32px;
+    padding-left: 2.25em;
   }
 
   &-icon {
     position: absolute;
-    left: 8px;
-    color: $icon-default;
+    left: 0.75em;
+    color: $auo-icon-default;
 
     &-error {
       color: getThemeColor('error', 'default');
@@ -90,10 +70,10 @@
 
 .ded-input-feat-icon {
   position: absolute;
-  right: 8px;
+  right: 0.75em;
   display: flex;
-  gap: 4px;
-  color: $icon-default;
+  gap: $spacing-4;
+  color: $auo-icon-default;
 }
 
 .ded-input-border-error {
@@ -102,7 +82,7 @@
 
 .ded-input-label {
   font-size: $text-size-caption1;
-  color: $text-color-secondary;
+  color: $auo-form-label;
 }
 
 .ded-input-hint {

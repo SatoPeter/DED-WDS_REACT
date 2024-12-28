@@ -14,13 +14,13 @@ import { TabItem } from './tab-item';
  */
 export interface TabsProps {
   themeColor?:
-    | 'neutral'
     | 'primary'
     | 'secondary'
+    | 'neutral'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
+    | 'error';
   dataSource: {
     title: string;
     content: string;

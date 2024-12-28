@@ -11,7 +11,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
+      options: ['1px', '2px', '3px', '4px', '5px'],
       table: {
         category: 'PROPS',
       },
@@ -79,7 +79,6 @@ export default {
     },
   },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof Divider>;
 
 export const Default: Story = {
@@ -93,7 +92,7 @@ export const Default: Story = {
 export const Align: Story = {
   name: '文字對齊',
   args: {
-    width: 'small',
+    width: '1px',
     type: 'solid',
     direction: 'horizontal',
     className: '',
@@ -118,7 +117,7 @@ export const Align: Story = {
 export const Type: Story = {
   name: '線條粗細',
   args: {
-    width: 'small',
+    width: '1px',
     type: 'solid',
     direction: 'horizontal',
     align: 'center',
@@ -127,20 +126,20 @@ export const Type: Story = {
   render(args) {
     return (
       <div>
-        <Divider {...args} width="xsmall">
-          xsmall(1px)
+        <Divider {...args} width="1px">
+          1px
         </Divider>
-        <Divider {...args} width="small">
-          small(2px)
+        <Divider {...args} width="2px">
+          2px
         </Divider>
-        <Divider {...args} width="medium">
-          medium(4px)
+        <Divider {...args} width="3px">
+          3px
         </Divider>
-        <Divider {...args} width="large">
-          large(6px)
+        <Divider {...args} width="4px">
+          4px
         </Divider>
-        <Divider {...args} width="xlarge">
-          xlarge(8px)
+        <Divider {...args} width="5px">
+          5px
         </Divider>
       </div>
     );
@@ -150,7 +149,7 @@ export const Type: Story = {
 export const Width: Story = {
   name: '線條類型',
   args: {
-    width: 'small',
+    width: '1px',
     type: 'solid',
     direction: 'horizontal',
     align: 'center',
@@ -176,7 +175,7 @@ export const Width: Story = {
 export const Direction: Story = {
   name: '線條方向',
   args: {
-    width: 'small',
+    width: '1px',
     type: 'solid',
     direction: 'vertical',
     className: '',

@@ -15,6 +15,9 @@ export default {
   argTypes: {
     steps: {
       description: '步驟列表',
+      table: {
+        category: 'PROPS',
+      },
     },
     currentStep: {
       description: '當前步驟（從 0 開始）',
@@ -23,6 +26,9 @@ export default {
         min: 0,
         max: steps.length - 1,
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     direction: {
       description: '方向',
@@ -30,9 +36,15 @@ export default {
         type: 'select',
         options: ['horizontal', 'vertical'],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {

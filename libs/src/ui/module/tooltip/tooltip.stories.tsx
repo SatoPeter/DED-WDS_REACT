@@ -65,7 +65,6 @@ export default {
         prefix={<AccountIcon />}
         themeColor="primary"
         variant="filled"
-        radius="md"
         onClick={() => ({})}
       >
         Hover Me

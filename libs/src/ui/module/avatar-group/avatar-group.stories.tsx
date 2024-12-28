@@ -5,20 +5,25 @@ import { AvatarProps } from '@src/ui/element/avatar';
 const users: AvatarProps[] = [
   {
     userName: 'eason',
+    caption: 'Eason',
   },
   {
     userName: 'KevinYang',
+    caption: 'Kevin',
   },
   {
     userName: 'AmosLee',
+    caption: 'Amos',
     src: 'https://picsum.photos/320/240',
   },
   {
     userName: 'JohnWu',
+    caption: 'John',
     src: 'https://picsum.photos/320/340',
   },
   {
     userName: 'Peter',
+    caption: 'Peter',
     src: 'https://picsum.photos/320/340',
   },
 ];
@@ -38,7 +43,7 @@ export default {
       description: '尺寸',
       control: {
         type: 'select',
-        options: ['xsmall', 'small', 'medium', 'large'],
+        options: ['small', 'medium', 'large'],
       },
       table: {
         category: 'PROPS',

@@ -1,34 +1,22 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import Card from './card';
-import { Title, Button } from '@src/ui';
-import { SliderControl } from '../../module/slider-control';
-import {
-  LockIcon,
-  PlusIcon,
-  MinusIcon,
-  PowerIcon,
-  AirIcon,
-  FanIcon,
-  LightIcon,
-  HumidityIcon,
-  TemperatureIcon,
-  DoorIcon,
-} from '@src/assets';
+import { Button, Title, Card, CardSimple } from '@src/ui';
+import { Column, Grid, Row } from '@src/ui/section/grid';
+import { ArrowDownIcon } from '@src/assets';
 
 export default {
   title: 'Component/Card',
   component: Card,
   tags: ['autodocs'],
   argTypes: {
-    width: {
-      description: '卡片寬度',
+    hasHeaderDivider: {
+      description: '是否有標題分隔線',
       table: {
         category: 'PROPS',
       },
     },
-    height: {
-      description: '卡片高度',
+    className: {
+      description: '客製化樣式',
       table: {
         category: 'PROPS',
       },
@@ -51,18 +39,6 @@ export default {
         category: 'SLOTS',
       },
     },
-    hasHeaderDivider: {
-      description: '是否有標題分隔線',
-      table: {
-        category: 'PROPS',
-      },
-    },
-    className: {
-      description: '客製化樣式',
-      table: {
-        category: 'PROPS',
-      },
-    },
     onClick: {
       action: 'clicked',
       description: '點擊事件',
@@ -80,13 +56,11 @@ export default {
     },
   },
   args: {
-    width: '',
-    height: '',
-    cardHeader: '',
     hasHeaderDivider: false,
+    className: '',
+    cardHeader: '',
     children: '',
     cardFooter: '',
-    className: '',
     onClick: action('onClick'),
   },
 } as Meta;
@@ -94,219 +68,187 @@ type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {},
-  render(args) {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'flex-end',
-          gap: '16px',
-          backgroundColor: '#E9E9E9',
-          padding: '16px',
-        }}
+  args: {
+    cardHeader: (
+      <Title themeColor="primary" level={2}>
+        Header Title
+      </Title>
+    ),
+    cardFooter: (
+      <Button
+        themeColor="primary"
+        variant={'filled'}
+        suffix={<ArrowDownIcon />}
+        onClick={() => ({})}
       >
-        <Card
-          {...args}
-          cardHeader={
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Title className="ded-card-title" themeColor="primary">
-                空調
-              </Title>
-              <Button onClick={() => ({})} variant="text">
-                <div
-                  style={{
-                    display: 'flex',
-                    padding: '8px',
-                    borderRadius: '18px',
-                    backgroundColor: '#4D4D4D',
-                    color: '#ffffff',
-                    width: '32px',
-                    height: '32px',
-                  }}
-                >
-                  {<PowerIcon />}
-                </div>
-              </Button>
-            </div>
-          }
-          cardFooter={
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <Button
-                onClick={() => ({})}
-                className="ded-card-button ded-card-button-active"
-                variant="filled"
-                themeColor="warning"
-              >
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <AirIcon fill="#ffffff" width={42} height={42} />
-                  <div>冷氣</div>
-                </div>
-              </Button>
-              <Button
-                onClick={() => ({})}
-                className="ded-card-button"
-                variant="filled"
-                themeColor="warning"
-              >
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <FanIcon fill="#ffffff" width={42} height={42} />
-                  <div>送風</div>
-                </div>
-              </Button>
+        Button
+      </Button>
+    ),
+  },
+  render: function (args) {
+    return (
+      <Grid>
+        <Row>
+          <Column xs={12} md={6} lg={4}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                imgSrc="libs/src/assets/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+        </Row>
+      </Grid>
+    );
+  },
+};
 
-              <div className="ded-card-button ded-card-button-empty"></div>
+export const Vertical: Story = {
+  name: '垂直佈局',
+  args: {
+    cardHeader: (
+      <Title themeColor="primary" level={2}>
+        Header Title
+      </Title>
+    ),
+    cardFooter: (
+      <Button
+        themeColor="primary"
+        variant={'filled'}
+        suffix={<ArrowDownIcon />}
+        onClick={() => ({})}
+      >
+        Button
+      </Button>
+    ),
+  },
+  render: function (args) {
+    return (
+      <Grid>
+        <Row>
+          <Column xs={12} md={6} lg={3}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                imgSrc="libs/src/assets/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+          <Column xs={12} md={6} lg={3}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                imgSrc="libs/src/assets/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+          <Column xs={12} md={6} lg={3}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                imgSrc="libs/src/assets/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+          <Column xs={12} md={6} lg={3}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                imgSrc="libs/src/assets/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+        </Row>
+      </Grid>
+    );
+  },
+};
 
-              <Button
-                onClick={() => ({})}
-                className="ded-card-button ded-card-button-active"
-                variant="filled"
-                themeColor="warning"
-              >
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  自動
-                </div>
-              </Button>
-              <Button
-                onClick={() => ({})}
-                className="ded-card-button"
-                variant="filled"
-                themeColor="warning"
-              >
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  強
-                </div>
-              </Button>
-              <Button
-                onClick={() => ({})}
-                className="ded-card-button"
-                variant="filled"
-                themeColor="warning"
-              >
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  中
-                </div>
-              </Button>
-              <Button
-                onClick={() => ({})}
-                className="ded-card-button"
-                variant="filled"
-                themeColor="warning"
-              >
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  弱
-                </div>
-              </Button>
-            </div>
-          }
-        >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              color: '#533bd4',
-              gap: '8px',
-            }}
-          >
-            <SliderControl
-              initValue={0}
-              themeColor="warning"
-              label="℃"
-              prefix={<MinusIcon fill="#fff" width={24} height={24} />}
-              suffix={<PlusIcon fill="#fff" width={24} height={24} />}
-            />
-          </div>
-        </Card>
-
-        <Card {...args} width="242px" height="auto">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <TemperatureIcon fill="#ffffff" width={80} height={80} />
-            <Title className="ded-card-title">溫度 25 ℃</Title>
-          </div>
-        </Card>
-
-        <Card {...args} width="242px" height="auto">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <HumidityIcon fill="#ffffff" width={66} height={66} />
-            <Title className="ded-card-title">濕度 75 ℃</Title>
-          </div>
-        </Card>
-
-        {[
-          {
-            label: '電控玻璃',
-            status: '霧面',
-            prefix: <DoorIcon fill="#ffffff" width={80} height={80} />,
-          },
-          {
-            label: '門鎖',
-            status: '已上鎖',
-            prefix: <LockIcon fill="#ffffff" width={80} height={80} />,
-          },
-          {
-            label: '照明群組',
-            status: '0個開, 3個關',
-            prefix: <LightIcon fill="#ffffff" width={80} height={80} />,
-          },
-        ].map((device) => (
-          <Card
-            {...args}
-            width="242px"
-            height="244px"
-            cardHeader={
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <Title className="ded-card-title" themeColor="primary">
-                  {device.label}
-                </Title>
-                <Button
-                  onClick={() => ({})}
-                  variant="text"
-                  themeColor="primary"
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      padding: '8px',
-                      borderRadius: '18px',
-                      backgroundColor: '#ffffff',
-                      color: '#4d4d4d',
-                      width: '32px',
-                      height: '32px',
-                    }}
-                  >
-                    {<PowerIcon />}
-                  </div>
-                </Button>
-              </div>
-            }
-          >
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                color: '#533bd4',
-                gap: '8px',
-              }}
-            >
-              {device.prefix}
-              <Title className="ded-card-feature">{device.status}</Title>
-            </div>
-          </Card>
-        ))}
-      </div>
+export const Horizontal: Story = {
+  name: '水平佈局',
+  args: {
+    cardHeader: (
+      <Title themeColor="primary" level={2}>
+        Header Title
+      </Title>
+    ),
+    cardFooter: (
+      <Button
+        themeColor="primary"
+        variant={'filled'}
+        size={'large'}
+        suffix={<ArrowDownIcon />}
+        onClick={() => ({})}
+      >
+        Button
+      </Button>
+    ),
+  },
+  render: function (args) {
+    return (
+      <Grid>
+        <Row>
+          <Column xs={12}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                layout="horizontal"
+                imgSrc="libs/src/assets/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+          <Column xs={12}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                layout="horizontal"
+                imgSrc="libs/src/assets/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+          <Column xs={12}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                layout="horizontal"
+                imgSrc="libs/src/assets/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+        </Row>
+      </Grid>
     );
   },
 };

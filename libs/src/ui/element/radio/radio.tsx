@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getThemeClass } from './styled';
+import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * 定義 Radio 元件的屬性介面。
@@ -13,17 +13,10 @@ import { getThemeClass } from './styled';
  * @property {(value: string) => void} [onChange] - 當選定值改變時的回調函數。
  */
 export interface RadioProps {
-  themeColor?:
-    | 'primary'
-    | 'secondary'
-    | 'neutral'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error';
   dataSource: { label: string; value: string; isDisabled: boolean }[];
   direction?: 'row' | 'column';
   initValue: string;
+  size?: 'small' | 'medium' | 'large';
   className?: string;
   onChange?: (value: string) => void;
 }
@@ -40,10 +33,10 @@ export interface RadioProps {
  * @returns {JSX.Element} 單選框元件的 JSX 元素。
  */
 export const Radio: React.FC<RadioProps> = ({
-  themeColor = 'primary',
   dataSource,
   initValue,
   direction = 'row',
+  size = 'medium',
   className = '',
   onChange,
 }: RadioProps): JSX.Element => {
@@ -66,6 +59,7 @@ export const Radio: React.FC<RadioProps> = ({
           key={option.value}
           htmlFor={option.value}
           className={`ded-radio 
+            ${getCombinedClassName('ded-text', size)}
             ${option.isDisabled ? 'ded-radio-input-disabled' : ''} 
             ${className}`}
         >
@@ -85,20 +79,16 @@ export const Radio: React.FC<RadioProps> = ({
             name="option"
             type="radio"
           />
-          {currOptions.includes(option.value) ? (
-            <div
-              className={`ded-radio-icon 
-                ${getThemeClass('checked', themeColor)}
+
+          <div
+            className={`ded-radio-icon 
+                ${getCombinedClassName(
+                  'ded-radio',
+                  currOptions.includes(option.value) ? 'checked' : 'unchecked'
+                )}
+                ${getCombinedClassName('ded-icon', size)}
                 ${option.isDisabled ? 'ded-radio-icon-disabled' : ''}`}
-            ></div>
-          ) : (
-            <div
-              className={`ded-radio-icon ${getThemeClass(
-                'unchecked',
-                themeColor
-              )}`}
-            ></div>
-          )}
+          />
 
           <span
             className={`ded-radio-text 

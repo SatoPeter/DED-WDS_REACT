@@ -2,7 +2,7 @@
 
 .dialog-content {
   background: list.nth($neutral-0, $site);
-  border-radius: 16px;
+  border-radius: $radius-16;
   box-shadow: $shadow-light-400;
   max-width: 500px;
   width: 100%;
@@ -33,7 +33,7 @@
 }
 
 .dialog-close-btn:hover {
-  background-color: #f1f1f1;
+  background-color: list.nth($neutral-100, $site);
 }
 
 .dialog-trigger {
@@ -45,7 +45,7 @@
 .dialog-footer {
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 24px;
   gap: 10px;
 }
 

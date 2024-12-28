@@ -8,25 +8,6 @@ export default {
   component: SliderControl,
   tags: ['autodocs'],
   argTypes: {
-    themeColor: {
-      description: '主題顏色',
-      control: {
-        type: 'select',
-        options: [
-          'neutral',
-          'primary',
-          'secondary',
-          'success',
-          'warning',
-          'error',
-          'info',
-        ],
-      },
-      table: {
-        category: 'PROPS',
-      },
-    },
-
     min: {
       description: '最小值',
       table: {
@@ -116,7 +97,6 @@ export default {
     },
   },
   args: {
-    themeColor: 'neutral',
     min: -100,
     max: 100,
     step: 1,
@@ -137,48 +117,5 @@ export const Default: Story = {
   args: {},
   render(args) {
     return <SliderControl {...args} />;
-  },
-};
-
-export const ThemeColor: Story = {
-  name: '主題色彩',
-  args: {
-    prefix: 'Decrease',
-    suffix: 'Increase',
-    min: 0,
-    max: 100,
-    step: 1,
-    label: '%',
-    initValue: 50,
-    onClick: action('onClick'),
-    onChange: action('onChange'),
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<SliderControl {...args} initValue={60} themeColor="neutral" />
-<SliderControl {...args} initValue={40} themeColor="primary" />
-<SliderControl {...args} initValue={50} themeColor="secondary" />
-<SliderControl {...args} initValue={70} themeColor="success" />
-<SliderControl {...args} initValue={80} themeColor="info" />
-<SliderControl {...args} initValue={90} themeColor="warning" />
-<SliderControl {...args} initValue={100} themeColor="error" />
-`,
-      },
-    },
-  },
-  render(args) {
-    return (
-      <div>
-        <SliderControl {...args} initValue={60} themeColor="neutral" />
-        <SliderControl {...args} initValue={40} themeColor="primary" />
-        <SliderControl {...args} initValue={50} themeColor="secondary" />
-        <SliderControl {...args} initValue={70} themeColor="success" />
-        <SliderControl {...args} initValue={80} themeColor="info" />
-        <SliderControl {...args} initValue={90} themeColor="warning" />
-        <SliderControl {...args} initValue={100} themeColor="error" />
-      </div>
-    );
   },
 };

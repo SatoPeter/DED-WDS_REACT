@@ -20,5 +20,6 @@ export const getAbbrFullName = (string: string, count: number) => {
 };
 
 export const getCombinedClassName = (prefix: string, suffix: string) => {
+  if (suffix.length <= 0) return '';
   return `${prefix}-${suffix}`;
 };

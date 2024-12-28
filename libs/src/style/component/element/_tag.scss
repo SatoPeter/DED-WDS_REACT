@@ -9,11 +9,11 @@
   border-width: $border-width;
   border-style: solid;
   border-radius: $radius;
+  padding-inline: 24px;
 
   &-text {
     display: flex;
     align-items: center;
-    padding-inline: $spacing;
     font-size: 14px;
     text-decoration: none;
   }

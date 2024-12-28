@@ -99,7 +99,7 @@ export default {
       description: '按鈕邊框寬度',
       control: {
         type: 'select',
-        options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'],
+        options: ['none', '1px', '2px', '3px', '4px', '5px'],
       },
       table: {
         category: 'PROPS',
@@ -109,7 +109,7 @@ export default {
       description: '按鈕圓角大小',
       control: {
         type: 'select',
-        options: ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'],
+        options: ['none', '2px', '4px', '8px', '12px', '16px', '32px', 'full'],
       },
       table: {
         category: 'PROPS',
@@ -146,8 +146,8 @@ export default {
     suffix: null,
     size: 'medium',
     width: 'fit',
-    borderWidth: 'sm',
-    radius: 'sm',
+    borderWidth: '1px',
+    radius: '4px',
     isDisabled: false,
     className: '',
     children: 'Button',
@@ -297,6 +297,43 @@ export const Theme: Story = {
           {args.children}
         </Button>
       </div>
+    );
+  },
+};
+
+export const Size: Story = {
+  name: '尺寸',
+  args: {
+    variant: 'ghost',
+    onClick: () => action('onClick')('點擊事件'),
+    className: '',
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Button {...args} prefix={<AccountIcon />}>${args.children}</Button>
+<Button {...args} suffix={<SearchIcon />}>${args.children}</Button>
+`;
+        },
+      },
+    },
+  },
+  render(args) {
+    return (
+      <>
+        <Button {...args} size="large" prefix={<AccountIcon />}>
+          {args.children}
+        </Button>
+        <Button {...args} size="medium" suffix={<SearchIcon />}>
+          {args.children}
+        </Button>
+        <Button {...args} size="small" suffix={<SearchIcon />}>
+          {args.children}
+        </Button>
+      </>
     );
   },
 };

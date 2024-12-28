@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:list";
 
 /*///////////////////////////
 ===== component - Image =====
@@ -11,7 +12,7 @@ $image-ratios: (
 );
 
 .ded-image-cover-container {
-  background-color: #e4e4e4;
+  background-color: list.nth($neutral-200, $site);
   overflow: hidden;
   // height: 100%;
 

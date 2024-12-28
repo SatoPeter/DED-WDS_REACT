@@ -46,16 +46,21 @@
 
 .ded-rest {
   position: relative;
-  padding: 4px 12px;
-  border-radius: 4px;
+  line-height: 12px;
+  display: flex;
+  align-items: center;
 
   &-label {
-    color: list.nth($text-secondary, $site);
     cursor: pointer;
+    padding: 2px 1em 0;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 12px;
+    background-color: list.nth($neutral-50, $site);
+    color: list.nth($text-secondary, $site);
 
     &:hover {
       text-underline-offset: 4px;
-      text-decoration: underline;
     }
   }
 

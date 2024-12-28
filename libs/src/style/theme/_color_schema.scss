@@ -94,24 +94,25 @@ $button-error-active: blend-rgba($button-error-default, $alpha-light-90);
 $button-error-outline: blend-rgba($button-error-default, $alpha-light-80);
 
 // AUO-Link
-$link-default: list.nth($link-default, $site);
-$link-hover: blend-rgba($link-default, $alpha-light-40);
-$link-focus: blend-rgba($link-default, $alpha-light-20);
-$link-active: blend-rgba($link-default, $alpha-light-90);
-$link-outline: blend-rgba($link-default, $alpha-light-80);
+$auo-link-default: list.nth($link-default, $site);
+$auo-link-hover: blend-rgba($auo-link-default, $alpha-light-40);
+$auo-link-focus: blend-rgba($auo-link-default, $alpha-light-20);
+$auo-link-active: blend-rgba($auo-link-default, $alpha-light-90);
+$auo-link-outline: blend-rgba($auo-link-default, $alpha-light-80);
 
 // AUO-From
-$form-default: list.nth($form-default, $site);
-$form-hover: blend-rgba($form-default, $alpha-light-80);
-$form-focus: blend-rgba($form-default, $alpha-light-20);
-$form-active: blend-rgba($form-default, $alpha-light-90);
-$form-outline: blend-rgba($form-default, $alpha-light-80);
+$auo-form-default: list.nth($form-default, $site);
+$auo-form-hover: blend-rgba($auo-form-default, $alpha-light-30);
+$auo-form-focus: blend-rgba($auo-form-default, $alpha-light-20);
+$auo-form-active: blend-rgba($auo-form-default, $alpha-light-90);
+$auo-form-outline: blend-rgba($auo-form-default, $alpha-light-80);
 
-$form-border: list.nth($neutral-300, $site);
-$form-background: list.nth($neutral-0, $site);
+$auo-form-border: list.nth($neutral-300, $site);
+$auo-form-background: list.nth($neutral-0, $site);
+$auo-form-label: list.nth($neutral-700, $site);
 
 // AUO-Icon
-$icon-default: list.nth($neutral-700, $site);
-$icon-dark: blend-rgba($icon-default, $alpha-dark-20);
-$icon-light: blend-rgba($icon-default, $alpha-light-20);
-$icon-soft: blend-rgba($icon-default, $alpha-light-80);
+$auo-icon-default: list.nth($neutral-700, $site);
+$auo-icon-dark: blend-rgba($auo-icon-default, $alpha-dark-20);
+$auo-icon-light: blend-rgba($auo-icon-default, $alpha-light-20);
+$auo-icon-soft: blend-rgba($auo-icon-default, $alpha-light-80);

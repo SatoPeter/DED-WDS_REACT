@@ -13,24 +13,6 @@ export default {
   component: Radio,
   tags: ['autodocs'],
   argTypes: {
-    themeColor: {
-      description: '主題顏色',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'neutral',
-          'info',
-          'success',
-          'warning',
-          'error',
-        ],
-      },
-      table: {
-        category: 'PROPS',
-      },
-    },
     dataSource: {
       description: '資料來源',
       table: {
@@ -53,6 +35,16 @@ export default {
         category: 'PROPS',
       },
     },
+    size: {
+      description: '尺寸',
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     onChange: {
       description: '選擇選項後的事件',
       action: 'onChange',
@@ -68,10 +60,10 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
     dataSource: options,
     direction: 'row',
     initValue: 'option1',
+    size: 'medium',
     className: '',
     onChange: action('onChange'),
   },
@@ -122,49 +114,5 @@ export const Direction: Story = {
   },
   render(args) {
     return <Radio {...args} />;
-  },
-};
-
-const colorOptions = [
-  { label: 'Option1', value: 'option1', isDisabled: false },
-  { label: 'Option2', value: 'option2', isDisabled: false },
-  { label: 'Option3', value: 'option3', isDisabled: false },
-];
-
-export const Theme: Story = {
-  name: '主題色彩',
-  args: {
-    dataSource: colorOptions,
-  },
-  parameters: {
-    docs: {
-      source: {
-        transform(code: string, storyContext: StoryContext) {
-          const { args } = storyContext;
-          return `
-<Radio {...args} themeColor="primary" />
-<Radio {...args} themeColor="secondary" />
-<Radio {...args} themeColor="neutral" />
-<Radio {...args} themeColor="info" />
-<Radio {...args} themeColor="success" />
-<Radio {...args} themeColor="warning" />
-<Radio {...args} themeColor="error" />
-`;
-        },
-      },
-    },
-  },
-  render(args) {
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <Radio {...args} themeColor="primary" />
-        <Radio {...args} themeColor="secondary" />
-        <Radio {...args} themeColor="neutral" />
-        <Radio {...args} themeColor="info" />
-        <Radio {...args} themeColor="success" />
-        <Radio {...args} themeColor="warning" />
-        <Radio {...args} themeColor="error" />
-      </div>
-    );
   },
 };

@@ -1,11 +1,20 @@
 @use 'sass:list';
 @use 'sass:map';
 
+.ded-avatar-wrapper {
+  display: flex;
+  gap: $spacing-12;
+  box-sizing: border-box;
+}
+
+// .ded-avatar-overlay {
+//   margin-left: -16px;
+// }
+
 .ded-avatar-container {
   position: relative;
   box-shadow: 0 0 0 2px list.nth($neutral-0, $site);
-  border-radius: 50%;
-  box-sizing: border-box;
+  border-radius: $radius-999;
 }
 
 .ded-avatar {
@@ -27,12 +36,29 @@
     position: absolute;
     bottom: -2px;
     right: -2px;
-    border-radius: 50%;
-    background-color: $color-white;
+    border-radius: $radius-999;
+    background-color: list.nth($neutral-0, $site);
   }
 
   &-text {
     color: $color-gray60;
+    font-size: $font-size-14;
+  }
+}
+
+.ded-avatar-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  &-name {
+    font-size: $font-size-13;
+    color: list.nth($text-primary, $site);
+  }
+
+  &-caption {
+    font-size: $font-size-12;
+    color: list.nth($text-helper, $site);
   }
 }
 

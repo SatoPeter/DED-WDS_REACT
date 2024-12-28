@@ -1,18 +1,20 @@
 .ded-avatar-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: $spacing-8;
   position: relative;
 
-  &-container {
+  &-overlay {
     position: relative;
-    margin-left: -20px;
+    margin-left: -16px;
   }
 }
 
-.ded-avatar-container {
-  &:not(:first-child) {
-    margin-left: -20px;
+.ded-avatar-overlay {
+  margin-left: -16px;
+
+  &:first-child {
+    margin-left: 0;
   }
 }
 
@@ -20,7 +22,7 @@
 // jony 自訂 class
 .rest-container {
   position: relative;
-  margin-left: -20px;
+  margin-left: -16px;
 
   &-menu {
     position: absolute;

@@ -59,6 +59,12 @@ export default {
         category: 'PROPS',
       },
     },
+    isSideNavLink: {
+      description: '是否為側邊導航',
+      table: {
+        category: 'PROPS',
+      },
+    },
     className: {
       description: '客製化樣式',
       table: {
@@ -88,5 +94,28 @@ export const Default: Story = {
   args: {},
   render(args) {
     return <Menu {...args} />;
+  },
+};
+
+const navMenuData: ItemProps[] = [
+  {
+    title: 'Dashboard',
+    path: '/dashboard',
+  },
+  {
+    title: 'Settings',
+    path: '/settings',
+  },
+  {
+    title: 'Help',
+    path: '/help',
+  },
+];
+
+export const NavMenu: Story = {
+  name: '導航選單',
+  args: { dataSource: navMenuData },
+  render(args) {
+    return <Menu {...args} direction="horizontal" />;
   },
 };

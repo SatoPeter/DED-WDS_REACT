@@ -81,7 +81,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
           cy={size / 2}
         />
         <circle
-          className={`${getThemeClass('circle', themeColor)}`}
+          className="ded-progress-circle-percent-form"
           fill="transparent"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
@@ -95,24 +95,24 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
         />
         {size >= getLimitBorder() && (
           <text
+            className="ded-progress-label"
             ref={textRef}
             x="50%"
             y="45%"
             textAnchor="middle"
             fontSize="1em"
-            fill="black"
           >
             {label ?? ''}
           </text>
         )}
         {size >= getLimitBorder() && (
           <text
+            className="ded-progress-percent-text"
             x="50%"
             y={label ? '60%' : '50%'}
             textAnchor="middle"
             dy=".3em"
             fontSize="1.5em"
-            fill="black"
           >
             {`${normalizedProgress}%`}
           </text>
@@ -120,8 +120,8 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
       </svg>
       {size < getLimitBorder() && (
         <div className="ded-progress-circle-label">
-          <span>{label}</span>
-          <span>{`${normalizedProgress}%`}</span>
+          <span className="ded-progress-label">{label}</span>
+          <span className="ded-progress-percent">{`${normalizedProgress}%`}</span>
         </div>
       )}
     </div>

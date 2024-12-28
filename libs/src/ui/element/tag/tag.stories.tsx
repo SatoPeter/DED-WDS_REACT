@@ -16,9 +16,9 @@ export default {
     themeColor: {
       description: '主題顏色',
       options: [
-        'neutral',
         'primary',
         'secondary',
+        'neutral',
         'info',
         'success',
         'warning',
@@ -94,7 +94,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'neutral',
+    themeColor: 'primary',
     variable: 'filled',
     label: 'Tag',
     href: '',
@@ -175,9 +175,9 @@ export const ThemeColor: Story = {
       source: {
         transform(code: string, storyContext: StoryContext) {
           return `
-<Tag {...args} themeColor="neutral" />
 <Tag {...args} themeColor="primary" />
 <Tag {...args} themeColor="secondary" />
+<Tag {...args} themeColor="neutral" />
 <Tag {...args} themeColor="info" />
 <Tag {...args} themeColor="success" />
 <Tag {...args} themeColor="warning" />
@@ -190,9 +190,9 @@ export const ThemeColor: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <Tag {...args} themeColor="neutral" label="Neutral" />
         <Tag {...args} themeColor="primary" label="Primary" />
         <Tag {...args} themeColor="secondary" label="Secondary" />
+        <Tag {...args} themeColor="neutral" label="Neutral" />
         <Tag {...args} themeColor="info" label="Info" />
         <Tag {...args} themeColor="success" label="Success" />
         <Tag {...args} themeColor="warning" label="Warning" />

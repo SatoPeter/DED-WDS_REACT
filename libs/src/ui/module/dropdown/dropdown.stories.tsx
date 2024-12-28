@@ -2,35 +2,6 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Dropdown } from '../dropdown';
 
-export default {
-  title: 'Component/Dropdown',
-  component: Dropdown,
-  tags: ['autodocs'],
-  argTypes: {
-    label: {
-      description: '標籤',
-    },
-    className: {
-      description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
-    },
-    onSelect: {
-      description: '選擇事件',
-    },
-  },
-  parameters: {
-    docs: {
-      title: 'Dropdown',
-      description: {
-        component: '下拉選單組件的呈現及說明。',
-      },
-    },
-  },
-} as Meta;
-type Story = StoryObj<typeof Dropdown>;
-
 const options = [
   {
     content: {
@@ -54,6 +25,54 @@ const options = [
     },
   },
 ];
+
+export default {
+  title: 'Component/Dropdown',
+  component: Dropdown,
+  tags: ['autodocs'],
+  argTypes: {
+    dataSource: {
+      description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
+      required: true,
+    },
+    label: {
+      description: '標籤',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    onSelect: {
+      description: '選擇事件',
+      table: {
+        category: 'EVENTS',
+      },
+    },
+  },
+  args: {
+    dataSource: options,
+    label: 'Label',
+    className: '',
+    onSelect: action('onClick'),
+  },
+  parameters: {
+    docs: {
+      title: 'Dropdown',
+      description: {
+        component: '下拉選單組件的呈現及說明。',
+      },
+    },
+  },
+} as Meta;
+type Story = StoryObj<typeof Dropdown>;
 
 export const Default: Story = {
   name: '預設項目',

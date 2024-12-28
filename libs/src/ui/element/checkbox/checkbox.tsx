@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckIcon } from '@src/assets';
-import { getThemeClass } from './styled';
+import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * CheckboxProps 介面定義了 Checkbox 元件的屬性。
@@ -13,17 +13,10 @@ import { getThemeClass } from './styled';
  * @property {(value: string[]) => void} [onChange] - 當選中的值改變時的回調函數。
  */
 export interface CheckboxProps {
-  themeColor?:
-    | 'primary'
-    | 'secondary'
-    | 'neutral'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error';
   dataSource: { label: string; value: string; isDisabled: boolean }[];
   initValue: string[];
   direction?: 'row' | 'column';
+  size?: 'small' | 'medium' | 'large';
   className?: string;
   onChange?: (value: string[]) => void;
 }
@@ -42,10 +35,10 @@ export interface CheckboxProps {
  * @returns {JSX.Element} Checkbox 元件的 JSX
  */
 export const Checkbox: React.FC<CheckboxProps> = ({
-  themeColor = 'primary',
   dataSource,
   initValue,
   direction = 'row',
+  size = 'medium',
   className = '',
   onChange,
 }: CheckboxProps) => {
@@ -64,17 +57,20 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <div
-      className={`ded-checkbox-container ${
-        direction === 'row'
-          ? 'ded-checkbox-container-row'
-          : 'ded-checkbox-container-column'
-      }`}
+      className={`ded-checkbox-container
+        ${
+          direction === 'row'
+            ? 'ded-checkbox-container-row'
+            : 'ded-checkbox-container-column'
+        }
+      `}
     >
       {dataSource.map((option) => (
         <label
           key={option.value}
           htmlFor={option.value}
-          className={`ded-checkbox             
+          className={`ded-checkbox     
+            ${getCombinedClassName('ded-text', size)}        
             ${option.isDisabled ? 'ded-checkbox-input-disabled' : ''} 
             ${className}`}
         >
@@ -89,10 +85,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           />
           <div
             className={`ded-checkbox-icon 
-              ${getThemeClass(
-                currOptions.includes(option.value) ? 'checked' : 'unchecked',
-                themeColor
+              ${getCombinedClassName(
+                'ded-checkbox',
+                currOptions.includes(option.value) ? 'checked' : 'unchecked'
               )}
+              ${getCombinedClassName('ded-icon', size)}
               ${option.isDisabled ? 'ded-checkbox-icon-disabled' : ''}`}
           >
             {currOptions.includes(option.value) && <CheckIcon />}

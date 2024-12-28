@@ -1,11 +1,14 @@
 import React, { ReactNode } from 'react';
 import { CloseIcon } from '@src/assets';
+import { Button } from '@src/ui/element/button';
+import { Title } from '@src/ui/element/title';
+import { getCombinedClassName } from '@src/utils/string';
 
 export interface ToastProps {
   themeColor?:
-    | 'neutral'
     | 'primary'
     | 'secondary'
+    | 'neutral'
     | 'info'
     | 'success'
     | 'warning'
@@ -13,6 +16,7 @@ export interface ToastProps {
   onClose?: () => void;
   title?: string;
   content: string;
+  action?: ReactNode;
   prefix?: ReactNode;
   duration?: number;
   className?: string;
@@ -20,23 +24,40 @@ export interface ToastProps {
 
 export const Toast: React.FC<ToastProps> = ({
   themeColor = 'primary',
-  onClose,
+  onClose = () => ({}),
   title = 'Title',
   content = 'Content',
+  action,
   prefix = '',
   duration = 1000,
   className = '',
 }) => {
   return (
-    <div className={`ded-toast ded-toast-border-${themeColor} ${className}`}>
-      <button className="ded-close-button">
+    <div
+      className={`ded-toast 
+        ${getCombinedClassName('ded-toast', `border-${themeColor}`)} 
+        ${className}`}
+    >
+      <Button
+        variant="text"
+        onClick={onClose}
+        themeColor="neutral"
+        className="ded-close-button"
+      >
         <CloseIcon width={20} height={20} onClick={onClose} />
-      </button>
-      <div className="ded-message">
-        <span className={`ded-icon-wrapper ded-toast-${themeColor}`}>
-          {prefix && <div>{prefix}</div>}
-        </span>
-        <span>{title}</span>
+      </Button>
+      <div className={`ded-toast-header`}>
+        <div
+          className={`ded-toast-header-message 
+          ${getCombinedClassName('ded-toast-header-message', themeColor)}
+        `}
+        >
+          {prefix}
+          <Title level={5} themeColor={themeColor}>
+            {title}
+          </Title>
+        </div>
+        <div className="ded-toast-header-action">{action}</div>
       </div>
       <p className="ded-description">{content}</p>
     </div>

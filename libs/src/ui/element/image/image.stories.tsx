@@ -9,14 +9,14 @@ export default {
   argTypes: {
     src: {
       description: '圖片來源',
-      control: {
-        type: 'text',
+      table: {
+        category: 'PROPS',
       },
     },
     alt: {
       description: '圖片替代文字',
-      control: {
-        type: 'text',
+      table: {
+        category: 'PROPS',
       },
     },
     ratio: {
@@ -25,6 +25,9 @@ export default {
         type: 'select',
         options: [11, 43, 54, 169],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     objectFit: {
       description: '圖片填滿方式',
@@ -32,11 +35,14 @@ export default {
         type: 'select',
         options: ['cover', 'contain', 'fill', 'none'],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
+      table: {
+        category: 'PROPS',
       },
     },
   },

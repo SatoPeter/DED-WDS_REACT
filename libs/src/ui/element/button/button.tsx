@@ -32,10 +32,10 @@ export interface ButtonProps {
   suffix?: ReactNode;
   size?: 'small' | 'medium' | 'large';
   width?: 'fit' | 'fluid';
-  borderWidth?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  radius?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  borderWidth?: 'none' | '1px' | '2px' | '3px' | '4px' | '5px';
+  radius?: 'none' | '2px' | '4px' | '8px' | '12px' | '16px' | '32px' | 'full';
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -51,8 +51,8 @@ export interface ButtonProps {
  * @param {ReactNode} [props.suffix] - 按鈕後綴圖標
  * @param {'small' | 'medium' | 'large'} [props.size] - 按鈕的大小
  * @param {'fit' | 'fluid'} [props.width] - 按鈕的寬度
- * @param {'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'} [props.borderWidth] - 按鈕的邊框寬度
- * @param {'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'} [props.radius] - 按鈕的圓角大小
+ * @param {'none' | '1px' | '2px' | '3px' | '4px' | '5px'} [props.borderWidth] - 按鈕的邊框寬度
+ * @param {'none' | '2px' | '4px' | '8px' | '12px' | '16px' | '32px' | 'full'} [props.radius] - 按鈕的圓角大小
  * @param {string} [props.className] - 按鈕的自定義類名
  * @param {ReactNode} props.children - 按鈕的子元素
  * @param {MouseEventHandler<HTMLButtonElement>} [props.onClick] - 按鈕的點擊事件處理函數
@@ -65,8 +65,8 @@ export const Button: React.FC<ButtonProps> = ({
   suffix,
   size = 'medium',
   width = 'fit',
-  borderWidth = 'none',
-  radius = 'none',
+  borderWidth,
+  radius,
   className = '',
   children,
   onClick,
@@ -81,24 +81,25 @@ export const Button: React.FC<ButtonProps> = ({
               : 'ded-button-fluid'
             : ''
         }
-        ${getCombinedClassName('ded-component', size)}
+        ${getCombinedClassName('ded-text', size)}
         ${
           isDisabled
             ? getCombinedClassName('ded-button', `${variant}-disabled`)
             : getThemeClass(variant, themeColor)
         } 
-        ${getCombinedClassName('ded-button-border-width', borderWidth)}
-        ${getCombinedClassName('ded-button-radius', radius)}
+        ${getCombinedClassName('ded-button-border-width', borderWidth || '')}
+        ${getCombinedClassName('ded-button-radius', radius || '')}
         ${children ? '' : 'ded-button-only-icon'}
         ${className}`}
-      onClick={onClick}
+      onClick={(e) => {
+        e.currentTarget.blur();
+        onClick(e);
+      }}
     >
       {prefix && (
         <div className={getCombinedClassName('ded-icon', size)}>{prefix}</div>
       )}
-      {children && (
-        <div className={getCombinedClassName('ded-text', size)}>{children}</div>
-      )}
+      {children && <div className="ded-button-content">{children}</div>}
       {suffix && (
         <div className={getCombinedClassName('ded-icon', size)}>{suffix}</div>
       )}

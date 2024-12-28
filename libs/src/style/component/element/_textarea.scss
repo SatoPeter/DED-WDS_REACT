@@ -13,18 +13,18 @@
   padding-bottom: 16px;
   border-width: $input-border-width;
   border-style: solid;
-  border-color: $form-border;
+  border-color: $auo-form-border;
   border-radius: $radius;
-  background-color: $form-background;
+  background-color: $auo-form-background;
   overflow: hidden;
 
   &:hover {
     // box-shadow: 0 0 0 2px getBorderColor('primary', 'hover');
-    border: 1px solid $form-hover;
+    border: 1px solid $auo-form-hover;
   }
 
   &:focus-within {
-    box-shadow: 0 0 0 3px $form-hover;
+    box-shadow: 0 0 0 3px $auo-form-hover;
     // border: 1px solid getBorderColor('primary', 'focus');
   }
 
@@ -70,7 +70,7 @@
 
 .ded-textarea-label {
   font-size: $text-size-caption1;
-  color: $text-color-secondary;
+  color: $auo-form-label;
 }
 
 .ded-textarea-hint {

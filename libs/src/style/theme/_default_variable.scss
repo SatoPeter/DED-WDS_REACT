@@ -8,7 +8,7 @@ $radius-16: 16px;
 $radius-24: 24px;
 $radius-32: 32px;
 $radius-999: 999px;
-$radius: $radius-8;
+$radius: $radius-4;
 
 // 外框線
 $border-width-0: 0px;
@@ -32,7 +32,7 @@ $spacing-24: 24px;
 $spacing-36: 36px;
 $spacing-48: 48px;
 $spacing-60: 60px;
-$spacing: $spacing-8;
+$spacing: $spacing-4;
 
 // 字級
 $font-size-12: 12px;
@@ -92,7 +92,7 @@ $form-outline: [#D2DFFB, #FFFFFF, #D2DFFB, #D2DFFB];
 
 // Theme-Button
 $button-primary: [#184CBC, #999999, #B491D7, #FFE664];
-$button-secondary: [#36A1E9, #EEEEEE, #B491D7, #FFE664];
+$button-secondary: [#B491D7, #EEEEEE, #B491D7, #FFE664];
 // $button-tertiary: [#967FEF, #FFFFFF, #B491D7, #FFE664];
 
 // Theme-Disabled

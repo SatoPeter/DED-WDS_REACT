@@ -13,24 +13,6 @@ export default {
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
-    themeColor: {
-      description: '主題顏色',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'neutral',
-          'info',
-          'success',
-          'warning',
-          'error',
-        ],
-      },
-      table: {
-        category: 'PROPS',
-      },
-    },
     dataSource: {
       description: '資料來源',
       table: {
@@ -54,6 +36,16 @@ export default {
         category: 'PROPS',
       },
     },
+    size: {
+      description: '尺寸',
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     className: {
       description: '客製化樣式',
       table: {
@@ -69,10 +61,10 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
     dataSource: options,
     initValue: ['option1', 'option3'],
     direction: 'row',
+    size: 'medium',
     className: '',
     onChange: (e: string[]) => action('onChange')(e),
   },
@@ -119,43 +111,5 @@ export const Direction: Story = {
   },
   render(args) {
     return <Checkbox {...args} />;
-  },
-};
-
-export const Theme: Story = {
-  name: '主題色彩',
-  args: {
-    dataSource: options,
-    initValue: ['option1'],
-    className: '',
-    onChange: (e) => action('onChange')(e),
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Checkbox {...args} themeColor="neutral" />
-<Checkbox {...args} themeColor="primary" />
-<Checkbox {...args} themeColor="secondary" />
-<Checkbox {...args} themeColor="info" />
-<Checkbox {...args} themeColor="success" />
-<Checkbox {...args} themeColor="warning" />
-<Checkbox {...args} themeColor="error" />
-        `,
-      },
-    },
-  },
-  render(args) {
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <Checkbox {...args} themeColor="primary" />
-        <Checkbox {...args} themeColor="secondary" />
-        <Checkbox {...args} themeColor="neutral" />
-        <Checkbox {...args} themeColor="info" />
-        <Checkbox {...args} themeColor="success" />
-        <Checkbox {...args} themeColor="warning" />
-        <Checkbox {...args} themeColor="error" />
-      </div>
-    );
   },
 };

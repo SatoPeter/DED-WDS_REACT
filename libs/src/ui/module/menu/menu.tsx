@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ItemProps } from '@src/hooks/useMenu';
 import { MenuItem } from './item';
+import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * @interface MenuProps
@@ -14,6 +15,7 @@ export interface MenuProps {
   dataSource: ItemProps[];
   isCollapsed: boolean;
   color?: string;
+  direction?: 'vertical' | 'horizontal';
   className?: string;
 }
 
@@ -32,6 +34,8 @@ export const Menu: React.FC<MenuProps> = ({
   dataSource,
   isCollapsed = false,
   color = '#000000',
+  direction = 'vertical',
+  className = '',
 }: MenuProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +46,7 @@ export const Menu: React.FC<MenuProps> = ({
   }, [isCollapsed]);
 
   return (
-    <div className="ded-nav-container">
+    <div className={`ded-nav-container ${className}`}>
       <nav
         ref={menuRef}
         className="ded-nav"
@@ -50,12 +54,19 @@ export const Menu: React.FC<MenuProps> = ({
           width: isCollapsed ? '60px' : '100%',
         }}
       >
-        <ul className="ded-nav-list">
+        <ul
+          className={`ded-nav-list 
+            ${getCombinedClassName(
+              'ded-nav-list',
+              direction === 'horizontal' ? 'horizontal' : ''
+            )}`}
+        >
           {dataSource.map((item, index) => (
             <MenuItem
               key={index}
               item={item}
               isCollapsed={isCollapsed}
+              isSideNavLink={direction === 'vertical'}
               color={color}
             />
           ))}

@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 $levels: ['level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6'];
 $text-levels: (
   // 主要文字顏色
@@ -20,17 +22,12 @@ $text-levels: (
   font-weight: $text-regular;
   color: currentColor;
   word-break: keep-all;
-  line-height: 1;
-
-  @each $theme in $themes {
-    &-#{$theme} {
-      color: getThemeColor($theme, 'default');
-    }
-  }
+  color: list.nth($text-primary, $site);
 
   @each $level in $levels {
     &-#{$level} {
       font-size: getTextLevel('size', $level);
+      font-weight: getTextLevel('weight', $level);
     }
   }
 }

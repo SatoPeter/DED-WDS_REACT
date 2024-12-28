@@ -20,7 +20,7 @@ export default {
       description: '尺寸',
       control: {
         type: 'select',
-        options: ['xsmall', 'small', 'medium', 'large'],
+        options: ['small', 'medium', 'large'],
       },
       table: {
         category: 'PROPS',
@@ -32,6 +32,12 @@ export default {
         type: 'select',
         options: ['none', 'online', 'idle', 'busy', 'offline'],
       },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isShowInfo: {
+      description: '是否顯示資訊',
       table: {
         category: 'PROPS',
       },
@@ -50,6 +56,12 @@ export default {
     },
     userName: {
       description: '使用者名稱',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    caption: {
+      description: '使用者描述',
       table: {
         category: 'PROPS',
       },
@@ -73,9 +85,11 @@ export default {
     shape: 'circle',
     size: 'large',
     status: 'none',
-    src: 'https://picsum.photos/200/300',
+    isShowInfo: true,
+    src: 'https://storage.googleapis.com/ded-wds-bucket/monkey.png',
     alt: '無圖顯示',
-    userName: 'Kevin',
+    userName: 'Name',
+    caption: 'Caption',
     className: '',
   },
 } as Meta;
@@ -91,9 +105,7 @@ export const Default: Story = {
 
 export const AvatarShape: Story = {
   name: '頭像形狀',
-  args: {
-    src: 'https://picsum.photos/320/240',
-  },
+  args: {},
   parameters: {
     docs: {
       source: {
@@ -109,14 +121,14 @@ export const AvatarShape: Story = {
       <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-end' }}>
         <Avatar
           {...args}
-          src="https://picsum.photos/200/300?random=1"
+          src="https://storage.googleapis.com/ded-wds-bucket/fox.png"
           size="large"
           shape="circle"
           status="online"
         />
         <Avatar
           {...args}
-          src="https://picsum.photos/200/300?random=2"
+          src="https://storage.googleapis.com/ded-wds-bucket/tigger.png"
           size="large"
           shape="square"
           status="idle"
@@ -150,30 +162,30 @@ export const AvatarStatus: Story = {
       <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-end' }}>
         <Avatar
           {...args}
-          src="https://picsum.photos/200/300?random=1"
+          src="https://storage.googleapis.com/ded-wds-bucket/fox.png"
           shape="circle"
         />
         <Avatar
           {...args}
-          src="https://picsum.photos/200/300?random=2"
+          src="https://storage.googleapis.com/ded-wds-bucket/lion.png"
           shape="circle"
           status="online"
         />
         <Avatar
           {...args}
-          src="https://picsum.photos/200/300?random=3"
+          src="https://storage.googleapis.com/ded-wds-bucket/koala.png"
           shape="circle"
           status="idle"
         />
         <Avatar
           {...args}
-          src="https://picsum.photos/200/300?random=4"
+          src="https://storage.googleapis.com/ded-wds-bucket/dog.png"
           shape="circle"
           status="busy"
         />
         <Avatar
           {...args}
-          src="https://picsum.photos/200/300?random=5"
+          src="https://storage.googleapis.com/ded-wds-bucket/pig.png"
           shape="circle"
           status="offline"
         />

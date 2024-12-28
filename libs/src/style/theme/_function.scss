@@ -27,6 +27,11 @@
   @return map.get(map.get($border-styles, $style), $type);
 }
 
+// 動態獲取狀態顏色
+@function getStatusColor($type, $color) {
+  @return map.get(map.get($status-colors, $type), $color);
+}
+
 // 動態獲取 avatar 狀態顏色
 @function getAvatarStatusColor($status) {
   @return map.get($avatar-status-colors, $status);

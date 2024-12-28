@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { ArrowDownIcon } from '@src/assets';
+import { getCombinedClassName } from '@src/utils/string';
 
 export interface AccordionProps {
-  label: string;
-  content: string;
+  label: ReactNode;
+  content: ReactNode;
+  prefix?: ReactNode;
+  isSmallSize?: boolean;
+  borderStyle?: 'solid' | 'highlight';
   isOpenAll?: boolean;
   className?: string;
 }
@@ -11,6 +15,9 @@ export interface AccordionProps {
 export const AccordionItem: React.FC<AccordionProps> = ({
   label,
   content,
+  prefix,
+  isSmallSize = false,
+  borderStyle = 'highlight',
   isOpenAll,
   className = '',
 }) => {
@@ -63,7 +70,11 @@ export const AccordionItem: React.FC<AccordionProps> = ({
   }, []);
 
   return (
-    <li className="ded-accordion-item">
+    <li
+      className={`ded-accordion-item 
+        ${getCombinedClassName('ded-accordion-item', borderStyle)}
+      `}
+    >
       <details
         onToggle={(e) => {
           setIsOpen((e.target as HTMLDetailsElement).open);
@@ -71,19 +82,27 @@ export const AccordionItem: React.FC<AccordionProps> = ({
         open={isOpen}
         className={`ded-accordion-detail ${className}`}
       >
-        <summary className="ded-accordion-title">
-          <span>{label}</span>
+        <summary
+          className={`ded-accordion-title 
+            ${getCombinedClassName(
+              'ded-accordion-title',
+              isSmallSize ? 'small' : 'default'
+            )}`}
+        >
+          <div className="ded-accordion-title-content">
+            {prefix && <div className="ded-accordion-title-icon">{prefix}</div>}
+            <span>{label}</span>
+          </div>
           <div
-            className={`ded-icon-medium ${
-              isOpen ? 'ded-accordion-item-open' : 'ded-accordion-item-close'
-            }`}
+            className={`ded-icon-medium 
+              ${
+                isOpen ? 'ded-accordion-item-open' : 'ded-accordion-item-close'
+              }`}
           >
             <ArrowDownIcon width={20} height={20} />
           </div>
         </summary>
-        <div className="ded-detail-content">
-          <p>{content}</p>
-        </div>
+        <div className="ded-accordion-detail-content">{content}</div>
       </details>
     </li>
   );

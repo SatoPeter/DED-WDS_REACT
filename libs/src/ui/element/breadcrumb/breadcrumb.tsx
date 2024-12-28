@@ -80,7 +80,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
   const itemsToShow =
     dataSource.length > 3
-      ? [dataSource[0], { label: '...', href: '#' }, ...dataSource.slice(-2)]
+      ? [dataSource[0], { label: '···', href: '#' }, ...dataSource.slice(-2)]
       : dataSource;
 
   return (
@@ -89,11 +89,11 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
         <ol className="ded-breadcrumb">
           {itemsToShow.map((item, index) => (
             <li className="ded-breadcrumb-item" key={index}>
-              {item.label === '...' ? (
+              {item.label === '···' ? (
                 <div ref={breadcrumbRef} className="ded-rest">
-                  <span onClick={handleClick} className="ded-rest-label">
+                  <div onClick={handleClick} className="ded-rest-label">
                     {item.label}
-                  </span>
+                  </div>
                 </div>
               ) : (
                 <BreadcrumbItem

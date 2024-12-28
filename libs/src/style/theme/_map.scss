@@ -17,7 +17,6 @@ $component-size: (
 
 // 定義 icon 大小
 $avatar-size: (
-  'xsmall': $avatar-size-xsmall,
   'small': $avatar-size-small,
   'medium': $avatar-size-medium,
   'large': $avatar-size-large,
@@ -198,6 +197,44 @@ $arrow-position: (
   'right-top': ('top': 50%, 'left': calc(0% - 8px), 'transform': translateY(-50%) rotate(90deg)),
   'right': ('top': 50%, 'left': calc(0% - 8px), 'transform': translateY(-50%) rotate(90deg)),
   'right-bottom': ('top': 50%, 'left': calc(0% - 8px), 'transform': translateY(-50%) rotate(90deg)),
+);
+
+$status-colors: (
+  'primary': ('default': $primary-default,
+    'dark': $primary-dark,
+    'light': $primary-light,
+    'soft': $primary-soft,
+  ),
+  'secondary': ('default': $secondary-default,
+    'dark': $secondary-dark,
+    'light': $secondary-light,
+    'soft': $secondary-soft,
+  ),
+  'neutral': ('default': $neutral-default,
+    'dark': $neutral-dark,
+    'light': $neutral-light,
+    'soft': $neutral-soft,
+  ),
+  'info': ('default': $support-info,
+    'dark': $support-info-dark,
+    'light': $support-info-light,
+    'soft': $support-info-soft,
+  ),
+  'success': ('default': $support-success,
+    'dark': $support-success-dark,
+    'light': $support-success-light,
+    'soft': $support-success-soft,
+  ),
+  'warning': ('default': $support-warning,
+    'dark': $support-warning-dark,
+    'light': $support-warning-light,
+    'soft': $support-warning-soft,
+  ),
+  'error': ('default': $support-error,
+    'dark': $support-error-dark,
+    'light': $support-error-light,
+    'soft': $support-error-soft,
+  )
 );
 
 // accordion 狀態

@@ -3,10 +3,24 @@
 
 /*--- Divider ---*/
 .ded-divider {
-  --line-weight: 2px;
+  --line-weight: #{$border-width};
   --line-style: solid;
+
   display: flex;
   min-height: 5em;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    flex-grow: 1;
+  }
+
+  &-content {
+    z-index: 1;
+    padding: 0.5em;
+  }
 }
 
 /*--- Divider 方向 ---*/
@@ -21,42 +35,38 @@
 
 .ded-divider-horizontal.ded-divider::before,
 .ded-divider-horizontal.ded-divider::after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-top: var(--line-weight) var(--line-style) list.nth($neutral-700, $site);
-  flex-grow: 1;
+  border-top-width: var(--line-weight);
+  border-top-style: var(--line-style);
+  border-top-color: list.nth($neutral-700, $site);
 }
 
 .ded-divider-vertical.ded-divider::before,
 .ded-divider-vertical.ded-divider::after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: var(--line-weight) var(--line-style) list.nth($neutral-700, $site);
-  flex-grow: 1;
+  border-left-width: var(--line-weight);
+  border-left-style: var(--line-style);
+  border-left-color: list.nth($neutral-700, $site);
 }
 
 
 /*--- Divider 線條粗細 ---*/
-.ded-divider-width-xsmall {
-  --line-weight: 1px;
+.ded-divider-1px {
+  --line-weight: #{$border-width-1};
 }
 
-.ded-divider-width-small {
-  --line-weight: 2px;
+.ded-divider-2px {
+  --line-weight: #{$border-width-2};
 }
 
-.ded-divider-width-medium {
-  --line-weight: 4px;
+.ded-divider-3px {
+  --line-weight: #{$border-width-3};
 }
 
-.ded-divider-width-large {
-  --line-weight: 6px;
+.ded-divider-4px {
+  --line-weight: #{$border-width-4};
 }
 
-.ded-divider-width-xlarge {
-  --line-weight: 8px;
+.ded-divider-5px {
+  --line-weight: #{$border-width-5};
 }
 
 /*--- Divider 線條樣式 ---*/
@@ -72,29 +82,15 @@
   --line-style: dotted;
 }
 
-/*--- Divider content ---*/
-.ded-divider-content {
-  z-index: 1;
-  padding: 0.5em;
-}
-
 /*--- Divider 對齊位置 - Horizontal ---*/
-.ded-divider-start.ded-divider-horizontal::before {
-  flex-grow: 0;
-  width: 1rem;
-}
-
+.ded-divider-start.ded-divider-horizontal::before,
 .ded-divider-end.ded-divider-horizontal::after {
   flex-grow: 0;
   width: 1rem;
 }
 
 /*--- Divider 對齊位置 - vertical ---*/
-.ded-divider-start.ded-divider-vertical::before {
-  flex-grow: 0;
-  height: 1rem;
-}
-
+.ded-divider-start.ded-divider-vertical::before,
 .ded-divider-end.ded-divider-vertical::after {
   flex-grow: 0;
   height: 1rem;

@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:list";
 
 .ded-toast-container {
   position: fixed;
@@ -9,58 +10,69 @@
 
 .ded-toast {
   position: relative;
-  border-radius: 4px;
+  border-top-right-radius: $radius-4;
+  border-bottom-right-radius: $radius-4;
   margin: 20px;
-  border: 1px solid #f3f4f6;
-  border-left-width: 6px;
-  background-color: $color-white; // White
-  padding: 20px 54px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Shadow-md
-  z-index: 9999;
+  border-left-width: $border-width-4;
+  border-left-style: solid;
+  background-color: list.nth($neutral-0, $site);
+  box-shadow: $shadow-dark-300;
+  z-index: 999;
 
   .ded-close-button {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 16px;
-    color: $color-gray40;
+    z-index: 1;
+    color: $auo-icon-default;
     background-color: transparent;
   }
 
-  .ded-message {
-    position: relative;
+  .ded-toast-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 4px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #374151;
+    padding: 4px 0 0 12px;
 
-    .ded-icon-wrapper {
-      position: absolute;
-      left: -32px;
-      height: 20px;
-      width: 20px;
+    &-message {
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: $color-white;
+      gap: $spacing-4;
+      font-size: 14px;
+      font-weight: 500;
+      color: $support-success;
+
+      @each $theme in $themes {
+        &-#{$theme} {
+          color: getThemeColor($theme, "default");
+        }
+      }
+    }
+
+    &-action {
+      display: flex;
+      align-items: center;
+      padding-right: 40px;
+      font-size: 14px;
+      text-decoration: none;
+      color: list.nth($link-default, $site);
+      cursor: pointer;
     }
   }
 
   .ded-description {
     font-size: 14px;
-    color: #4b5563;
-    word-wrap: break-word; // 長字元換行
-    word-break: break-word; // 支援非空白符號的換行
-    white-space: normal; // 確保正常換行
+    padding: 0 2.5em 4px;
+    color: list.nth($text-helper, $site);
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
   }
 }
 
 @each $theme in $themes {
   .ded-toast-#{$theme} {
-    // border-top-width: 1px;
     background-color: getThemeColor($theme, "default");
   }
 }

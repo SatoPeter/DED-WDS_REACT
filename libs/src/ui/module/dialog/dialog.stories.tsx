@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Dialog } from '@src/ui';
 import { useDialog } from '@src/hooks';
-import { Button, Title } from '@src/ui';
+import { Dialog, Button, Title } from '@src/ui';
+import { Grid, Row, Column } from '@src/ui/section/grid';
 import { StoryContext } from 'storybook/internal/types';
 import { CloseIcon } from '@src/assets';
 
@@ -76,19 +76,29 @@ export default {
   title="${args?.title}"
   content="${args?.content}"
   footer={
-    <>
-      <Button
-        onClick={handleCancel}
-        variant="filled"
-        radius="md"
-        className="cancel-btn"
-      >
-        Cancel
-      </Button>
-      <Button onClick={handleOK} variant="filled" radius="md">
-        OK
-      </Button>
-    </>
+    <Grid fluid>
+      <Row>
+        <Column sm={4}>
+          <Button
+            onClick={() => window.alert('ok')}
+            variant="filled"
+            width="fluid"
+          >
+            OK
+          </Button>
+        </Column>
+        <Column sm={4}>
+          <Button
+            onClick={() => window.alert('cancel')}
+            themeColor="primary"
+            variant="soft"
+            width="fluid"
+          >
+            Cancel
+          </Button>
+        </Column>
+      </Row>
+    </Grid>
   }
 />`;
         },
@@ -128,7 +138,7 @@ const DemoWithHook = (args: Story['args']) => {
 
   return (
     <>
-      <Button onClick={openDialog} variant="filled" radius="md">
+      <Button onClick={openDialog} variant="filled">
         Open Dialog
       </Button>
       <Dialog
@@ -138,19 +148,29 @@ const DemoWithHook = (args: Story['args']) => {
         header={header}
         content={content}
         footer={
-          <>
-            <Button onClick={handleOK} variant="filled" radius="md">
-              OK
-            </Button>
-            <Button
-              onClick={handleCancel}
-              variant="filled"
-              radius="md"
-              className="cancel-btn"
-            >
-              Cancel
-            </Button>
-          </>
+          <Grid fluid>
+            <Row>
+              <Column sm={4}>
+                <Button
+                  onClick={() => window.alert('ok')}
+                  variant="filled"
+                  width="fluid"
+                >
+                  OK
+                </Button>
+              </Column>
+              <Column sm={4}>
+                <Button
+                  onClick={() => window.alert('cancel')}
+                  themeColor="primary"
+                  variant="soft"
+                  width="fluid"
+                >
+                  Cancel
+                </Button>
+              </Column>
+            </Row>
+          </Grid>
         }
       />
     </>
@@ -192,21 +212,29 @@ export const Default: Story = {
         <div className="dialog-header">{header}</div>
         <div className="dialog-body">{content}</div>
         <div className="dialog-footer">
-          <Button
-            onClick={() => window.alert('ok')}
-            variant="filled"
-            radius="md"
-          >
-            OK
-          </Button>
-          <Button
-            onClick={() => window.alert('cancel')}
-            variant="filled"
-            radius="md"
-            className="cancel-btn"
-          >
-            Cancel
-          </Button>
+          <Grid fluid>
+            <Row>
+              <Column sm={4}>
+                <Button
+                  onClick={() => window.alert('ok')}
+                  variant="filled"
+                  width="fluid"
+                >
+                  OK
+                </Button>
+              </Column>
+              <Column sm={4}>
+                <Button
+                  onClick={() => window.alert('cancel')}
+                  themeColor="primary"
+                  variant="soft"
+                  width="fluid"
+                >
+                  Cancel
+                </Button>
+              </Column>
+            </Row>
+          </Grid>
         </div>
       </div>
     );

@@ -32,6 +32,15 @@ import MailIcon from '@assets/mail.svg?react';
 import NotificationIcon from '@assets/notification.svg?react';
 import InfoIcon from '@assets/info.svg?react';
 import WarningIcon from '@assets/warning.svg?react';
+import InfoCircleIcon from '@assets/info-circle.svg?react';
+import SuccessCircleIcon from '@assets/success-circle.svg?react';
+import WarningTriIcon from '@assets/warning-tri.svg?react';
+import ErrorCircleIcon from '@assets/error-circle.svg?react';
+import QuestionCircleIcon from '@assets/question-circle.svg?react';
+import DisableCircleIcon from '@assets/disable-circle.svg?react';
+import FirstLastPageIcon from '@assets/first-last-page.svg?react';
+import NavigateArrowIcon from '@assets/navigate-arrow.svg?react';
+import CalendarIcon from '@assets/calendar.svg?react';
 
 export {
   AccountIcon,
@@ -68,4 +77,13 @@ export {
   NotificationIcon,
   InfoIcon,
   WarningIcon,
+  InfoCircleIcon,
+  SuccessCircleIcon,
+  WarningTriIcon,
+  ErrorCircleIcon,
+  QuestionCircleIcon,
+  DisableCircleIcon,
+  FirstLastPageIcon,
+  NavigateArrowIcon,
+  CalendarIcon,
 };

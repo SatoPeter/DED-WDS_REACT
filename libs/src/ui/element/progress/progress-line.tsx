@@ -49,18 +49,22 @@ export const LineProgress: React.FC<LineProgressProps> = ({
 
   return (
     <div className={`ded-progress-line-container ${className}`}>
-      {label && <div className="ded-progress-line-label">{label}</div>}
+      {label && (
+        <div className="ded-progress-line-label ded-progress-label">
+          {label}
+        </div>
+      )}
       <div className="ded-progress-line">
         <div
           className="ded-progress-line-track"
           style={{ height: strokeWidth }}
         >
           <div
-            className={`${getThemeClass('line', themeColor)}`}
+            className="ded-progress-line-percent-form"
             style={{ width: `${normalizedProgress}%` }}
           />
         </div>
-        <div className="ded-progress-line-percent">{`${normalizedProgress}%`}</div>
+        <div className="ded-progress-line-label ded-progress-percent-text">{`${normalizedProgress}%`}</div>
       </div>
     </div>
   );

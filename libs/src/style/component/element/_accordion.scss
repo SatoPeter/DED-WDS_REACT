@@ -6,17 +6,32 @@
 
 .ded-accordion {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+
+  &-solid {
+    gap: 8px;
+  }
 
   &-item {
     background-color: list.nth($neutral-0, $site);
-    border-bottom: 1px solid list.nth($neutral-50, $site);
 
-    &:hover {
-      background-color: $accordion-colors;
+    &-highlight {
+      border-bottom-width: $border-width;
+      border-bottom-style: solid;
+      border-bottom-color: $auo-form-border;
     }
 
-    &:focus {
-      border: 2px solid $accordion-colors;
+    &-solid {
+      border-width: $border-width;
+      border-style: solid;
+      border-color: $auo-form-border;
+      border-radius: $radius-4;
+    }
+
+    &:hover {
+      border-width: $auo-form-border;
+      border-color: list.nth($link-hover, $site);
     }
 
     &-open {
@@ -35,19 +50,37 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 12px 8px;
       cursor: pointer;
       font-weight: 700;
+      padding: 16px;
+
 
       &::marker {
         content: '';
       }
+
+      &-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      &-icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid $auo-icon-default;
+        border-radius: $radius-999;
+      }
     }
 
-    p {
-      padding: 0 12px 8px;
+    &-content {
+      padding: 0 52px 16px;
       overflow: hidden;
-      font-size: 14px;
+      font-size: 16px;
+      color: list.nth($text-secondary, $site);
     }
   }
 }
