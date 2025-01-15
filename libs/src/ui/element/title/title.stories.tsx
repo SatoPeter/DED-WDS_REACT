@@ -1,11 +1,31 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Title } from './title';
+import { theme } from 'highcharts';
 
 export default {
   title: 'Component/Typgraphy/Title',
   component: Title,
   tags: ['autodocs'],
   argTypes: {
+    themeColor: {
+      description: '主題色彩',
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'neutral',
+          'info',
+          'success',
+          'warning',
+          'error',
+          'none',
+        ],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     level: {
       description: '標題等級',
       control: {
@@ -38,7 +58,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'none',
     level: 1,
     className: '',
     children: 'Title',

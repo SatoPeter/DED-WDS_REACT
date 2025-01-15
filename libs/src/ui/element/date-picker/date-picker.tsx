@@ -4,7 +4,7 @@ import { DatepickerOptions } from 'vanillajs-datepicker/Datepicker';
 import { DateRangePickerOptions } from 'vanillajs-datepicker/DateRangePicker';
 import { Datepicker, DateRangePicker } from 'vanillajs-datepicker';
 import { Input } from '@src/ui';
-import { CalendarIcon } from '@src/assets';
+import { SvgCalendar } from '@src/assets';
 
 interface DatePickerProps {
   value?: string;
@@ -77,7 +77,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             <Input
               placeholder="Start Date"
               initValue={value}
-              prefix={<CalendarIcon />}
+              prefix={<SvgCalendar />}
               type="text"
               onChange={() => ({})}
               className={className}
@@ -85,7 +85,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             <Input
               placeholder="End Date"
               initValue={value}
-              prefix={<CalendarIcon />}
+              prefix={<SvgCalendar />}
               type="text"
               onChange={() => ({})}
               className={className}
@@ -96,7 +96,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             ref={ref || inputRef}
             placeholder={placeholder}
             initValue={value}
-            prefix={<CalendarIcon />}
+            prefix={<SvgCalendar />}
             type="text"
             onChange={() => ({})}
             className={className}

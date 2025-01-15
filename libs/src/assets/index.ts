@@ -1,89 +1,109 @@
-import AccountIcon from '@assets/account_circle.svg?react';
-import IdleIcon from '@assets/idle.svg?react';
-import OnlineIcon from '@assets/online.svg?react';
-import BusyIcon from '@assets/busy.svg?react';
-import OfflineIcon from '@assets/offline.svg?react';
-import CloseIcon from '@assets/close.svg?react';
-import VisibilityIcon from '@assets/visibility.svg?react';
-import VisibilityOffIcon from '@assets/visibility_off.svg?react';
-import SearchIcon from '@assets/search.svg?react';
-import LockIcon from '@assets/lock.svg?react';
-import AddIcon from '@assets/add.svg?react';
-import ArrowDownIcon from '@assets/arrow_down.svg?react';
-import CheckIcon from '@assets/check.svg?react';
-import MoreIcon from '@assets/more_vert.svg?react';
-import MinusIcon from '@assets/minus.svg?react';
-import PlusIcon from '@assets/plus.svg?react';
-import PowerIcon from '@assets/power.svg?react';
-import AirIcon from '@assets/air-condition.svg?react';
-import FanIcon from '@assets/fan.svg?react';
-import LightIcon from '@assets/light.svg?react';
-import WindowIcon from '@assets/window.svg?react';
-import CurtainIcon from '@assets/curtain.svg?react';
-import HomeIcon from '@assets/home.svg?react';
-import HumidityIcon from '@assets/humidity.svg?react';
-import TemperatureIcon from '@assets/temperature.svg?react';
-import DoorIcon from '@assets/door.svg?react';
-import AUOIcon from '@assets/auo.svg?react';
-import DragonballIcon from '@assets/dragonball.svg?react';
-import GoogleIcon from '@assets/google.svg?react';
-import FacebookIcon from '@assets/facebook.svg?react';
-import MailIcon from '@assets/mail.svg?react';
-import NotificationIcon from '@assets/notification.svg?react';
-import InfoIcon from '@assets/info.svg?react';
-import WarningIcon from '@assets/warning.svg?react';
-import InfoCircleIcon from '@assets/info-circle.svg?react';
-import SuccessCircleIcon from '@assets/success-circle.svg?react';
-import WarningTriIcon from '@assets/warning-tri.svg?react';
-import ErrorCircleIcon from '@assets/error-circle.svg?react';
-import QuestionCircleIcon from '@assets/question-circle.svg?react';
-import DisableCircleIcon from '@assets/disable-circle.svg?react';
-import FirstLastPageIcon from '@assets/first-last-page.svg?react';
-import NavigateArrowIcon from '@assets/navigate-arrow.svg?react';
-import CalendarIcon from '@assets/calendar.svg?react';
+import SvgAccount from '@assets/account_circle.svg?react';
+import SvgArrowDown from '@assets/arrow-down.svg?react';
+import SvgAdd from '@assets/add.svg?react';
+import SvgAir from '@assets/air-condition.svg?react';
+import SvgAuo from '@assets/auo.svg?react';
+import SvgBarChart from '@assets/bar-chart.svg?react';
+import SvgBusy from '@assets/busy.svg?react';
+import SvgCalendar from '@assets/calendar.svg?react';
+import SvgCheck from '@assets/check.svg?react';
+import SvgClose from '@assets/close.svg?react';
+import SvgCurtain from '@assets/curtain.svg?react';
+import SvgDatabase from '@assets/database.svg?react';
+import SvgDisableCircle from '@assets/disable-circle.svg?react';
+import SvgDoor from '@assets/door.svg?react';
+import SvgErrorCircle from '@assets/error-circle.svg?react';
+import SvgFacebook from '@assets/facebook.svg?react';
+import SvgFan from '@assets/fan.svg?react';
+import SvgFavorite from '@assets/favorite.svg?react';
+import SvgFirstLastPage from '@assets/first-last-page.svg?react';
+import SvgGoogle from '@assets/google.svg?react';
+import SvgHome from '@assets/home.svg?react';
+import SvgHumidity from '@assets/humidity.svg?react';
+import SvgIdle from '@assets/idle.svg?react';
+import SvgInfo from '@assets/info.svg?react';
+import SvgInfoCircle from '@assets/info-circle.svg?react';
+import SvgLanguage from '@assets/language.svg?react';
+import SvgLight from '@assets/light.svg?react';
+import SvgLocation from '@assets/location.svg?react';
+import SvgLock from '@assets/lock.svg?react';
+import SvgLogout from '@assets/logout.svg?react';
+import SvgMail from '@assets/mail.svg?react';
+import SvgMinus from '@assets/minus.svg?react';
+import SvgMore from '@assets/more_vert.svg?react';
+import SvgMoreVert from '@assets/more-vert.svg?react';
+import SvgNavigateArrow from '@assets/navigate-arrow.svg?react';
+import SvgNotification from '@assets/notification.svg?react';
+import SvgOffline from '@assets/offline.svg?react';
+import SvgOnline from '@assets/online.svg?react';
+import SvgPlus from '@assets/plus.svg?react';
+import SvgPower from '@assets/power.svg?react';
+import SvgQuestionCircle from '@assets/question-circle.svg?react';
+import SvgSearch from '@assets/search.svg?react';
+import SvgSettings from '@assets/settings.svg?react';
+import SvgSuccessCircle from '@assets/success-circle.svg?react';
+import SvgTemperature from '@assets/temperature.svg?react';
+import SvgUser from '@assets/User.svg?react';
+import SvgVisibility from '@assets/visibility.svg?react';
+import SvgVisibilityOff from '@assets/visibility_off.svg?react';
+import SvgWarning from '@assets/warning.svg?react';
+import SvgWarningTri from '@assets/warning-tri.svg?react';
+import SvgWindow from '@assets/window.svg?react';
+import SvgLine from '@assets/line.svg?react';
+import SvgClock from '@assets/clock.svg?react';
 
 export {
-  AccountIcon,
-  IdleIcon,
-  OnlineIcon,
-  BusyIcon,
-  OfflineIcon,
-  CloseIcon,
-  VisibilityIcon,
-  VisibilityOffIcon,
-  SearchIcon,
-  LockIcon,
-  AddIcon,
-  ArrowDownIcon,
-  CheckIcon,
-  MoreIcon,
-  MinusIcon,
-  PlusIcon,
-  PowerIcon,
-  AirIcon,
-  FanIcon,
-  LightIcon,
-  WindowIcon,
-  CurtainIcon,
-  HomeIcon,
-  HumidityIcon,
-  TemperatureIcon,
-  DoorIcon,
-  AUOIcon,
-  DragonballIcon,
-  GoogleIcon,
-  FacebookIcon,
-  MailIcon,
-  NotificationIcon,
-  InfoIcon,
-  WarningIcon,
-  InfoCircleIcon,
-  SuccessCircleIcon,
-  WarningTriIcon,
-  ErrorCircleIcon,
-  QuestionCircleIcon,
-  DisableCircleIcon,
-  FirstLastPageIcon,
-  NavigateArrowIcon,
-  CalendarIcon,
+  SvgAccount,
+  SvgAdd,
+  SvgAir,
+  SvgArrowDown,
+  SvgAuo,
+  SvgBarChart,
+  SvgBusy,
+  SvgCalendar,
+  SvgCheck,
+  SvgClose,
+  SvgCurtain,
+  SvgDatabase,
+  SvgDisableCircle,
+  SvgDoor,
+  SvgErrorCircle,
+  SvgFacebook,
+  SvgFan,
+  SvgFavorite,
+  SvgFirstLastPage,
+  SvgGoogle,
+  SvgHome,
+  SvgHumidity,
+  SvgIdle,
+  SvgInfo,
+  SvgInfoCircle,
+  SvgLanguage,
+  SvgLight,
+  SvgLocation,
+  SvgLock,
+  SvgLogout,
+  SvgMail,
+  SvgMinus,
+  SvgMore,
+  SvgMoreVert,
+  SvgNavigateArrow,
+  SvgNotification,
+  SvgOffline,
+  SvgOnline,
+  SvgPlus,
+  SvgPower,
+  SvgQuestionCircle,
+  SvgSearch,
+  SvgSettings,
+  SvgSuccessCircle,
+  SvgTemperature,
+  SvgUser,
+  SvgVisibility,
+  SvgVisibilityOff,
+  SvgWarning,
+  SvgWarningTri,
+  SvgWindow,
+  SvgLine,
+  SvgClock,
 };

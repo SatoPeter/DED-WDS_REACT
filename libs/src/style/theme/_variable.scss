@@ -3,8 +3,20 @@
 
 // 主題色名稱
 $theme-color: ['AUO-BLUE', 'AUO-DARK', 'AUO-PURPLE', 'AUO-YELLOW'];
-// 主題色索引
+
+:root {
+  @each $theme in $theme-color {
+    $index: list.index($theme-color, $theme);
+    --#{$theme}-INDEX: #{$index};
+  }
+}
+
 $site: list.index($theme-color, 'AUO-BLUE');
+
+
+// 主題色索引
+
+// @debug $site;
 
 $font-family: 'Mabry Pro', Verdana, 'Noto Sans TC', 'Noto Sans SC', 'Noto Sans JP', 'Microsoft JhengHei', 'sans-serif',
   '新細明體', '細明體';

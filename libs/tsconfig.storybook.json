@@ -27,6 +27,7 @@
     "src/**/*.stories.mdx",
     ".storybook/*.js",
     ".storybook/*.ts",
-    "src/ui/element/toggle/toggle.stories.tsx"
+    "src/ui/element/toggle/toggle.stories.tsx",
+    "src/ui/template/dashboard/dashboard.tsx"
   ]
 }

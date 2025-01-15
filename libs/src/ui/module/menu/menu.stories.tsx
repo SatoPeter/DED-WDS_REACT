@@ -1,4 +1,4 @@
-import { AccountIcon, HomeIcon } from '@src/assets';
+import { SvgAccount, SvgHome } from '@src/assets';
 import { Meta, StoryObj } from '@storybook/react';
 import { ItemProps } from '@src/hooks/useMenu';
 import Menu from './menu';
@@ -6,29 +6,29 @@ import Menu from './menu';
 const menuData: ItemProps[] = [
   {
     title: 'Dashboard',
-    prefix: <HomeIcon width={24} height={24} />,
+    prefix: <SvgHome width={24} height={24} />,
     path: '/dashboard',
   },
   {
     title: 'Settings',
-    prefix: <HomeIcon width={24} height={24} />,
+    prefix: <SvgHome width={24} height={24} />,
     path: '/settings',
     children: [
       {
         title: 'Profile',
-        prefix: <AccountIcon width={24} height={24} />,
+        prefix: <SvgAccount width={24} height={24} />,
         path: '/settings/profile',
       },
       {
         title: 'Account',
-        prefix: <AccountIcon width={24} height={24} />,
+        prefix: <SvgAccount width={24} height={24} />,
         path: '/settings/account',
       },
     ],
   },
   {
     title: 'Help',
-    prefix: <HomeIcon width={24} height={24} />,
+    prefix: <SvgHome width={24} height={24} />,
     path: '/help',
   },
 ];
@@ -65,6 +65,12 @@ export default {
         category: 'PROPS',
       },
     },
+    hasDivider: {
+      description: '是否有分隔線',
+      table: {
+        category: 'PROPS',
+      },
+    },
     className: {
       description: '客製化樣式',
       table: {
@@ -76,6 +82,7 @@ export default {
     dataSource: menuData,
     isCollapsed: false,
     color: '#000000',
+    isSideNavLink: true,
     className: '',
   },
   parameters: {
@@ -94,28 +101,5 @@ export const Default: Story = {
   args: {},
   render(args) {
     return <Menu {...args} />;
-  },
-};
-
-const navMenuData: ItemProps[] = [
-  {
-    title: 'Dashboard',
-    path: '/dashboard',
-  },
-  {
-    title: 'Settings',
-    path: '/settings',
-  },
-  {
-    title: 'Help',
-    path: '/help',
-  },
-];
-
-export const NavMenu: Story = {
-  name: '導航選單',
-  args: { dataSource: navMenuData },
-  render(args) {
-    return <Menu {...args} direction="horizontal" />;
   },
 };

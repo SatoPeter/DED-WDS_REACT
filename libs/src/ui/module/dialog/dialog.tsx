@@ -1,6 +1,6 @@
 import React from 'react';
 import { Portal } from '../../portal';
-import { CloseIcon } from '@src/assets';
+import { SvgClose } from '@src/assets';
 import { Mask } from '../../mask';
 
 export interface DialogProps {
@@ -32,7 +32,7 @@ export const Dialog: React.FC<DialogProps> = ({
           >
             {onClose && hasClose && (
               <button className="dialog-close-btn" onClick={onClose}>
-                <CloseIcon width={20} height={20} />
+                <SvgClose width={20} height={20} />
               </button>
             )}
             <div className="dialog-header">{header}</div>

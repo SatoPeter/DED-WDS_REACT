@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { StatusIndicator } from './status-indicator';
 import {
-  InfoCircleIcon,
-  SuccessCircleIcon,
-  WarningTriIcon,
-  ErrorCircleIcon,
-  QuestionCircleIcon,
-  DisableCircleIcon,
+  SvgInfoCircle,
+  SvgSuccessCircle,
+  SvgWarningTri,
+  SvgErrorCircle,
+  SvgQuestionCircle,
+  SvgDisableCircle,
 } from '@src/assets';
 
 export default {
@@ -46,21 +46,21 @@ export default {
       description: '前綴元素',
       options: [
         'None',
-        'InfoCircleIcon',
-        'SuccessCircleIcon',
-        'WarningCircleIcon',
-        'ErrorCircleIcon',
-        'QuestionCircleIcon',
-        'DisableCircleIcon',
+        'SvgInfoCircle',
+        'SvgSuccessCircle',
+        'SvgWarningCircle',
+        'SvgErrorCircle',
+        'SvgQuestionCircle',
+        'SvgDisableCircle',
       ],
       mapping: {
         None: null,
-        InfoCircleIcon: <InfoCircleIcon width={20} height={20} />,
-        SuccessCircleIcon: <SuccessCircleIcon width={20} height={20} />,
-        WarningCircleIcon: <WarningTriIcon width={20} height={20} />,
-        ErrorCircleIcon: <ErrorCircleIcon width={20} height={20} />,
-        QuestionCircleIcon: <QuestionCircleIcon width={20} height={20} />,
-        DisableCircleIcon: <DisableCircleIcon width={20} height={20} />,
+        SvgInfoCircle: <SvgInfoCircle width={20} height={20} />,
+        SvgSuccessCircle: <SvgSuccessCircle width={20} height={20} />,
+        SvgWarningCircle: <SvgWarningTri width={20} height={20} />,
+        SvgErrorCircle: <SvgErrorCircle width={20} height={20} />,
+        SvgQuestionCircle: <SvgQuestionCircle width={20} height={20} />,
+        SvgDisableCircle: <SvgDisableCircle width={20} height={20} />,
       },
       control: {
         type: 'select',
@@ -166,7 +166,7 @@ export const Theme: Story = {
           {...args}
           variant="filled"
           themeColor="info"
-          prefix={<InfoCircleIcon width={20} height={20} />}
+          prefix={<SvgInfoCircle width={20} height={20} />}
         >
           Information
         </StatusIndicator>
@@ -174,7 +174,7 @@ export const Theme: Story = {
           {...args}
           variant="filled"
           themeColor="success"
-          prefix={<SuccessCircleIcon width={20} height={20} />}
+          prefix={<SvgSuccessCircle width={20} height={20} />}
         >
           Success
         </StatusIndicator>
@@ -182,7 +182,7 @@ export const Theme: Story = {
           {...args}
           variant="filled"
           themeColor="warning"
-          prefix={<WarningTriIcon width={20} height={20} />}
+          prefix={<SvgWarningTri width={20} height={20} />}
         >
           Warning
         </StatusIndicator>
@@ -190,7 +190,7 @@ export const Theme: Story = {
           {...args}
           variant="filled"
           themeColor="error"
-          prefix={<ErrorCircleIcon width={20} height={20} />}
+          prefix={<SvgErrorCircle width={20} height={20} />}
         >
           Error
         </StatusIndicator>
@@ -198,7 +198,7 @@ export const Theme: Story = {
           {...args}
           variant="filled"
           themeColor="neutral"
-          prefix={<DisableCircleIcon width={20} height={20} />}
+          prefix={<SvgDisableCircle width={20} height={20} />}
         >
           Disable
         </StatusIndicator>
@@ -206,7 +206,7 @@ export const Theme: Story = {
           {...args}
           variant="text"
           themeColor="info"
-          prefix={<InfoCircleIcon width={20} height={20} />}
+          prefix={<SvgInfoCircle width={20} height={20} />}
         >
           Information
         </StatusIndicator>
@@ -214,7 +214,7 @@ export const Theme: Story = {
           {...args}
           variant="text"
           themeColor="success"
-          prefix={<SuccessCircleIcon width={20} height={20} />}
+          prefix={<SvgSuccessCircle width={20} height={20} />}
         >
           Success
         </StatusIndicator>
@@ -222,7 +222,7 @@ export const Theme: Story = {
           {...args}
           variant="text"
           themeColor="warning"
-          prefix={<WarningTriIcon width={20} height={20} />}
+          prefix={<SvgWarningTri width={20} height={20} />}
         >
           Warning
         </StatusIndicator>
@@ -230,7 +230,7 @@ export const Theme: Story = {
           {...args}
           variant="text"
           themeColor="error"
-          prefix={<ErrorCircleIcon width={20} height={20} />}
+          prefix={<SvgErrorCircle width={20} height={20} />}
         >
           Error
         </StatusIndicator>
@@ -238,7 +238,7 @@ export const Theme: Story = {
           {...args}
           variant="text"
           themeColor="neutral"
-          prefix={<DisableCircleIcon width={20} height={20} />}
+          prefix={<SvgDisableCircle width={20} height={20} />}
         >
           Disable
         </StatusIndicator>

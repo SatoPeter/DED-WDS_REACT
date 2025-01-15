@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@src/ui';
-import { FirstLastPageIcon, NavigateArrowIcon } from '@src/assets';
+import { SvgFirstLastPage, SvgNavigateArrow } from '@src/assets';
 
 interface PaginationProps {
   totalItems: number;
@@ -96,7 +96,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="ded-pagination-button"
           onClick={() => handlePageChange(1)}
         >
-          <FirstLastPageIcon className="ded-pagination-button-first" />
+          <SvgFirstLastPage className="ded-pagination-button-first" />
         </Button>
 
         <Button
@@ -106,7 +106,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="ded-pagination-button"
           onClick={() => handlePageChange(currPage - 1)}
         >
-          <NavigateArrowIcon className="ded-pagination-button-back" />
+          <SvgNavigateArrow className="ded-pagination-button-back" />
         </Button>
 
         {pageNumbers.map((number) => (
@@ -130,7 +130,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="ded-pagination-button"
           onClick={() => handlePageChange(currPage + 1)}
         >
-          <NavigateArrowIcon />
+          <SvgNavigateArrow />
         </Button>
 
         <Button
@@ -140,7 +140,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="ded-pagination-button"
           onClick={() => handlePageChange(totalPages)}
         >
-          <FirstLastPageIcon />
+          <SvgFirstLastPage />
         </Button>
       </div>
     </div>

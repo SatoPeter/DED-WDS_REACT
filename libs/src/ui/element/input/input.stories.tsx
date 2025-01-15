@@ -2,13 +2,14 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Input } from './input';
 import {
-  AccountIcon,
-  SearchIcon,
-  VisibilityIcon,
-  VisibilityOffIcon,
-  CloseIcon,
-  LockIcon,
+  SvgAccount,
+  SvgSearch,
+  SvgVisibility,
+  SvgVisibilityOff,
+  SvgClose,
+  SvgLock,
 } from '@src/assets';
+import { has } from 'lodash';
 
 export default {
   title: 'Component/Input',
@@ -31,6 +32,12 @@ export default {
         category: 'PROPS',
       },
     },
+    hasClear: {
+      description: '是否顯示清除按鈕',
+      table: {
+        category: 'PROPS',
+      },
+    },
     placeholder: {
       description: '輸入提示',
       control: {
@@ -42,6 +49,12 @@ export default {
     },
     initValue: {
       description: '初始值',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    maxLimit: {
+      description: '最長輸入限制',
       table: {
         category: 'PROPS',
       },
@@ -59,12 +72,12 @@ export default {
       ],
       mapping: {
         None: null,
-        Account: <AccountIcon />,
-        Search: <SearchIcon />,
-        Visibility: <VisibilityIcon />,
-        VisibilityOff: <VisibilityOffIcon />,
-        Close: <CloseIcon />,
-        Lock: <LockIcon />,
+        Account: <SvgAccount />,
+        Search: <SvgSearch />,
+        Visibility: <SvgVisibility />,
+        VisibilityOff: <SvgVisibilityOff />,
+        Close: <SvgClose />,
+        Lock: <SvgLock />,
       },
       table: {
         category: 'PROPS',
@@ -123,10 +136,12 @@ export default {
   args: {
     label: 'Label',
     type: 'text',
+    hasClear: true,
     placeholder: 'Placeholder...',
-    prefix: <AccountIcon />,
+    prefix: <SvgAccount />,
     size: 'medium',
     initValue: '',
+    maxLimit: undefined,
     hint: { error: '', description: 'Prompt message' },
     isDisabled: false,
     className: '',
@@ -146,7 +161,7 @@ export const Default: Story = {
 export const InputWithStatus: Story = {
   name: '輸入框狀態',
   args: {
-    prefix: <AccountIcon />,
+    prefix: <SvgAccount />,
     placeholder: 'Placeholder...',
   },
   parameters: {
@@ -154,7 +169,7 @@ export const InputWithStatus: Story = {
       source: {
         code: `
 <Input {...args} label="Account" />
-<Input {...args} label="Password" type={'password'} prefix={<LockIcon />} />
+<Input {...args} label="Password" type={'password'} prefix={<Lock />} />
 <Input {...args} label="Account" hint={{ error: 'Error message', description: '' }} />
 <Input {...args} label="Account" hint={{ error: '', description: 'Prompt message' }} />
 `,
@@ -169,7 +184,7 @@ export const InputWithStatus: Story = {
           {...args}
           label="Password"
           type={'password'}
-          prefix={<LockIcon />}
+          prefix={<SvgLock />}
         />
         <Input
           {...args}

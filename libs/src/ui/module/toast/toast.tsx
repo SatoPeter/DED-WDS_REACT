@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { CloseIcon } from '@src/assets';
+import { SvgClose } from '@src/assets';
 import { Button } from '@src/ui/element/button';
 import { Title } from '@src/ui/element/title';
 import { getCombinedClassName } from '@src/utils/string';
@@ -44,7 +44,7 @@ export const Toast: React.FC<ToastProps> = ({
         themeColor="neutral"
         className="ded-close-button"
       >
-        <CloseIcon width={20} height={20} onClick={onClose} />
+        <SvgClose width={20} height={20} onClick={onClose} />
       </Button>
       <div className={`ded-toast-header`}>
         <div

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from '@src/ui/element/input';
 import { Button } from '@src/ui/element/button';
-import { SearchIcon } from '@src/assets';
+import { SvgSearch } from '@src/assets';
 
 /* 組件介面參數 props */
 interface SearchProps {
@@ -36,7 +36,7 @@ export const Search: React.FC<SearchProps> = ({
         size={size}
         type="text"
         initValue={value}
-        prefix={<SearchIcon width={20} height={20} />}
+        prefix={<SvgSearch width={20} height={20} />}
         isDisabled={isDisabled}
         className="ded-search-input"
         onChange={handleChange}

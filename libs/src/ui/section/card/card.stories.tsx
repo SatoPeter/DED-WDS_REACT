@@ -1,8 +1,10 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { Button, Title, Card, CardSimple } from '@src/ui';
+import { Button, Title } from '@src/ui';
+import { CardSimple } from '@src/ui/section/card-simple';
+import { Card } from './card';
 import { Column, Grid, Row } from '@src/ui/section/grid';
-import { ArrowDownIcon } from '@src/assets';
+import { SvgArrowDown } from '@src/assets';
 
 export default {
   title: 'Component/Card',
@@ -78,7 +80,7 @@ export const Default: Story = {
       <Button
         themeColor="primary"
         variant={'filled'}
-        suffix={<ArrowDownIcon />}
+        suffix={<SvgArrowDown />}
         onClick={() => ({})}
       >
         Button
@@ -93,7 +95,7 @@ export const Default: Story = {
             <Card {...args}>
               <CardSimple
                 hasBorder={false}
-                imgSrc="libs/src/assets/card_bg.png"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
                 align="left"
                 title="Card Title"
                 subtitle="Subtitle"
@@ -119,7 +121,7 @@ export const Vertical: Story = {
       <Button
         themeColor="primary"
         variant={'filled'}
-        suffix={<ArrowDownIcon />}
+        suffix={<SvgArrowDown />}
         onClick={() => ({})}
       >
         Button
@@ -134,7 +136,7 @@ export const Vertical: Story = {
             <Card {...args}>
               <CardSimple
                 hasBorder={false}
-                imgSrc="libs/src/assets/card_bg.png"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
                 align="left"
                 title="Card Title"
                 subtitle="Subtitle"
@@ -146,7 +148,7 @@ export const Vertical: Story = {
             <Card {...args}>
               <CardSimple
                 hasBorder={false}
-                imgSrc="libs/src/assets/card_bg.png"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
                 align="left"
                 title="Card Title"
                 subtitle="Subtitle"
@@ -158,7 +160,7 @@ export const Vertical: Story = {
             <Card {...args}>
               <CardSimple
                 hasBorder={false}
-                imgSrc="libs/src/assets/card_bg.png"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
                 align="left"
                 title="Card Title"
                 subtitle="Subtitle"
@@ -170,7 +172,7 @@ export const Vertical: Story = {
             <Card {...args}>
               <CardSimple
                 hasBorder={false}
-                imgSrc="libs/src/assets/card_bg.png"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
                 align="left"
                 title="Card Title"
                 subtitle="Subtitle"
@@ -197,7 +199,7 @@ export const Horizontal: Story = {
         themeColor="primary"
         variant={'filled'}
         size={'large'}
-        suffix={<ArrowDownIcon />}
+        suffix={<SvgArrowDown />}
         onClick={() => ({})}
       >
         Button
@@ -208,12 +210,12 @@ export const Horizontal: Story = {
     return (
       <Grid>
         <Row>
-          <Column xs={12}>
+          <Column xs={6}>
             <Card {...args}>
               <CardSimple
                 hasBorder={false}
                 layout="horizontal"
-                imgSrc="libs/src/assets/card_bg.png"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
                 align="left"
                 title="Card Title"
                 subtitle="Subtitle"
@@ -221,12 +223,12 @@ export const Horizontal: Story = {
               />
             </Card>
           </Column>
-          <Column xs={12}>
+          <Column xs={6}>
             <Card {...args}>
               <CardSimple
                 hasBorder={false}
                 layout="horizontal"
-                imgSrc="libs/src/assets/card_bg.png"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
                 align="left"
                 title="Card Title"
                 subtitle="Subtitle"
@@ -234,12 +236,25 @@ export const Horizontal: Story = {
               />
             </Card>
           </Column>
-          <Column xs={12}>
+          <Column xs={6}>
             <Card {...args}>
               <CardSimple
                 hasBorder={false}
                 layout="horizontal"
-                imgSrc="libs/src/assets/card_bg.png"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
+                align="left"
+                title="Card Title"
+                subtitle="Subtitle"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s..."
+              />
+            </Card>
+          </Column>
+          <Column xs={6}>
+            <Card {...args}>
+              <CardSimple
+                hasBorder={false}
+                layout="horizontal"
+                imgSrc="https://storage.googleapis.com/ded-wds-bucket/card_bg.png"
                 align="left"
                 title="Card Title"
                 subtitle="Subtitle"

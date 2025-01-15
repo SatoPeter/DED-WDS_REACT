@@ -5,15 +5,18 @@ import { Row } from '@src/ui/section/grid/row';
 import { Column } from '@src/ui/section/grid/column';
 import { Button } from '@src/ui/element/button';
 import { Input } from '@src/ui/element/input';
+import { Title } from '@src/ui/element/title';
 import { Checkbox } from '@src/ui/element/checkbox';
 import loginBgColor from '@src/assets/login-bg-color.png';
-import loginBgImg from '@src/assets/login-bg-image.png';
+import authBgImg from '@src/assets/auth-bg.png';
 import {
-  AccountIcon,
-  LockIcon,
-  GoogleIcon,
-  FacebookIcon,
-  MailIcon,
+  SvgAccount,
+  SvgLock,
+  SvgGoogle,
+  SvgFacebook,
+  SvgLine,
+  SvgMail,
+  SvgClock,
 } from '@src/assets';
 
 export default {
@@ -59,27 +62,18 @@ export default {
     },
     title: {
       description: '標題',
-      control: {
-        type: 'text',
-      },
       table: {
         category: 'PROPS',
       },
     },
     description: {
       description: '描述',
-      control: {
-        type: 'text',
-      },
       table: {
         category: 'PROPS',
       },
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
       table: {
         category: 'PROPS',
       },
@@ -100,46 +94,53 @@ export const Default: Story = {
   name: '登入',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Welcome Back',
-    description: `Today is a new day. It's your day. You shape it. Sign in to start managing your projects.`,
+    description: (
+      <>
+        <p className="text-neutral-600">
+          Today is a new day. It's your day. You shape it.
+        </p>
+        <p className="text-neutral-600">
+          Sign in to start managing your projects.
+        </p>
+      </>
+    ),
     form: (
       <div>
         <Grid fluid>
           <Row>
             <Column md={12}>
               <Input
+                className="text-primary"
                 type="text"
-                prefix={<MailIcon />}
+                prefix={<SvgMail />}
                 initValue=""
                 label="Email"
                 placeholder="Email"
-                className="mb-3"
               />
             </Column>
 
             <Column md={12}>
               <Input
+                className="text-primary"
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password"
                 placeholder="Password"
-                className="mb-3"
               />
             </Column>
 
-            <Column md={6}>
+            <Column md={12} className="flex justify-between items-center">
               <Button
                 onClick={() => ({})}
-                className="link-button"
+                className="text-neutral-600"
                 variant="text"
               >
                 Forgot Password?
               </Button>
-            </Column>
 
-            <Column md={6} align="end">
               <Checkbox
                 initValue={[]}
                 dataSource={[
@@ -160,28 +161,25 @@ export const Default: Story = {
     externalLinks: (
       <Grid fluid>
         <Row justify="center">
-          <Column md={10}>
+          <Column md={12} className="flex gap-4 justify-center">
             <Button
+              className="ded-custom-icon"
               onClick={() => ({})}
-              className="social-button"
-              variant="filled"
-              width="fluid"
-              prefix={<GoogleIcon />}
-            >
-              Sign in with Google
-            </Button>
-          </Column>
-
-          <Column md={10}>
+              variant="ghost"
+              prefix={<SvgGoogle width={30} height={30} />}
+            />
             <Button
+              className="ded-custom-icon"
               onClick={() => ({})}
-              className="social-button"
-              variant="filled"
-              width="fluid"
-              prefix={<FacebookIcon />}
-            >
-              Sign in with Facebook
-            </Button>
+              variant="ghost"
+              prefix={<SvgFacebook width={30} height={30} />}
+            />
+            <Button
+              className="ded-custom-icon"
+              onClick={() => ({})}
+              variant="ghost"
+              prefix={<SvgLine width={30} height={30} />}
+            />
           </Column>
         </Row>
       </Grid>
@@ -190,8 +188,8 @@ export const Default: Story = {
       <Grid fluid>
         <Row>
           <Column md={12} align="center">
-            <span>Don't have an account?</span>
-            <Button onClick={() => ({})} className="link-button" variant="text">
+            <span className="text-neutral-300">Don't have an account?</span>
+            <Button className="text-link" onClick={() => ({})} variant="text">
               Sign up
             </Button>
           </Column>
@@ -208,93 +206,59 @@ export const SignUp: Story = {
   name: '註冊',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Sign Up',
     form: (
       <>
         <Grid fluid>
           <Row>
-            <Column md={6}>
-              <Input
-                type="text"
-                prefix={<AccountIcon />}
-                initValue=""
-                label="First Name"
-                placeholder="type first name"
-                className="mb-3"
-              />
-            </Column>
-
-            <Column md={6}>
-              <Input
-                type="text"
-                prefix={<AccountIcon />}
-                initValue=""
-                label="Last Name"
-                placeholder="type last name"
-                className="mb-3"
-              />
-            </Column>
-
             <Column md={12}>
               <Input
+                className="text-primary"
                 type="text"
-                prefix={<MailIcon />}
+                prefix={<SvgMail />}
                 initValue=""
                 label="Email"
                 placeholder="type email"
-                className="mb-3"
               />
             </Column>
 
             <Column md={12}>
               <Input
+                className="text-primary"
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password"
                 placeholder="type password"
-                className="mb-3"
               />
             </Column>
 
             <Column md={12}>
               <Input
+                className="text-primary"
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password Confirm"
                 placeholder="type password"
-                className="mb-3"
               />
             </Column>
 
             <Column md={12}>
-              <div
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  alignItems: 'center',
-                }}
-              >
+              <div className="flex flex-wrap items-center">
                 <Checkbox
                   initValue={[]}
                   dataSource={[{ label: '', value: '1', isDisabled: false }]}
-                ></Checkbox>
-                <span style={{ marginRight: '8px' }}>I agree to all the</span>
-                <Button
-                  onClick={() => ({})}
-                  className="link-button"
-                  variant="text"
-                >
+                />
+                <span className="ml-1 text-neutral-600">
+                  I agree to all the
+                </span>
+                <Button onClick={() => ({})} className="" variant="text">
                   Terms
                 </Button>
-                <span style={{ marginInline: '8px' }}>and</span>
-                <Button
-                  onClick={() => ({})}
-                  className="link-button"
-                  variant="text"
-                >
+                <span className="text-neutral-600">and</span>
+                <Button onClick={() => ({})} className="" variant="text">
                   Privacy Policies
                 </Button>
               </div>
@@ -304,13 +268,13 @@ export const SignUp: Story = {
 
         <Grid fluid>
           <Row justify="flex-end">
-            <Column md={4}>
-              <Button onClick={() => ({})} variant="filled" width="fluid">
+            <Column md={6}>
+              <Button onClick={() => ({})} variant="soft" width="fluid">
                 Back
               </Button>
             </Column>
 
-            <Column md={4}>
+            <Column md={6}>
               <Button onClick={() => ({})} variant="filled" width="fluid">
                 Sign Up
               </Button>
@@ -322,28 +286,25 @@ export const SignUp: Story = {
     externalLinks: (
       <Grid fluid>
         <Row justify="center">
-          <Column md={10}>
+          <Column md={12} className="flex gap-4 justify-center">
             <Button
+              className="ded-custom-icon"
               onClick={() => ({})}
-              className="social-button"
-              variant="filled"
-              width="fluid"
-              prefix={<GoogleIcon />}
-            >
-              Sign in with Google
-            </Button>
-          </Column>
-
-          <Column md={10}>
+              variant="ghost"
+              prefix={<SvgGoogle width={30} height={30} />}
+            />
             <Button
+              className="ded-custom-icon"
               onClick={() => ({})}
-              className="social-button"
-              variant="filled"
-              width="fluid"
-              prefix={<FacebookIcon />}
-            >
-              Sign in with Facebook
-            </Button>
+              variant="ghost"
+              prefix={<SvgFacebook width={30} height={30} />}
+            />
+            <Button
+              className="ded-custom-icon"
+              onClick={() => ({})}
+              variant="ghost"
+              prefix={<SvgLine width={30} height={30} />}
+            />
           </Column>
         </Row>
       </Grid>
@@ -352,8 +313,8 @@ export const SignUp: Story = {
       <Grid fluid>
         <Row>
           <Column md={12} align="center">
-            <span>Don't have an account?</span>
-            <Button onClick={() => ({})} variant="text">
+            <span className="text-neutral-300">Don't have an account?</span>
+            <Button className="text-link" onClick={() => ({})} variant="text">
               Sign up
             </Button>
           </Column>
@@ -370,30 +331,31 @@ export const Forgot: Story = {
   name: '忘記密碼',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Forgot Your Password?',
-    description: 'Type in your registered email address to reset password',
+    description: (
+      <p className="text-neutral-600">
+        Type in your registered email address to reset password
+      </p>
+    ),
     form: (
       <div className="ded-login-content-form">
         <Grid fluid>
           <Row justify="flex-end">
             <Column md={12}>
               <Input
+                className="text-primary"
                 type="text"
-                prefix={<MailIcon />}
+                prefix={<SvgMail />}
                 initValue=""
                 label="Email Address"
                 placeholder="type email"
-                className="mb-3"
+                hint={{ description: 'Description', error: '' }}
               />
             </Column>
 
-            <Column md={3} lg={5} align="end">
-              <Button
-                onClick={() => ({})}
-                variant="filled"
-                prefix={<MailIcon />}
-              >
+            <Column sm={12}>
+              <Button onClick={() => ({})} width="fluid" variant="filled">
                 Submit
               </Button>
             </Column>
@@ -411,26 +373,85 @@ export const Verify: Story = {
   name: '驗證代碼',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Verify Code',
-    description: 'An authentication code has been sent to your email.',
+    description: (
+      <p className="text-neutral-600">
+        An authentication code has been sent to your email.
+      </p>
+    ),
     form: (
       <div className="ded-login-content-form">
         <Grid fluid>
           <Row justify="flex-end">
             <Column md={12}>
-              <Input
-                type="password"
-                prefix={<LockIcon />}
-                initValue=""
-                label="Entercode"
-                placeholder="Entercode"
-                className="mb-3"
-              />
+              <div className="flex items-center justify-center gap-2">
+                <Title level={2}>A</Title>
+                <Title level={2}>-</Title>
+                <Input
+                  type="text"
+                  hasClear={false}
+                  maxLimit={1}
+                  initValue=""
+                  className="w-[44px] h-[44px] text-center text-primary text-xl"
+                  placeholder=""
+                />
+                <Input
+                  type="text"
+                  hasClear={false}
+                  maxLimit={1}
+                  initValue=""
+                  className="w-[44px] h-[44px] text-center text-primary text-xl"
+                  placeholder=""
+                />
+                <Input
+                  type="text"
+                  hasClear={false}
+                  maxLimit={1}
+                  initValue=""
+                  className="w-[44px] h-[44px] text-center text-primary text-xl"
+                  placeholder=""
+                />
+                <Input
+                  type="text"
+                  hasClear={false}
+                  maxLimit={1}
+                  initValue=""
+                  className="w-[44px] h-[44px] text-center text-primary text-xl"
+                  placeholder=""
+                />
+                <Input
+                  type="text"
+                  hasClear={false}
+                  maxLimit={1}
+                  initValue=""
+                  className="w-[44px] h-[44px] text-center text-primary text-xl"
+                  placeholder=""
+                />
+
+                <Input
+                  type="text"
+                  hasClear={false}
+                  maxLimit={1}
+                  initValue=""
+                  className="w-[44px] h-[44px] text-center text-primary text-xl"
+                  placeholder=""
+                />
+              </div>
             </Column>
 
-            <Column md={3} lg={5} align="end">
-              <Button onClick={() => ({})} variant="filled">
+            <Column sm={6}>
+              <Button
+                onClick={() => ({})}
+                variant="soft"
+                width="fluid"
+                prefix={<SvgClock width={18} height={18} />}
+              >
+                Resend 03:28
+              </Button>
+            </Column>
+            <Column sm={6}>
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Verify
               </Button>
             </Column>
@@ -448,43 +469,43 @@ export const Password: Story = {
   name: '設定密碼',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Set a Password',
-    description: 'Please set a new password for your account.',
+    description: <p>Please set a new password for your account.</p>,
     form: (
       <div className="ded-login-content-form">
         <Grid fluid>
           <Row justify="flex-end">
             <Column md={12}>
               <Input
+                className="text-primary"
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password"
                 placeholder="type password"
-                className="mb-3"
               />
             </Column>
 
             <Column md={12}>
               <Input
+                className="text-primary"
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password Confirm"
                 placeholder="type password"
-                className="mb-3"
               />
             </Column>
 
-            <Column md={2} lg={4} align="end">
-              <Button onClick={() => ({})} variant="filled">
+            <Column sm={6}>
+              <Button onClick={() => ({})} variant="soft" width="fluid">
                 Reset
               </Button>
             </Column>
 
-            <Column md={2} lg={4} align="end">
-              <Button onClick={() => ({})} variant="filled">
+            <Column sm={6}>
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Confirm
               </Button>
             </Column>

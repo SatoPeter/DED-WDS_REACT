@@ -15,7 +15,7 @@ export const getBorderClass = ({
   error: string;
   description: string;
 }) => {
-  if (isEmpty(error) && isEmpty(description)) return;
+  if (isEmpty(error) && isEmpty(description)) return '';
 
   return error.length > 0 ? 'ded-input-border-error' : 'ded-input-border-desc';
 };

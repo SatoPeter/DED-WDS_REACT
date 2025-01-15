@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { getThemeClass } from './styled';
 
 /**
  * 滑桿元件的屬性介面。
@@ -16,6 +15,14 @@ import { getThemeClass } from './styled';
  * @property {(value: number) => void} [onChange] - 當值變動時的回調函數。
  */
 export interface SliderProps {
+  themeColor?:
+    | 'neutral'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info';
   min: number;
   max: number;
   step?: number;

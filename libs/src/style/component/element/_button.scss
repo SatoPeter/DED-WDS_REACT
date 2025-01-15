@@ -87,9 +87,9 @@
     border-width: $border-width-5;
   }
 
-  &:hover {
-    box-shadow: $shadow-dark-100;
-  }
+  // &:hover {
+  //   box-shadow: $shadow-dark-100;
+  // }
 
   &:active {
     box-shadow: unset;
@@ -112,6 +112,7 @@
   &-text {
     background-color: transparent;
     color: list.nth($text-primary, $site);
+    border-width: 0;
 
     &:hover {
       box-shadow: unset;

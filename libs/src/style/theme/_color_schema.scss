@@ -108,7 +108,7 @@ $auo-form-active: blend-rgba($auo-form-default, $alpha-light-90);
 $auo-form-outline: blend-rgba($auo-form-default, $alpha-light-80);
 
 $auo-form-border: list.nth($neutral-300, $site);
-$auo-form-background: list.nth($neutral-0, $site);
+$auo-form-background: list.nth($neutral-50, $site);
 $auo-form-label: list.nth($neutral-700, $site);
 
 // AUO-Icon

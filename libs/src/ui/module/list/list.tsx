@@ -14,6 +14,7 @@ import { ItemProps } from './item';
 export interface ListProps {
   hasOutline?: boolean;
   dataSource: Array<ItemProps>;
+  hasDivider?: boolean;
   onSelect?: (value: string) => void;
   className?: string;
 }
@@ -31,6 +32,7 @@ export interface ListProps {
 export const List: React.FC<ListProps> = ({
   hasOutline = false,
   dataSource,
+  hasDivider = false,
   onSelect = () => ({}),
   className = '',
 }: ListProps) => {
@@ -41,7 +43,14 @@ export const List: React.FC<ListProps> = ({
       ${className}`}
     >
       {dataSource.map((option, index) => {
-        return <Item {...option} onClick={onSelect} key={index}></Item>;
+        return (
+          <Item
+            {...option}
+            hasDivider={hasDivider}
+            onClick={onSelect}
+            key={index}
+          ></Item>
+        );
       })}
     </ul>
   );

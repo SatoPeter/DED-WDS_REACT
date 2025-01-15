@@ -2,10 +2,10 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Tag } from './tag';
 import {
-  AccountIcon,
-  SearchIcon,
-  VisibilityIcon,
-  VisibilityOffIcon,
+  SvgAccount,
+  SvgSearch,
+  SvgVisibility,
+  SvgVisibilityOff,
 } from '@src/assets';
 
 export default {
@@ -58,10 +58,10 @@ export default {
       options: ['None', 'Account', 'Search', 'Visibility', 'VisibilityOff'],
       mapping: {
         None: null,
-        Account: <AccountIcon />,
-        Search: <SearchIcon />,
-        Visibility: <VisibilityIcon />,
-        VisibilityOff: <VisibilityOffIcon />,
+        Account: <SvgAccount />,
+        Search: <SvgSearch />,
+        Visibility: <SvgVisibility />,
+        VisibilityOff: <SvgVisibilityOff />,
       },
       table: {
         category: 'PROPS',
@@ -131,14 +131,14 @@ export const Additional: Story = {
       source: {
         transform(code: string, storyContext: StoryContext) {
           return `
-<Tag {...args} prefix={<AccountIcon></AccountIcon>} />
+<Tag {...args} prefix={<SvgAccount></SvgAccount>} />
           `;
         },
       },
     },
   },
   render(args) {
-    return <Tag {...args} prefix={<AccountIcon></AccountIcon>} />;
+    return <Tag {...args} prefix={<SvgAccount />} />;
   },
 };
 

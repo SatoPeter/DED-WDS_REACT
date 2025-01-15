@@ -2,10 +2,10 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Button } from '@src/ui';
 import {
-  AccountIcon,
-  SearchIcon,
-  VisibilityIcon,
-  VisibilityOffIcon,
+  SvgAccount,
+  SvgSearch,
+  SvgVisibility,
+  SvgVisibilityOff,
 } from '@src/assets';
 
 export default {
@@ -52,10 +52,10 @@ export default {
       options: ['None', 'Account', 'Search', 'Visibility', 'VisibilityOff'],
       mapping: {
         None: null,
-        Account: <AccountIcon />,
-        Search: <SearchIcon />,
-        Visibility: <VisibilityIcon />,
-        VisibilityOff: <VisibilityOffIcon />,
+        Account: <SvgAccount />,
+        Search: <SvgSearch />,
+        Visibility: <SvgVisibility />,
+        VisibilityOff: <SvgVisibilityOff />,
       },
       table: {
         category: 'PROPS',
@@ -66,10 +66,10 @@ export default {
       options: ['None', 'Account', 'Search', 'Visibility', 'VisibilityOff'],
       mapping: {
         None: null,
-        Account: <AccountIcon />,
-        Search: <SearchIcon />,
-        Visibility: <VisibilityIcon />,
-        VisibilityOff: <VisibilityOffIcon />,
+        Account: <SvgAccount />,
+        Search: <SvgSearch />,
+        Visibility: <SvgVisibility />,
+        VisibilityOff: <SvgVisibilityOff />,
       },
       table: {
         category: 'PROPS',
@@ -185,8 +185,8 @@ export const Additional: Story = {
         transform(code: string, storyContext: StoryContext) {
           const { args } = storyContext;
           return `
-<Button {...args} prefix={<AccountIcon />}>${args.children}</Button>
-<Button {...args} suffix={<SearchIcon />}>${args.children}</Button>
+<Button {...args} prefix={<Account />}>${args.children}</Button>
+<Button {...args} suffix={<Search />}>${args.children}</Button>
 `;
         },
       },
@@ -195,10 +195,10 @@ export const Additional: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-        <Button {...args} prefix={<AccountIcon />}>
+        <Button {...args} prefix={<SvgAccount />}>
           {args.children}
         </Button>
-        <Button {...args} suffix={<SearchIcon />}>
+        <Button {...args} suffix={<SvgSearch />}>
           {args.children}
         </Button>
       </div>
@@ -249,7 +249,7 @@ export const Theme: Story = {
   name: '主題色彩',
   args: {
     variant: 'filled',
-    prefix: <AccountIcon />,
+    prefix: <SvgAccount />,
     suffix: null,
     onClick: () => action('onClick')('點擊事件'),
     className: '',
@@ -297,43 +297,6 @@ export const Theme: Story = {
           {args.children}
         </Button>
       </div>
-    );
-  },
-};
-
-export const Size: Story = {
-  name: '尺寸',
-  args: {
-    variant: 'ghost',
-    onClick: () => action('onClick')('點擊事件'),
-    className: '',
-  },
-  parameters: {
-    docs: {
-      source: {
-        transform(code: string, storyContext: StoryContext) {
-          const { args } = storyContext;
-          return `
-<Button {...args} prefix={<AccountIcon />}>${args.children}</Button>
-<Button {...args} suffix={<SearchIcon />}>${args.children}</Button>
-`;
-        },
-      },
-    },
-  },
-  render(args) {
-    return (
-      <>
-        <Button {...args} size="large" prefix={<AccountIcon />}>
-          {args.children}
-        </Button>
-        <Button {...args} size="medium" suffix={<SearchIcon />}>
-          {args.children}
-        </Button>
-        <Button {...args} size="small" suffix={<SearchIcon />}>
-          {args.children}
-        </Button>
-      </>
     );
   },
 };

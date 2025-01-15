@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryContext, StoryObj } from '@storybook/react';
-import { Pagination } from '@src/ui';
+import { Pagination } from './pagination';
 
 export default {
   title: 'Component/Pagination',

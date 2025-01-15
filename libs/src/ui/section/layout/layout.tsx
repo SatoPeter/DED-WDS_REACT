@@ -17,7 +17,7 @@ export const Layout: LayoutComponent = (props: LayoutProps) => {
   const { children, className = '', ...rest } = props;
 
   return (
-    <div className="ded-layout" {...rest}>
+    <div className={`ded-layout ${className}`} {...rest}>
       {children}
     </div>
   );
@@ -25,37 +25,41 @@ export const Layout: LayoutComponent = (props: LayoutProps) => {
 
 interface HeaderProps {
   children?: React.ReactNode;
+  className?: string;
 }
 const Header = (props: HeaderProps) => {
-  const { children } = props;
+  const { children, className = '' } = props;
 
-  return <header className="ded-header">{children}</header>;
+  return <header className={`ded-header ${className}`}>{children}</header>;
 };
 
 interface FooterProps {
   children?: React.ReactNode;
+  className?: string;
 }
 const Footer = (props: FooterProps) => {
-  const { children } = props;
+  const { children, className = '' } = props;
 
-  return <footer className="ded-footer">{children}</footer>;
+  return <footer className={`ded-footer ${className}`}>{children}</footer>;
 };
 
 interface ContentProps {
   children?: React.ReactNode;
+  className?: string;
 }
 const Content = (props: ContentProps) => {
-  const { children } = props;
+  const { children, className = '' } = props;
 
-  return <main className="ded-content">{children}</main>;
+  return <main className={`ded-content ${className}`}>{children}</main>;
 };
 
 interface SideProps {
   children?: React.ReactNode;
+  className?: string;
 }
 const Side = (props: SideProps) => {
-  const { children } = props;
-  return <aside className="ded-side">{children}</aside>;
+  const { children, className = '' } = props;
+  return <aside className={`ded-side ${className}`}>{children}</aside>;
 };
 
 Layout.Header = Header;

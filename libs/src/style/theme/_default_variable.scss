@@ -1,3 +1,9 @@
+@use 'sass:list';
+
+// Header, Footer 高度
+$header-h: 60px;
+$footer-h: 60px;
+
 // 圓角
 $radius-0: 0px;
 $radius-2: 2px;
@@ -48,14 +54,14 @@ $font-size-40: 40px;
 $font-size: $font-size-16;
 
 // Theme-Variables
-$primary: [#184CBC, #999999, #B491D7, #FFE664];
-$secondary: [#B491D7, #EEEEEE, #B491D7, #FFE664];
+$primary: [#0A7ECE, #1570AF, #1570AF, #1570AF];
+$secondary: [#059BFF, #1570AF, #1CC5C5, #1CC5C5];
 // $tertiary: [#967FEF, #FFFFFF, #B491D7, #FFE664];
 
 // Theme-Layout
-$sidebar: [#005087, #222222, #B491D7, #FFE664];
-$header: [#FFFFFF, #020202, #FFFFFF, #FFFFFF];
-$body: [#EBEBEB, #292929, #EBEBEB, #EBEBEB];
+$sidebar: [#005087, #0F1118, #9673B3, #FCE464];
+$header: [#FFFFFF, #1C1E24, #FFFFFF, #FFFFFF];
+$body: [#F2F2F2, #202127, #F2F2F2, #F2F2F2];
 
 // Theme-Neutral
 $neutral-0: [#FFFFFF, #000000, #FFFFFF, #FFFFFF];
@@ -65,16 +71,26 @@ $neutral-200: [#D0D0D4, #707074, #D0D0D4, #D0D0D4];
 $neutral-300: [#C0C0C5, #9D9DA2, #C0C0C5, #C0C0C5];
 $neutral-400: [#ABABAB, #ABABAB, #ABABAB, #ABABAB];
 $neutral-500: [#9D9DA2, #C0C0C5, #9D9DA2, #9D9DA2];
+
 $neutral-600: [#707074, #D0D0D4, #707074, #707074];
 $neutral-700: [#59595D, #E1E1E2, #59595D, #59595D];
 $neutral-800: [#3B3B3E, #F4F4F5, #3B3B3E, #3B3B3E];
 $neutral-900: [#000000, #FFFFFF, #000000, #000000];
 
 // Theme-Text
-$text-primary: [#005087, #000000, #00467C, #00467C];
-$text-secondary: [#59595D, #707074, #59595D, #59595D];
-$text-helper: [#C0C0C5, #ABABAB, #C0C0C5, #C0C0C5];
-$text-placeholder: [#E1E1E2, #E1E1E2, #E1E1E2, #E1E1E2];
+$text-primary: [#005087, list.nth($neutral-900, $site), #00467C, #00467C];
+$text-secondary: [ list.nth($neutral-700, $site),
+  list.nth($neutral-800, $site),
+  list.nth($neutral-700, $site),
+  list.nth($neutral-700, $site)];
+$text-helper: [ list.nth($neutral-300, $site),
+  list.nth($neutral-600, $site),
+  list.nth($neutral-300, $site),
+  list.nth($neutral-300, $site)];
+$text-placeholder: [list.nth($neutral-100, $site),
+  list.nth($neutral-500, $site),
+  list.nth($neutral-100, $site),
+  list.nth($neutral-100, $site)];
 
 // Theme-Link
 $link-default: [#0D64FB, #FFFFFF, #B491D7, #FFE664];
@@ -91,8 +107,8 @@ $form-active: [#E8EFFE, #FFFFFF, #E8EFFE, #E8EFFE];
 $form-outline: [#D2DFFB, #FFFFFF, #D2DFFB, #D2DFFB];
 
 // Theme-Button
-$button-primary: [#184CBC, #999999, #B491D7, #FFE664];
-$button-secondary: [#B491D7, #EEEEEE, #B491D7, #FFE664];
+$button-primary: [#0D64FB, #0D64FB, #0D64FB, #0D64FB];
+$button-secondary: [#059BFF, #1570AF, #1CC5C5, #1CC5C5];
 // $button-tertiary: [#967FEF, #FFFFFF, #B491D7, #FFE664];
 
 // Theme-Disabled

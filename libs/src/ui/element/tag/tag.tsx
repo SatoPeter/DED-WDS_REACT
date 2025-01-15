@@ -1,7 +1,6 @@
 import React from 'react';
-import { CloseIcon } from '@src/assets';
+import { SvgClose } from '@src/assets';
 import { getDisableClass, getThemeClass } from './styled';
-import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * TagProps 介面定義了 Tag 元件的屬性。
@@ -14,7 +13,6 @@ import { getCombinedClassName } from '@src/utils/string';
  * @property {boolean} [closable] - 是否顯示關閉按鈕。
  * @property {boolean} [isDisabled] - 是否禁用標籤。
  * @property {string} [className] - 自訂的 CSS 類名。
- * @property {React.ReactNode} children - 標籤的子元素。
  * @property {() => void} [onClose] - 關閉標籤時的回調函數。
  */
 export interface TagProps {
@@ -33,7 +31,6 @@ export interface TagProps {
   closable?: boolean;
   isDisabled?: boolean;
   className?: string;
-  children: React.ReactNode;
   onClose?: () => void;
 }
 
@@ -86,7 +83,7 @@ export const Tag: React.FC<TagProps> = ({
         </div>
       )}
       {closable && (
-        <CloseIcon
+        <SvgClose
           onClick={onClose}
           className={`ded-tag-close 
             ${isDisabled ? 'ded-tag-close-disabled' : ''}`}

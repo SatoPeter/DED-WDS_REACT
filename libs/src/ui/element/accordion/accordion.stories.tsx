@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Accordion, Title, Button } from '@src/ui';
-import { ArrowDownIcon, InfoIcon } from '@src/assets';
+import { SvgArrowDown, SvgInfo } from '@src/assets';
 
 const qaList = [
   {
@@ -18,7 +18,7 @@ const qaList = [
           variant="soft"
           onClick={() => ({})}
           size="small"
-          suffix={<ArrowDownIcon width={20} height={20} />}
+          suffix={<SvgArrowDown width={20} height={20} />}
         >
           Button
         </Button>
@@ -113,7 +113,7 @@ export default {
   },
   args: {
     dataSource: qaList,
-    prefix: <InfoIcon width={20} height={20} />,
+    prefix: <SvgInfo width={20} height={20} />,
     borderStyle: 'highlight',
     isSmallSize: false,
     isOpenAll: false,
@@ -169,7 +169,7 @@ const smallQaList = [
           variant="soft"
           onClick={() => ({})}
           size="small"
-          suffix={<ArrowDownIcon width={20} height={20} />}
+          suffix={<SvgArrowDown width={20} height={20} />}
         >
           Button
         </Button>

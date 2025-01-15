@@ -12,12 +12,13 @@
   }
 
   &-circle-percent-form {
-    // @each $theme in $themes {
-    //   &-#{$theme} {
-    //     stroke: getThemeColor($theme, 'default');
-    //   }
-    // }
     stroke: $auo-form-default;
+
+    @each $theme in $themes {
+      &-#{$theme} {
+        stroke: getThemeColor($theme, 'default');
+      }
+    }
   }
 
   &-line {
@@ -34,16 +35,17 @@
   }
 
   &-line-percent-form {
-    // @each $theme in $themes {
-    //   &-#{$theme} {
-    //     height: 100%;
-    //     background-color: getThemeColor($theme, 'default');
-    //     transition: width 0.35s ease;
-    //   }
-    // }
     height: 100%;
     background-color: $auo-form-default;
     transition: width 0.35s ease;
+
+    @each $theme in $themes {
+      &-#{$theme} {
+        height: 100%;
+        background-color: getThemeColor($theme, 'default');
+        transition: width 0.35s ease;
+      }
+    }
   }
 
 }
@@ -77,4 +79,11 @@
 .ded-progress-percent-text {
   fill: $primary-default;
   color: $primary-default;
+
+  @each $theme in $themes {
+    &-#{$theme} {
+      fill: getThemeColor($theme, 'default');
+      color: getThemeColor($theme, 'default');
+    }
+  }
 }

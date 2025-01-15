@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { SearchIcon, ArrowDownIcon } from '@src/assets';
+import { SvgSearch, SvgArrowDown, SvgLogout } from '@src/assets';
 import { ItemProps } from '@src/hooks/useMenu';
-import { Menu, Input } from '@src/ui';
+import { Menu, Input, Avatar, Button } from '@src/ui';
 
 /**
  * 側邊導航組件的屬性介面。
@@ -16,8 +16,10 @@ import { Menu, Input } from '@src/ui';
 export interface SideNavProps {
   logo: ReactNode;
   logoLink?: string;
+  hasLogo?: boolean;
   hasSearch?: boolean;
   dataSource: ItemProps[];
+  // menu: ReactNode;
   themeColor?: string;
   className?: string;
 }
@@ -43,9 +45,11 @@ const THEME_COLOR = {
 export const SideNav: React.FC<SideNavProps> = ({
   logo = '',
   logoLink = '',
+  hasLogo = false,
   hasSearch = false,
   themeColor = THEME_COLOR.Blue,
   dataSource,
+  // menu,
   className = '',
 }: SideNavProps) => {
   const [color, setColor] = useState(THEME_COLOR.White);
@@ -58,9 +62,12 @@ export const SideNav: React.FC<SideNavProps> = ({
 
   const applyColorToIcons = (items: ItemProps[], color: string) => {
     items.forEach((item) => {
-      item.prefix = React.cloneElement(item.prefix as React.ReactElement, {
-        fill: color,
-      });
+      if (item.prefix) {
+        item.prefix = React.cloneElement(item.prefix as React.ReactElement, {
+          fill: color,
+        });
+      }
+
       if (item.children) {
         applyColorToIcons(item.children, color);
       }
@@ -92,7 +99,7 @@ export const SideNav: React.FC<SideNavProps> = ({
       setColor('#cccccc');
       return;
     }
-  }, [color, dataSource, themeColor]);
+  }, [color, themeColor]);
 
   applyColorToIcons(dataSource, color);
 
@@ -100,44 +107,85 @@ export const SideNav: React.FC<SideNavProps> = ({
     <div
       className={`ded-side-nav ${className} `}
       style={{
-        backgroundColor: themeColor,
+        // backgroundColor: themeColor,
         width: isCollapsed ? 'auto' : '100%',
       }}
     >
-      <button className="side-nav-toggle">
-        <ArrowDownIcon
-          style={{
-            cursor: 'pointer',
-            transform: isCollapsed ? 'rotate(270deg)' : 'rotate(90deg)',
-          }}
-          onClick={() => setIsCollapsed((prev) => !prev)}
-          fill={color}
-          width={24}
-          height={24}
-        />
-      </button>
-
-      {!isCollapsed && (
+      {hasLogo && (
         <div className="ded-side-nav-header">
-          <div className="ded-side-nav-header-logo">
-            {logoLink ? (
-              <a href={logoLink}>{coloredLogo}</a>
-            ) : (
-              <div>{coloredLogo}</div>
-            )}
-          </div>
+          {!isCollapsed && (
+            <div className="ded-side-nav-header-logo">
+              {logoLink ? (
+                <a href={logoLink}>{coloredLogo}</a>
+              ) : (
+                <div>{coloredLogo}</div>
+              )}
+            </div>
+          )}
+          <button
+            className="side-nav-toggle"
+            onClick={() => setIsCollapsed((prev) => !prev)}
+          >
+            <SvgArrowDown
+              style={{
+                cursor: 'pointer',
+                transform: isCollapsed ? 'rotate(270deg)' : 'rotate(90deg)',
+              }}
+              fill={color}
+              width={24}
+              height={24}
+            />
+          </button>
         </div>
       )}
+
+      {!isCollapsed ? (
+        <div className="ded-side-nav-desktop">
+          <Avatar
+            alt="無圖顯示"
+            caption="Caption"
+            isShowInfo
+            shape="circle"
+            size="large"
+            src="https://storage.googleapis.com/ded-wds-bucket/fox.png"
+            status="online"
+            userName="Name"
+            className=""
+          />
+          <Button
+            themeColor="primary"
+            variant="text"
+            size="large"
+            prefix={<SvgLogout width={18} height={18} />}
+            onClick={() => ({})}
+          />
+        </div>
+      ) : (
+        <div className="ded-side-nav-mobile">
+          <Avatar
+            alt="無圖顯示"
+            caption="Caption"
+            shape="circle"
+            size="small"
+            src="https://storage.googleapis.com/ded-wds-bucket/fox.png"
+            status="online"
+            userName="Name"
+            className=""
+          />
+        </div>
+      )}
+
       {!isCollapsed && hasSearch && (
         <Input
           initValue={searchValue}
           onChange={() => ({})}
-          placeholder="請輸項目..."
-          prefix={<SearchIcon />}
+          placeholder="Search..."
+          prefix={<SvgSearch />}
           size="medium"
           type="text"
         />
       )}
+      {/* {menu} */}
       <Menu dataSource={dataSource} isCollapsed={isCollapsed} color={color} />
     </div>
   );

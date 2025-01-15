@@ -1,5 +1,5 @@
 import React from 'react';
-import { IdleIcon, OnlineIcon, BusyIcon, OfflineIcon } from '@src/assets';
+import { SvgIdle, SvgOnline, SvgBusy, SvgOffline } from '@src/assets';
 import { getCombinedClassName } from '@src/utils/string';
 import { getAbbrFullName } from '@src/utils';
 import { Image } from '@src/ui';
@@ -17,10 +17,10 @@ const getStatusIcon = (size: string, status: string) => {
       React.SVGProps<SVGSVGElement> & { title?: string | undefined }
     >;
   } = {
-    online: OnlineIcon,
-    idle: IdleIcon,
-    busy: BusyIcon,
-    offline: OfflineIcon,
+    online: SvgOnline,
+    idle: SvgIdle,
+    busy: SvgBusy,
+    offline: SvgOffline,
   };
   const StatusIcon = statusIcons[status];
 

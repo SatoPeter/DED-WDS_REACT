@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { SliderControl } from '../../module/slider-control';
-import { PlusIcon, MinusIcon } from '@src/assets';
+import { SvgPlus, SvgMinus } from '@src/assets';
 
 export default {
   title: 'Component/Slider-Control',
@@ -49,8 +49,8 @@ export default {
       options: ['None', 'Increase', 'Decrease'],
       mapping: {
         None: null,
-        Increase: <PlusIcon width={32} height={32} />,
-        Decrease: <MinusIcon width={32} height={32} />,
+        Increase: <SvgPlus width={32} height={32} />,
+        Decrease: <SvgMinus width={32} height={32} />,
       },
       table: {
         category: 'PROPS',
@@ -61,8 +61,8 @@ export default {
       options: ['None', 'Increase', 'Decrease'],
       mapping: {
         None: null,
-        Increase: <PlusIcon width={32} height={32} />,
-        Decrease: <MinusIcon width={32} height={32} />,
+        Increase: <SvgPlus width={32} height={32} />,
+        Decrease: <SvgMinus width={32} height={32} />,
       },
       table: {
         category: 'PROPS',

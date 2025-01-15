@@ -10,6 +10,7 @@ import { Column } from './column';
  */
 export interface GridProps {
   fluid?: boolean;
+  gap?: number;
   children: ReactNode;
   className?: string;
 }
@@ -38,16 +39,13 @@ export interface GridComponent extends React.FC<GridProps> {
  */
 export const Grid: GridComponent = ({
   fluid = false,
+  gap = 0,
   children = '',
 }: GridProps) => {
   return (
     <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-      }}
-      className={fluid ? 'ded-container-fluid' : 'ded-container'}
+      className={`${fluid ? 'ded-container-fluid' : 'ded-container'} 
+        ${gap ? `ded-gap-${gap}` : ''}`}
     >
       {children}
     </div>

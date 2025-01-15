@@ -165,6 +165,8 @@ export default {
     dataSource,
     columns,
     showCheckbox: false,
+    showVerticalBorders: false,
+    isSprite: true,
     className: '',
     onRowClick: action('onRowClick'),
     onSelect: action('onSelect'),

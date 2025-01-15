@@ -1,14 +1,15 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { List } from '@src/ui';
-import { AccountIcon } from '@src/assets';
+import { SvgAccount } from '@src/assets';
+import { has } from 'lodash';
 
 const options = [
   {
     content: {
       label: 'Option1',
       value: 'option1',
-      prefix: <AccountIcon />,
+      prefix: <SvgAccount />,
     },
   },
   {
@@ -16,7 +17,7 @@ const options = [
       label: 'Option2',
       value: 'option2',
       href: '#',
-      prefix: <AccountIcon />,
+      prefix: <SvgAccount />,
     },
   },
   {
@@ -24,7 +25,7 @@ const options = [
       label: 'Option3',
       value: 'option3',
       href: '#',
-      prefix: <AccountIcon />,
+      prefix: <SvgAccount />,
     },
   },
 ];
@@ -49,6 +50,12 @@ export default {
         category: 'PROPS',
       },
     },
+    hasDivider: {
+      description: '是否有分隔線',
+      table: {
+        category: 'PROPS',
+      },
+    },
     className: {
       description: '客製化樣式',
       control: {
@@ -68,6 +75,7 @@ export default {
   args: {
     dataSource: options,
     hasOutline: false,
+    hasDivider: false,
     className: '',
     onSelect: action('onSelect'),
   },

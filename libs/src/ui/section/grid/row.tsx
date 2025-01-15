@@ -45,8 +45,6 @@ export const Row: React.FC<RowProps> = ({
     <div
       className={`ded-row ${hasGap ? '' : 'ded-gap-0'}`}
       style={{
-        display: 'flex',
-        flexWrap: 'wrap',
         justifyContent: justify,
         alignItems: alignItems,
         rowGap: rowGap,

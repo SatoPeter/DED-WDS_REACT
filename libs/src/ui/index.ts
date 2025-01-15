@@ -1,65 +1,75 @@
-import { Title } from './element/title';
+import { Accordion } from './element/accordion';
+import { Avatar } from './element/avatar';
+import { Badge } from './element/badge';
+import { Breadcrumb } from './element/breadcrumb';
 import { Button } from './element/button';
 import { Checkbox } from './element/checkbox';
-import { Input } from './element/input';
-import { Textarea } from './element/textarea';
-import { Toggle } from './element/toggle';
-import { Radio } from './element/radio';
-import { Breadcrumb } from './element/breadcrumb';
-import { Avatar } from './element/avatar';
-import { LineProgress, CircleProgress } from './element/progress';
-import { AvatarGroup } from './module/avatar-group';
-import { List, Item } from './module/list';
-import { Tooltip } from './module/tooltip';
-import { Slider } from './element/slider';
-import { SliderControl } from './module/slider-control';
-import { Card } from './section/card';
-import { Menu } from './module/menu';
+import { CircleProgress, LineProgress } from './element/progress';
+import { Divider } from './element/divider';
 import { Image } from './element/image';
-import { Dialog } from './module/dialog';
-import { Accordion } from './element/accordion';
-import { Toast } from './module/toast';
-import { Stepper } from './module/stepper/stepper';
-import { StatusIndicator } from './module/status-indicator';
-import { Search } from './module/search';
-import { Table } from './element/table';
+import { Input } from './element/input';
+import { Radio } from './element/radio';
 import { Select } from './element/select';
-import { Pagination } from './element/pagination';
+import { Slider } from './element/slider';
+import { Table } from './element/table';
+import { Textarea } from './element/textarea';
+import { Title } from './element/title';
+import { Toggle } from './element/toggle';
+import { AvatarGroup } from './module/avatar-group';
+import { Dialog } from './module/dialog';
+import { Item, List } from './module/list';
+import { Menu } from './module/menu';
+import { Search } from './module/search';
+import { SliderControl } from './module/slider-control';
+import { StatusIndicator } from './module/status-indicator';
+import { Stepper } from './module/stepper/stepper';
+import { Toast } from './module/toast';
+import { Tooltip } from './module/tooltip';
+import { Card } from './section/card';
 import { CardSimple } from './section/card-simple';
+import { Layout } from './section/layout';
 import { Navbar } from './section/navbar';
-import { Badge } from './element/badge';
+import { SideNav } from './section/side-nav';
+import { Pagination } from './element/pagination';
+import { Tag } from './element/tag';
+import { Grid } from './section/grid';
 
 export {
-  Title,
-  Button,
-  Checkbox,
-  Input,
-  Textarea,
-  Toggle,
-  Radio,
-  Breadcrumb,
+  Accordion,
   Avatar,
   AvatarGroup,
-  LineProgress,
+  Badge,
+  Breadcrumb,
+  Button,
+  Card,
+  CardSimple,
+  Checkbox,
   CircleProgress,
-  List,
+  Dialog,
+  Divider,
+  Image,
+  Input,
   Item,
-  Tooltip,
+  Layout,
+  LineProgress,
+  List,
+  Menu,
+  Navbar,
+  Pagination,
+  Radio,
+  Search,
+  Select,
+  SideNav,
   Slider,
   SliderControl,
-  Card,
-  Menu,
-  Image,
-  Dialog,
-  Accordion,
-  Toast,
-  Stepper,
   StatusIndicator,
-  Search,
+  Stepper,
   Table,
-  Select,
-  Pagination,
-  CardSimple,
-  Navbar,
-  Badge,
+  Textarea,
+  Title,
+  Toast,
+  Toggle,
+  Tooltip,
+  Tag,
+  Grid,
 };

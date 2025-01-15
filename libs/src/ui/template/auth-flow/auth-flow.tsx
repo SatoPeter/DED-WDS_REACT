@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Layout } from '@src/ui/section/layout';
 import { Grid } from '@src/ui/section/grid/grid';
 import { Title } from '@src/ui/element/title';
@@ -12,19 +12,19 @@ import { Divider } from '@src/ui/element/divider';
  * @property {string} [bgImgSrc] - 背景圖片的來源。
  * @property {string} title - 登入表單的標題。
  * @property {string} [description] - 登入表單的描述。
- * @property {React.ReactNode} form - 登入表單的 React 元素。
- * @property {React.ReactNode} externalLinks - 外部連結的 React 元素。
- * @property {React.ReactNode} signUp - 註冊連結的 React 元素。
+ * @property {ReactNode} form - 登入表單的 React 元素。
+ * @property {ReactNode} externalLinks - 外部連結的 React 元素。
+ * @property {ReactNode} signUp - 註冊連結的 React 元素。
  * @property {string} [className] - 自訂的 CSS 類別名稱。
  */
 interface LoginProps {
   bgColorSrc?: string;
   bgImgSrc?: string;
   title: string;
-  description?: string;
-  form: React.ReactNode;
-  externalLinks: React.ReactNode;
-  signUp: React.ReactNode;
+  description?: ReactNode;
+  form: ReactNode;
+  externalLinks: ReactNode;
+  signUp: ReactNode;
   className?: string;
 }
 
@@ -42,19 +42,19 @@ export const AuthFLow: React.FC<LoginProps> = ({
   const { Row, Column } = Grid;
 
   return (
-    <Layout className={className}>
+    <Layout className={`h-screen ${className}`}>
       <Content>
         <Grid fluid={false}>
           <Row hasGap={false}>
             <Column md={12} lg={5}>
               <div
                 style={{
-                  backgroundImage: `url(${bgColorSrc})`,
+                  backgroundImage: `url(${bgImgSrc})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
                 }}
                 className="ded-login-bg"
-              >
-                <img style={{ width: '100%' }} src={bgImgSrc} alt="bg" />
-              </div>
+              />
             </Column>
 
             <Column md={12} lg={7}>
@@ -63,13 +63,13 @@ export const AuthFLow: React.FC<LoginProps> = ({
                 <Grid fluid>
                   <Row>
                     <Column md={12}>
-                      <Title level={3}>{title}</Title>
+                      <Title level={1}>{title}</Title>
                     </Column>
                   </Row>
                   {description && (
                     <Row>
                       <Column md={12}>
-                        <p>{description}</p>
+                        <p className="text-neutral-700">{description}</p>
                       </Column>
                     </Row>
                   )}

@@ -1,10 +1,11 @@
 import React, { useRef, useEffect } from 'react';
-import { getThemeClass } from './styled';
+import { useCounter } from '@src/hooks/useCounter';
+import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * `CircleProgressProps` 介面定義了圓形進度條的屬性。
  *
- * @property {('primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 和 'info'。
+ * @property {('none' | 'primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 和 'info'。
  * @property {string} [label] - 進度條的標籤。
  * @property {number} percent - 進度百分比，範圍從 0 到 100。
  * @property {number} [size] - 進度條的大小，預設大小為 100。
@@ -13,6 +14,7 @@ import { getThemeClass } from './styled';
  */
 export interface CircleProgressProps {
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'neutral'
@@ -48,6 +50,15 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
   strokeWidth = 10,
   className = '',
 }: CircleProgressProps): JSX.Element => {
+  const [currPercent, setCurrPercent] = React.useState(0);
+
+  useCounter({
+    initialValue: 0,
+    step: 1,
+    delay: 0,
+    limit: percent,
+  });
+
   const textRef = useRef<SVGTextElement>(null);
   const [contentLength, setContentLength] = React.useState(0);
   useEffect(() => {
@@ -57,17 +68,19 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
   }, [label]);
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (percent / 100) * circumference;
+  const offset = circumference - (currPercent / 100) * circumference;
 
   // 確保進度在0到100之間
-  const normalizedProgress = Math.min(Math.max(percent, 0), 100);
+  const normalizedProgress = Math.min(Math.max(currPercent, 0), 100);
 
   const getLimitBorder = () => {
     if (!contentLength) return 64;
-    console.log(contentLength + strokeWidth + 30);
-
     return contentLength + strokeWidth + 30;
   };
+
+  useEffect(() => {
+    setCurrPercent(percent);
+  }, [percent]);
 
   return (
     <div className={`ded-progress-circle-container ${className}`}>
@@ -81,7 +94,12 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
           cy={size / 2}
         />
         <circle
-          className="ded-progress-circle-percent-form"
+          className={`ded-progress-circle-percent-form 
+            ${getCombinedClassName(
+              'ded-progress-circle-percent-form',
+              themeColor
+            )}
+          `}
           fill="transparent"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
@@ -107,7 +125,9 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
         )}
         {size >= getLimitBorder() && (
           <text
-            className="ded-progress-percent-text"
+            className={`ded-progress-percent-text 
+              ${getCombinedClassName('ded-progress-percent-text', themeColor)}
+            `}
             x="50%"
             y={label ? '60%' : '50%'}
             textAnchor="middle"
@@ -121,7 +141,13 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
       {size < getLimitBorder() && (
         <div className="ded-progress-circle-label">
           <span className="ded-progress-label">{label}</span>
-          <span className="ded-progress-percent">{`${normalizedProgress}%`}</span>
+          <span
+            className={`ded-progress-percent ${getCombinedClassName(
+              'ded-progress-percent-text',
+              themeColor
+            )}
+            `}
+          >{`${normalizedProgress}%`}</span>
         </div>
       )}
     </div>

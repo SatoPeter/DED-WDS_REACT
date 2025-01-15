@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Button, Tooltip } from '@src/ui';
-import { AccountIcon } from '@src/assets';
+import { SvgAccount } from '@src/assets';
 
 export default {
   title: 'Component/Tooltip',
@@ -62,7 +62,7 @@ export default {
     className: '',
     children: (
       <Button
-        prefix={<AccountIcon />}
+        prefix={<SvgAccount />}
         themeColor="primary"
         variant="filled"
         onClick={() => ({})}

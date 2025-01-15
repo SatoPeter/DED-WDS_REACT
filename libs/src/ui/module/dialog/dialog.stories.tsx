@@ -3,7 +3,7 @@ import { useDialog } from '@src/hooks';
 import { Dialog, Button, Title } from '@src/ui';
 import { Grid, Row, Column } from '@src/ui/section/grid';
 import { StoryContext } from 'storybook/internal/types';
-import { CloseIcon } from '@src/assets';
+import { SvgClose } from '@src/assets';
 
 export default {
   title: 'Component/Dialog',
@@ -206,7 +206,7 @@ export const Default: Story = {
       >
         {onClose && hasClose && (
           <button className="dialog-close-btn" onClick={onClose}>
-            <CloseIcon width={20} height={20} />
+            <SvgClose width={20} height={20} />
           </button>
         )}
         <div className="dialog-header">{header}</div>

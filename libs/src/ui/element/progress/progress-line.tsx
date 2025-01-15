@@ -1,10 +1,11 @@
 import React from 'react';
-import { getThemeClass } from './styled';
+import { useCounter } from '@src/hooks/useCounter';
+import { getCombinedClassName } from '@src/utils/string';
 
 /**
  * LineProgressProps 介面定義了進度條元件的屬性。
  *
- * @property {('primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 進度條的主題顏色。
+ * @property {('none' | 'primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 進度條的主題顏色。
  * @property {string} [label] - 進度條的標籤。
  * @property {number} percent - 進度百分比，範圍從 0 到 100。
  * @property {number} [strokeWidth] - 進度條的高度，預設大小為 100。
@@ -12,6 +13,7 @@ import { getThemeClass } from './styled';
  */
 export interface LineProgressProps {
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'neutral'
@@ -44,8 +46,15 @@ export const LineProgress: React.FC<LineProgressProps> = ({
   strokeWidth = 10,
   className = '',
 }: LineProgressProps): JSX.Element => {
+  const percentTest = useCounter({
+    initialValue: 0,
+    step: 1,
+    delay: 0,
+    limit: percent,
+  });
+
   // 確保進度在0到100之間
-  const normalizedProgress = Math.min(Math.max(percent, 0), 100);
+  const normalizedProgress = Math.min(Math.max(percentTest, 0), 100);
 
   return (
     <div className={`ded-progress-line-container ${className}`}>
@@ -60,11 +69,21 @@ export const LineProgress: React.FC<LineProgressProps> = ({
           style={{ height: strokeWidth }}
         >
           <div
-            className="ded-progress-line-percent-form"
+            className={`ded-progress-line-percent-form 
+              ${getCombinedClassName(
+                'ded-progress-line-percent-form',
+                themeColor
+              )}`}
             style={{ width: `${normalizedProgress}%` }}
           />
         </div>
-        <div className="ded-progress-line-label ded-progress-percent-text">{`${normalizedProgress}%`}</div>
+        <div
+          className={`ded-progress-line-label ded-progress-percent-text ${getCombinedClassName(
+            'ded-progress-percent-text',
+            themeColor
+          )}
+        `}
+        >{`${normalizedProgress}%`}</div>
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import '@style/globals.scss';
 import { Preview } from '@storybook/react';
+import '../index.css';
+import './preview.scss';
 
 /* snipped for brevity */
 

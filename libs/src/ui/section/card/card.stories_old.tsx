@@ -4,16 +4,16 @@ import Card from './card';
 import { Title, Button } from '@src/ui';
 import { SliderControl } from '../../module/slider-control';
 import {
-  LockIcon,
-  PlusIcon,
-  MinusIcon,
-  PowerIcon,
-  AirIcon,
-  FanIcon,
-  LightIcon,
-  HumidityIcon,
-  TemperatureIcon,
-  DoorIcon,
+  SvgLock,
+  SvgPlus,
+  SvgMinus,
+  SvgPower,
+  SvgAir,
+  SvgFan,
+  SvgLight,
+  SvgHumidity,
+  SvgTemperature,
+  SvgDoor,
 } from '@src/assets';
 
 export default {
@@ -131,7 +131,7 @@ export const Default: Story = {
                     height: '32px',
                   }}
                 >
-                  {<PowerIcon />}
+                  {<SvgPower />}
                 </div>
               </Button>
             </div>
@@ -145,7 +145,7 @@ export const Default: Story = {
                 themeColor="warning"
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <AirIcon fill="#ffffff" width={42} height={42} />
+                  <SvgAir fill="#ffffff" width={42} height={42} />
                   <div>冷氣</div>
                 </div>
               </Button>
@@ -156,7 +156,7 @@ export const Default: Story = {
                 themeColor="warning"
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <FanIcon fill="#ffffff" width={42} height={42} />
+                  <SvgFan fill="#ffffff" width={42} height={42} />
                   <div>送風</div>
                 </div>
               </Button>
@@ -219,22 +219,22 @@ export const Default: Story = {
               initValue={0}
               themeColor="warning"
               label="℃"
-              prefix={<MinusIcon fill="#fff" width={24} height={24} />}
-              suffix={<PlusIcon fill="#fff" width={24} height={24} />}
+              prefix={<SvgMinus fill="#fff" width={24} height={24} />}
+              suffix={<SvgPlus fill="#fff" width={24} height={24} />}
             />
           </div>
         </Card>
 
         <Card {...args}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <TemperatureIcon fill="#ffffff" width={80} height={80} />
+            <SvgTemperature fill="#ffffff" width={80} height={80} />
             <Title className="ded-card-title">溫度 25 ℃</Title>
           </div>
         </Card>
 
         <Card {...args}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <HumidityIcon fill="#ffffff" width={66} height={66} />
+            <SvgHumidity fill="#ffffff" width={66} height={66} />
             <Title className="ded-card-title">濕度 75 ℃</Title>
           </div>
         </Card>
@@ -243,17 +243,17 @@ export const Default: Story = {
           {
             label: '電控玻璃',
             status: '霧面',
-            prefix: <DoorIcon fill="#ffffff" width={80} height={80} />,
+            prefix: <SvgDoor fill="#ffffff" width={80} height={80} />,
           },
           {
             label: '門鎖',
             status: '已上鎖',
-            prefix: <LockIcon fill="#ffffff" width={80} height={80} />,
+            prefix: <SvgLock fill="#ffffff" width={80} height={80} />,
           },
           {
             label: '照明群組',
             status: '0個開, 3個關',
-            prefix: <LightIcon fill="#ffffff" width={80} height={80} />,
+            prefix: <SvgLight fill="#ffffff" width={80} height={80} />,
           },
         ].map((device) => (
           <Card
@@ -284,7 +284,7 @@ export const Default: Story = {
                       height: '32px',
                     }}
                   >
-                    {<PowerIcon />}
+                    {<SvgPower />}
                   </div>
                 </Button>
               </div>

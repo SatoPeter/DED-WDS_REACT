@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { CardSimple } from '@src/ui';
+import { CardSimple } from './card-simple';
 import { Column, Grid, Row } from '@src/ui/section/grid';
 
 export default {
-  title: 'Component/Card Simple',
+  title: 'Component/Card-Simple',
   component: CardSimple,
   tags: ['autodocs'],
   argTypes: {
@@ -13,6 +13,12 @@ export default {
         type: 'select',
         options: ['vertical', 'horizontal'],
       },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    hasBorder: {
+      description: '是否有邊框',
       table: {
         category: 'PROPS',
       },
@@ -68,7 +74,8 @@ export default {
   },
   args: {
     layout: 'vertical',
-    imgSrc: 'libs/src/assets/card_bg.png',
+    hasBorder: true,
+    imgSrc: 'https://storage.googleapis.com/ded-wds-bucket/card_bg.png',
     buttonName: 'Button',
     align: 'left',
     title: 'Card Title',

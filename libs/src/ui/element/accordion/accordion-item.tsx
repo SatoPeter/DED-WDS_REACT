@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react';
-import { ArrowDownIcon } from '@src/assets';
+import { SvgArrowDown } from '@src/assets';
 import { getCombinedClassName } from '@src/utils/string';
 
 export interface AccordionProps {
@@ -99,7 +99,7 @@ export const AccordionItem: React.FC<AccordionProps> = ({
                 isOpen ? 'ded-accordion-item-open' : 'ded-accordion-item-close'
               }`}
           >
-            <ArrowDownIcon width={20} height={20} />
+            <SvgArrowDown width={20} height={20} />
           </div>
         </summary>
         <div className="ded-accordion-detail-content">{content}</div>

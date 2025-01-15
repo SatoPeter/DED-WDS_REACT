@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckIcon } from '@src/assets';
+import { SvgCheck } from '@src/assets';
 import { getCombinedClassName } from '@src/utils/string';
 
 /**
@@ -92,7 +92,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
               ${getCombinedClassName('ded-icon', size)}
               ${option.isDisabled ? 'ded-checkbox-icon-disabled' : ''}`}
           >
-            {currOptions.includes(option.value) && <CheckIcon />}
+            {currOptions.includes(option.value) && <SvgCheck />}
           </div>
           <span
             className={`ded-checkbox-text 

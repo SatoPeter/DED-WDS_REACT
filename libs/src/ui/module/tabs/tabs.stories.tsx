@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from './tabs';
-import { ArrowDownIcon } from '@src/assets';
+import { SvgArrowDown } from '@src/assets';
 
 const tabs = [
   { title: 'Tab 1', content: 'Content 1' },
@@ -61,10 +61,10 @@ export default {
     },
     prefix: {
       description: '前綴元素',
-      options: ['none', 'ArrowDownIcon'],
+      options: ['none', 'SvgArrowDown'],
       mapping: {
         none: null,
-        ArrowDownIcon: <ArrowDownIcon />,
+        SvgArrowDown: <SvgArrowDown />,
       },
       table: {
         category: 'PROPS',
@@ -95,7 +95,7 @@ export default {
     dataSource: tabs,
     activeIndex: 0,
     type: 'default',
-    prefix: <ArrowDownIcon />,
+    prefix: <SvgArrowDown />,
     isDisabled: false,
     className: '',
     onClick: action('onClick'),

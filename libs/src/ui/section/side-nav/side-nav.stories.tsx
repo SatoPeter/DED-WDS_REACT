@@ -1,36 +1,87 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { HomeIcon, AUOIcon, AirIcon, PowerIcon, FanIcon } from '@src/assets';
+import { Meta, StoryContext, StoryObj } from '@storybook/react';
+import {
+  SvgHome,
+  SvgAuo,
+  SvgUser,
+  SvgLanguage,
+  SvgFavorite,
+  SvgDatabase,
+  SvgCalendar,
+  SvgBarChart,
+  SvgNotification,
+} from '@src/assets';
 import { ItemProps } from '@src/hooks/useMenu';
 import SideNav from './side-nav';
 import { Grid, Row, Column } from '@src/ui/section/grid';
 
 const menuData: ItemProps[] = [
   {
-    title: 'Dashboard',
-    prefix: <HomeIcon width={24} height={24} />,
-    path: '/dashboard',
+    title: 'Home',
+    prefix: <SvgHome width={24} height={24} />,
+    path: '/Home',
   },
   {
-    title: 'Settings',
-    prefix: <AirIcon width={24} height={24} />,
-    path: '/settings',
+    title: 'User',
+    prefix: <SvgUser width={24} height={24} />,
+    path: '/User',
     children: [
       {
         title: 'Profile',
-        prefix: <FanIcon width={24} height={24} />,
         path: '/settings/profile',
       },
       {
         title: 'Account',
-        prefix: <FanIcon width={24} height={24} />,
         path: '/settings/account',
       },
     ],
   },
   {
-    title: 'Help',
-    prefix: <PowerIcon width={24} height={24} />,
-    path: '/help',
+    title: 'Chart',
+    prefix: <SvgBarChart width={24} height={24} />,
+    path: '/Chart',
+    children: [
+      {
+        title: 'Profile',
+        path: '/settings/profile',
+      },
+      {
+        title: 'Account',
+        path: '/settings/account',
+      },
+      {
+        title: 'Account',
+        path: '/settings/account',
+      },
+      {
+        title: 'Account',
+        path: '/settings/account',
+      },
+    ],
+  },
+  {
+    title: 'Database',
+    prefix: <SvgDatabase width={24} height={24} />,
+    path: '/dashboard',
+  },
+  {
+    title: 'Favorite',
+    prefix: <SvgFavorite width={24} height={24} />,
+    path: '/Favorite',
+  },
+  {
+    title: 'Calendar',
+    prefix: <SvgCalendar width={24} height={24} />,
+    path: '/Calendar',
+  },
+  {
+    title: 'Notification',
+    prefix: <SvgNotification width={24} height={24} />,
+    path: '/Notification',
+  },
+  {
+    title: 'Language',
+    prefix: <SvgLanguage width={24} height={24} />,
+    path: '/Language',
   },
 ];
 
@@ -58,9 +109,9 @@ export default {
     logo: {
       description: 'Logo 圖示',
       mapping: {
-        AUOIcon: <AUOIcon width={90} height={30} />,
+        SvgAuo: <SvgAuo width={90} height={30} />,
       },
-      options: ['AUOIcon'],
+      options: ['SvgAuo'],
       control: {
         type: 'select',
       },
@@ -70,6 +121,12 @@ export default {
     },
     logoLink: {
       description: 'Logo 連結',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    hasLogo: {
+      description: '是否有 Logo',
       table: {
         category: 'PROPS',
       },
@@ -95,9 +152,10 @@ export default {
   },
   args: {
     themeColor: 'Blue',
-    logo: <AUOIcon width={90} height={30} />,
+    logo: <SvgAuo width={90} height={30} />,
     logoLink: 'https://www.auo.com',
-    hasSearch: false,
+    hasLogo: false,
+    hasSearch: true,
     dataSource: menuData,
     className: '',
   },
@@ -115,6 +173,92 @@ type Story = StoryObj<typeof SideNav>;
 export const Default: Story = {
   name: '預設項目',
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<SideNav className="" 
+dataSource={[
+    {
+      path: '/Home',
+      prefix: <SvgHome height={24} width={24}/>,
+      title: 'Home'
+    },
+    {
+      children: [
+        {
+          path: '/settings/profile',
+          title: 'Profile'
+        },
+        {
+          path: '/settings/account',
+          title: 'Account'
+        }
+      ],
+      path: '/User',
+      prefix: <SvgUser height={24} width={24}/>,
+      title: 'User'
+    },
+    {
+      children: [
+        {
+          path: '/settings/profile',
+          title: 'Profile'
+        },
+        {
+          path: '/settings/account',
+          title: 'Account'
+        },
+        {
+          path: '/settings/account',
+          title: 'Account'
+        },
+        {
+          path: '/settings/account',
+          title: 'Account'
+        }
+      ],
+      path: '/Chart',
+      prefix: <SvgBarChart height={24} width={24}/>,
+      title: 'Chart'
+    },
+    {
+      path: '/dashboard',
+      prefix: <SvgDatabase height={24} width={24}/>,
+      title: 'Database'
+    },
+    {
+      path: '/Favorite',
+      prefix: <SvgFavorite height={24} width={24}/>,
+      title: 'Favorite'
+    },
+    {
+      path: '/Calendar',
+      prefix: <SvgCalendar height={24} width={24}/>,
+      title: 'Calendar'
+    },
+    {
+      path: '/Notification',
+      prefix: <SvgNotification height={24} width={24}/>,
+      title: 'Notification'
+    },
+    {
+      path: '/Language',
+      prefix: <SvgLanguage height={24} width={24}/>,
+      title: 'Language'
+    }
+  ]}
+  hasSearch
+  logo={<SvgAuo height={30} width={90}/>}
+  logoLink="https://www.auo.com"
+  themeColor="#00467C"/>
+`;
+        },
+      },
+    },
+  },
   render(args) {
     return (
       <Grid fluid>

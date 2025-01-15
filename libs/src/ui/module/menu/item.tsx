@@ -1,4 +1,4 @@
-import { ArrowDownIcon } from '@src/assets';
+import { SvgArrowDown } from '@src/assets';
 import { useMenu } from '@src/hooks';
 import { ItemProps } from '@src/hooks/useMenu';
 
@@ -14,7 +14,7 @@ export interface MenuItemProps {
   item: ItemProps;
   isCollapsed: boolean;
   color?: string;
-  isSideNavLink?: boolean;
+  hasDivider?: boolean;
 }
 
 /**
@@ -33,7 +33,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   item = { title: '', prefix: '' },
   isCollapsed = false,
   color = '#000000',
-  isSideNavLink = false,
+  hasDivider,
 }: MenuItemProps) => {
   const { isOpen, setIsOpen, contentRef, maxHeight, hasChildren } = useMenu(
     item,
@@ -41,11 +41,13 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   );
 
   return (
-    <li className={`ded-nav-item ${isSideNavLink ? 'ded-nav-item-side' : ''}`}>
+    <li className={`ded-nav-item ${hasDivider ? 'ded-nav-item-side' : ''}`}>
       <a
         href={item.path}
         style={{ color: color }}
-        className="ded-nav-item-link"
+        className={`ded-nav-item-link
+          ${isCollapsed ? 'ded-nav-item-link-mobile' : ''}
+        `}
         onClick={() => {
           if (item.path) {
             console.log('go to', item.path);
@@ -60,9 +62,9 @@ export const MenuItem: React.FC<MenuItemProps> = ({
 
       {!isCollapsed && hasChildren && (
         <div className="ded-nav-item-arrow">
-          <ArrowDownIcon
-            width={24}
-            height={24}
+          <SvgArrowDown
+            width={20}
+            height={20}
             fill={color}
             style={{
               transition: 'transform 0.3s',

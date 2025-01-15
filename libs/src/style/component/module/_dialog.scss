@@ -16,7 +16,7 @@
 
 .dialog-body {
   font-size: 1rem;
-  color: #333;
+  color: list.nth($text-secondary, $site);
 }
 
 .dialog-close-btn {
@@ -50,9 +50,9 @@
 }
 
 .cancel-btn {
-  background-color: #ccc;
+  background-color: $auo-icon-default;
 
   &:hover {
-    background-color: #999;
+    background-color: list.nth($neutral-100, $site);
   }
 }

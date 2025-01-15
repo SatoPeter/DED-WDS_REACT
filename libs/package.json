@@ -1,6 +1,6 @@
 {
-  "name": "@ded-wds/ded-wds",
-  "version": "1.2.15",
+  "name": "@ded-wds/ui",
+  "version": "1.0.0-beta",
   "description": "Web Design System",
   "license": "MIT",
   "author": "Kevin Yang <kevin.kk.yang@auo.com>",

@@ -11,6 +11,7 @@ export default {
       control: {
         type: 'select',
         options: [
+          'none',
           'primary',
           'secondary',
           'neutral',
@@ -74,7 +75,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'none',
     label: 'Label',
     percent: 65,
     size: 100,

@@ -4,7 +4,6 @@ import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
 import { List, Input } from '@src/ui';
 import { ItemProps } from '@src/ui/module/list';
-import { ArrowDownIcon } from '@src/assets';
 
 interface DropdownProps {
   label?: string;

@@ -1,0 +1,24 @@
+.ded-content {
+  min-height: 100vh;
+
+}
+
+.ded-content.bg-body {
+  padding-block: 2em;
+}
+
+.ded-header-sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+// .ded-card-container:has(:last-child) {
+//   padding-top: 0.5em;
+// }
+
+// .ded-card-container:has(:last-child) {
+//   padding-bottom: 0.5em;
+// }

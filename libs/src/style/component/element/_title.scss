@@ -18,6 +18,8 @@ $text-levels: (
 );
 
 .ded-title {
+  display: flex;
+  align-items: center;
   font-size: inherit;
   font-weight: $text-regular;
   color: currentColor;
@@ -28,6 +30,12 @@ $text-levels: (
     &-#{$level} {
       font-size: getTextLevel('size', $level);
       font-weight: getTextLevel('weight', $level);
+    }
+  }
+
+  @each $theme in $themes {
+    &-#{$theme} {
+      color: getThemeColor($theme, 'default');
     }
   }
 }

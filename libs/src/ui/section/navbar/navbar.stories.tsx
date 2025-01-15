@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Navbar } from '@src/ui';
-import { AUOIcon } from '@src/assets';
+import { Navbar } from './navbar';
 
 const links = [
   { label: 'Solutions', href: '#solutions', order: 2 },
@@ -14,19 +13,39 @@ export default {
   component: Navbar,
   tags: ['autodocs'],
   argTypes: {
+    dataSource: {
+      description: '連結清單',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    logoSrc: {
+      description: 'Logo 圖片連結',
+      table: {
+        category: 'PROPS',
+      },
+    },
     className: {
       description: '客製化樣式',
       control: {
         type: 'text',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    onClick: {
-      description: '點擊事件',
+    onSearch: {
+      description: '搜尋事件',
+      action: 'search',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   args: {
-    links,
+    dataSource: links,
     logoSrc: 'https://storage.googleapis.com/ded-wds-bucket/AUO_LOGO.svg',
+    className: '',
     onSearch: (query: string) => {
       console.log(query);
     },

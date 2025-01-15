@@ -17,6 +17,13 @@ export default {
         category: 'Grid',
       },
     },
+    gap: {
+      control: 'number',
+      description: '間距',
+      table: {
+        category: 'Grid',
+      },
+    },
     className: {
       control: 'text',
       description: '客製化樣式',
@@ -117,6 +124,7 @@ export default {
   },
   args: {
     fluid: true,
+    gap: 0,
     className: '',
     hasGap: false,
     justify: 'flex-start',
