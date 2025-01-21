@@ -13,75 +13,90 @@ import {
 import { ItemProps } from '@src/hooks/useMenu';
 import SideNav from './side-nav';
 import { Grid, Row, Column } from '@src/ui/section/grid';
+import { has } from 'lodash';
 
 const menuData: ItemProps[] = [
   {
-    title: 'Home',
+    label: 'Home',
     prefix: <SvgHome width={24} height={24} />,
     path: '/Home',
+    order: 1,
   },
   {
-    title: 'User',
+    label: 'User',
     prefix: <SvgUser width={24} height={24} />,
     path: '/User',
+    order: 2,
     children: [
       {
-        title: 'Profile',
+        label: 'Profile',
         path: '/settings/profile',
+        order: 1,
       },
       {
-        title: 'Account',
+        label: 'Account',
         path: '/settings/account',
+        order: 2,
       },
     ],
   },
   {
-    title: 'Chart',
+    label: 'Chart',
     prefix: <SvgBarChart width={24} height={24} />,
     path: '/Chart',
+    order: 3,
     children: [
       {
-        title: 'Profile',
+        label: 'Profile',
         path: '/settings/profile',
+        order: 1,
       },
       {
-        title: 'Account',
+        label: 'Account',
         path: '/settings/account',
+        order: 2,
       },
       {
-        title: 'Account',
+        label: 'Account',
         path: '/settings/account',
+        order: 3,
       },
       {
-        title: 'Account',
+        label: 'Account',
         path: '/settings/account',
+        order: 4,
       },
     ],
   },
   {
-    title: 'Database',
+    label: 'Database',
     prefix: <SvgDatabase width={24} height={24} />,
     path: '/dashboard',
+    order: 4,
   },
   {
-    title: 'Favorite',
+    label: 'Favorite',
     prefix: <SvgFavorite width={24} height={24} />,
     path: '/Favorite',
+    order: 5,
   },
   {
-    title: 'Calendar',
+    label: 'Calendar',
     prefix: <SvgCalendar width={24} height={24} />,
     path: '/Calendar',
+    order: 6,
   },
   {
-    title: 'Notification',
+    label: 'Notification',
     prefix: <SvgNotification width={24} height={24} />,
     path: '/Notification',
+    order: 7,
   },
   {
-    title: 'Language',
+    label: 'Language',
     prefix: <SvgLanguage width={24} height={24} />,
     path: '/Language',
+    order: 8,
   },
 ];
 
@@ -119,6 +134,18 @@ export default {
         category: 'PROPS',
       },
     },
+    logoSrc: {
+      description: 'Logo 圖片',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    hasRWD: {
+      description: '是否有側邊導覽',
+      table: {
+        category: 'PROPS',
+      },
+    },
     logoLink: {
       description: 'Logo 連結',
       table: {
@@ -152,8 +179,10 @@ export default {
   },
   args: {
     themeColor: 'Blue',
+    logoSrc: '',
     logo: <SvgAuo width={90} height={30} />,
     logoLink: 'https://www.auo.com',
+    hasRWD: false,
     hasLogo: false,
     hasSearch: true,
     dataSource: menuData,
@@ -161,7 +190,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: 'Side Nav',
+      label: 'Side Nav',
       description: {
         component: '側邊導覽組件的呈現及說明。',
       },
@@ -184,70 +213,70 @@ dataSource={[
     {
       path: '/Home',
       prefix: <SvgHome height={24} width={24}/>,
-      title: 'Home'
+      label: 'Home'
     },
     {
       children: [
         {
           path: '/settings/profile',
-          title: 'Profile'
+          label: 'Profile'
         },
         {
           path: '/settings/account',
-          title: 'Account'
+          label: 'Account'
         }
       ],
       path: '/User',
       prefix: <SvgUser height={24} width={24}/>,
-      title: 'User'
+      label: 'User'
     },
     {
       children: [
         {
           path: '/settings/profile',
-          title: 'Profile'
+          label: 'Profile'
         },
         {
           path: '/settings/account',
-          title: 'Account'
+          label: 'Account'
         },
         {
           path: '/settings/account',
-          title: 'Account'
+          label: 'Account'
         },
         {
           path: '/settings/account',
-          title: 'Account'
+          label: 'Account'
         }
       ],
       path: '/Chart',
       prefix: <SvgBarChart height={24} width={24}/>,
-      title: 'Chart'
+      label: 'Chart'
     },
     {
       path: '/dashboard',
       prefix: <SvgDatabase height={24} width={24}/>,
-      title: 'Database'
+      label: 'Database'
     },
     {
       path: '/Favorite',
       prefix: <SvgFavorite height={24} width={24}/>,
-      title: 'Favorite'
+      label: 'Favorite'
     },
     {
       path: '/Calendar',
       prefix: <SvgCalendar height={24} width={24}/>,
-      title: 'Calendar'
+      label: 'Calendar'
     },
     {
       path: '/Notification',
       prefix: <SvgNotification height={24} width={24}/>,
-      title: 'Notification'
+      label: 'Notification'
     },
     {
       path: '/Language',
       prefix: <SvgLanguage height={24} width={24}/>,
-      title: 'Language'
+      label: 'Language'
     }
   ]}
   hasSearch

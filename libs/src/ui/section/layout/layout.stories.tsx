@@ -46,6 +46,7 @@ export const Default: Story = {
               alignItems: 'center',
               backgroundColor: '#0958d9',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             content
@@ -74,6 +75,7 @@ export const Third: Story = {
               alignItems: 'center',
               backgroundColor: '#4096ff',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             header
@@ -89,6 +91,7 @@ export const Third: Story = {
               alignItems: 'center',
               backgroundColor: '#0958d9',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             content
@@ -104,6 +107,7 @@ export const Third: Story = {
               justifyContent: 'center',
               alignItems: 'center',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             footer
@@ -132,6 +136,7 @@ export const I1: Story = {
               alignItems: 'center',
               backgroundColor: '#4096ff',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             header
@@ -141,6 +146,7 @@ export const I1: Story = {
           <Layout.Side>
             <div
               style={{
+                minWidth: '80px',
                 width: '100%',
                 height: '100%',
                 display: 'flex',
@@ -148,6 +154,7 @@ export const I1: Story = {
                 alignItems: 'center',
                 backgroundColor: '#1677ff',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               side
@@ -163,6 +170,7 @@ export const I1: Story = {
                 alignItems: 'center',
                 backgroundColor: '#0958d9',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               content
@@ -179,6 +187,7 @@ export const I1: Story = {
               justifyContent: 'center',
               alignItems: 'center',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             footer
@@ -207,6 +216,7 @@ export const I2: Story = {
               alignItems: 'center',
               backgroundColor: '#4096ff',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             header
@@ -223,6 +233,7 @@ export const I2: Story = {
                 alignItems: 'center',
                 backgroundColor: '#0958d9',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               content
@@ -231,6 +242,7 @@ export const I2: Story = {
           <Layout.Side>
             <div
               style={{
+                minWidth: '80px',
                 width: '100%',
                 height: '100%',
                 display: 'flex',
@@ -238,6 +250,7 @@ export const I2: Story = {
                 alignItems: 'center',
                 backgroundColor: '#1677ff',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               side
@@ -254,6 +267,7 @@ export const I2: Story = {
               alignItems: 'center',
               backgroundColor: '#4096ff',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             footer
@@ -275,6 +289,7 @@ export const L: Story = {
         <Layout.Side>
           <div
             style={{
+              minWidth: '80px',
               width: '100%',
               height: '100%',
               display: 'flex',
@@ -282,6 +297,7 @@ export const L: Story = {
               alignItems: 'center',
               backgroundColor: '#1677ff',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             side
@@ -298,6 +314,7 @@ export const L: Story = {
                 alignItems: 'center',
                 backgroundColor: '#4096ff',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               header
@@ -313,6 +330,7 @@ export const L: Story = {
                 alignItems: 'center',
                 backgroundColor: '#0958d9',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               content
@@ -328,6 +346,7 @@ export const L: Story = {
                 alignItems: 'center',
                 backgroundColor: '#4096ff',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               footer
@@ -357,6 +376,7 @@ export const L2: Story = {
               alignItems: 'center',
               backgroundColor: '#4096ff',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             header
@@ -366,6 +386,7 @@ export const L2: Story = {
           <Layout.Side>
             <div
               style={{
+                minWidth: '80px',
                 width: '100%',
                 height: '100%',
                 display: 'flex',
@@ -373,6 +394,7 @@ export const L2: Story = {
                 alignItems: 'center',
                 backgroundColor: '#1677ff',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               side
@@ -389,6 +411,7 @@ export const L2: Story = {
                   alignItems: 'center',
                   backgroundColor: '#0958d9',
                   color: '#fff',
+                  fontSize: '24px',
                 }}
               >
                 content
@@ -404,6 +427,7 @@ export const L2: Story = {
                   alignItems: 'center',
                   backgroundColor: '#4096ff',
                   color: '#fff',
+                  fontSize: '24px',
                 }}
               >
                 footer
@@ -434,6 +458,7 @@ export const L3: Story = {
               alignItems: 'center',
               backgroundColor: '#4096ff',
               color: '#fff',
+              fontSize: '24px',
             }}
           >
             header
@@ -443,6 +468,7 @@ export const L3: Story = {
           <Layout.Side>
             <div
               style={{
+                minWidth: '80px',
                 width: '100%',
                 height: '100%',
                 display: 'flex',
@@ -450,6 +476,7 @@ export const L3: Story = {
                 alignItems: 'center',
                 backgroundColor: '#1677ff',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               side
@@ -466,6 +493,7 @@ export const L3: Story = {
                   alignItems: 'center',
                   backgroundColor: '#0958d9',
                   color: '#fff',
+                  fontSize: '24px',
                 }}
               >
                 content
@@ -481,6 +509,7 @@ export const L3: Story = {
                   alignItems: 'center',
                   backgroundColor: '#4096ff',
                   color: '#fff',
+                  fontSize: '24px',
                 }}
               >
                 footer
@@ -490,6 +519,7 @@ export const L3: Story = {
           <Layout.Side>
             <div
               style={{
+                minWidth: '80px',
                 width: '100%',
                 height: '100%',
                 display: 'flex',
@@ -497,12 +527,59 @@ export const L3: Story = {
                 alignItems: 'center',
                 backgroundColor: '#1677ff',
                 color: '#fff',
+                fontSize: '24px',
               }}
             >
               side
             </div>
           </Layout.Side>
         </Layout>
+      </Layout>
+    );
+  },
+};
+
+export const A1: Story = {
+  name: '文章導覽式佈局',
+  args: {
+    className: '',
+  },
+  render(args) {
+    return (
+      <Layout {...args}>
+        <Layout.Side>
+          <div
+            style={{
+              minWidth: '80px',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#1677ff',
+              color: '#fff',
+              fontSize: '24px',
+            }}
+          >
+            side
+          </div>
+        </Layout.Side>
+        <Layout.Content>
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#0958d9',
+              color: '#fff',
+              fontSize: '24px',
+            }}
+          >
+            content
+          </div>
+        </Layout.Content>
       </Layout>
     );
   },

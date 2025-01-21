@@ -1,6 +1,6 @@
 {
   "name": "ded-wds-react",
-  "version": "1.0.0-beta",
+  "version": "1.0.2-beta",
   "description": "Web Design System",
   "license": "MIT",
   "homepage": "https://uedteam.github.io/DED-WDS",
@@ -50,7 +50,7 @@
     "ds"
   ],
   "dependencies": {
-    "@ded-wds/ui": "^1.2.15",
+    "@ded-wds/ui": "^1.0.1-beta-test-20",
     "@nrwl/cli": "^15.9.3",
     "@storybook/builder-vite": "^8.2.8",
     "@storybook/client-api": "^7.6.17",

@@ -30,11 +30,11 @@ export interface MenuItemProps {
  * @returns {JSX.Element} 返回一個渲染的菜單項目。
  */
 export const MenuItem: React.FC<MenuItemProps> = ({
-  item = { title: '', prefix: '' },
+  item = { label: '', path: '', prefix: '', order: 1 },
   isCollapsed = false,
   color = '#000000',
   hasDivider,
-}: MenuItemProps) => {
+}: MenuItemProps): JSX.Element => {
   const { isOpen, setIsOpen, contentRef, maxHeight, hasChildren } = useMenu(
     item,
     isCollapsed
@@ -56,7 +56,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
       >
         {item.prefix && <div className="ded-nav-item-icon">{item.prefix}</div>}
         {!isCollapsed && (
-          <span className="ded-nav-item-label">{item.title}</span>
+          <span className="ded-nav-item-label">{item.label}</span>
         )}
       </a>
 
@@ -76,23 +76,25 @@ export const MenuItem: React.FC<MenuItemProps> = ({
           />
         </div>
       )}
-      <ul
-        ref={contentRef}
-        className="ded-nav-subitem"
-        style={{
-          maxHeight: maxHeight,
-        }}
-      >
-        {hasChildren &&
-          item.children?.map((child, index) => (
-            <MenuItem
-              key={index}
-              item={child}
-              isCollapsed={isCollapsed}
-              color={color}
-            />
-          ))}
-      </ul>
+      {!isCollapsed && (
+        <ul
+          ref={contentRef}
+          className="ded-nav-subitem"
+          style={{
+            maxHeight: maxHeight,
+          }}
+        >
+          {hasChildren &&
+            item.children?.map((child, index) => (
+              <MenuItem
+                key={index}
+                item={child}
+                isCollapsed={isCollapsed}
+                color={color}
+              />
+            ))}
+        </ul>
+      )}
     </li>
   );
 };

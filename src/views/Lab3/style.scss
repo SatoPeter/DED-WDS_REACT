@@ -1,0 +1,100 @@
+/* 基礎按鈕樣式 */
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+/* 漸層發光按鈕 */
+.btn-gradient {
+  background: linear-gradient(45deg, #FF6B6B, #FFE66D);
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 107, 107, 0.8);
+}
+
+/* 邊框動畫按鈕 */
+.btn-border {
+  background: transparent;
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-border:hover {
+  color: white;
+}
+
+.btn-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #4CAF50;
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+.btn-border:hover::before {
+  width: 100%;
+}
+
+/* 彈跳按鈕 */
+.btn-bounce {
+  background: #6C63FF;
+  color: white;
+  transform-origin: center bottom;
+}
+
+.btn-bounce:hover {
+  animation: bounce 0.6s ease infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 波紋效果按鈕 */
+.btn-ripple {
+  background: #2196F3;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-ripple:hover::after {
+  width: 300px;
+  height: 300px;
+}

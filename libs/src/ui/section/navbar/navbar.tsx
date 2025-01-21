@@ -3,7 +3,8 @@ import { Avatar, Badge, Input, Button } from '@src/ui';
 import { SvgNotification, SvgSearch } from '@src/assets';
 
 interface NavbarProps {
-  dataSource: { label: string; href: string; order: number }[];
+  dataSource: { label: string; path: string; order: number }[];
+  hasLogo?: boolean;
   logoSrc: string;
   className?: string;
   onSearch?: (query: string) => void;
@@ -11,12 +12,13 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({
   dataSource,
+  hasLogo = true,
   logoSrc,
   className = '',
   onSearch,
 }) => {
   const [currLinks, setCurrLinks] = useState<
-    { label: string; href: string; order: number }[]
+    { label: string; path: string; order: number }[]
   >([]);
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,9 +39,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <nav className={`navbar ${className}`}>
       <div className="navbar-menu">
-        <Button themeColor="primary" variant="text" onClick={() => ({})}>
-          <img src={logoSrc} alt="Logo" className="navbar-logo" />
-        </Button>
+        {hasLogo && (
+          <Button themeColor="primary" variant="text" onClick={() => ({})}>
+            <img src={logoSrc} alt="Logo" className="navbar-logo" />
+          </Button>
+        )}
         <ul className="navbar-links">
           {currLinks.map((link) => (
             // <li key={link.href}>

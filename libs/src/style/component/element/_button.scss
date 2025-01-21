@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use 'sass:color';
+@use '../../theme/index' as *;
 
 .ded-button {
   display: inline-flex;

@@ -115,22 +115,22 @@ const BreadcrumbItems = [
 
 const NavbarItems = [
   {
-    href: '#products',
+    path: '#products',
     label: 'Products',
     order: 1,
   },
   {
-    href: '#solutions',
+    path: '#solutions',
     label: 'Solutions',
     order: 2,
   },
   {
-    href: '#about',
+    path: '#about',
     label: 'About',
     order: 3,
   },
   {
-    href: '#technologies',
+    path: '#technologies',
     label: 'Technologies',
     order: 4,
   },
@@ -140,70 +140,84 @@ const SideNavItems = [
   {
     path: '/Home',
     prefix: <SvgHome height={24} width={24} />,
-    title: 'Home',
+    label: 'Home',
+    order: 1,
   },
   {
     children: [
       {
         path: '/settings/profile',
-        title: 'Profile',
+        label: 'Profile',
+        order: 1,
       },
       {
         path: '/settings/account',
-        title: 'Account',
+        label: 'Account',
+        order: 2,
       },
     ],
     path: '/User',
     prefix: <SvgUser height={24} width={24} />,
-    title: 'User',
+    label: 'User',
+    order: 2,
   },
   {
     children: [
       {
         path: '/settings/profile',
-        title: 'Profile',
+        label: 'Profile',
+        order: 1,
       },
       {
         path: '/settings/account',
-        title: 'Account',
+        label: 'Account',
+        order: 2,
       },
       {
         path: '/settings/account',
-        title: 'Account',
+        label: 'Account',
+        order: 3,
       },
       {
         path: '/settings/account',
-        title: 'Account',
+        label: 'Account',
+        order: 4,
       },
     ],
     path: '/Chart',
     prefix: <SvgBarChart height={24} width={24} />,
-    title: 'Chart',
+    label: 'Chart',
+    order: 3,
   },
   {
     path: '/dashboard',
     prefix: <SvgDatabase height={24} width={24} />,
-    title: 'Database',
+    label: 'Database',
+    order: 4,
   },
   {
     path: '/Favorite',
     prefix: <SvgFavorite height={24} width={24} />,
-    title: 'Favorite',
+    label: 'Favorite',
+    order: 5,
   },
   {
     path: '/Calendar',
     prefix: <SvgCalendar height={24} width={24} />,
-    title: 'Calendar',
+    label: 'Calendar',
+    order: 6,
   },
   {
     path: '/Notification',
     prefix: <SvgNotification height={24} width={24} />,
-    title: 'Notification',
+    label: 'Notification',
+    order: 7,
   },
   {
     path: '/Language',
     prefix: <SvgLanguage height={24} width={24} />,
-    title: 'Language',
+    label: 'Language',
+    order: 8,
   },
 ];
 
@@ -347,7 +361,7 @@ export const Finished = () => {
           />
         </Header>
         <Layout>
-          <Side className="w-0 hidden md:w-[300px] md:block">
+          <Side>
             <SideNav
               dataSource={SideNavItems}
               hasSearch
@@ -628,12 +642,6 @@ export const Finished = () => {
           </Layout>
         </Layout>
       </Layout>
-      <button onClick={() => navigate('/')} className="flip-card">
-        <div className="flip-card-inner">
-          <div className="flip-card-front">Demo</div>
-          <div className="flip-card-back">Go</div>
-        </div>
-      </button>
     </>
   );
 };

@@ -36,22 +36,22 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   className=""
                   dataSource={[
                     {
-                      href: '#solutions',
+                      path: '#solutions',
                       label: 'Solutions',
                       order: 2,
                     },
                     {
-                      href: '#products',
+                      path: '#products',
                       label: 'Products',
                       order: 1,
                     },
                     {
-                      href: '#technologies',
+                      path: '#technologies',
                       label: 'Technologies',
                       order: 4,
                     },
                     {
-                      href: '#about',
+                      path: '#about',
                       label: 'About',
                       order: 3,
                     },
@@ -74,70 +74,84 @@ export const Dashboard: React.FC<DashboardProps> = ({
                       {
                         path: '/Home',
                         prefix: <SvgHome height={18} width={18} />,
-                        title: 'Home',
+                        label: 'Home',
+                        order: 1,
                       },
                       {
                         children: [
                           {
                             path: '/settings/profile',
-                            title: 'Profile',
+                            label: 'Profile',
+                            order: 1,
                           },
                           {
                             path: '/settings/account',
-                            title: 'Account',
+                            label: 'Account',
+                            order: 1,
                           },
                         ],
                         path: '/User',
                         prefix: <SvgUser height={18} width={18} />,
-                        title: 'User',
+                        label: 'User',
+                        order: 1,
                       },
                       {
                         children: [
                           {
                             path: '/settings/profile',
-                            title: 'Profile',
+                            label: 'Profile',
+                            order: 1,
                           },
                           {
                             path: '/settings/account',
-                            title: 'Account',
+                            label: 'Account',
+                            order: 1,
                           },
                           {
                             path: '/settings/account',
-                            title: 'Account',
+                            label: 'Account',
+                            order: 1,
                           },
                           {
                             path: '/settings/account',
-                            title: 'Account',
+                            label: 'Account',
+                            order: 1,
                           },
                         ],
                         path: '/Chart',
                         prefix: <SvgBarChart height={18} width={18} />,
-                        title: 'Chart',
+                        label: 'Chart',
+                        order: 1,
                       },
                       {
                         path: '/dashboard',
                         prefix: <SvgDatabase height={18} width={18} />,
-                        title: 'Database',
+                        label: 'Database',
+                        order: 1,
                       },
                       {
                         path: '/Favorite',
                         prefix: <SvgFavorite height={18} width={18} />,
-                        title: 'Favorite',
+                        label: 'Favorite',
+                        order: 1,
                       },
                       {
                         path: '/Calendar',
                         prefix: <SvgCalendar height={18} width={18} />,
-                        title: 'Calendar',
+                        label: 'Calendar',
+                        order: 1,
                       },
                       {
                         path: '/Notification',
                         prefix: <SvgNotification height={18} width={18} />,
-                        title: 'Notification',
+                        label: 'Notification',
+                        order: 1,
                       },
                       {
                         path: '/Language',
                         prefix: <SvgLanguage height={18} width={18} />,
-                        title: 'Language',
+                        label: 'Language',
+                        order: 1,
                       },
                     ]}
                     hasSearch
@@ -176,22 +190,22 @@ export const Dashboard: React.FC<DashboardProps> = ({
         <Navbar
           dataSource={[
             {
-              href: '#solutions',
+              path: '#solutions',
               label: 'Solutions',
               order: 2,
             },
             {
-              href: '#products',
+              path: '#products',
               label: 'Products',
               order: 1,
             },
             {
-              href: '#technologies',
+              path: '#technologies',
               label: 'Technologies',
               order: 4,
             },
             {
-              href: '#about',
+              path: '#about',
               label: 'About',
               order: 3,
             },
@@ -208,70 +222,84 @@ export const Dashboard: React.FC<DashboardProps> = ({
               {
                 path: '/Home',
                 prefix: <SvgHome height={18} width={18} />,
-                title: 'Home',
+                label: 'Home',
+                order: 1,
               },
               {
                 children: [
                   {
                     path: '/settings/profile',
-                    title: 'Profile',
+                    label: 'Profile',
+                    order: 1,
                   },
                   {
                     path: '/settings/account',
-                    title: 'Account',
+                    label: 'Account',
+                    order: 1,
                   },
                 ],
                 path: '/User',
                 prefix: <SvgUser height={18} width={18} />,
-                title: 'User',
+                label: 'User',
+                order: 1,
               },
               {
                 children: [
                   {
                     path: '/settings/profile',
-                    title: 'Profile',
+                    label: 'Profile',
+                    order: 1,
                   },
                   {
                     path: '/settings/account',
-                    title: 'Account',
+                    label: 'Account',
+                    order: 1,
                   },
                   {
                     path: '/settings/account',
-                    title: 'Account',
+                    label: 'Account',
+                    order: 1,
                   },
                   {
                     path: '/settings/account',
-                    title: 'Account',
+                    label: 'Account',
+                    order: 1,
                   },
                 ],
                 path: '/Chart',
                 prefix: <SvgBarChart height={18} width={18} />,
-                title: 'Chart',
+                label: 'Chart',
+                order: 1,
               },
               {
                 path: '/dashboard',
                 prefix: <SvgDatabase height={18} width={18} />,
-                title: 'Database',
+                label: 'Database',
+                order: 1,
               },
               {
                 path: '/Favorite',
                 prefix: <SvgFavorite height={18} width={18} />,
-                title: 'Favorite',
+                label: 'Favorite',
+                order: 1,
               },
               {
                 path: '/Calendar',
                 prefix: <SvgCalendar height={18} width={18} />,
-                title: 'Calendar',
+                label: 'Calendar',
+                order: 1,
               },
               {
                 path: '/Notification',
                 prefix: <SvgNotification height={18} width={18} />,
-                title: 'Notification',
+                label: 'Notification',
+                order: 1,
               },
               {
                 path: '/Language',
                 prefix: <SvgLanguage height={18} width={18} />,
-                title: 'Language',
+                label: 'Language',
+                order: 1,
               },
             ]}
             hasSearch

@@ -1,3 +1,5 @@
+@use '../../theme/index' as *;
+
 .ded-layout {
   width: 100%;
   // min-height: 30vh;
@@ -27,7 +29,6 @@
 
 .ded-side {
   display: flex;
-  min-width: 240px;
 }
 
 .ded-content {

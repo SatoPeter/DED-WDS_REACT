@@ -2,12 +2,28 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { SliderControl } from '../../module/slider-control';
 import { SvgPlus, SvgMinus } from '@src/assets';
+import { theme } from 'highcharts';
 
 export default {
   title: 'Component/Slider-Control',
   component: SliderControl,
   tags: ['autodocs'],
   argTypes: {
+    themeColor: {
+      description: '背景顏色',
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'error',
+      ],
+      table: {
+        category: 'PROPS',
+      },
+    },
     min: {
       description: '最小值',
       table: {
@@ -97,6 +113,7 @@ export default {
     },
   },
   args: {
+    themeColor: 'primary',
     min: -100,
     max: 100,
     step: 1,

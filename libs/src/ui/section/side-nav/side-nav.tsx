@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { SvgSearch, SvgArrowDown, SvgLogout } from '@src/assets';
 import { ItemProps } from '@src/hooks/useMenu';
-import { Menu, Input, Avatar, Button } from '@src/ui';
+import { Menu, Input, Avatar, Button, Navbar } from '@src/ui';
 
 /**
  * 側邊導航組件的屬性介面。
@@ -15,7 +15,9 @@ import { Menu, Input, Avatar, Button } from '@src/ui';
  */
 export interface SideNavProps {
   logo: ReactNode;
+  logoSrc?: string;
   logoLink?: string;
+  hasRWD?: boolean;
   hasLogo?: boolean;
   hasSearch?: boolean;
   dataSource: ItemProps[];
@@ -32,6 +34,9 @@ const THEME_COLOR = {
   White: '#ffffff',
 };
 
+// 新增斷點常數
+const MOBILE_BREAKPOINT = 1024;
+
 /**
  * 側邊導航元件
  *
@@ -44,7 +49,9 @@ const THEME_COLOR = {
  */
 export const SideNav: React.FC<SideNavProps> = ({
   logo = '',
+  logoSrc = '',
   logoLink = '',
+  hasRWD = false,
   hasLogo = false,
   hasSearch = false,
   themeColor = THEME_COLOR.Blue,
@@ -55,6 +62,7 @@ export const SideNav: React.FC<SideNavProps> = ({
   const [color, setColor] = useState(THEME_COLOR.White);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
 
   const coloredLogo = React.cloneElement(logo as React.ReactElement, {
     fill: color,
@@ -102,6 +110,41 @@ export const SideNav: React.FC<SideNavProps> = ({
   }, [color, themeColor]);
 
   applyColorToIcons(dataSource, color);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+      // 在手機版時自動收合
+      if (window.innerWidth < MOBILE_BREAKPOINT) {
+        setIsCollapsed(true);
+        return;
+      }
+      setIsCollapsed(false);
+    };
+
+    // 初始化檢查
+    handleResize();
+
+    // 監聽視窗大小變化
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  if (isMobile && isCollapsed) {
+    if (hasRWD) {
+      return (
+        <Navbar
+          className="fixed top-0 h-[60px] w-full"
+          dataSource={dataSource}
+          logoSrc={logoSrc}
+        />
+      );
+    }
+    return;
+  }
 
   return (
     <div

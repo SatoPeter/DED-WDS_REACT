@@ -1,4 +1,5 @@
 @use 'sass:list';
+@use '../../theme/index' as *;
 
 .ded-input-container {
   width: 100%;
@@ -35,19 +36,19 @@
 }
 
 /* one icon */
-.ded-input-group:has(.ded-input-feat-icon :only-child) .ded-input {
-  padding-right: 1.25em;
-}
+// .ded-input-group:has(.ded-input-feat-icon :only-child) .ded-input {
+//   padding-right: 1.25em;
+// }
 
 /* two icon */
 .ded-input-group:has(.ded-input-feat-icon :nth-of-type(2)) .ded-input {
-  padding-right: 2.5em;
+  padding-right: 3em;
 }
 
 .ded-input {
   height: 100%;
   width: 100%;
-  padding: 0.5em 0.75em;
+  padding: 0.5em 2em 0.5em 0.75em;
   color: inherit;
   background-color: inherit;
   text-align: inherit;

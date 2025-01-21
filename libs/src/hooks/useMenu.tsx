@@ -1,9 +1,10 @@
 import { ReactNode, useState, useEffect, useRef } from 'react';
 
 export interface ItemProps {
-  title: string;
+  label: string;
   prefix?: ReactNode;
-  path?: string;
+  path: string;
+  order: number;
   children?: ItemProps[];
 }
 

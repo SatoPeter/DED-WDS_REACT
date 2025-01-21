@@ -5,31 +5,36 @@ import Menu from './menu';
 
 const menuData: ItemProps[] = [
   {
-    title: 'Dashboard',
+    label: 'Dashboard',
     prefix: <SvgHome width={24} height={24} />,
     path: '/dashboard',
+    order: 1,
   },
   {
-    title: 'Settings',
+    label: 'Settings',
     prefix: <SvgHome width={24} height={24} />,
     path: '/settings',
     children: [
       {
-        title: 'Profile',
+        label: 'Profile',
         prefix: <SvgAccount width={24} height={24} />,
         path: '/settings/profile',
+        order: 1,
       },
       {
-        title: 'Account',
+        label: 'Account',
         prefix: <SvgAccount width={24} height={24} />,
         path: '/settings/account',
+        order: 2,
       },
     ],
+    order: 2,
   },
   {
-    title: 'Help',
+    label: 'Help',
     prefix: <SvgHome width={24} height={24} />,
     path: '/help',
+    order: 3,
   },
 ];
 
