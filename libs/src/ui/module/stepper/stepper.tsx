@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface StepperProps {
-  steps: {
+  dataSource: {
     title: string;
     desc?: string;
     content?: React.ReactNode;
@@ -12,14 +12,14 @@ export interface StepperProps {
 }
 
 export const Stepper: React.FC<StepperProps> = ({
-  steps,
+  dataSource,
   currentStep,
   direction = 'horizontal',
 }) => {
   return (
     <div className={`ded-stepper ded-stepper-${direction}`}>
       <div className="ded-stepper-header">
-        {steps.map((step, index) => (
+        {dataSource.map((step, index) => (
           <div
             key={index}
             className={`ded-step ${
@@ -35,14 +35,15 @@ export const Stepper: React.FC<StepperProps> = ({
               <div className="ded-step-title">{step.title}</div>
               <div className="ded-step-description">{step.desc}</div>
             </div>
-            {direction === 'vertical' && index !== steps.length - 1 && (
+            {direction === 'vertical' && index !== dataSource.length - 1 && (
               <div className="ded-step-connector" />
             )}
           </div>
         ))}
       </div>
       <div className="ded-stepper-content">
-        {steps[currentStep]?.content || 'No content available for this step.'}
+        {dataSource[currentStep]?.content ||
+          'No content available for this step.'}
       </div>
     </div>
   );

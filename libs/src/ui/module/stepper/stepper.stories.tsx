@@ -13,7 +13,7 @@ export default {
   component: Stepper,
   tags: ['autodocs'],
   argTypes: {
-    steps: {
+    data: {
       description: '步驟列表',
       table: {
         category: 'PROPS',
@@ -48,8 +48,9 @@ export default {
     },
   },
   args: {
-    steps,
+    dataSource: steps,
     currentStep: 1,
+    direction: 'horizontal',
     className: '',
   },
   parameters: {
@@ -70,7 +71,7 @@ export const Default: Story = {
     return (
       <Stepper
         {...args}
-        steps={args.steps || []}
+        dataSource={args.dataSource || []}
         currentStep={args.currentStep ?? 0}
       />
     );
@@ -89,7 +90,7 @@ export const HorizontalDemo: Story = {
       <>
         <Stepper
           {...args}
-          steps={args.steps || []}
+          dataSource={args.dataSource || []}
           currentStep={args.currentStep ?? 0}
           direction="horizontal"
         />
@@ -140,7 +141,7 @@ export const VerticalDemo: Story = {
       <>
         <Stepper
           {...args}
-          steps={args.steps || []}
+          dataSource={args.dataSource || []}
           currentStep={args.currentStep ?? 0}
           direction="vertical"
         />
