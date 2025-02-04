@@ -1,4 +1,3 @@
-import { on } from 'events';
 import { useState, useCallback, ReactNode } from 'react';
 
 interface DialogState {
