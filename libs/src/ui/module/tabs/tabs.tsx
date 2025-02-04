@@ -26,7 +26,7 @@ export interface TabsProps {
     content: string;
   }[];
   activeIndex: number;
-  type?: 'default' | 'card';
+  type?: 'basic' | 'outline' | 'button';
   prefix?: ReactNode;
   isDisabled?: boolean;
   className?: string;
@@ -49,7 +49,7 @@ export const Tabs: React.FC<TabsProps> = ({
   themeColor = 'primary',
   dataSource,
   activeIndex = 0,
-  type = 'default',
+  type = 'basic',
   prefix = '',
   isDisabled = false,
   className = '',
@@ -69,7 +69,7 @@ export const Tabs: React.FC<TabsProps> = ({
 
   return (
     <div className={`ded-tabs-container ${className}`}>
-      <div className="ded-tabs">
+      <div className={`ded-tabs ${type === 'button' ? 'ded-tabs-button' : ''}`}>
         {dataSource.map((tab, index) => (
           <TabItem
             key={index}

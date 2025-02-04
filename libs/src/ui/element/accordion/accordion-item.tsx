@@ -91,7 +91,14 @@ export const AccordionItem: React.FC<AccordionProps> = ({
         >
           <div className="ded-accordion-title-content">
             {prefix && <div className="ded-accordion-title-icon">{prefix}</div>}
-            <span>{label}</span>
+            <span
+              className={`${getCombinedClassName(
+                'ded-accordion-title-content',
+                isSmallSize ? 'small' : 'default'
+              )}`}
+            >
+              {label}
+            </span>
           </div>
           <div
             className={`ded-icon-medium 

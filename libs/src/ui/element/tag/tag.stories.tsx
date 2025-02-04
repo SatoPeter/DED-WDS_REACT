@@ -68,7 +68,7 @@ export default {
       },
     },
     closable: {
-      description: '是否可關閉',
+      description: '摸到時可關閉',
       table: {
         category: 'PROPS',
       },

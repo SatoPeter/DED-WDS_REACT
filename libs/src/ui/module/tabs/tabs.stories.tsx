@@ -53,7 +53,7 @@ export default {
       description: '頁籤樣式',
       control: {
         type: 'select',
-        options: ['default', 'card'],
+        options: ['basic', 'outline', 'button'],
       },
       table: {
         category: 'PROPS',
@@ -94,7 +94,7 @@ export default {
     themeColor: 'primary',
     dataSource: tabs,
     activeIndex: 0,
-    type: 'default',
+    type: 'basic',
     prefix: <SvgArrowDown />,
     isDisabled: false,
     className: '',
@@ -122,8 +122,19 @@ export const Default: Story = {
 export const PrimaryWithCard: Story = {
   name: '卡片式頁籤',
   args: {
-    type: 'card',
+    type: 'outline',
     activeIndex: 1,
+  },
+  render(args) {
+    return <Tabs {...args} />;
+  },
+};
+
+export const PrimaryWithButton: Story = {
+  name: '按鈕式頁籤',
+  args: {
+    type: 'button',
+    activeIndex: 2,
   },
   render(args) {
     return <Tabs {...args} />;

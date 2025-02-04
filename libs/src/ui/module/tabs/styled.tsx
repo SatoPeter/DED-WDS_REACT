@@ -6,10 +6,10 @@
  * @returns {string} 對應的樣式類別。
  */
 export const getThemeClass = (themeColor: string, type: string) => {
-  if (type === 'card') {
-    return `ded-tab-${type}-${themeColor}`;
+  if (type === 'basic') {
+    return `ded-tab-${themeColor}`;
   }
-  return `ded-tab-${themeColor}`;
+  return `ded-tab-${type}-${themeColor}`;
 };
 
 /**
@@ -19,8 +19,8 @@ export const getThemeClass = (themeColor: string, type: string) => {
  * @returns 活動類名。
  */
 export const getActiveClass = (themeColor: string, type: string) => {
-  if (type === 'card') {
-    return `ded-tab-${type}-${themeColor}-active`;
+  if (type === 'basic') {
+    return `ded-tab-${themeColor}-active`;
   }
-  return `ded-tab-${themeColor}-active`;
+  return `ded-tab-${type}-${themeColor}-active`;
 };

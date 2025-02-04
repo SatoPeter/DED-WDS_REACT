@@ -5,11 +5,7 @@ import { SvgArrowDown, SvgInfo } from '@src/assets';
 const qaList = [
   {
     id: '1',
-    label: (
-      <Title level={3} themeColor="primary">
-        What is React?
-      </Title>
-    ),
+    label: <Title themeColor="primary">What is React?</Title>,
     detail: (
       <>
         <p>React is a JavaScript library for building user interfaces.</p>
@@ -27,11 +23,7 @@ const qaList = [
   },
   {
     id: '2',
-    label: (
-      <Title level={3} themeColor="primary">
-        What are the features of React ?
-      </Title>
-    ),
+    label: <Title themeColor="primary">What are the features of React ?</Title>,
     detail: (
       <p>
         The features of React include component-based architecture,
@@ -42,7 +34,7 @@ const qaList = [
   {
     id: '3',
     label: (
-      <Title level={3} themeColor="primary">
+      <Title themeColor="primary">
         What is included in the React ecosystem ?
       </Title>
     ),
@@ -51,9 +43,7 @@ const qaList = [
   {
     id: '4',
     label: (
-      <Title level={3} themeColor="primary">
-        What are the advantages of React ?
-      </Title>
+      <Title themeColor="primary">What are the advantages of React ?</Title>
     ),
     detail: (
       <p>
@@ -78,6 +68,11 @@ export default {
     },
     prefix: {
       description: '前置元素',
+      options: ['None', 'Info'],
+      mapping: {
+        None: null,
+        Info: <SvgInfo />,
+      },
       table: {
         category: 'PROPS',
       },
@@ -156,11 +151,7 @@ export const Border: Story = {
 const smallQaList = [
   {
     id: '1',
-    label: (
-      <Title level={4} themeColor="primary">
-        What is React?
-      </Title>
-    ),
+    label: <Title themeColor="primary">What is React?</Title>,
     detail: (
       <>
         <p>React is a JavaScript library for building user interfaces.</p>
@@ -178,11 +169,7 @@ const smallQaList = [
   },
   {
     id: '2',
-    label: (
-      <Title level={4} themeColor="primary">
-        What are the features of React ?
-      </Title>
-    ),
+    label: <Title themeColor="primary">What are the features of React ?</Title>,
     detail: (
       <p>
         The features of React include component-based architecture,
@@ -193,7 +180,7 @@ const smallQaList = [
   {
     id: '3',
     label: (
-      <Title level={4} themeColor="primary">
+      <Title themeColor="primary">
         What is included in the React ecosystem ?
       </Title>
     ),
@@ -202,9 +189,7 @@ const smallQaList = [
   {
     id: '4',
     label: (
-      <Title level={4} themeColor="primary">
-        What are the advantages of React ?
-      </Title>
+      <Title themeColor="primary">What are the advantages of React ?</Title>
     ),
     detail: (
       <p>

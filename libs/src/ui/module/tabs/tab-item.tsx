@@ -23,7 +23,7 @@ export interface TabItemProps {
     | 'success'
     | 'warning'
     | 'error';
-  type?: 'default' | 'card';
+  type?: 'basic' | 'outline' | 'button';
   title: string;
   prefix?: ReactNode;
   isActive: boolean;
@@ -43,24 +43,39 @@ export interface TabItemProps {
  */
 export const TabItem: React.FC<TabItemProps> = ({
   themeColor = 'primary',
-  type = 'default',
+  type = 'basic',
   title = '',
   prefix = '',
   isActive,
   isDisabled = false,
   className = '',
   onClick,
-}: TabItemProps) => (
-  <Button
-    className={`ded-tab ${isActive ? getActiveClass(themeColor, type) : ''} ${
-      isDisabled
-        ? 'ded-tab-disable'
-        : className || getThemeClass(themeColor, type)
-    }`}
-    variant="text"
-    onClick={onClick}
-  >
-    {prefix && <span className="ded-icon">{prefix}</span>}
-    <span>{title}</span>
-  </Button>
-);
+}: TabItemProps) => {
+  return type === 'button' ? (
+    <Button
+      className={`${isActive ? '' : `ded-tab-button-${themeColor}-inactive`} ${
+        isDisabled
+          ? 'ded-tab-button-disable'
+          : className || getThemeClass(themeColor, type)
+      }`}
+      variant="filled"
+      onClick={onClick}
+    >
+      {prefix && <span className="ded-icon">{prefix}</span>}
+      <span>{title}</span>
+    </Button>
+  ) : (
+    <Button
+      className={`ded-tab ${isActive ? getActiveClass(themeColor, type) : ''} ${
+        isDisabled
+          ? 'ded-tab-disable'
+          : className || getThemeClass(themeColor, type)
+      }`}
+      variant="text"
+      onClick={onClick}
+    >
+      {prefix && <span className="ded-icon">{prefix}</span>}
+      <span>{title}</span>
+    </Button>
+  );
+};
