@@ -14,7 +14,7 @@ import {
   SvgHumidity,
   SvgTemperature,
   SvgDoor,
-} from '@src/assets';
+} from '@src/assets/icons';
 
 export default {
   title: 'Component/Card',

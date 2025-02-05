@@ -13,7 +13,7 @@ import { getCombinedClassName } from '@src/utils/string';
  * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
  *
  * @param {{ userName: string; src: string }[]} dataSource - Avatar 的使用者陣列。
- * @property {'small' | 'medium' | 'large'} [size] - Avatar 的大小，可選值為 'xsmall'、'small'、'medium'、'large'。
+ * @property {'small' | 'medium' | 'large'} [size] - Avatar 的大小，可選值為 ''small'、'medium'、'large'。
  * @param {number} limit - Avatar 顯示的最大數量。
  * @param {string} [className] - 自訂的 CSS 類名。
  */

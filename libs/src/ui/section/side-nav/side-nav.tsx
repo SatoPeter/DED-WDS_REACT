@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { SvgSearch, SvgArrowDown, SvgLogout } from '@src/assets';
+import { SvgSearch, SvgArrowDown, SvgLogout } from '@src/assets/icons';
 import { ItemProps } from '@src/hooks/useMenu';
 import { Menu, Input, Avatar, Button, Navbar } from '@src/ui';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { SvgHome, SvgArrowDown } from '@src/assets';
+import { SvgHome, SvgArrowDown } from '@src/assets/icons';
 
 export const NotFound = () => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react';
-import { SvgArrowDown } from '@src/assets';
+import { SvgArrowDown } from '@src/assets/icons';
 import { getCombinedClassName } from '@src/utils/string';
 
 export interface AccordionProps {

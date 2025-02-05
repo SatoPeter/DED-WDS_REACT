@@ -7,7 +7,7 @@ import {
   SvgVisibilityOff,
   SvgClose,
   SvgArrowDown,
-} from '@src/assets';
+} from '@src/assets/icons';
 import { isEmpty } from 'lodash';
 import { getCombinedClassName } from '@src/utils/string';
 

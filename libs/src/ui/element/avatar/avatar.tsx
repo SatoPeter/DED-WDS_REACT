@@ -1,5 +1,5 @@
 import React from 'react';
-import { SvgIdle, SvgOnline, SvgBusy, SvgOffline } from '@src/assets';
+import { SvgIdle, SvgOnline, SvgBusy, SvgOffline } from '@src/assets/icons';
 import { getCombinedClassName } from '@src/utils/string';
 import { getAbbrFullName } from '@src/utils';
 import { Image } from '@src/ui';
@@ -38,7 +38,7 @@ const getStatusIcon = (size: string, status: string) => {
  * AvatarProps 介面定義了 Avatar 元件的屬性。
  *
  * @property {'circle' | 'square'} [shape] - Avatar 的形狀，可選值為 'circle' 或 'square'。
- * @property {'xsmall' | 'small' | 'medium' | 'large'} [size] - Avatar 的大小，可選值為 'xsmall'、'small'、'medium'、'large'。
+ * @property {'small' | 'medium' | 'large'} [size] - Avatar 的大小，可選值為 'small'、'medium'、'large'。
  * @property {'none' | 'online' | 'busy' | 'idle' | 'offline'} [status] - 使用者狀態，可選值為 'none'、'online'、'busy'、'idle'、'offline'。
  * @property {string} [src] - Avatar 圖片的來源 URL。
  * @property {string} [alt] - 圖片的替代文字。
@@ -47,7 +47,7 @@ const getStatusIcon = (size: string, status: string) => {
  */
 export interface AvatarProps {
   shape?: 'circle' | 'square';
-  size?: 'xsmall' | 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
   status?: 'none' | 'online' | 'busy' | 'idle' | 'offline';
   isShowInfo?: boolean;
   alt?: string;

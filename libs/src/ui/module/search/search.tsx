@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from '@src/ui/element/input';
 import { Button } from '@src/ui/element/button';
-import { SvgSearch } from '@src/assets';
+import { SvgSearch } from '@src/assets/icons';
 
 /* 組件介面參數 props */
 interface SearchProps {

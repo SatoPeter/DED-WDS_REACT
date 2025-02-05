@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Accordion, Title, Button } from '@src/ui';
-import { SvgArrowDown, SvgInfo } from '@src/assets';
+import { SvgArrowDown, SvgInfo } from '@src/assets/icons';
 
 const qaList = [
   {

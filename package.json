@@ -50,7 +50,6 @@
     "ds"
   ],
   "dependencies": {
-    "@ded-wds/ui": "^1.0.1-beta-test-20",
     "@nrwl/cli": "^15.9.3",
     "@storybook/builder-vite": "^8.2.8",
     "@storybook/client-api": "^7.6.17",

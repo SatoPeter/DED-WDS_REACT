@@ -29,7 +29,7 @@ import {
   SvgMoreVert,
   SvgSearch,
   SvgSettings,
-} from '@src/assets';
+} from '@src/assets/icons';
 
 // 圖表引入
 import HighchartsReact from 'highcharts-react-official';

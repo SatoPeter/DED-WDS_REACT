@@ -4,7 +4,7 @@ import { DatepickerOptions } from 'vanillajs-datepicker/Datepicker';
 import { DateRangePickerOptions } from 'vanillajs-datepicker/DateRangePicker';
 import { Datepicker, DateRangePicker } from 'vanillajs-datepicker';
 import { Input } from '@src/ui';
-import { SvgCalendar } from '@src/assets';
+import { SvgCalendar } from '@src/assets/icons';
 
 interface DatePickerProps {
   value?: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SvgClose } from '@src/assets';
+import { SvgClose } from '@src/assets/icons';
 import { getDisableClass, getThemeClass } from './styled';
 
 /**

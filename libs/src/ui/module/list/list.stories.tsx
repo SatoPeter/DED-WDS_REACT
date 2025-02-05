@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { List } from '@src/ui';
-import { SvgAccount } from '@src/assets';
+import { SvgAccount } from '@src/assets/icons';
 import { has } from 'lodash';
 
 const options = [

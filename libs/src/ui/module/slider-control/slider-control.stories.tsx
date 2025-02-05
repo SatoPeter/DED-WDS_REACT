@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { SliderControl } from '../../module/slider-control';
-import { SvgPlus, SvgMinus } from '@src/assets';
+import { SvgPlus, SvgMinus } from '@src/assets/icons';
 import { theme } from 'highcharts';
 
 export default {

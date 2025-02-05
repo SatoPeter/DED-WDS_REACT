@@ -1,5 +1,5 @@
 import { Button, Card, Title, LineProgress, Divider, List } from '@src/ui';
-import { SvgMoreVert } from '@src/assets';
+import { SvgMoreVert } from '@src/assets/icons';
 
 export interface AreaPowerCardProps {
   areaPower: { name: string; description: string };

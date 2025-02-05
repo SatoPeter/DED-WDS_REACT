@@ -8,7 +8,7 @@ import {
   SvgVisibilityOff,
   SvgClose,
   SvgLock,
-} from '@src/assets';
+} from '@src/assets/icons';
 import { has } from 'lodash';
 
 export default {

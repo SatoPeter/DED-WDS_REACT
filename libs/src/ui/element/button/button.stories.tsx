@@ -6,7 +6,7 @@ import {
   SvgSearch,
   SvgVisibility,
   SvgVisibilityOff,
-} from '@src/assets';
+} from '@src/assets/icons';
 
 export default {
   title: 'Component/Button',

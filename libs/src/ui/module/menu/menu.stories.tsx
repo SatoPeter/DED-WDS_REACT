@@ -1,4 +1,4 @@
-import { SvgAccount, SvgHome } from '@src/assets';
+import { SvgAccount, SvgHome } from '@src/assets/icons';
 import { Meta, StoryObj } from '@storybook/react';
 import { ItemProps } from '@src/hooks/useMenu';
 import Menu from './menu';

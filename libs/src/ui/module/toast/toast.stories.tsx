@@ -10,7 +10,7 @@ import {
   SvgErrorCircle,
   SvgQuestionCircle,
   SvgDisableCircle,
-} from '@src/assets';
+} from '@src/assets/icons';
 import { useToast } from '@src/hooks';
 
 export default {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@src/ui';
-import { SvgFirstLastPage, SvgNavigateArrow } from '@src/assets';
+import { SvgFirstLastPage, SvgNavigateArrow } from '@src/assets/icons';
 
 interface PaginationProps {
   totalItems: number;

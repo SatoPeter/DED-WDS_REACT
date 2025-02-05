@@ -9,7 +9,7 @@ import {
   SvgCalendar,
   SvgBarChart,
   SvgNotification,
-} from '@src/assets';
+} from '@src/assets/icons';
 import { ItemProps } from '@src/hooks/useMenu';
 import SideNav from './side-nav';
 import { Grid, Row, Column } from '@src/ui/section/grid';

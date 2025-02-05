@@ -1,4 +1,4 @@
-import { SvgArrowDown } from '@src/assets';
+import { SvgArrowDown } from '@src/assets/icons';
 import { useMenu } from '@src/hooks';
 import { ItemProps } from '@src/hooks/useMenu';
 

@@ -1,6 +1,6 @@
 import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import Badge from './badge';
-import { SvgNotification } from '@src/assets';
+import { SvgNotification } from '@src/assets/icons';
 
 export default {
   title: 'Component/Badge',

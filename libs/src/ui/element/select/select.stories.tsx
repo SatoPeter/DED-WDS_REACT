@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Select } from '@src/ui';
-import { SvgArrowDropDown } from '@src/assets';
+import { SvgArrowDropDown } from '@src/assets/icons';
 import { useState } from 'react';
 import { ac } from 'react-router/dist/development/route-data-aSUFWnQ6';
 

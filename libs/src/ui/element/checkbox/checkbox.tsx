@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SvgCheck } from '@src/assets';
+import { SvgCheck } from '@src/assets/icons';
 import { getCombinedClassName } from '@src/utils/string';
 
 /**

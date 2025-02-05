@@ -4,7 +4,7 @@ import { Button, Title } from '@src/ui';
 import { CardSimple } from '@src/ui/section/card-simple';
 import { Card } from './card';
 import { Column, Grid, Row } from '@src/ui/section/grid';
-import { SvgArrowDown } from '@src/assets';
+import { SvgArrowDown } from '@src/assets/icons';
 
 export default {
   title: 'Component/Card',

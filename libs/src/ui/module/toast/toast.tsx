@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { SvgClose } from '@src/assets';
+import { SvgClose } from '@src/assets/icons';
 import { Button } from '@src/ui/element/button';
 import { Title } from '@src/ui/element/title';
 import { getCombinedClassName } from '@src/utils/string';

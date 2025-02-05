@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from './tabs';
-import { SvgArrowDown } from '@src/assets';
+import { SvgArrowDown } from '@src/assets/icons';
 
 const tabs = [
   { title: 'Tab 1', content: 'Content 1' },
