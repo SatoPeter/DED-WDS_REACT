@@ -106,7 +106,7 @@ import './style/globals.scss';
 - 執行 npm 開啟環境進行開發
 
 ```shell
-$ npm run dev
+npm run dev
 ```
 
 - 打開 Design system Storybook（Vue 版、React 版）選擇所需
