@@ -1,16 +1,14 @@
 import 'vanillajs-datepicker/css/datepicker-foundation.css';
 import React, { useEffect, useRef, forwardRef } from 'react';
-import { DatepickerOptions } from 'vanillajs-datepicker/Datepicker';
-import { DateRangePickerOptions } from 'vanillajs-datepicker/DateRangePicker';
 import { Datepicker, DateRangePicker } from 'vanillajs-datepicker';
 import { Input } from '@src/ui';
 import { SvgCalendar } from '@src/assets/icons';
 
 interface DatePickerProps {
   value?: string;
+  format?: string;
   placeholder?: string;
   isRange?: boolean;
-  options?: Partial<DatepickerOptions | DateRangePickerOptions>;
   className?: string;
   onChange?: (date: string) => void;
 }
@@ -19,9 +17,9 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
   (
     {
       value = '',
+      format = 'yyyy/mm/dd',
       placeholder = '',
       isRange,
-      options,
       className = '',
       onChange,
     },
@@ -39,9 +37,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         (ref as React.RefObject<HTMLDivElement>)?.current ||
         divRangeRef.current;
 
+      const currFormat = (format || 'yyyy/mm/dd').toLocaleLowerCase();
+
       if (inputElement && !isRange) {
         datepickerRef.current = new Datepicker(inputElement, {
-          ...options,
+          format: currFormat,
+          todayHighlight: true,
           container: document.body,
         });
 
@@ -54,7 +55,9 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 
       if (divRangeElement && isRange) {
         datepickerRef.current = new DateRangePicker(divRangeElement, {
-          ...options,
+          format: currFormat,
+          todayHighlight: true,
+          allowOneSidedRange: true,
           container: document.body,
         });
 
@@ -68,7 +71,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
       return () => {
         datepickerRef.current?.destroy();
       };
-    }, [options, onChange, ref, isRange]);
+    }, [format, onChange, ref, isRange]);
 
     return (
       <div style={{ width: '100%' }}>

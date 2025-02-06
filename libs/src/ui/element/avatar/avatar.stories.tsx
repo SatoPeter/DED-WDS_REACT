@@ -134,8 +134,8 @@ export const AvatarShape: Story = {
     docs: {
       source: {
         code: `
-        <Avatar {...args} size="large" shape="circle" status="online" />
-<Avatar {...args} size="large" shape="square" status="idle" />
+        <Avatar {...args} shape="circle" />
+<Avatar {...args} shape="square" />
         `,
       },
     },
@@ -186,10 +186,10 @@ export const AvatarStatus: Story = {
     docs: {
       source: {
         code: `
-        <Avatar {...args} size="large" shape="circle" status="online" />
-<Avatar {...args} size="large" shape="circle" status="idle" />
-<Avatar {...args} size="large" shape="circle" status="busy" />
-<Avatar {...args} size="large" shape="circle" status="offline" />
+        <Avatar {...args} status="online" />
+<Avatar {...args} status="idle" />
+<Avatar {...args} status="busy" />
+<Avatar {...args} status="offline" />
         `,
       },
     },

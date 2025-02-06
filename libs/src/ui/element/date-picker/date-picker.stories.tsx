@@ -13,20 +13,20 @@ export default {
         category: 'PROPS',
       },
     },
+    format: {
+      description: '日期格式',
+      table: {
+        category: 'PROPS',
+      },
+    },
     placeholder: {
-      description: '提示文字',
+      description: '提示文字(請注意與format格式相符)',
       table: {
         category: 'PROPS',
       },
     },
     isRange: {
       description: '日期區間',
-      table: {
-        category: 'PROPS',
-      },
-    },
-    options: {
-      description: '選項',
       table: {
         category: 'PROPS',
       },
@@ -46,12 +46,9 @@ export default {
   },
   args: {
     value: '',
+    format: 'yyyy/mm/dd',
     isRange: false,
     placeholder: 'YYYY/MM/DD',
-    options: {
-      format: 'yyyy/mm/dd',
-      todayHighlight: true,
-    },
     className: '',
     onChange: action('onChange'),
   },
@@ -68,9 +65,7 @@ type Story = StoryObj<typeof DatePicker>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    placeholder: 'YYYY/MM/DD',
-  },
+  args: {},
   render(args) {
     return <DatePicker {...args} />;
   },
@@ -78,13 +73,25 @@ export const Default: Story = {
 
 export const Range: Story = {
   name: '日期區間',
+  argTypes: {
+    value: {
+      table: {
+        disable: true,
+      },
+    },
+    placeholder: {
+      table: {
+        disable: true,
+      },
+    },
+    isRange: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {
     isRange: true,
-    options: {
-      format: 'yyyy/mm/dd',
-      todayHighlight: true,
-      allowOneSidedRange: false,
-    },
   },
   render(args) {
     return <DatePicker {...args} />;

@@ -2,7 +2,19 @@ import React from 'react';
 import { Image, Title, Button } from '@src/ui';
 import { getCombinedClassName } from '@src/utils/string';
 
-interface CardProps {
+/**
+ * 卡片元件的屬性介面
+ * @interface CardProps
+ * @property {('vertical'|'horizontal')} [layout] - 卡片的佈局方向，預設為 vertical
+ * @property {string} imgSrc - 卡片圖片的來源網址
+ * @property {string} [buttonName] - 按鈕的顯示文字
+ * @property {('center'|'left'|'right')} [align] - 內容的對齊方式
+ * @property {boolean} [hasBorder] - 是否顯示卡片邊框
+ * @property {string} title - 卡片標題
+ * @property {string} [subtitle] - 卡片副標題
+ * @property {string} [description] - 卡片描述內容
+ */
+export interface CardProps {
   layout?: 'vertical' | 'horizontal';
   imgSrc: string;
   buttonName?: string;
@@ -13,6 +25,20 @@ interface CardProps {
   description?: string;
 }
 
+/**
+ * 簡易卡片元件
+ * @component
+ * @param {Object} props - 元件屬性
+ * @param {'vertical' | 'horizontal'} [props.layout='vertical'] - 卡片佈局方向，預設為垂直
+ * @param {string} props.imgSrc - 圖片來源URL
+ * @param {string} [props.buttonName] - 按鈕文字，若未提供則不顯示按鈕
+ * @param {'left' | 'center'} [props.align='left'] - 內容對齊方式，預設靠左
+ * @param {boolean} [props.hasBorder=true] - 是否顯示邊框，預設顯示
+ * @param {string} props.title - 卡片標題
+ * @param {string} [props.subtitle] - 卡片副標題，選填
+ * @param {string} [props.description] - 卡片描述文字，選填
+ * @returns {JSX.Element} 返回簡易卡片元件
+ */
 export const CardSimple: React.FC<CardProps> = ({
   layout = 'vertical',
   imgSrc,

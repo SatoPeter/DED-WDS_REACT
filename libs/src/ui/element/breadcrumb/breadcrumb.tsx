@@ -12,7 +12,7 @@ import { useClickOutside } from '@src/hooks';
  * @property {string} [href] - 項目的連結（可選）。
  * @property {boolean} [isCurrentPage] - 是否為當前頁面（可選）。
  */
-interface BreadcrumbItemProps {
+export interface BreadcrumbItemProps {
   label: string;
   href?: string;
   isCurrentPage?: boolean;

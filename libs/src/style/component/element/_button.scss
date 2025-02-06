@@ -226,5 +226,6 @@
 .ded-button-text-disabled {
   pointer-events: none !important;
   color: list.nth($disabled-text, $site) !important;
-  background-color: list.nth($disabled-background, $site) !important;
+  border-width: 0 !important;
+  // background-color: list.nth($disabled-background, $site) !important;
 }

@@ -138,7 +138,6 @@ export default {
       required: true,
     },
   },
-
   args: {
     themeColor: 'primary',
     variant: 'filled',
@@ -153,6 +152,13 @@ export default {
     children: 'Button',
     onClick: action('onClick'),
   },
+  decorators: [
+    (Story: any) => (
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     docs: {
       title: 'Button',
@@ -174,6 +180,18 @@ export const Default: Story = {
 
 export const Additional: Story = {
   name: '附加元素',
+  argTypes: {
+    prefix: {
+      table: {
+        disable: true,
+      },
+    },
+    suffix: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {
     variant: 'ghost',
     onClick: () => action('onClick')('點擊事件'),
@@ -194,20 +212,27 @@ export const Additional: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+      <>
         <Button {...args} prefix={<SvgAccount />}>
           {args.children}
         </Button>
         <Button {...args} suffix={<SvgSearch />}>
           {args.children}
         </Button>
-      </div>
+      </>
     );
   },
 };
 
 export const Shape: Story = {
   name: '外觀樣式',
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {
     variant: 'ghost',
     suffix: null,
@@ -230,7 +255,7 @@ export const Shape: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+      <>
         <Button {...args} variant="filled">
           {args.children}
         </Button>
@@ -240,13 +265,20 @@ export const Shape: Story = {
         <Button {...args} variant="text">
           {args.children}
         </Button>
-      </div>
+      </>
     );
   },
 };
 
 export const Theme: Story = {
   name: '主題色彩',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {
     variant: 'filled',
     prefix: <SvgAccount />,
@@ -274,7 +306,7 @@ export const Theme: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+      <>
         <Button {...args} themeColor="primary">
           {args.children}
         </Button>
@@ -296,7 +328,7 @@ export const Theme: Story = {
         <Button {...args} themeColor="error">
           {args.children}
         </Button>
-      </div>
+      </>
     );
   },
 };

@@ -125,7 +125,7 @@ export const Align: Story = {
 };
 
 export const Horizontal: Story = {
-  name: '水平佈局',
+  name: '垂直佈局',
   args: {},
   render: function (args) {
     return (
@@ -153,7 +153,7 @@ export const Horizontal: Story = {
 };
 
 export const Vertical: Story = {
-  name: '垂直佈局',
+  name: '水平佈局',
   args: {},
   render: function (args) {
     return (
