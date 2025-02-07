@@ -248,6 +248,7 @@ export const Shape: Story = {
 <Button {...args} variant="filled">${args.children}</Button>
 <Button {...args} variant="ghost">${args.children}</Button>
 <Button {...args} variant="text">${args.children}</Button>
+<Button {...args} variant="soft">${args.children}</Button>
 `;
         },
       },
@@ -263,6 +264,9 @@ export const Shape: Story = {
           {args.children}
         </Button>
         <Button {...args} variant="text">
+          {args.children}
+        </Button>
+        <Button {...args} variant="soft">
           {args.children}
         </Button>
       </>

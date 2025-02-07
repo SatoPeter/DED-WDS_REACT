@@ -104,6 +104,13 @@ export const Default: Story = {
 
 export const Align: Story = {
   name: '按鈕對齊方式',
+  argTypes: {
+    align: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render: function (args) {
     return (
@@ -126,6 +133,13 @@ export const Align: Story = {
 
 export const Horizontal: Story = {
   name: '垂直佈局',
+  argTypes: {
+    layout: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render: function (args) {
     return (
@@ -154,6 +168,13 @@ export const Horizontal: Story = {
 
 export const Vertical: Story = {
   name: '水平佈局',
+  argTypes: {
+    layout: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render: function (args) {
     return (

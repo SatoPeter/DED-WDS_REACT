@@ -129,7 +129,9 @@ export const AvatarShape: Story = {
       },
     },
   },
-  args: {},
+  args: {
+    src: 'https://storage.googleapis.com/ded-wds-bucket/fox.png',
+  },
   parameters: {
     docs: {
       source: {
@@ -143,16 +145,8 @@ export const AvatarShape: Story = {
   render(args) {
     return (
       <>
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/fox.png"
-          shape="circle"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/tigger.png"
-          shape="square"
-        />
+        <Avatar {...args} shape="circle" />
+        <Avatar {...args} shape="square" />
       </>
     );
   },
@@ -166,21 +160,11 @@ export const AvatarStatus: Story = {
         disable: true,
       },
     },
-    alt: {
-      table: {
-        disable: true,
-      },
-    },
-    src: {
-      table: {
-        disable: true,
-      },
-    },
   },
   args: {
     shape: 'circle',
     size: 'large',
-    src: 'https://picsum.photos/320/240',
+    src: 'https://storage.googleapis.com/ded-wds-bucket/tigger.png',
   },
   parameters: {
     docs: {
@@ -197,30 +181,11 @@ export const AvatarStatus: Story = {
   render(args) {
     return (
       <>
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/fox.png"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/lion.png"
-          status="online"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/koala.png"
-          status="idle"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/dog.png"
-          status="busy"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/pig.png"
-          status="offline"
-        />
+        <Avatar {...args} />
+        <Avatar {...args} status="online" />
+        <Avatar {...args} status="idle" />
+        <Avatar {...args} status="busy" />
+        <Avatar {...args} status="offline" />
       </>
     );
   },

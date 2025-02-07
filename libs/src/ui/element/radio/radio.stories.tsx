@@ -94,25 +94,49 @@ export const Default: Story = {
   },
 };
 
-export const Direction: Story = {
-  name: '直向排列',
-  args: {
-    dataSource: defaultOptions,
-    direction: 'column',
+export const Vertical: Story = {
+  name: '垂直排列',
+  argTypes: {
+    direction: {
+      table: {
+        disable: true,
+      },
+    },
   },
+  args: {},
   parameters: {
     docs: {
       source: {
         transform(code: string, storyContext: StoryContext) {
           const { args } = storyContext;
           return `
-<Radio {...args} direction=${args.direction}/>
+<Radio {...args} direction="column"/>
 `;
         },
       },
     },
   },
   render(args) {
-    return <Radio {...args} />;
+    return <Radio {...args} direction="column" />;
+  },
+};
+
+export const Horizontal: Story = {
+  name: '水平排列',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Radio {...args} direction="row"/>
+`;
+        },
+      },
+    },
+  },
+  render(args) {
+    return <Radio {...args} direction="row" />;
   },
 };

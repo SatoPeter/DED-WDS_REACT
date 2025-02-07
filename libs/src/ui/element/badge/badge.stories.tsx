@@ -39,7 +39,7 @@ export default {
       },
     },
     limit: {
-      description: '限制數值',
+      description: '數值顯示上限',
       table: {
         category: 'PROPS',
       },
@@ -97,7 +97,7 @@ export const Default: Story = {
 };
 
 export const Type: Story = {
-  name: '類型選擇',
+  name: '外觀類型',
   argTypes: {
     isShowDot: {
       table: {
@@ -135,7 +135,7 @@ export const Type: Story = {
 };
 
 export const Max: Story = {
-  name: '最大值設定',
+  name: '數值顯示上限',
   argTypes: {
     limit: {
       table: {
@@ -189,6 +189,27 @@ export const Theme: Story = {
       source: {
         transform(code: string, storyContext: StoryContext) {
           return `
+<Badge {...args} themeColor="primary" isShowDot>
+  <SvgNotification width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="secondary" isShowDot>
+  <SvgNotification width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="neutral" isShowDot>
+  <SvgNotification width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="info" isShowDot>
+  <SvgNotification width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="success" isShowDot>
+  <SvgNotification width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="warning" isShowDot>
+  <SvgNotification width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="error" isShowDot>
+  <SvgNotification width={26} height={26} />
+</Badge>
 <Badge {...args} themeColor="primary">
   <SvgNotification width={26} height={26} />
 </Badge>
@@ -217,29 +238,54 @@ export const Theme: Story = {
   },
   render(args) {
     return (
-      <>
-        <Badge {...args} themeColor="primary">
-          {args.children}
-        </Badge>
-        <Badge {...args} themeColor="secondary">
-          {args.children}
-        </Badge>
-        <Badge {...args} themeColor="neutral">
-          {args.children}
-        </Badge>
-        <Badge {...args} themeColor="info">
-          {args.children}
-        </Badge>
-        <Badge {...args} themeColor="success">
-          {args.children}
-        </Badge>
-        <Badge {...args} themeColor="warning">
-          {args.children}
-        </Badge>
-        <Badge {...args} themeColor="error">
-          {args.children}
-        </Badge>
-      </>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <div style={{ display: 'flex', gap: '32px' }}>
+          <Badge {...args} themeColor="primary" isShowDot>
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="secondary" isShowDot>
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="neutral" isShowDot>
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="info" isShowDot>
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="success" isShowDot>
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="warning" isShowDot>
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="error" isShowDot>
+            {args.children}
+          </Badge>
+        </div>
+        <div style={{ display: 'flex', gap: '32px' }}>
+          <Badge {...args} themeColor="primary">
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="secondary">
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="neutral">
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="info">
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="success">
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="warning">
+            {args.children}
+          </Badge>
+          <Badge {...args} themeColor="error">
+            {args.children}
+          </Badge>
+        </div>
+      </div>
     );
   },
 };
