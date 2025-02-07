@@ -170,7 +170,7 @@ export const AvatarStatus: Story = {
     docs: {
       source: {
         code: `
-        <Avatar {...args} status="online" />
+<Avatar {...args} status="online" />
 <Avatar {...args} status="idle" />
 <Avatar {...args} status="busy" />
 <Avatar {...args} status="offline" />

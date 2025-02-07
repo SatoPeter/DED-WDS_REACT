@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Divider } from './divider';
 
 export default {
@@ -70,13 +70,6 @@ export default {
     className: '',
     children: 'Divider',
   },
-  decorators: [
-    (Story) => (
-      <div style={{ display: 'flex', height: '100px' }}>
-        <Story />
-      </div>
-    ),
-  ],
   parameters: {
     docs: {
       title: '分隔線',
@@ -110,11 +103,20 @@ export const Align: Story = {
       },
     },
   },
-  args: {
-    width: '1px',
-    type: 'solid',
-    direction: 'horizontal',
-    className: '',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Divider {...args} align="start">Start</Divider>
+<Divider {...args} align="center">Center</Divider>
+<Divider {...args} align="end">End</Divider>
+`;
+        },
+      },
+    },
   },
   render(args) {
     return (
@@ -135,12 +137,22 @@ export const Align: Story = {
 
 export const Type: Story = {
   name: '線條粗細',
-  args: {
-    width: '1px',
-    type: 'solid',
-    direction: 'horizontal',
-    align: 'center',
-    className: '',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Divider {...args} width="1px">1px</Divider>
+<Divider {...args} width="2px">2px</Divider>
+<Divider {...args} width="3px">3px</Divider>
+<Divider {...args} width="4px">4px</Divider>
+<Divider {...args} width="5px">5px</Divider>
+`;
+        },
+      },
+    },
   },
   render(args) {
     return (
@@ -175,6 +187,20 @@ export const Width: Story = {
     },
   },
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Divider {...args} type="solid">Solid</Divider>
+<Divider {...args} type="dotted">Dotted</Divider>
+<Divider {...args} type="dashed">Dashed</Divider>
+`;
+        },
+      },
+    },
+  },
   render(args) {
     return (
       <>
@@ -207,6 +233,27 @@ export const Vertical: Story = {
     },
   },
   args: {},
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', height: '100px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Divider {...args} align="start" direction="vertical">Start</Divider>
+<Divider {...args} align="center" direction="vertical">Center</Divider>
+<Divider {...args} align="end" direction="vertical">End</Divider>
+`;
+        },
+      },
+    },
+  },
   render(args) {
     return (
       <>
@@ -225,7 +272,7 @@ export const Vertical: Story = {
 };
 
 export const Horizontal: Story = {
-  name: '線條方向-垂直',
+  name: '線條方向-水平',
   argTypes: {
     direction: {
       table: {
@@ -239,6 +286,20 @@ export const Horizontal: Story = {
     },
   },
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Divider {...args} align="start" direction="horizontal">Start</Divider>
+<Divider {...args} align="center" direction="horizontal">Center</Divider>
+<Divider {...args} align="end" direction="horizontal">End</Divider>
+`;
+        },
+      },
+    },
+  },
   render(args) {
     return (
       <>
