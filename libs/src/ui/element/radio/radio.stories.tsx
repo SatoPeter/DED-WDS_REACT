@@ -140,3 +140,51 @@ export const Horizontal: Story = {
     return <Radio {...args} direction="row" />;
   },
 };
+
+export const Size: Story = {
+  name: '元件尺寸',
+  argTypes: {
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {},
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Radio {...args} size="large" />
+<Radio {...args} size="medium" />
+<Radio {...args} size="small" />
+`;
+        },
+      },
+    },
+  },
+  render(args) {
+    return (
+      <>
+        <Radio {...args} size="large" />
+        <Radio {...args} size="medium" />
+        <Radio {...args} size="small" />
+      </>
+    );
+  },
+};

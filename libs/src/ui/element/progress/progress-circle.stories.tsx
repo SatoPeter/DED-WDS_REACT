@@ -103,6 +103,18 @@ export const Default: Story = {
 
 export const Label: Story = {
   name: '顯示標籤',
+  argTypes: {
+    label: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
@@ -126,18 +138,25 @@ export const Label: Story = {
 
 export const Theme: Story = {
   name: '主題色彩',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
       source: {
         code: `
-<CircleProgress {...args} percent={60} themeColor="neutral" />
-<CircleProgress {...args} percent={40} themeColor="primary" />
-<CircleProgress {...args} percent={50} themeColor="secondary" />
-<CircleProgress {...args} percent={70} themeColor="info" />
-<CircleProgress {...args} percent={80} themeColor="success" />
-<CircleProgress {...args} percent={90} themeColor="warning" />
-<CircleProgress {...args} percent={100} themeColor="error" />
+<CircleProgress {...args} themeColor="neutral" />
+<CircleProgress {...args} themeColor="primary" />
+<CircleProgress {...args} themeColor="secondary" />
+<CircleProgress {...args} themeColor="info" />
+<CircleProgress {...args} themeColor="success" />
+<CircleProgress {...args} themeColor="warning" />
+<CircleProgress {...args} themeColor="error" />
 `,
       },
     },
@@ -145,13 +164,13 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <CircleProgress {...args} percent={60} themeColor="neutral" />
-        <CircleProgress {...args} percent={40} themeColor="primary" />
-        <CircleProgress {...args} percent={50} themeColor="secondary" />
-        <CircleProgress {...args} percent={70} themeColor="info" />
-        <CircleProgress {...args} percent={80} themeColor="success" />
-        <CircleProgress {...args} percent={90} themeColor="warning" />
-        <CircleProgress {...args} percent={100} themeColor="error" />
+        <CircleProgress {...args} themeColor="neutral" />
+        <CircleProgress {...args} themeColor="primary" />
+        <CircleProgress {...args} themeColor="secondary" />
+        <CircleProgress {...args} themeColor="info" />
+        <CircleProgress {...args} themeColor="success" />
+        <CircleProgress {...args} themeColor="warning" />
+        <CircleProgress {...args} themeColor="error" />
       </div>
     );
   },

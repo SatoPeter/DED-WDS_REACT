@@ -107,7 +107,14 @@ export const Default: Story = {
 };
 
 export const Menu: Story = {
-  name: '選單樣式',
+  name: '清單樣式-外框',
+  argTypes: {
+    hasOutline: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
@@ -119,5 +126,28 @@ export const Menu: Story = {
   },
   render(args) {
     return <List {...args} hasOutline />;
+  },
+};
+
+export const Divider: Story = {
+  name: '清單樣式-分隔線',
+  argTypes: {
+    hasDivider: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<List {...args} hasDivider />`,
+      },
+    },
+  },
+  render(args) {
+    return <List {...args} hasDivider />;
   },
 };

@@ -7,6 +7,7 @@ import {
   SvgVisibilityOff,
   SvgClose,
   SvgArrowDown,
+  SvgAccount,
 } from '@src/assets/icons';
 import { isEmpty } from 'lodash';
 import { getCombinedClassName } from '@src/utils/string';
@@ -66,7 +67,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       type = 'text',
       hasClear = true,
       placeholder = 'Placeholder...',
-      prefix = '',
+      prefix = 'Account',
       size = 'medium',
       initValue,
       maxLimit = undefined,

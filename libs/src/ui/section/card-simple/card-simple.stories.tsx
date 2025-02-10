@@ -178,7 +178,7 @@ export const Vertical: Story = {
   args: {},
   render: function (args) {
     return (
-      <Grid fluid>
+      <Grid>
         <Row>
           <Column xs={6}>
             <CardSimple {...args} layout="horizontal"></CardSimple>

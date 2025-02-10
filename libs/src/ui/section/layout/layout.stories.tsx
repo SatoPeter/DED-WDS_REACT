@@ -1,9 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Layout } from './layout';
+import { Header } from './header';
+import { Content } from './content';
+import { Footer } from './footer';
+import { Side } from './side';
 
 export default {
   title: 'Component/Layout',
-  /* 設定對應的組件名稱: Component */
   component: Layout,
   tags: ['autodocs'],
   argTypes: {
@@ -36,7 +39,7 @@ export const Default: Story = {
   render(args) {
     return (
       <Layout {...args}>
-        <Layout.Content>
+        <Content>
           <div
             style={{
               width: '100%',
@@ -51,7 +54,7 @@ export const Default: Story = {
           >
             content
           </div>
-        </Layout.Content>
+        </Content>
       </Layout>
     );
   },
@@ -65,7 +68,7 @@ export const Third: Story = {
   render(args) {
     return (
       <Layout {...args}>
-        <Layout.Header>
+        <Header>
           <div
             style={{
               width: '100%',
@@ -80,8 +83,8 @@ export const Third: Story = {
           >
             header
           </div>
-        </Layout.Header>
-        <Layout.Content>
+        </Header>
+        <Content>
           <div
             style={{
               width: '100%',
@@ -96,8 +99,8 @@ export const Third: Story = {
           >
             content
           </div>
-        </Layout.Content>
-        <Layout.Footer>
+        </Content>
+        <Footer>
           <div
             style={{
               width: '100%',
@@ -112,7 +115,7 @@ export const Third: Story = {
           >
             footer
           </div>
-        </Layout.Footer>
+        </Footer>
       </Layout>
     );
   },
@@ -126,7 +129,7 @@ export const I1: Story = {
   render(args) {
     return (
       <Layout {...args}>
-        <Layout.Header>
+        <Header>
           <div
             style={{
               width: '100%',
@@ -141,9 +144,9 @@ export const I1: Story = {
           >
             header
           </div>
-        </Layout.Header>
+        </Header>
         <Layout>
-          <Layout.Side>
+          <Side>
             <div
               style={{
                 minWidth: '80px',
@@ -159,8 +162,8 @@ export const I1: Story = {
             >
               side
             </div>
-          </Layout.Side>
-          <Layout.Content>
+          </Side>
+          <Content>
             <div
               style={{
                 width: '100%',
@@ -175,9 +178,9 @@ export const I1: Story = {
             >
               content
             </div>
-          </Layout.Content>
+          </Content>
         </Layout>
-        <Layout.Footer>
+        <Footer>
           <div
             style={{
               width: '100%',
@@ -192,7 +195,7 @@ export const I1: Story = {
           >
             footer
           </div>
-        </Layout.Footer>
+        </Footer>
       </Layout>
     );
   },
@@ -206,7 +209,7 @@ export const I2: Story = {
   render(args) {
     return (
       <Layout {...args}>
-        <Layout.Header>
+        <Header>
           <div
             style={{
               width: '100%',
@@ -221,9 +224,9 @@ export const I2: Story = {
           >
             header
           </div>
-        </Layout.Header>
+        </Header>
         <Layout>
-          <Layout.Content>
+          <Content>
             <div
               style={{
                 width: '100%',
@@ -238,8 +241,8 @@ export const I2: Story = {
             >
               content
             </div>
-          </Layout.Content>
-          <Layout.Side>
+          </Content>
+          <Side>
             <div
               style={{
                 minWidth: '80px',
@@ -255,9 +258,9 @@ export const I2: Story = {
             >
               side
             </div>
-          </Layout.Side>
+          </Side>
         </Layout>
-        <Layout.Footer>
+        <Footer>
           <div
             style={{
               width: '100%',
@@ -272,7 +275,7 @@ export const I2: Story = {
           >
             footer
           </div>
-        </Layout.Footer>
+        </Footer>
       </Layout>
     );
   },
@@ -286,7 +289,7 @@ export const L: Story = {
   render(args) {
     return (
       <Layout {...args}>
-        <Layout.Side>
+        <Side>
           <div
             style={{
               minWidth: '80px',
@@ -302,9 +305,9 @@ export const L: Story = {
           >
             side
           </div>
-        </Layout.Side>
+        </Side>
         <Layout>
-          <Layout.Header>
+          <Header>
             <div
               style={{
                 width: '100%',
@@ -319,8 +322,8 @@ export const L: Story = {
             >
               header
             </div>
-          </Layout.Header>
-          <Layout.Content>
+          </Header>
+          <Content>
             <div
               style={{
                 width: '100%',
@@ -335,8 +338,8 @@ export const L: Story = {
             >
               content
             </div>
-          </Layout.Content>
-          <Layout.Footer>
+          </Content>
+          <Footer>
             <div
               style={{
                 width: '100%',
@@ -351,7 +354,7 @@ export const L: Story = {
             >
               footer
             </div>
-          </Layout.Footer>
+          </Footer>
         </Layout>
       </Layout>
     );
@@ -366,7 +369,7 @@ export const L2: Story = {
   render(args) {
     return (
       <Layout {...args}>
-        <Layout.Header>
+        <Header>
           <div
             style={{
               width: '100%',
@@ -381,9 +384,9 @@ export const L2: Story = {
           >
             header
           </div>
-        </Layout.Header>
+        </Header>
         <Layout>
-          <Layout.Side>
+          <Side>
             <div
               style={{
                 minWidth: '80px',
@@ -399,9 +402,9 @@ export const L2: Story = {
             >
               side
             </div>
-          </Layout.Side>
+          </Side>
           <Layout>
-            <Layout.Content>
+            <Content>
               <div
                 style={{
                   width: '100%',
@@ -416,8 +419,8 @@ export const L2: Story = {
               >
                 content
               </div>
-            </Layout.Content>
-            <Layout.Footer>
+            </Content>
+            <Footer>
               <div
                 style={{
                   width: '100%',
@@ -432,7 +435,7 @@ export const L2: Story = {
               >
                 footer
               </div>
-            </Layout.Footer>
+            </Footer>
           </Layout>
         </Layout>
       </Layout>
@@ -448,7 +451,7 @@ export const L3: Story = {
   render(args) {
     return (
       <Layout {...args}>
-        <Layout.Header>
+        <Header>
           <div
             style={{
               width: '100%',
@@ -463,9 +466,9 @@ export const L3: Story = {
           >
             header
           </div>
-        </Layout.Header>
+        </Header>
         <Layout>
-          <Layout.Side>
+          <Side>
             <div
               style={{
                 minWidth: '80px',
@@ -481,9 +484,9 @@ export const L3: Story = {
             >
               side
             </div>
-          </Layout.Side>
+          </Side>
           <Layout>
-            <Layout.Content>
+            <Content>
               <div
                 style={{
                   width: '100%',
@@ -498,8 +501,8 @@ export const L3: Story = {
               >
                 content
               </div>
-            </Layout.Content>
-            <Layout.Footer>
+            </Content>
+            <Footer>
               <div
                 style={{
                   width: '100%',
@@ -514,9 +517,9 @@ export const L3: Story = {
               >
                 footer
               </div>
-            </Layout.Footer>
+            </Footer>
           </Layout>
-          <Layout.Side>
+          <Side>
             <div
               style={{
                 minWidth: '80px',
@@ -532,7 +535,7 @@ export const L3: Story = {
             >
               side
             </div>
-          </Layout.Side>
+          </Side>
         </Layout>
       </Layout>
     );
@@ -547,7 +550,7 @@ export const A1: Story = {
   render(args) {
     return (
       <Layout {...args}>
-        <Layout.Side>
+        <Side>
           <div
             style={{
               minWidth: '80px',
@@ -563,8 +566,8 @@ export const A1: Story = {
           >
             side
           </div>
-        </Layout.Side>
-        <Layout.Content>
+        </Side>
+        <Content>
           <div
             style={{
               width: '100%',
@@ -579,7 +582,7 @@ export const A1: Story = {
           >
             content
           </div>
-        </Layout.Content>
+        </Content>
       </Layout>
     );
   },

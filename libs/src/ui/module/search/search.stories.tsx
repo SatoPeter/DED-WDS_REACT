@@ -69,7 +69,14 @@ export const Default: Story = {
 };
 
 export const Size: Story = {
-  name: '搜尋尺寸',
+  name: '尺寸',
+  argTypes: {
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render(args) {
     return (

@@ -9,7 +9,6 @@ import {
   SvgClose,
   SvgLock,
 } from '@src/assets/icons';
-import { has } from 'lodash';
 
 export default {
   title: 'Component/Input',
@@ -160,10 +159,14 @@ export const Default: Story = {
 
 export const InputWithStatus: Story = {
   name: '輸入框狀態',
-  args: {
-    prefix: <SvgAccount />,
-    placeholder: 'Placeholder...',
+  argTypes: {
+    isDisabled: {
+      table: {
+        disable: true,
+      },
+    },
   },
+  args: {},
   parameters: {
     docs: {
       source: {
@@ -194,6 +197,12 @@ export const InputWithStatus: Story = {
         <Input
           {...args}
           label="Account"
+          hint={{ error: '', description: 'Prompt message' }}
+        />
+        <Input
+          {...args}
+          label="Account"
+          isDisabled
           hint={{ error: '', description: 'Prompt message' }}
         />
       </div>

@@ -147,3 +147,51 @@ export const Vertical: Story = {
     return <Checkbox {...args} direction="row" />;
   },
 };
+
+export const Size: Story = {
+  name: '元件尺寸',
+  argTypes: {
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {},
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Checkbox {...args} size="large" />
+<Checkbox {...args} size="medium" />
+<Checkbox {...args} size="small" />
+`;
+        },
+      },
+    },
+  },
+  render(args) {
+    return (
+      <>
+        <Checkbox {...args} size="large" />
+        <Checkbox {...args} size="medium" />
+        <Checkbox {...args} size="small" />
+      </>
+    );
+  },
+};

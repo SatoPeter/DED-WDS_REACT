@@ -88,28 +88,27 @@ export const Default: Story = {
   },
 };
 
-export const Label: Story = {
-  name: '顯示標籤',
-  args: {},
-  render(args) {
-    return <LineProgress {...args} label="Label" />;
-  },
-};
-
 export const Theme: Story = {
   name: '主題色彩',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
       source: {
         code: `
-<LineProgress {...args} percent={60} themeColor="neutral" />
-<LineProgress {...args} percent={40} themeColor="primary" />
-<LineProgress {...args} percent={50} themeColor="secondary" />
-<LineProgress {...args} percent={70} themeColor="info" />
-<LineProgress {...args} percent={80} themeColor="success" />
-<LineProgress {...args} percent={90} themeColor="warning" />
-<LineProgress {...args} percent={100} themeColor="error" />
+<LineProgress {...args} themeColor="neutral" />
+<LineProgress {...args} themeColor="primary" />
+<LineProgress {...args} themeColor="secondary" />
+<LineProgress {...args} themeColor="info" />
+<LineProgress {...args} themeColor="success" />
+<LineProgress {...args} themeColor="warning" />
+<LineProgress {...args} themeColor="error" />
 `,
       },
     },
@@ -117,13 +116,13 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <LineProgress {...args} percent={60} themeColor="neutral" />
-        <LineProgress {...args} percent={40} themeColor="primary" />
-        <LineProgress {...args} percent={50} themeColor="secondary" />
-        <LineProgress {...args} percent={70} themeColor="info" />
-        <LineProgress {...args} percent={80} themeColor="success" />
-        <LineProgress {...args} percent={90} themeColor="warning" />
-        <LineProgress {...args} percent={100} themeColor="error" />
+        <LineProgress {...args} themeColor="neutral" />
+        <LineProgress {...args} themeColor="primary" />
+        <LineProgress {...args} themeColor="secondary" />
+        <LineProgress {...args} themeColor="info" />
+        <LineProgress {...args} themeColor="success" />
+        <LineProgress {...args} themeColor="warning" />
+        <LineProgress {...args} themeColor="error" />
       </div>
     );
   },

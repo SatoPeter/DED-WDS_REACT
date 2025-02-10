@@ -41,7 +41,7 @@ export default {
       },
     },
     placeholder: {
-      description: '預設文字',
+      description: '輸入提示',
       table: {
         category: 'PROPS',
       },

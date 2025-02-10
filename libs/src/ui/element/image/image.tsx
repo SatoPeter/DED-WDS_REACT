@@ -11,7 +11,7 @@ export interface ImageProps {
 
 export const Image: React.FC<ImageProps> = ({
   src,
-  alt,
+  alt = '',
   ratio,
   objectFit,
   className = '',

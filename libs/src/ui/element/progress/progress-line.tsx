@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCounter } from '@src/hooks/useCounter';
 import { getCombinedClassName } from '@src/utils/string';
 
@@ -46,7 +46,9 @@ export const LineProgress: React.FC<LineProgressProps> = ({
   strokeWidth = 10,
   className = '',
 }: LineProgressProps): JSX.Element => {
-  const percentTest = useCounter({
+  const [currPercent, setCurrPercent] = React.useState(0);
+
+  useCounter({
     initialValue: 0,
     step: 1,
     delay: 0,
@@ -54,7 +56,11 @@ export const LineProgress: React.FC<LineProgressProps> = ({
   });
 
   // 確保進度在0到100之間
-  const normalizedProgress = Math.min(Math.max(percentTest, 0), 100);
+  const normalizedProgress = Math.min(Math.max(currPercent, 0), 100);
+
+  useEffect(() => {
+    setCurrPercent(percent);
+  }, [percent]);
 
   return (
     <div className={`ded-progress-line-container ${className}`}>

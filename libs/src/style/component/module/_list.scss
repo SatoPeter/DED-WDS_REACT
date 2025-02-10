@@ -7,6 +7,12 @@
   width: 100%;
   list-style: none;
   overflow: hidden;
+
+  &-item {
+    &:hover {
+      background-color: $color-gray10;
+    }
+  }
 }
 
 .ded-outline {

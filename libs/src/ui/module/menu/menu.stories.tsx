@@ -2,6 +2,7 @@ import { SvgAccount, SvgHome } from '@src/assets/icons';
 import { Meta, StoryObj } from '@storybook/react';
 import { ItemProps } from '@src/hooks/useMenu';
 import Menu from './menu';
+import { has } from 'lodash';
 
 const menuData: ItemProps[] = [
   {
@@ -64,12 +65,6 @@ export default {
         category: 'PROPS',
       },
     },
-    isSideNavLink: {
-      description: '是否為側邊導航',
-      table: {
-        category: 'PROPS',
-      },
-    },
     hasDivider: {
       description: '是否有分隔線',
       table: {
@@ -87,7 +82,7 @@ export default {
     dataSource: menuData,
     isCollapsed: false,
     color: '#000000',
-    isSideNavLink: true,
+    hasDivider: false,
     className: '',
   },
   parameters: {

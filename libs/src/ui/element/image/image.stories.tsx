@@ -60,7 +60,7 @@ type Story = StoryObj<typeof Image>;
 export const Default: Story = {
   name: '預設項目',
   args: {
-    src: 'https://picsum.photos/300/300?random=1',
+    src: 'https://picsum.photos/300/200?random=1',
     alt: 'placeholder',
     ratio: '1x1',
     objectFit: 'cover',
@@ -80,12 +80,15 @@ export const Default: Story = {
 };
 
 export const Ratio: Story = {
-  name: '比例項目',
-  args: {
-    alt: 'placeholder',
-    objectFit: 'none',
-    className: '',
+  name: '圖片比例',
+  argTypes: {
+    ratio: {
+      table: {
+        disable: true,
+      },
+    },
   },
+  args: {},
   render(args) {
     return (
       <Grid fluid>
@@ -93,7 +96,7 @@ export const Ratio: Story = {
           <Column xs={12} sm={6} md={3}>
             <Image
               {...args}
-              src="https://picsum.photos/300/300?random=2"
+              src="https://picsum.photos/300/200?random=2"
               ratio="1x1"
             />
             <div style={{ textAlign: 'right' }}>1x1</div>
@@ -101,7 +104,7 @@ export const Ratio: Story = {
           <Column xs={12} sm={6} md={3}>
             <Image
               {...args}
-              src="https://picsum.photos/300/300?random=2"
+              src="https://picsum.photos/300/200?random=2"
               ratio="4x3"
             />
             <div style={{ textAlign: 'right' }}>4x3</div>
@@ -109,7 +112,7 @@ export const Ratio: Story = {
           <Column xs={12} sm={6} md={3}>
             <Image
               {...args}
-              src="https://picsum.photos/300/300?random=2"
+              src="https://picsum.photos/300/200?random=2"
               ratio="5x4"
             />
             <div style={{ textAlign: 'right' }}>5x4</div>
@@ -117,7 +120,7 @@ export const Ratio: Story = {
           <Column xs={12} sm={6} md={3}>
             <Image
               {...args}
-              src="https://picsum.photos/300/300?random=2"
+              src="https://picsum.photos/300/200?random=2"
               ratio="16x9"
             />
             <div style={{ textAlign: 'right' }}>16x9</div>
@@ -129,12 +132,15 @@ export const Ratio: Story = {
 };
 
 export const Fit: Story = {
-  name: '比例項目',
-  args: {
-    alt: 'placeholder',
-    ratio: '16x9',
-    className: '',
+  name: '填滿方式',
+  argTypes: {
+    objectFit: {
+      table: {
+        disable: true,
+      },
+    },
   },
+  args: {},
   render(args) {
     return (
       <Grid fluid>
@@ -142,7 +148,7 @@ export const Fit: Story = {
           <Column xs={12} sm={6} md={3}>
             <Image
               {...args}
-              src="https://picsum.photos/300/300?random=3"
+              src="https://picsum.photos/300/200?random=3"
               objectFit="none"
             />
             <div style={{ textAlign: 'right' }}>none</div>
@@ -150,7 +156,7 @@ export const Fit: Story = {
           <Column xs={12} sm={6} md={3}>
             <Image
               {...args}
-              src="https://picsum.photos/300/300?random=3"
+              src="https://picsum.photos/300/200?random=3"
               objectFit="contain"
             />
             <div style={{ textAlign: 'right' }}>contain</div>
@@ -158,7 +164,7 @@ export const Fit: Story = {
           <Column xs={12} sm={6} md={3}>
             <Image
               {...args}
-              src="https://picsum.photos/300/300?random=3"
+              src="https://picsum.photos/300/200?random=3"
               objectFit="fill"
             />
             <div style={{ textAlign: 'right' }}>fill</div>
@@ -166,7 +172,7 @@ export const Fit: Story = {
           <Column xs={12} sm={6} md={3}>
             <Image
               {...args}
-              src="https://picsum.photos/300/300?random=3"
+              src="https://picsum.photos/300/200?random=3"
               objectFit="cover"
             />
             <div style={{ textAlign: 'right' }}>cover</div>
