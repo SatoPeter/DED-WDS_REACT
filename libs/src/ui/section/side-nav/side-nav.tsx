@@ -1,27 +1,29 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SvgSearch, SvgArrowDown, SvgLogout } from '@src/assets/icons';
 import { ItemProps } from '@src/hooks/useMenu';
 import { Menu, Input, Avatar, Button, Navbar } from '@src/ui';
 
 /**
- * 側邊導航組件的屬性介面。
- *
- * @interface SideNavProps
- *
- * @property {ReactNode} logo - 導航欄的標誌。
- * @property {ItemProps[]} dataSource - 導航欄的菜單數據。
- * @property {string} [themeColor] - 可選的主題顏色。
- * @property {string} [className] - 可選的自定義樣式類名。
+ * SideNav 元件的屬性介面
+ * @interface
+ * @property {string} mobileLogoSrc - 行動裝置 Logo 圖片來源路徑
+ * @property {string} [desktopLogoSrc] - 桌面版 Logo 圖片來源路徑（選填）
+ * @property {string} [logoLink] - Logo 點擊連結路徑（選填）
+ * @property {boolean} [hasRWD] - 是否啟用響應式設計（選填）
+ * @property {boolean} [hasLogo] - 是否顯示 Logo（選填）
+ * @property {boolean} [hasSearch] - 是否顯示搜尋功能（選填）
+ * @property {ItemProps[]} dataSource - 側邊導覽列項目資料來源陣列
+ * @property {string} [themeColor] - 主題顏色（選填）
+ * @property {string} [className] - 自定義 CSS 類別名稱（選填）
  */
 export interface SideNavProps {
-  logo: ReactNode;
-  logoSrc?: string;
+  mobileLogoSrc: string;
+  desktopLogoSrc?: string;
   logoLink?: string;
   hasRWD?: boolean;
   hasLogo?: boolean;
   hasSearch?: boolean;
   dataSource: ItemProps[];
-  // menu: ReactNode;
   themeColor?: string;
   className?: string;
 }
@@ -37,22 +39,30 @@ const THEME_COLOR = {
 // 新增斷點常數
 const MOBILE_BREAKPOINT = 1024;
 
-/**
- * 側邊導航元件
- *
- * @component
- * @param {SideNavProps} props - 傳遞給元件的屬性
- * @param {React.ReactElement} props.logo - 導航欄的標誌
- * @param {THEME_COLOR} props.themeColor - 主題顏色
- * @param {ItemProps[]} props.dataSource - 導航菜單數據
- * @returns {JSX.Element} 側邊導航元件
- */
 export const SideNav: React.FC<SideNavProps> = ({
-  logo = '',
-  logoSrc = '',
+  /**
+   * 側邊導航欄元件
+   * @component
+   *
+   * @param {Object} props - 元件屬性
+   * @param {string} [props.mobileLogoSrc=''] - 手機版 Logo 圖片來源
+   * @param {string} [props.desktopLogoSrc=''] - 桌面版 Logo 圖片來源
+   * @param {string} [props.logoLink=''] - Logo 連結網址
+   * @param {boolean} [props.hasLogo=false] - 是否顯示 Logo
+   * @param {boolean} [props.hasRWD=true] - 是否啟用響應式設計
+   * @param {boolean} [props.hasSearch=false] - 是否顯示搜尋欄
+   * @param {THEME_COLOR} [props.themeColor=THEME_COLOR.Blue] - 主題顏色
+   * @param {ItemProps[]} props.dataSource - 導航選單資料來源
+   * @param {string} [props.className=''] - 自定義 CSS 類別名稱
+   *
+   * @returns {React.ReactElement} 側邊導航欄元件
+   * - 動態選單項目
+   */
+  mobileLogoSrc = '',
+  desktopLogoSrc = '',
   logoLink = '',
-  hasRWD = false,
   hasLogo = false,
+  hasRWD = true,
   hasSearch = false,
   themeColor = THEME_COLOR.Blue,
   dataSource,
@@ -63,10 +73,6 @@ export const SideNav: React.FC<SideNavProps> = ({
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [isMobile, setIsMobile] = useState(false);
-
-  const coloredLogo = React.cloneElement(logo as React.ReactElement, {
-    fill: color,
-  });
 
   const applyColorToIcons = (items: ItemProps[], color: string) => {
     items.forEach((item) => {
@@ -139,7 +145,7 @@ export const SideNav: React.FC<SideNavProps> = ({
         <Navbar
           className="fixed top-0 h-[60px] w-full"
           dataSource={dataSource}
-          logoSrc={logoSrc}
+          logoSrc={mobileLogoSrc}
         />
       );
     }
@@ -159,9 +165,13 @@ export const SideNav: React.FC<SideNavProps> = ({
           {!isCollapsed && (
             <div className="ded-side-nav-header-logo">
               {logoLink ? (
-                <a href={logoLink}>{coloredLogo}</a>
+                <a href={logoLink}>
+                  <img src={desktopLogoSrc} alt="logo" />
+                </a>
               ) : (
-                <div>{coloredLogo}</div>
+                <div>
+                  <img src={desktopLogoSrc} alt="logo" />
+                </div>
               )}
             </div>
           )}
@@ -228,7 +238,6 @@ export const SideNav: React.FC<SideNavProps> = ({
           type="text"
         />
       )}
-      {/* {menu} */}
       <Menu dataSource={dataSource} isCollapsed={isCollapsed} color={color} />
     </div>
   );

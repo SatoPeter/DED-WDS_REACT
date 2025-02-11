@@ -6,6 +6,7 @@ export interface ItemProps {
   path: string;
   order: number;
   children?: ItemProps[];
+  isDisabled?: boolean;
 }
 
 export const useMenu = (item: ItemProps, isCollapsed: boolean) => {

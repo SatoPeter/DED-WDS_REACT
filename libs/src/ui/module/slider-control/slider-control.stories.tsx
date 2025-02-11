@@ -117,7 +117,7 @@ export default {
     min: -100,
     max: 100,
     step: 1,
-    initValue: 50,
+    initValue: 8,
     label: '℃',
     prefix: 'Decrease',
     suffix: 'Increase',

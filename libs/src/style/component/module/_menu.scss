@@ -59,6 +59,11 @@
   border-bottom-color: list.nth($neutral-100, $site);
 }
 
+.ded-nav-item-disabled {
+  pointer-events: none !important;
+  color: list.nth($disabled-text, $site) !important;
+}
+
 .ded-nav-subitem {
   position: relative;
   width: 100%;

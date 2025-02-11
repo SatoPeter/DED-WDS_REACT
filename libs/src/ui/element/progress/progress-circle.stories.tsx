@@ -82,6 +82,15 @@ export default {
     strokeWidth: 10,
     className: '',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <div style={{ display: 'flex', gap: '32px' }}>
+          <Story />
+        </div>
+      );
+    },
+  ],
   parameters: {
     docs: {
       title: 'Circle Progress',
@@ -128,10 +137,10 @@ export const Label: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '8px' }}>
+      <>
         <CircleProgress {...args} label="Label" size={70} />
         <CircleProgress {...args} label="Label" size={100} />
-      </div>
+      </>
     );
   },
 };
@@ -163,7 +172,7 @@ export const Theme: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '8px' }}>
+      <>
         <CircleProgress {...args} themeColor="neutral" />
         <CircleProgress {...args} themeColor="primary" />
         <CircleProgress {...args} themeColor="secondary" />
@@ -171,7 +180,7 @@ export const Theme: Story = {
         <CircleProgress {...args} themeColor="success" />
         <CircleProgress {...args} themeColor="warning" />
         <CircleProgress {...args} themeColor="error" />
-      </div>
+      </>
     );
   },
 };

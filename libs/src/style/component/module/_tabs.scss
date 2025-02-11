@@ -73,6 +73,11 @@
       }
     }
 
+    &-button-#{$theme}-active {
+      background-color: getThemeColor($theme, 'default');
+      color: list.nth($neutral-0, $site);
+    }
+
     &-button-#{$theme}-inactive {
       background-color: list.nth($neutral-50, $site);
       color: list.nth($text-secondary, $site);
@@ -90,6 +95,11 @@
   &-button {
     gap: $spacing;
   }
+}
+
+.ded-tab-button {
+  background-color: list.nth($neutral-50, $site);
+  color: list.nth($neutral-600, $site);
 }
 
 .ded-tab-disable {

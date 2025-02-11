@@ -13,7 +13,6 @@ import {
 import { ItemProps } from '@src/hooks/useMenu';
 import SideNav from './side-nav';
 import { Grid, Row, Column } from '@src/ui/section/grid';
-import { has } from 'lodash';
 
 const menuData: ItemProps[] = [
   {
@@ -121,21 +120,14 @@ export default {
         category: 'PROPS',
       },
     },
-    logo: {
-      description: 'Logo 圖示',
-      mapping: {
-        SvgAuo: <SvgAuo width={90} height={30} />,
-      },
-      options: ['SvgAuo'],
-      control: {
-        type: 'select',
-      },
+    mobileLogoSrc: {
+      description: '手機 Logo 圖片',
       table: {
         category: 'PROPS',
       },
     },
-    logoSrc: {
-      description: 'Logo 圖片',
+    desktopLogoSrc: {
+      description: '桌機 Logo 圖片',
       table: {
         category: 'PROPS',
       },
@@ -179,11 +171,12 @@ export default {
   },
   args: {
     themeColor: 'Blue',
-    logoSrc: '',
-    logo: <SvgAuo width={90} height={30} />,
+    mobileLogoSrc: 'https://storage.googleapis.com/ded-wds-bucket/AUO_LOGO.svg',
+    desktopLogoSrc:
+      'https://storage.googleapis.com/ded-wds-bucket/AUO_LOGO_W.svg',
     logoLink: 'https://www.auo.com',
-    hasRWD: false,
     hasLogo: false,
+    hasRWD: true,
     hasSearch: true,
     dataSource: menuData,
     className: '',

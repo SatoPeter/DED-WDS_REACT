@@ -46,21 +46,21 @@ export default {
       description: '前綴元素',
       options: [
         'None',
-        'SvgInfoCircle',
-        'SvgSuccessCircle',
-        'SvgWarningCircle',
-        'SvgErrorCircle',
-        'SvgQuestionCircle',
-        'SvgDisableCircle',
+        'InfoCircle',
+        'SuccessCircle',
+        'WarningCircle',
+        'ErrorCircle',
+        'QuestionCircle',
+        'DisableCircle',
       ],
       mapping: {
         None: null,
-        SvgInfoCircle: <SvgInfoCircle width={20} height={20} />,
-        SvgSuccessCircle: <SvgSuccessCircle width={20} height={20} />,
-        SvgWarningCircle: <SvgWarningTri width={20} height={20} />,
-        SvgErrorCircle: <SvgErrorCircle width={20} height={20} />,
-        SvgQuestionCircle: <SvgQuestionCircle width={20} height={20} />,
-        SvgDisableCircle: <SvgDisableCircle width={20} height={20} />,
+        InfoCircle: <SvgInfoCircle width={20} height={20} />,
+        SuccessCircle: <SvgSuccessCircle width={20} height={20} />,
+        WarningCircle: <SvgWarningTri width={20} height={20} />,
+        ErrorCircle: <SvgErrorCircle width={20} height={20} />,
+        QuestionCircle: <SvgQuestionCircle width={20} height={20} />,
+        DisableCircle: <SvgDisableCircle width={20} height={20} />,
       },
       control: {
         type: 'select',
@@ -121,6 +121,13 @@ export const Default: Story = {
 
 export const Theme: Story = {
   name: '主題色彩',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render(args) {
     return (

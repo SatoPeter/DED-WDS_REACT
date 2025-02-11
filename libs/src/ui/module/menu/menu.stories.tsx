@@ -2,7 +2,6 @@ import { SvgAccount, SvgHome } from '@src/assets/icons';
 import { Meta, StoryObj } from '@storybook/react';
 import { ItemProps } from '@src/hooks/useMenu';
 import Menu from './menu';
-import { has } from 'lodash';
 
 const menuData: ItemProps[] = [
   {
@@ -10,6 +9,7 @@ const menuData: ItemProps[] = [
     prefix: <SvgHome width={24} height={24} />,
     path: '/dashboard',
     order: 1,
+    isDisabled: true,
   },
   {
     label: 'Settings',

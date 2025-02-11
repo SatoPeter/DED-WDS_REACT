@@ -17,6 +17,12 @@ export default {
         category: 'PROPS',
       },
     },
+    placeholder: {
+      description: '輸入提示',
+      table: {
+        category: 'PROPS',
+      },
+    },
     isDisabled: {
       description: '是否禁用',
       table: {
@@ -44,6 +50,7 @@ export default {
   },
   args: {
     size: 'medium',
+    placeholder: 'type something',
     isDisabled: false,
     className: '',
     onClick: action('onClick'),

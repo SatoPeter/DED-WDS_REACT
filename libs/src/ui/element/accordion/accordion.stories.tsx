@@ -55,7 +55,7 @@ const qaList = [
   },
 ];
 
-const smallQaList = [
+const oneRecord = [
   {
     id: '1',
     label: <Title themeColor="primary">What is React?</Title>,
@@ -72,38 +72,6 @@ const smallQaList = [
           Button
         </Button>
       </>
-    ),
-  },
-  {
-    id: '2',
-    label: <Title themeColor="primary">What are the features of React ?</Title>,
-    detail: (
-      <p>
-        The features of React include component-based architecture,
-        unidirectional data flow, and virtual DOM.
-      </p>
-    ),
-  },
-  {
-    id: '3',
-    label: (
-      <Title themeColor="primary">
-        What is included in the React ecosystem ?
-      </Title>
-    ),
-    detail: <p>The React ecosystem includes React Router, Redux, and Axios.</p>,
-  },
-  {
-    id: '4',
-    label: (
-      <Title themeColor="primary">What are the advantages of React ?</Title>
-    ),
-    detail: (
-      <p>
-        The advantages of React include component-based architecture,
-        unidirectional data flow, and virtual DThese features provide
-        efficiency, reusability, and better performance.
-      </p>
     ),
   },
 ];
@@ -167,6 +135,13 @@ export default {
     isOpenAll: false,
     className: '',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     docs: {
       title: 'Accordion',
@@ -200,16 +175,20 @@ export const Border: Story = {
     },
   },
   args: {
-    borderStyle: 'solid',
-    isOpenAll: false,
+    dataSource: oneRecord,
   },
   render(args) {
-    return <Accordion {...args} />;
+    return (
+      <>
+        <Accordion {...args} />
+        <Accordion {...args} borderStyle="solid" />
+      </>
+    );
   },
 };
 
 export const Small: Story = {
-  name: '小尺寸',
+  name: '元件尺寸',
   argTypes: {
     isSmallSize: {
       table: {
@@ -218,13 +197,15 @@ export const Small: Story = {
     },
   },
   args: {
-    dataSource: smallQaList,
+    dataSource: oneRecord,
     borderStyle: 'solid',
-    isSmallSize: true,
-    isOpenAll: false,
-    className: '',
   },
   render(args) {
-    return <Accordion {...args} />;
+    return (
+      <>
+        <Accordion {...args} />
+        <Accordion {...args} isSmallSize />
+      </>
+    );
   },
 };

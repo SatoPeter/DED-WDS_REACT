@@ -91,7 +91,7 @@ export const Default: Story = {
   args: {},
   render: function (args) {
     return (
-      <Grid fluid>
+      <Grid>
         <Row hasGap>
           <Column xs={12} sm={6} md={4}>
             <CardSimple {...args}></CardSimple>
@@ -114,7 +114,7 @@ export const Align: Story = {
   args: {},
   render: function (args) {
     return (
-      <Grid fluid>
+      <Grid>
         <Row>
           <Column xs={12} sm={6} md={4}>
             <CardSimple {...args} align="left"></CardSimple>
@@ -143,7 +143,7 @@ export const Horizontal: Story = {
   args: {},
   render: function (args) {
     return (
-      <Grid fluid>
+      <Grid>
         <Row hasGap>
           <Column xs={12} md={6} lg={3}>
             <CardSimple {...args}></CardSimple>

@@ -51,7 +51,7 @@ export default {
     action: {
       description: '操作',
       table: {
-        category: 'PROPS',
+        category: 'SLOTS',
       },
     },
     prefix: {
@@ -129,9 +129,7 @@ type Story = StoryObj<typeof Toast>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    action: <div onClick={() => window.alert('action')}>Action</div>,
-  },
+  args: {},
   render(args) {
     const {
       themeColor,
@@ -180,10 +178,20 @@ export const Default: Story = {
 };
 
 export const Type: Story = {
-  name: '通知訊息類型',
-  args: {
-    action: <div onClick={() => window.alert('action')}>Action</div>,
+  name: '訊息類型',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+    prefix: {
+      table: {
+        disable: true,
+      },
+    },
   },
+  args: {},
   render(args) {
     const {
       title,
@@ -328,16 +336,19 @@ export const Type: Story = {
 
 export const Demo: Story = {
   name: '互動模式',
-  args: {
-    themeColor: 'success',
-    onClose: () => window.alert('close'),
-    title: 'Notification title ',
-    content: 'Content',
-    action: <div onClick={() => window.alert('action')}>Action</div>,
-    prefix: <SvgInfoCircle width={18} height={18} />,
-    duration: 1000,
-    className: '',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+    prefix: {
+      table: {
+        disable: true,
+      },
+    },
   },
+  args: {},
   render: function Render(args) {
     const { addToast, ToastContainer } = useToast();
 

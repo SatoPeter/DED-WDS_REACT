@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Title } from './title';
-import { theme } from 'highcharts';
 
 export default {
   title: 'Component/Typgraphy/Title',
@@ -8,7 +7,7 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     themeColor: {
-      description: '主題色彩',
+      description: '主題顏色',
       control: {
         type: 'select',
         options: [
@@ -76,6 +75,13 @@ export const Default: Story = {
 
 export const Size: Story = {
   name: '標題大小',
+  argTypes: {
+    level: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
@@ -109,6 +115,13 @@ export const Size: Story = {
 
 export const Theme: Story = {
   name: '主題色彩',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {
     level: 3,
   },

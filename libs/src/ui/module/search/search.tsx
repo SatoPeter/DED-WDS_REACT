@@ -6,6 +6,7 @@ import { SvgSearch } from '@src/assets/icons';
 /* 組件介面參數 props */
 interface SearchProps {
   size?: 'small' | 'medium' | 'large';
+  placeholder?: string;
   isDisabled?: boolean;
   onClick?: (value: string) => void;
   onChange?: (value: string) => void;
@@ -14,6 +15,7 @@ interface SearchProps {
 
 export const Search: React.FC<SearchProps> = ({
   size = 'medium',
+  placeholder = 'type something',
   isDisabled = false,
   onClick,
   onChange,
@@ -35,6 +37,7 @@ export const Search: React.FC<SearchProps> = ({
       <Input
         size={size}
         type="text"
+        placeholder={placeholder}
         initValue={value}
         prefix={<SvgSearch width={20} height={20} />}
         isDisabled={isDisabled}

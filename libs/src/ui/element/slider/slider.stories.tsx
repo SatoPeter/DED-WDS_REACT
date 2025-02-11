@@ -100,7 +100,7 @@ export default {
     min: -100,
     max: 100,
     step: 1,
-    initValue: 0,
+    initValue: 8,
     label: '℃',
     isShowRange: true,
     isShowCurrValue: true,

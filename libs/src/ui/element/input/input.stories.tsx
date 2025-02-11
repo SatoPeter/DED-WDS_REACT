@@ -140,7 +140,7 @@ export default {
     prefix: <SvgAccount />,
     size: 'medium',
     initValue: '',
-    maxLimit: undefined,
+    maxLimit: 0,
     hint: { error: '', description: 'Prompt message' },
     isDisabled: false,
     className: '',

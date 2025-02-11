@@ -70,7 +70,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       prefix = 'Account',
       size = 'medium',
       initValue,
-      maxLimit = undefined,
+      maxLimit = 0,
       hint = { error: '', description: '' },
       isDisabled = false,
       isOpen = undefined,
@@ -122,7 +122,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             ${getSizeClass('ded-text', size)} 
             ${isDisabled ? 'ded-input-disable' : ``} 
             ${prefix ? 'ded-input-prefix' : ''}`}
-            maxLength={maxLimit}
+            maxLength={!maxLimit ? undefined : maxLimit}
             placeholder={placeholder}
           />
 

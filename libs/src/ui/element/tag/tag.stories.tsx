@@ -32,7 +32,7 @@ export default {
       },
     },
     variable: {
-      description: '變數',
+      description: '外觀樣式',
       options: ['filled', 'ghost'],
       control: {
         type: 'select',
@@ -68,7 +68,7 @@ export default {
       },
     },
     closable: {
-      description: '摸到時可關閉',
+      description: '摸到時顯示關閉圖示',
       table: {
         category: 'PROPS',
       },
@@ -125,6 +125,13 @@ export const Default: Story = {
 
 export const Additional: Story = {
   name: '附加元素',
+  argTypes: {
+    prefix: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
@@ -144,6 +151,13 @@ export const Additional: Story = {
 
 export const Variable: Story = {
   name: '外觀樣式',
+  argTypes: {
+    variable: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
@@ -169,6 +183,13 @@ export const Variable: Story = {
 
 export const ThemeColor: Story = {
   name: '主題色彩',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {

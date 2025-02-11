@@ -13,7 +13,7 @@ export default {
   component: Stepper,
   tags: ['autodocs'],
   argTypes: {
-    data: {
+    dataSource: {
       description: '步驟列表',
       table: {
         category: 'PROPS',
