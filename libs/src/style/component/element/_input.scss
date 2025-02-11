@@ -52,7 +52,7 @@
   color: inherit;
   background-color: inherit;
   text-align: inherit;
-  font-size: inherit;
+  // font-size: inherit;
 
   &::placeholder {
     color: list.nth($text-placeholder, $site);

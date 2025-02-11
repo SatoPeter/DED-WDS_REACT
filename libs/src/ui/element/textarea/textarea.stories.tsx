@@ -59,9 +59,9 @@ export default {
   },
   args: {
     label: 'Label',
-    placeholder: 'Placeholder...',
+    placeholder: 'Placeholder',
     limit: 0,
-    initValue: 'Type something ...',
+    initValue: 'Type something',
     hint: { error: '', description: '' },
     isDisabled: false,
     className: '',

@@ -15,7 +15,7 @@ interface SearchProps {
 
 export const Search: React.FC<SearchProps> = ({
   size = 'medium',
-  placeholder = 'type something',
+  placeholder = 'Type something',
   isDisabled = false,
   onClick,
   onChange,

@@ -50,7 +50,7 @@ export default {
   },
   args: {
     size: 'medium',
-    placeholder: 'type something',
+    placeholder: 'Type something',
     isDisabled: false,
     className: '',
     onClick: action('onClick'),

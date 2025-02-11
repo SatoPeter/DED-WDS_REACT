@@ -136,7 +136,7 @@ export default {
     label: 'Label',
     type: 'text',
     hasClear: true,
-    placeholder: 'Placeholder...',
+    placeholder: 'Placeholder',
     prefix: <SvgAccount />,
     size: 'medium',
     initValue: '',

@@ -44,6 +44,16 @@ export default {
         category: 'PROPS',
       },
     },
+    size: {
+      description: '尺寸',
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     className: {
       description: '客製化樣式',
       table: {
@@ -60,6 +70,7 @@ export default {
   args: {
     dataSource: options,
     label: 'Label',
+    size: 'medium',
     className: '',
     onSelect: action('onClick'),
   },
