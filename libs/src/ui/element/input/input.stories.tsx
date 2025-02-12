@@ -10,6 +10,15 @@ import {
   SvgLock,
 } from '@src/assets/icons';
 
+const IconComponents = {
+  SvgAccount: <SvgAccount />,
+  SvgSearch: <SvgSearch />,
+  SvgVisibility: <SvgVisibility />,
+  SvgVisibilityOff: <SvgVisibilityOff />,
+  SvgClose: <SvgClose />,
+  SvgLock: <SvgLock />,
+};
+
 export default {
   title: 'Component/Input',
   component: Input,
@@ -60,24 +69,19 @@ export default {
     },
     prefix: {
       description: '前置元素',
-      options: [
-        'None',
-        'Account',
-        'Search',
-        'Visibility',
-        'VisibilityOff',
-        'Close',
-        'Lock',
-      ],
-      mapping: {
-        None: null,
-        Account: <SvgAccount />,
-        Search: <SvgSearch />,
-        Visibility: <SvgVisibility />,
-        VisibilityOff: <SvgVisibilityOff />,
-        Close: <SvgClose />,
-        Lock: <SvgLock />,
+      options: Object.keys(IconComponents),
+      control: {
+        type: 'select',
+        labels: {
+          SvgAccount: 'Account Icon',
+          SvgSearch: 'Search Icon',
+          SvgVisibility: 'Visibility Icon',
+          SvgVisibilityOff: 'Visibility Off Icon',
+          SvgClose: 'Close Icon',
+          SvgLock: 'Lock Icon',
+        },
       },
+      mapping: IconComponents,
       table: {
         category: 'PROPS',
       },
@@ -137,7 +141,7 @@ export default {
     type: 'text',
     hasClear: true,
     placeholder: 'Placeholder',
-    prefix: <SvgAccount />,
+    prefix: IconComponents.SvgLock,
     size: 'medium',
     initValue: '',
     maxLimit: 0,

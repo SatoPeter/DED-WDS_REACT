@@ -6,25 +6,6 @@ export default {
   component: CircleProgress,
   tags: ['autodocs'],
   argTypes: {
-    themeColor: {
-      description: '主題顏色',
-      control: {
-        type: 'select',
-        options: [
-          'none',
-          'primary',
-          'secondary',
-          'neutral',
-          'info',
-          'success',
-          'warning',
-          'error',
-        ],
-      },
-      table: {
-        category: 'PROPS',
-      },
-    },
     label: {
       description: '進度指示標籤',
       table: {
@@ -75,7 +56,6 @@ export default {
     },
   },
   args: {
-    themeColor: 'none',
     label: 'Label',
     percent: 65,
     size: 100,
@@ -145,42 +125,42 @@ export const Label: Story = {
   },
 };
 
-export const Theme: Story = {
-  name: '主題色彩',
-  argTypes: {
-    themeColor: {
-      table: {
-        disable: true,
-      },
-    },
-  },
-  args: {},
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<CircleProgress {...args} themeColor="neutral" />
-<CircleProgress {...args} themeColor="primary" />
-<CircleProgress {...args} themeColor="secondary" />
-<CircleProgress {...args} themeColor="info" />
-<CircleProgress {...args} themeColor="success" />
-<CircleProgress {...args} themeColor="warning" />
-<CircleProgress {...args} themeColor="error" />
-`,
-      },
-    },
-  },
-  render(args) {
-    return (
-      <>
-        <CircleProgress {...args} themeColor="neutral" />
-        <CircleProgress {...args} themeColor="primary" />
-        <CircleProgress {...args} themeColor="secondary" />
-        <CircleProgress {...args} themeColor="info" />
-        <CircleProgress {...args} themeColor="success" />
-        <CircleProgress {...args} themeColor="warning" />
-        <CircleProgress {...args} themeColor="error" />
-      </>
-    );
-  },
-};
+// export const Theme: Story = {
+//   name: '主題色彩',
+//   argTypes: {
+//     themeColor: {
+//       table: {
+//         disable: true,
+//       },
+//     },
+//   },
+//   args: {},
+//   parameters: {
+//     docs: {
+//       source: {
+//         code: `
+// <CircleProgress {...args} themeColor="neutral" />
+// <CircleProgress {...args} themeColor="primary" />
+// <CircleProgress {...args} themeColor="secondary" />
+// <CircleProgress {...args} themeColor="info" />
+// <CircleProgress {...args} themeColor="success" />
+// <CircleProgress {...args} themeColor="warning" />
+// <CircleProgress {...args} themeColor="error" />
+// `,
+//       },
+//     },
+//   },
+//   render(args) {
+//     return (
+//       <>
+//         <CircleProgress {...args} themeColor="neutral" />
+//         <CircleProgress {...args} themeColor="primary" />
+//         <CircleProgress {...args} themeColor="secondary" />
+//         <CircleProgress {...args} themeColor="info" />
+//         <CircleProgress {...args} themeColor="success" />
+//         <CircleProgress {...args} themeColor="warning" />
+//         <CircleProgress {...args} themeColor="error" />
+//       </>
+//     );
+//   },
+// };

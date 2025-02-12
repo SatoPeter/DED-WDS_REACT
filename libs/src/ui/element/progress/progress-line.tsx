@@ -5,22 +5,12 @@ import { getCombinedClassName } from '@src/utils/string';
 /**
  * LineProgressProps 介面定義了進度條元件的屬性。
  *
- * @property {('none' | 'primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 進度條的主題顏色。
  * @property {string} [label] - 進度條的標籤。
  * @property {number} percent - 進度百分比，範圍從 0 到 100。
  * @property {number} [strokeWidth] - 進度條的高度，預設大小為 100。
  * @property {string} [className] - 自訂的 CSS 類名。
  */
 export interface LineProgressProps {
-  themeColor?:
-    | 'none'
-    | 'primary'
-    | 'secondary'
-    | 'neutral'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error';
   label?: string;
   percent: number; // 0 to 100
   strokeWidth?: number; // default size is 100
@@ -40,7 +30,7 @@ export interface LineProgressProps {
  * @returns {JSX.Element} - LineProgress 組件
  */
 export const LineProgress: React.FC<LineProgressProps> = ({
-  themeColor = 'primary',
+  // themeColor = 'primary',
   label = '',
   percent = 0,
   strokeWidth = 10,
@@ -75,21 +65,11 @@ export const LineProgress: React.FC<LineProgressProps> = ({
           style={{ height: strokeWidth }}
         >
           <div
-            className={`ded-progress-line-percent-form 
-              ${getCombinedClassName(
-                'ded-progress-line-percent-form',
-                themeColor
-              )}`}
+            className="ded-progress-line-percent-form"
             style={{ width: `${normalizedProgress}%` }}
           />
         </div>
-        <div
-          className={`ded-progress-line-label ded-progress-percent-text ${getCombinedClassName(
-            'ded-progress-percent-text',
-            themeColor
-          )}
-        `}
-        >{`${normalizedProgress}%`}</div>
+        <div className="ded-progress-line-label ded-progress-percent-text">{`${normalizedProgress}%`}</div>
       </div>
     </div>
   );
