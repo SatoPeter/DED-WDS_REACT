@@ -3,7 +3,7 @@ name: Deploy Storybook to GitHub Pages
 on:
   push:
     branches:
-      - 'dev'
+      - dev
 
   workflow_dispatch: # 允許手動觸發部署
   pull_request:
