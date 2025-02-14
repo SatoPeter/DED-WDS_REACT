@@ -7,7 +7,8 @@ import {
   SvgVisibilityOff,
   SvgClose,
   SvgArrowDown,
-} from '@src/assets';
+  SvgAccount,
+} from '@src/assets/icons';
 import { isEmpty } from 'lodash';
 import { getCombinedClassName } from '@src/utils/string';
 
@@ -65,11 +66,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       label = '',
       type = 'text',
       hasClear = true,
-      placeholder = 'Placeholder...',
-      prefix = '',
+      placeholder = 'Placeholder',
+      prefix = <SvgAccount />,
       size = 'medium',
       initValue,
-      maxLimit = undefined,
+      maxLimit = 0,
       hint = { error: '', description: '' },
       isDisabled = false,
       isOpen = undefined,
@@ -121,7 +122,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             ${getSizeClass('ded-text', size)} 
             ${isDisabled ? 'ded-input-disable' : ``} 
             ${prefix ? 'ded-input-prefix' : ''}`}
-            maxLength={maxLimit}
+            maxLength={!maxLimit ? undefined : maxLimit}
             placeholder={placeholder}
           />
 

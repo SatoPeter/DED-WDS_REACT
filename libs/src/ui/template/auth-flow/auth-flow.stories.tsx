@@ -17,7 +17,7 @@ import {
   SvgLine,
   SvgMail,
   SvgClock,
-} from '@src/assets';
+} from '@src/assets/icons';
 
 export default {
   title: 'Template/AuthFlow',

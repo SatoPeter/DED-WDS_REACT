@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Badge, Input, Button } from '@src/ui';
-import { SvgNotification, SvgSearch } from '@src/assets';
+import { SvgNotification, SvgSearch } from '@src/assets/icons';
 
 interface NavbarProps {
   dataSource: { label: string; path: string; order: number }[];

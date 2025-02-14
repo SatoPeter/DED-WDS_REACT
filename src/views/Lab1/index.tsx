@@ -16,7 +16,7 @@ import {
   SvgMoreVert,
   SvgSearch,
   SvgSettings,
-} from '@src/assets';
+} from '@src/assets/icons';
 import { useNavigate } from 'react-router';
 
 const NavbarItems = [

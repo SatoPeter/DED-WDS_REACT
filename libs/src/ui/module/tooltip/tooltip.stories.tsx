@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Button, Tooltip } from '@src/ui';
-import { SvgAccount } from '@src/assets';
+import { SvgAccount } from '@src/assets/icons';
 
 export default {
   title: 'Component/Tooltip',

@@ -93,7 +93,7 @@ const customColumns = [
   },
 ];
 
-const dataSource: RowData[] = Array(7)
+const dataSource: RowData[] = Array(4)
   .fill(null)
   .map((_, index) => ({
     head: `Head-${index + 1}`,
@@ -134,7 +134,7 @@ export default {
       },
     },
     isSprite: {
-      description: '是否為 Sprite',
+      description: '是否顯示條紋背景',
       table: {
         category: 'PROPS',
       },

@@ -41,8 +41,8 @@ export interface TextareaProps {
  */
 export const Textarea: React.FC<TextareaProps> = ({
   label,
-  placeholder = 'Placeholder...',
-  limit = 0,
+  placeholder = 'Placeholder',
+  limit = 30,
   initValue,
   hint = { error: '', description: '' },
   isDisabled = false,

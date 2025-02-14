@@ -19,6 +19,7 @@ export interface ItemProps {
     value: string;
     href?: string;
   };
+  isDisabled?: boolean;
   hasDivider?: boolean;
   onClick?: (value: string) => void;
   className?: string;
@@ -40,6 +41,7 @@ export interface ItemProps {
  */
 export const Item: React.FC<ItemProps> = ({
   content: { label = '', prefix = '', value = '', href = '' },
+  isDisabled = false,
   hasDivider = false,
   onClick = () => ({}),
   className = '',
@@ -55,6 +57,7 @@ export const Item: React.FC<ItemProps> = ({
     <li
       className={`ded-list-item 
         ${hasDivider ? 'ded-list-item-side' : ''}
+        ${isDisabled ? 'ded-list-item-disabled' : ''} 
         ${className}
       `}
       onClick={handleClick}

@@ -19,7 +19,7 @@ export const Select: FC<SelectProps> = ({
   dataSource,
   value,
   onChange,
-  placeholder = 'Select an option',
+  placeholder = 'Select',
   isDisabled = false,
   suffix,
   className = '',

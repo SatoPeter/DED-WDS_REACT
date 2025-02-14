@@ -17,6 +17,12 @@ export default {
         category: 'PROPS',
       },
     },
+    placeholder: {
+      description: '輸入提示',
+      table: {
+        category: 'PROPS',
+      },
+    },
     isDisabled: {
       description: '是否禁用',
       table: {
@@ -44,6 +50,7 @@ export default {
   },
   args: {
     size: 'medium',
+    placeholder: 'Type something',
     isDisabled: false,
     className: '',
     onClick: action('onClick'),
@@ -69,14 +76,21 @@ export const Default: Story = {
 };
 
 export const Size: Story = {
-  name: '搜尋尺寸',
+  name: '元件尺寸',
+  argTypes: {
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <Search {...args} size="small" />
-        <Search {...args} size="medium" />
         <Search {...args} size="large" />
+        <Search {...args} size="medium" />
+        <Search {...args} size="small" />
       </div>
     );
   },

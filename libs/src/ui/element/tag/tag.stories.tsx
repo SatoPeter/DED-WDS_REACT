@@ -6,7 +6,7 @@ import {
   SvgSearch,
   SvgVisibility,
   SvgVisibilityOff,
-} from '@src/assets';
+} from '@src/assets/icons';
 
 export default {
   title: 'Component/Tag',
@@ -31,8 +31,8 @@ export default {
         category: 'PROPS',
       },
     },
-    variable: {
-      description: '變數',
+    variant: {
+      description: '外觀樣式',
       options: ['filled', 'ghost'],
       control: {
         type: 'select',
@@ -68,7 +68,7 @@ export default {
       },
     },
     closable: {
-      description: '摸到時可關閉',
+      description: '摸到時顯示關閉圖示',
       table: {
         category: 'PROPS',
       },
@@ -95,7 +95,7 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    variable: 'filled',
+    variant: 'filled',
     label: 'Tag',
     href: '',
     prefix: 'None',
@@ -125,6 +125,13 @@ export const Default: Story = {
 
 export const Additional: Story = {
   name: '附加元素',
+  argTypes: {
+    prefix: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
@@ -142,16 +149,23 @@ export const Additional: Story = {
   },
 };
 
-export const Variable: Story = {
+export const Variant: Story = {
   name: '外觀樣式',
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
       source: {
         transform(code: string, storyContext: StoryContext) {
           return `
-<Tag {...args} variable="filled" />
-<Tag {...args} variable="ghost" />
+<Tag {...args} variant="filled" />
+<Tag {...args} variant="ghost" />
 `;
         },
       },
@@ -160,8 +174,8 @@ export const Variable: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <Tag {...args} variable="filled" themeColor="primary" label="Primary" />
-        <Tag {...args} variable="ghost" themeColor="primary" label="Primary" />
+        <Tag {...args} variant="filled" themeColor="primary" label="Primary" />
+        <Tag {...args} variant="ghost" themeColor="primary" label="Primary" />
       </div>
     );
   },
@@ -169,6 +183,13 @@ export const Variable: Story = {
 
 export const ThemeColor: Story = {
   name: '主題色彩',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {

@@ -5,7 +5,6 @@ import { getCombinedClassName } from '@src/utils/string';
 /**
  * `CircleProgressProps` 介面定義了圓形進度條的屬性。
  *
- * @property {('none' | 'primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 和 'info'。
  * @property {string} [label] - 進度條的標籤。
  * @property {number} percent - 進度百分比，範圍從 0 到 100。
  * @property {number} [size] - 進度條的大小，預設大小為 100。
@@ -13,15 +12,6 @@ import { getCombinedClassName } from '@src/utils/string';
  * @property {string} [className] - 自訂的 CSS 類名。
  */
 export interface CircleProgressProps {
-  themeColor?:
-    | 'none'
-    | 'primary'
-    | 'secondary'
-    | 'neutral'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error';
   label?: string;
   percent: number; // 0 to 100
   size?: number; // default size is 100
@@ -43,7 +33,6 @@ export interface CircleProgressProps {
  * @returns {JSX.Element} CircleProgress 元件
  */
 export const CircleProgress: React.FC<CircleProgressProps> = ({
-  themeColor = 'primary',
   label = '',
   percent = 0,
   size = 100,
@@ -94,12 +83,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
           cy={size / 2}
         />
         <circle
-          className={`ded-progress-circle-percent-form 
-            ${getCombinedClassName(
-              'ded-progress-circle-percent-form',
-              themeColor
-            )}
-          `}
+          className="ded-progress-circle-percent-form"
           fill="transparent"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
@@ -125,9 +109,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
         )}
         {size >= getLimitBorder() && (
           <text
-            className={`ded-progress-percent-text 
-              ${getCombinedClassName('ded-progress-percent-text', themeColor)}
-            `}
+            className="ded-progress-percent-text"
             x="50%"
             y={label ? '60%' : '50%'}
             textAnchor="middle"
@@ -141,13 +123,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
       {size < getLimitBorder() && (
         <div className="ded-progress-circle-label">
           <span className="ded-progress-label">{label}</span>
-          <span
-            className={`ded-progress-percent ${getCombinedClassName(
-              'ded-progress-percent-text',
-              themeColor
-            )}
-            `}
-          >{`${normalizedProgress}%`}</span>
+          <span className="ded-progress-percent-text">{`${normalizedProgress}%`}</span>
         </div>
       )}
     </div>

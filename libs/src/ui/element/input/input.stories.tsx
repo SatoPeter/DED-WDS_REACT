@@ -8,8 +8,16 @@ import {
   SvgVisibilityOff,
   SvgClose,
   SvgLock,
-} from '@src/assets';
-import { has } from 'lodash';
+} from '@src/assets/icons';
+
+const IconComponents = {
+  SvgAccount: <SvgAccount />,
+  SvgSearch: <SvgSearch />,
+  SvgVisibility: <SvgVisibility />,
+  SvgVisibilityOff: <SvgVisibilityOff />,
+  SvgClose: <SvgClose />,
+  SvgLock: <SvgLock />,
+};
 
 export default {
   title: 'Component/Input',
@@ -61,24 +69,19 @@ export default {
     },
     prefix: {
       description: '前置元素',
-      options: [
-        'None',
-        'Account',
-        'Search',
-        'Visibility',
-        'VisibilityOff',
-        'Close',
-        'Lock',
-      ],
-      mapping: {
-        None: null,
-        Account: <SvgAccount />,
-        Search: <SvgSearch />,
-        Visibility: <SvgVisibility />,
-        VisibilityOff: <SvgVisibilityOff />,
-        Close: <SvgClose />,
-        Lock: <SvgLock />,
+      options: Object.keys(IconComponents),
+      control: {
+        type: 'select',
+        labels: {
+          SvgAccount: 'Account Icon',
+          SvgSearch: 'Search Icon',
+          SvgVisibility: 'Visibility Icon',
+          SvgVisibilityOff: 'Visibility Off Icon',
+          SvgClose: 'Close Icon',
+          SvgLock: 'Lock Icon',
+        },
       },
+      mapping: IconComponents,
       table: {
         category: 'PROPS',
       },
@@ -137,11 +140,11 @@ export default {
     label: 'Label',
     type: 'text',
     hasClear: true,
-    placeholder: 'Placeholder...',
-    prefix: <SvgAccount />,
+    placeholder: 'Placeholder',
+    prefix: IconComponents.SvgLock,
     size: 'medium',
     initValue: '',
-    maxLimit: undefined,
+    maxLimit: 0,
     hint: { error: '', description: 'Prompt message' },
     isDisabled: false,
     className: '',
@@ -160,10 +163,14 @@ export const Default: Story = {
 
 export const InputWithStatus: Story = {
   name: '輸入框狀態',
-  args: {
-    prefix: <SvgAccount />,
-    placeholder: 'Placeholder...',
+  argTypes: {
+    isDisabled: {
+      table: {
+        disable: true,
+      },
+    },
   },
+  args: {},
   parameters: {
     docs: {
       source: {
@@ -194,6 +201,12 @@ export const InputWithStatus: Story = {
         <Input
           {...args}
           label="Account"
+          hint={{ error: '', description: 'Prompt message' }}
+        />
+        <Input
+          {...args}
+          label="Account"
+          isDisabled
           hint={{ error: '', description: 'Prompt message' }}
         />
       </div>

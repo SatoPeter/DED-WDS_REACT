@@ -43,7 +43,6 @@ export const Card: React.FC<CardProps> = ({
   className = '',
 }: CardProps): JSX.Element => {
   const handleClick = () => {
-    console.log('click');
     onClick && onClick();
   };
 

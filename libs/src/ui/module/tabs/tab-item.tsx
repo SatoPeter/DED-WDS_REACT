@@ -53,7 +53,9 @@ export const TabItem: React.FC<TabItemProps> = ({
 }: TabItemProps) => {
   return type === 'button' ? (
     <Button
-      className={`${isActive ? '' : `ded-tab-button-${themeColor}-inactive`} ${
+      className={`
+      ${isActive ? getActiveClass(themeColor, type) : 'ded-tab-button'}
+      ${
         isDisabled
           ? 'ded-tab-button-disable'
           : className || getThemeClass(themeColor, type)
@@ -66,7 +68,8 @@ export const TabItem: React.FC<TabItemProps> = ({
     </Button>
   ) : (
     <Button
-      className={`ded-tab ${isActive ? getActiveClass(themeColor, type) : ''} ${
+      className={`ded-tab ${isActive ? getActiveClass(themeColor, type) : ''} 
+      ${
         isDisabled
           ? 'ded-tab-disable'
           : className || getThemeClass(themeColor, type)

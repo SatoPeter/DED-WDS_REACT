@@ -6,25 +6,6 @@ export default {
   component: CircleProgress,
   tags: ['autodocs'],
   argTypes: {
-    themeColor: {
-      description: '主題顏色',
-      control: {
-        type: 'select',
-        options: [
-          'none',
-          'primary',
-          'secondary',
-          'neutral',
-          'info',
-          'success',
-          'warning',
-          'error',
-        ],
-      },
-      table: {
-        category: 'PROPS',
-      },
-    },
     label: {
       description: '進度指示標籤',
       table: {
@@ -75,13 +56,21 @@ export default {
     },
   },
   args: {
-    themeColor: 'none',
     label: 'Label',
     percent: 65,
     size: 100,
     strokeWidth: 10,
     className: '',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <div style={{ display: 'flex', gap: '32px' }}>
+          <Story />
+        </div>
+      );
+    },
+  ],
   parameters: {
     docs: {
       title: 'Circle Progress',
@@ -103,6 +92,18 @@ export const Default: Story = {
 
 export const Label: Story = {
   name: '顯示標籤',
+  argTypes: {
+    label: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
@@ -116,43 +117,50 @@ export const Label: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '8px' }}>
+      <>
         <CircleProgress {...args} label="Label" size={70} />
         <CircleProgress {...args} label="Label" size={100} />
-      </div>
+      </>
     );
   },
 };
 
-export const Theme: Story = {
-  name: '主題色彩',
-  args: {},
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<CircleProgress {...args} percent={60} themeColor="neutral" />
-<CircleProgress {...args} percent={40} themeColor="primary" />
-<CircleProgress {...args} percent={50} themeColor="secondary" />
-<CircleProgress {...args} percent={70} themeColor="info" />
-<CircleProgress {...args} percent={80} themeColor="success" />
-<CircleProgress {...args} percent={90} themeColor="warning" />
-<CircleProgress {...args} percent={100} themeColor="error" />
-`,
-      },
-    },
-  },
-  render(args) {
-    return (
-      <div style={{ display: 'flex', gap: '8px' }}>
-        <CircleProgress {...args} percent={60} themeColor="neutral" />
-        <CircleProgress {...args} percent={40} themeColor="primary" />
-        <CircleProgress {...args} percent={50} themeColor="secondary" />
-        <CircleProgress {...args} percent={70} themeColor="info" />
-        <CircleProgress {...args} percent={80} themeColor="success" />
-        <CircleProgress {...args} percent={90} themeColor="warning" />
-        <CircleProgress {...args} percent={100} themeColor="error" />
-      </div>
-    );
-  },
-};
+// export const Theme: Story = {
+//   name: '主題色彩',
+//   argTypes: {
+//     themeColor: {
+//       table: {
+//         disable: true,
+//       },
+//     },
+//   },
+//   args: {},
+//   parameters: {
+//     docs: {
+//       source: {
+//         code: `
+// <CircleProgress {...args} themeColor="neutral" />
+// <CircleProgress {...args} themeColor="primary" />
+// <CircleProgress {...args} themeColor="secondary" />
+// <CircleProgress {...args} themeColor="info" />
+// <CircleProgress {...args} themeColor="success" />
+// <CircleProgress {...args} themeColor="warning" />
+// <CircleProgress {...args} themeColor="error" />
+// `,
+//       },
+//     },
+//   },
+//   render(args) {
+//     return (
+//       <>
+//         <CircleProgress {...args} themeColor="neutral" />
+//         <CircleProgress {...args} themeColor="primary" />
+//         <CircleProgress {...args} themeColor="secondary" />
+//         <CircleProgress {...args} themeColor="info" />
+//         <CircleProgress {...args} themeColor="success" />
+//         <CircleProgress {...args} themeColor="warning" />
+//         <CircleProgress {...args} themeColor="error" />
+//       </>
+//     );
+//   },
+// };

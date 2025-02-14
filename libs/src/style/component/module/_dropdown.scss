@@ -51,16 +51,16 @@
     transition: transform 0.3s;
     transform: rotate(0deg);
   }
-}
 
-.ded-dropdown:hover {
-  border: 1px solid getBorderColor('primary', 'hover');
-  box-shadow: 0 0 0 2px getBorderColor('primary', 'hover');
-}
+  &:hover {
+    border-width: $border-width-1;
+    border-style: solid;
+    border-color: $auo-form-hover;
+  }
 
-.ded-dropdown:focus-within {
-  border: 1px solid getBorderColor('primary', 'focus');
-  box-shadow: 0 0 0 3px getBorderColor('primary', 'focus');
+  &:focus-within {
+    box-shadow: 0 0 0 3px $auo-form-hover;
+  }
 }
 
 .ded-dropdown-selectValue-unselect {

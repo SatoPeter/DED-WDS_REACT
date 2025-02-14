@@ -59,14 +59,21 @@ export default {
   },
   args: {
     label: 'Label',
-    placeholder: 'Placeholder...',
-    limit: 500,
-    initValue: 'Type something ...',
-    hint: { error: '', description: 'Prompt message' },
+    placeholder: 'Placeholder',
+    limit: 0,
+    initValue: 'Type something',
+    hint: { error: '', description: '' },
     isDisabled: false,
     className: '',
     onChange: action('onChange'),
   },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     docs: {
       title: 'Textarea',
@@ -89,10 +96,7 @@ export const Default: Story = {
 export const Limit: Story = {
   name: '字數限制',
   args: {
-    label: 'Label',
-    limit: 20,
-    initValue: 'Hello World',
-    hint: { error: '', description: '' },
+    limit: 30,
   },
   render(args) {
     return <Textarea {...args} />;
@@ -101,16 +105,20 @@ export const Limit: Story = {
 
 export const TextareaStatus: Story = {
   name: '輸入框狀態',
+  argTypes: {
+    isDisabled: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {
-    label: 'Label',
-    limit: 10,
-    placeholder: 'placeholder ...',
+    limit: 30,
   },
   parameters: {
     docs: {
       source: {
         code: `
-<Textarea {...args} />
 <Textarea {...args} hint={{ error: 'Error', description: '' }} />
 <Textarea {...args} hint={{ error: '', description: 'Prompt message' }} />
 `,
@@ -119,14 +127,13 @@ export const TextareaStatus: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <Textarea {...args} />
+      <>
         <Textarea {...args} hint={{ error: 'Error', description: '' }} />
         <Textarea
           {...args}
           hint={{ error: '', description: 'Prompt message' }}
         />
-      </div>
+      </>
     );
   },
 };

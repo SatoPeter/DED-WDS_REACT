@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { SvgClose } from '@src/assets';
+import { SvgClose } from '@src/assets/icons';
 import { Button } from '@src/ui/element/button';
 import { Title } from '@src/ui/element/title';
 import { getCombinedClassName } from '@src/utils/string';
@@ -14,7 +14,7 @@ export interface ToastProps {
     | 'warning'
     | 'error';
   onClose?: () => void;
-  title?: string;
+  title: string;
   content: string;
   action?: ReactNode;
   prefix?: ReactNode;
@@ -25,7 +25,7 @@ export interface ToastProps {
 export const Toast: React.FC<ToastProps> = ({
   themeColor = 'primary',
   onClose = () => ({}),
-  title = 'Title',
+  title,
   content = 'Content',
   action,
   prefix = '',

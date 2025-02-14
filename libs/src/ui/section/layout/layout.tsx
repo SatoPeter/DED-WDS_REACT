@@ -1,16 +1,19 @@
-import React from 'react';
+import { ReactNode } from 'react';
+import { Header } from './header';
+import { Footer } from './footer';
+import { Content } from './content';
+import { Side } from './side';
 
-/* 組件介面參數 props */
-interface LayoutProps {
-  children?: React.ReactNode;
+export interface LayoutProps {
+  children?: ReactNode;
   className?: string;
 }
 
-interface LayoutComponent extends React.FC<LayoutProps> {
-  Header: (props: HeaderProps) => JSX.Element;
-  Footer: (props: FooterProps) => JSX.Element;
-  Content: (props: ContentProps) => JSX.Element;
-  Side: (props: SideProps) => JSX.Element;
+export interface LayoutComponent extends React.FC<LayoutProps> {
+  Header: typeof Header;
+  Footer: typeof Footer;
+  Content: typeof Content;
+  Side: typeof Side;
 }
 
 export const Layout: LayoutComponent = (props: LayoutProps) => {
@@ -21,45 +24,6 @@ export const Layout: LayoutComponent = (props: LayoutProps) => {
       {children}
     </div>
   );
-};
-
-interface HeaderProps {
-  children?: React.ReactNode;
-  className?: string;
-}
-const Header = (props: HeaderProps) => {
-  const { children, className = '' } = props;
-
-  return <header className={`ded-header ${className}`}>{children}</header>;
-};
-
-interface FooterProps {
-  children?: React.ReactNode;
-  className?: string;
-}
-const Footer = (props: FooterProps) => {
-  const { children, className = '' } = props;
-
-  return <footer className={`ded-footer ${className}`}>{children}</footer>;
-};
-
-interface ContentProps {
-  children?: React.ReactNode;
-  className?: string;
-}
-const Content = (props: ContentProps) => {
-  const { children, className = '' } = props;
-
-  return <main className={`ded-content ${className}`}>{children}</main>;
-};
-
-interface SideProps {
-  children?: React.ReactNode;
-  className?: string;
-}
-const Side = (props: SideProps) => {
-  const { children, className = '' } = props;
-  return <aside className={`ded-side ${className}`}>{children}</aside>;
 };
 
 Layout.Header = Header;

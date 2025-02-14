@@ -7,6 +7,12 @@
   width: 100%;
   list-style: none;
   overflow: hidden;
+
+  &-item {
+    &:hover {
+      background-color: $color-gray10;
+    }
+  }
 }
 
 .ded-outline {
@@ -20,6 +26,12 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: list.nth($neutral-100, $site);
+  color: list.nth($text-secondary, $site);
+}
+
+.ded-list-item-disabled {
+  pointer-events: none !important;
+  color: list.nth($disabled-text, $site) !important;
 }
 
 .ded-list-item-text {
@@ -31,7 +43,6 @@
 
   .ded-list-item-label {
     width: 100%;
-    color: list.nth($text-secondary, $site);
   }
 }
 
@@ -60,5 +71,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $auo-icon-default;
 }

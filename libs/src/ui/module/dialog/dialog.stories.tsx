@@ -3,7 +3,7 @@ import { useDialog } from '@src/hooks';
 import { Dialog, Button, Title } from '@src/ui';
 import { Grid, Row, Column } from '@src/ui/section/grid';
 import { StoryContext } from 'storybook/internal/types';
-import { SvgClose } from '@src/assets';
+import { SvgClose } from '@src/assets/icons';
 
 export default {
   title: 'Component/Dialog',

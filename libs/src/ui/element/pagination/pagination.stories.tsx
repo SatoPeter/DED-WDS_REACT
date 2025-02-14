@@ -86,6 +86,13 @@ export const Default: Story = {
 
 export const Info: Story = {
   name: '顯示資訊',
+  argTypes: {
+    isShowPageInfo: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {

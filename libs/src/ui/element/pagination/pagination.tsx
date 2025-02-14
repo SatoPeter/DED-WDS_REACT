@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@src/ui';
-import { SvgFirstLastPage, SvgNavigateArrow } from '@src/assets';
+import { SvgFirstLastPage, SvgNavigateArrow } from '@src/assets/icons';
+import { f } from 'react-router/dist/development/fog-of-war-DLtn2OLr';
 
 interface PaginationProps {
   totalItems: number;
@@ -17,7 +18,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   currentPage = 1,
   itemsPerPageOptions,
   defaultItemsPerPage = 10,
-  isShowPageInfo,
+  isShowPageInfo = false,
   className = '',
   onPageChange,
 }) => {

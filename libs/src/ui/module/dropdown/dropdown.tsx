@@ -6,14 +6,16 @@ import { List, Input } from '@src/ui';
 import { ItemProps } from '@src/ui/module/list';
 
 interface DropdownProps {
-  label?: string;
   dataSource: ItemProps[];
+  label?: string;
+  size?: 'small' | 'medium' | 'large';
   onSelect?: (value: string) => void;
   className?: string;
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({
   label = '',
+  size = 'medium',
   className = '',
   ...rest
 }) => {
@@ -59,6 +61,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
         onClick={handleClick}
       >
         <Input
+          size={size}
           initValue={value}
           isOpen={isVisible}
           type="text"

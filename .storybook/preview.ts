@@ -30,6 +30,7 @@ const preview: Preview = {
         locales: 'en-US',
       },
     },
+    controls: { expanded: true },
   },
   tags: ['autodocs'],
 };

@@ -1,4 +1,4 @@
-import { SvgArrowDown } from '@src/assets';
+import { SvgArrowDown } from '@src/assets/icons';
 import { useMenu } from '@src/hooks';
 import { ItemProps } from '@src/hooks/useMenu';
 
@@ -30,34 +30,43 @@ export interface MenuItemProps {
  * @returns {JSX.Element} 返回一個渲染的菜單項目。
  */
 export const MenuItem: React.FC<MenuItemProps> = ({
-  item = { label: '', path: '', prefix: '', order: 1 },
+  item: {
+    label = '',
+    path = '',
+    prefix = '',
+    order = 1,
+    children = [],
+    isDisabled = false,
+  },
   isCollapsed = false,
   color = '#000000',
   hasDivider,
 }: MenuItemProps): JSX.Element => {
   const { isOpen, setIsOpen, contentRef, maxHeight, hasChildren } = useMenu(
-    item,
+    { label, path, prefix, order, children },
     isCollapsed
   );
 
   return (
-    <li className={`ded-nav-item ${hasDivider ? 'ded-nav-item-side' : ''}`}>
+    <li
+      style={{ color: color }}
+      className={`ded-nav-item 
+        ${hasDivider ? 'ded-nav-item-side' : ''} 
+        ${isDisabled ? 'ded-nav-item-disabled' : ''}`}
+    >
       <a
-        href={item.path}
-        style={{ color: color }}
+        href={path}
         className={`ded-nav-item-link
           ${isCollapsed ? 'ded-nav-item-link-mobile' : ''}
         `}
         onClick={() => {
-          if (item.path) {
-            console.log('go to', item.path);
+          if (path) {
+            console.log('go to', path);
           }
         }}
       >
-        {item.prefix && <div className="ded-nav-item-icon">{item.prefix}</div>}
-        {!isCollapsed && (
-          <span className="ded-nav-item-label">{item.label}</span>
-        )}
+        {prefix && <div className="ded-nav-item-icon">{prefix}</div>}
+        {!isCollapsed && <span className="ded-nav-item-label">{label}</span>}
       </a>
 
       {!isCollapsed && hasChildren && (
@@ -65,12 +74,12 @@ export const MenuItem: React.FC<MenuItemProps> = ({
           <SvgArrowDown
             width={20}
             height={20}
-            fill={color}
             style={{
               transition: 'transform 0.3s',
               transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
             }}
             onClick={() => {
+              if (isDisabled) return;
               setIsOpen(!isOpen);
             }}
           />
@@ -85,7 +94,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
           }}
         >
           {hasChildren &&
-            item.children?.map((child, index) => (
+            children?.map((child, index) => (
               <MenuItem
                 key={index}
                 item={child}

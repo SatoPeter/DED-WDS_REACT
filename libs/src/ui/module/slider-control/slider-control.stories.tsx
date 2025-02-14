@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { SliderControl } from '../../module/slider-control';
-import { SvgPlus, SvgMinus } from '@src/assets';
+import { SvgPlus, SvgMinus } from '@src/assets/icons';
 import { theme } from 'highcharts';
 
 export default {
@@ -117,7 +117,7 @@ export default {
     min: -100,
     max: 100,
     step: 1,
-    initValue: 50,
+    initValue: 8,
     label: '℃',
     prefix: 'Decrease',
     suffix: 'Increase',

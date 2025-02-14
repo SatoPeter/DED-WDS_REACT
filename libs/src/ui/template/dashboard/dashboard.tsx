@@ -8,7 +8,7 @@ import {
   SvgDatabase,
   SvgUser,
   SvgLanguage,
-} from '@src/assets';
+} from '@src/assets/icons';
 import { Column, Grid, Row } from '@src/ui/section/grid';
 import { Layout } from '@src/ui/section/layout';
 import { Navbar } from '@src/ui/section/navbar';

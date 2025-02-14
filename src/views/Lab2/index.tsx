@@ -16,7 +16,7 @@ import {
   SvgMoreVert,
   SvgSearch,
   SvgSettings,
-} from '@src/assets';
+} from '@src/assets/icons';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { o } from 'react-router/dist/development/fog-of-war-DLtn2OLr';

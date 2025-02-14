@@ -91,6 +91,13 @@ export const Default: Story = {
 
 export const Theme: Story = {
   name: '主題色彩',
+  argTypes: {
+    themeColor: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {
     isChecked: true,
   },

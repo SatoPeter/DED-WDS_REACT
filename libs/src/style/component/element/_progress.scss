@@ -78,8 +78,8 @@
 }
 
 .ded-progress-percent-text {
-  fill: $primary-default;
-  color: $primary-default;
+  fill: list.nth($text-primary, $site);
+  color: list.nth($text-primary, $site);
 
   @each $theme in $themes {
     &-#{$theme} {

@@ -73,6 +73,13 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-end' }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     docs: {
       title: 'Avatar',
@@ -105,91 +112,81 @@ export const Default: Story = {
 
 export const AvatarShape: Story = {
   name: '頭像形狀',
-  args: {},
+  argTypes: {
+    shape: {
+      table: {
+        disable: true,
+      },
+    },
+    alt: {
+      table: {
+        disable: true,
+      },
+    },
+    src: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {
+    src: 'https://storage.googleapis.com/ded-wds-bucket/fox.png',
+  },
   parameters: {
     docs: {
       source: {
         code: `
-        <Avatar {...args} size="large" shape="circle" status="online" />
-<Avatar {...args} size="large" shape="square" status="idle" />
+        <Avatar {...args} shape="circle" />
+<Avatar {...args} shape="square" />
         `,
       },
     },
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-end' }}>
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/fox.png"
-          size="large"
-          shape="circle"
-          status="online"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/tigger.png"
-          size="large"
-          shape="square"
-          status="idle"
-        />
-      </div>
+      <>
+        <Avatar {...args} shape="circle" />
+        <Avatar {...args} shape="square" />
+      </>
     );
   },
 };
 
 export const AvatarStatus: Story = {
   name: '頭像狀態',
+  argTypes: {
+    status: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {
     shape: 'circle',
     size: 'large',
-    src: 'https://picsum.photos/320/240',
+    src: 'https://storage.googleapis.com/ded-wds-bucket/tigger.png',
   },
   parameters: {
     docs: {
       source: {
         code: `
-        <Avatar {...args} size="large" shape="circle" status="online" />
-<Avatar {...args} size="large" shape="circle" status="idle" />
-<Avatar {...args} size="large" shape="circle" status="busy" />
-<Avatar {...args} size="large" shape="circle" status="offline" />
+<Avatar {...args} status="online" />
+<Avatar {...args} status="idle" />
+<Avatar {...args} status="busy" />
+<Avatar {...args} status="offline" />
         `,
       },
     },
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-end' }}>
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/fox.png"
-          shape="circle"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/lion.png"
-          shape="circle"
-          status="online"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/koala.png"
-          shape="circle"
-          status="idle"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/dog.png"
-          shape="circle"
-          status="busy"
-        />
-        <Avatar
-          {...args}
-          src="https://storage.googleapis.com/ded-wds-bucket/pig.png"
-          shape="circle"
-          status="offline"
-        />
-      </div>
+      <>
+        <Avatar {...args} />
+        <Avatar {...args} status="online" />
+        <Avatar {...args} status="idle" />
+        <Avatar {...args} status="busy" />
+        <Avatar {...args} status="offline" />
+      </>
     );
   },
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Portal } from '../../portal';
-import { SvgClose } from '@src/assets';
+import { SvgClose } from '@src/assets/icons';
 import { Mask } from '../../mask';
 
 export interface DialogProps {

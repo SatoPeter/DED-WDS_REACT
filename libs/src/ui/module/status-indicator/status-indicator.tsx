@@ -22,6 +22,7 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
   variant = 'text',
   prefix,
   children,
+  size = 'medium',
   className = '',
 }) => {
   return (
@@ -37,7 +38,12 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
     >
       <div className="status-indicator-content">
         {prefix ? (
-          <div className="status-indicator-prefix">{prefix}</div>
+          <div
+            className={`status-indicator-prefix 
+              ${getCombinedClassName('ded-icon', size)}`}
+          >
+            {prefix}
+          </div>
         ) : (
           <div
             className={`${!prefix ? 'status-indicator-dot' : ''}
@@ -51,7 +57,11 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
           }`}
           ></div>
         )}
-        {children && <div className={`status-indicator-text`}>{children}</div>}
+        {children && (
+          <div className={`${getCombinedClassName('ded-text', size)}`}>
+            {children}
+          </div>
+        )}
       </div>
     </div>
   );

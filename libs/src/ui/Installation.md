@@ -8,65 +8,94 @@ AUO Design system 是一套跨設計與程式的設計系統，採用原子化�
 
 ### 步驟一：建立開發環境
 
-創建專案資料夾。
+1. 創建專案資料夾。
 
 ```shell
-$ npm create vite@latest
+npm create vite@latest
 ```
 
-設定專案資料夾名稱
+- 設定專案資料夾名稱
 
 ```
 Project name: my_project
 ```
 
-選擇使用的框架
+- 選擇使用的框架
 
 ```
 react
 ```
 
-選擇開發語言
+- 選擇開發語言
 
 ```
 typescript
 ```
 
-進入專案資料夾
+- 進入專案資料夾
 
 ```shell
-$ cd my_project
+cd my_project
 ```
 
 ### 步驟二：安裝相依套件
 
-開啟 package.json 設定檔
+- 開啟建立的專案
 
-新增 ded-wds 到 dependencies :
-
-```json
-"ded-wds" :"^1.0.1"
-```
-
-開啟 package.json 設定檔並新增 SASS 到 devDependencies :
+- 開啟 package.json 設定檔並新增 SASS 及 SVGR 到 devDependencies :
 
 ```json
-"sass": "^1.81.0"
+"sass": "^1.81.0",
+"vite-plugin-svgr": "^4.3.0"
 ```
 
-執行 npm install 安裝相關套件
+- 安裝 SASS 及 SVG 相關套件
 
 ```shell
-$ npm install
+npm install
 ```
 
-### 步驟三：引用 SCSS 檔
+- 增加 vite config plugins svgr 項目
 
-下載 [style.zip](https://storage.googleapis.com/ded-wds-bucket/style.zip)
+```js
+import svgr from 'vite-plugin-svgr';
 
-複製 style 資料夾至 src 資料夾
+export default defineConfig({
+  plugins: [svgr()],
+});
+```
 
-在進入點的檔案（App.tsx）引用「globals.scss」
+- 在 TypeScript 的 tsconfig.app.json 中，compilerOptions.types 是用來指定要包含的型別定
+
+```json
+"compilerOptions": {
+  "types": ["vite-plugin-svgr/client"],
+}
+```
+
+- 建立 .npmrc 設定檔
+
+- 開啟 .npmrc 檔貼上 registry 路徑，並儲存
+
+```shell
+@ded-wds:registry=https://asia-east1-npm.pkg.dev/auo-ded/npm-hub/
+```
+
+- 執行 npm install 安裝 WDS 套件
+
+```shell
+npm install @ded-wds/ui@latest
+```
+
+### 步驟三：放入相關資源並引用 SCSS 檔
+
+- 下載 [source.zip](https://storage.googleapis.com/ded-wds-bucket/source.zip)
+
+- 移除專案預設樣式 (App.css、index.css)
+
+- 複製 source 內相關資料夾至 src 資料夾
+
+- 在進入點的檔案（App.tsx）引用「globals.scss」
 
 ```tsx
 import './style/globals.scss';
@@ -74,15 +103,13 @@ import './style/globals.scss';
 
 ### 步驟四：開始開發
 
-執行 npm 開啟環境進行開發
+- 執行 npm 開啟環境進行開發
 
 ```shell
-$ npm run dev
+npm run dev
 ```
 
-打開 Design system Storybook（Vue 版、React 版）
-
-選擇所需
+- 打開 Design system Storybook（Vue 版、React 版）選擇所需
 
 ## 相關套件、資源
 
@@ -95,6 +122,8 @@ Design system 為提供便利的功能，部分常見元件採用功能完善的
 - 圖示： [Google material icons](https://fonts.google.com/icons)
 
 - SASS CSS 預處理器： [SASS](https://sass-lang.com/)
+
+- SVGR: [vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr)
 
 ## 範例下載
 

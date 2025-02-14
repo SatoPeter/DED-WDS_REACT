@@ -91,7 +91,7 @@ export const Default: Story = {
   args: {},
   render: function (args) {
     return (
-      <Grid fluid>
+      <Grid>
         <Row hasGap>
           <Column xs={12} sm={6} md={4}>
             <CardSimple {...args}></CardSimple>
@@ -104,10 +104,17 @@ export const Default: Story = {
 
 export const Align: Story = {
   name: '按鈕對齊方式',
+  argTypes: {
+    align: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render: function (args) {
     return (
-      <Grid fluid>
+      <Grid>
         <Row>
           <Column xs={12} sm={6} md={4}>
             <CardSimple {...args} align="left"></CardSimple>
@@ -125,11 +132,18 @@ export const Align: Story = {
 };
 
 export const Horizontal: Story = {
-  name: '水平佈局',
+  name: '垂直佈局',
+  argTypes: {
+    layout: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render: function (args) {
     return (
-      <Grid fluid>
+      <Grid>
         <Row hasGap>
           <Column xs={12} md={6} lg={3}>
             <CardSimple {...args}></CardSimple>
@@ -153,11 +167,18 @@ export const Horizontal: Story = {
 };
 
 export const Vertical: Story = {
-  name: '垂直佈局',
+  name: '水平佈局',
+  argTypes: {
+    layout: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   args: {},
   render: function (args) {
     return (
-      <Grid fluid>
+      <Grid>
         <Row>
           <Column xs={6}>
             <CardSimple {...args} layout="horizontal"></CardSimple>
