@@ -46,7 +46,7 @@ import SvgSearch from './search.svg?react';
 import SvgSettings from './settings.svg?react';
 import SvgSuccessCircle from './success-circle.svg?react';
 import SvgTemperature from './temperature.svg?react';
-import SvgUser from './User.svg?react';
+import SvgUser from './user.svg?react';
 import SvgVisibility from './visibility.svg?react';
 import SvgVisibilityOff from './visibility_off.svg?react';
 import SvgWarning from './warning.svg?react';
