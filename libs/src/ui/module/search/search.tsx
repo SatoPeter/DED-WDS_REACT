@@ -51,7 +51,7 @@ export const Search: React.FC<SearchProps> = ({
         isDisabled={isDisabled}
         onClick={handleClick}
       >
-        搜尋
+        Search
       </Button>
     </div>
   );

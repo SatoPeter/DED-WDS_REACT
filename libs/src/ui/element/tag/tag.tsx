@@ -6,7 +6,7 @@ import { getDisableClass, getThemeClass } from './styled';
  * TagProps 介面定義了 Tag 元件的屬性。
  *
  * @property {('primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error')} [themeColor] - 設定標籤的主題顏色。
- * @property {('filled' | 'ghost')} [variable] - 設定標籤的樣式變體。
+ * @property {('filled' | 'ghost')} [variant] - 設定標籤的樣式變體。
  * @property {string} label - 標籤的文字內容。
  * @property {string} [href] - 標籤的連結 URL。
  * @property {React.ReactNode} [prefix] - 標籤前綴的圖示或元素。
@@ -24,7 +24,7 @@ export interface TagProps {
     | 'success'
     | 'warning'
     | 'error';
-  variable?: 'filled' | 'ghost';
+  variant?: 'filled' | 'ghost';
   label: string;
   href?: string;
   prefix?: React.ReactNode;
@@ -39,7 +39,7 @@ export interface TagProps {
  *
  * @param {TagProps} props - 標籤元件的屬性
  * @param {string} [props.themeColor='primary'] - 標籤的主題顏色
- * @param {string} [props.variable='filled'] - 標籤的變數樣式
+ * @param {string} [props.variant='filled'] - 標籤的變數樣式
  * @param {string} props.label - 標籤的文字內容
  * @param {string} [props.href=''] - 標籤的連結，如果有提供則標籤會變成一個連結
  * @param {React.ReactNode} [props.prefix] - 標籤前綴的圖示或內容
@@ -52,7 +52,7 @@ export interface TagProps {
  */
 export const Tag: React.FC<TagProps> = ({
   themeColor = 'primary',
-  variable = 'filled',
+  variant = 'filled',
   label,
   href = '',
   prefix,
@@ -66,8 +66,8 @@ export const Tag: React.FC<TagProps> = ({
       className={`ded-tag 
         ${
           isDisabled
-            ? getDisableClass(variable)
-            : getThemeClass(variable, themeColor)
+            ? getDisableClass(variant)
+            : getThemeClass(variant, themeColor)
         } 
         ${className}`}
     >

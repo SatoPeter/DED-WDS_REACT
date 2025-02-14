@@ -31,7 +31,7 @@ export default {
         category: 'PROPS',
       },
     },
-    variable: {
+    variant: {
       description: '外觀樣式',
       options: ['filled', 'ghost'],
       control: {
@@ -95,7 +95,7 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    variable: 'filled',
+    variant: 'filled',
     label: 'Tag',
     href: '',
     prefix: 'None',
@@ -149,10 +149,10 @@ export const Additional: Story = {
   },
 };
 
-export const Variable: Story = {
+export const Variant: Story = {
   name: '外觀樣式',
   argTypes: {
-    variable: {
+    variant: {
       table: {
         disable: true,
       },
@@ -164,8 +164,8 @@ export const Variable: Story = {
       source: {
         transform(code: string, storyContext: StoryContext) {
           return `
-<Tag {...args} variable="filled" />
-<Tag {...args} variable="ghost" />
+<Tag {...args} variant="filled" />
+<Tag {...args} variant="ghost" />
 `;
         },
       },
@@ -174,8 +174,8 @@ export const Variable: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <Tag {...args} variable="filled" themeColor="primary" label="Primary" />
-        <Tag {...args} variable="ghost" themeColor="primary" label="Primary" />
+        <Tag {...args} variant="filled" themeColor="primary" label="Primary" />
+        <Tag {...args} variant="ghost" themeColor="primary" label="Primary" />
       </div>
     );
   },

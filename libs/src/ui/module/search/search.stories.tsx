@@ -76,7 +76,7 @@ export const Default: Story = {
 };
 
 export const Size: Story = {
-  name: '尺寸',
+  name: '元件尺寸',
   argTypes: {
     size: {
       table: {
@@ -88,9 +88,9 @@ export const Size: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <Search {...args} size="small" />
-        <Search {...args} size="medium" />
         <Search {...args} size="large" />
+        <Search {...args} size="medium" />
+        <Search {...args} size="small" />
       </div>
     );
   },

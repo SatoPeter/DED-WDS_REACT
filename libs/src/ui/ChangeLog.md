@@ -2,6 +2,8 @@
 
 ✨ New Feature
 
+- Add Github Action
+
 🆙 Update
 
 - Add the controls property with expanded: true in the preview.ts file
