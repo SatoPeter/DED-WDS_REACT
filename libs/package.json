@@ -1,13 +1,13 @@
 {
   "name": "@ded-wds/ui",
-  "version": "1.0.3-beta",
+  "version": "1.0.5-beta",
   "description": "Web Design System",
   "license": "MIT",
   "author": "Kevin Yang <kevin.kk.yang@auo.com>",
   "contributors": [
     "Amos Lee <amos.lee@auo.com>"
   ],
-  "homepage": "https://uedteam.github.io/DED-WDS",
+  "homepage": "https://uedteam.github.io/DED-WDS_REACT",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "files": [
@@ -15,10 +15,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/uedteam/DED-WDS.git"
+    "url": "https://github.com/uedteam/DED-WDS_REACT.git"
   },
   "bugs": {
-    "url": "https://github.com/uedteam/DED-WDS/issues"
+    "url": "https://github.com/uedteam/DED-WDS_REACT/issues"
   },
   "keywords": [
     "ded",

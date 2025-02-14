@@ -1,4 +1,4 @@
-## V1.0.3-beta (2025/2/5)
+## V1.0.5-beta (2025/2/14)
 
 ✨ New Feature
 
@@ -6,10 +6,14 @@
 
 🆙 Update
 
-- Add the controls property with expanded: true in the preview.ts file
-- Update the name and version in the package-lock.json file
-- Add class-variance-authority as a dependency in the package-lock.json file
-- Update the import path for SvgArrowDown in the accordion-item.tsx file
-- Update the import path for SvgArrowDown in the accordion.stories.tsx file
+- Add Github Action
+- Update the controls property in the preview.ts file
+- Change variable to variant in the tag element
+- Rename the "Variable" story to "Variant"
+- Update variable to variant in the tag component
+- Update variable to variant in the TagProps interface
+- Update variable to variant in the Tag component render function
+- Rename the "尺寸" story to "元件尺寸" in the search module
+- Reorder the size options in the search module with medium first
 
 🪲 Bug Fix

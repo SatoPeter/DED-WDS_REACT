@@ -1,9 +1,9 @@
 {
   "name": "ded-wds-react",
-  "version": "1.0.3-beta",
+  "version": "1.0.5-beta",
   "description": "Web Design System",
   "license": "MIT",
-  "homepage": "https://uedteam.github.io/DED-WDS",
+  "homepage": "https://uedteam.github.io/DED-WDS_REACT",
   "scripts": {
     "start": "nx serve",
     "build": "rm -rf build && nx build",
@@ -11,7 +11,7 @@
     "reset": "nx reset",
     "report": "nx report",
     "storybook": "nx storybook",
-    "deploy": "nx build && gh-pages -d build/DED-WDS",
+    "deploy": "nx build && gh-pages -d build/DED-WDS_REACT",
     "build-storybook": "rm -rf dist/storybook && nx build-storybook",
     "deploy-storybook": "rm -rf dist/storybook && nx build-storybook && gh-pages -d dist/storybook",
     "sync": "cp -r src/ui libs/src/",
@@ -38,10 +38,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uedteam/DED-WDS.git"
+    "url": "git+https://github.com/uedteam/DED-WDS_REACT.git"
   },
   "bugs": {
-    "url": "https://github.com/uedteam/DED-WDS/issues"
+    "url": "https://github.com/uedteam/DED-WDS_REACT/issues"
   },
   "keywords": [
     "ded",
