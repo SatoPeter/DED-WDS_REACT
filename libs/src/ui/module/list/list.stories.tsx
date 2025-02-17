@@ -87,14 +87,6 @@ type Story = StoryObj<typeof List>;
 export const Default: Story = {
   name: '預設項目',
   args: {},
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<List {...args} />`,
-      },
-    },
-  },
   render(args) {
     return <List {...args} />;
   },

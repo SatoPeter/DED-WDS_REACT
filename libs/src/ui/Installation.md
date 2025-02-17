@@ -4,11 +4,19 @@
 
 AUO Design system 是一套跨設計與程式的設計系統，採用原子化設計架構，透過拆解與建構的方法達成高擴充性的元件組成與應用。AUO Design system 透過簡單的安裝即可直接使用。
 
+## 安裝前確認
+
+### 確認相容於以下版本
+
+1. "react": "19.0.0"
+2. "sass": "^1.81.0",
+3. "vite-plugin-svgr": "^4.3.0"
+
 ## 安裝方式
 
 ### 步驟一：建立開發環境
 
-1. 創建專案資料夾。
+- 創建專案資料夾。
 
 ```shell
 npm create vite@latest
@@ -55,7 +63,7 @@ cd my_project
 npm install
 ```
 
-- 增加 vite config plugins svgr 項目
+- 增加 vite config plugins svgr() 項目
 
 ```js
 import svgr from 'vite-plugin-svgr';
@@ -91,9 +99,9 @@ npm install @ded-wds/ui@latest
 
 - 下載 [source.zip](https://storage.googleapis.com/ded-wds-bucket/source.zip)
 
-- 移除專案預設樣式 (App.css、index.css)
+- 移除專案預設樣式 (App.css、index.css)、移除預設匯入 css 檔
 
-- 複製 source 內相關資料夾至 src 資料夾
+- 複製 source 內相關資料夾至 src 資料夾並且取代
 
 - 在進入點的檔案（App.tsx）引用「globals.scss」
 
