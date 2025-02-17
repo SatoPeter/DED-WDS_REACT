@@ -8,7 +8,7 @@ import { Slider, Button } from '@src/ui';
  * @property {number} [min] - 最小值。
  * @property {number} [max] - 最大值。
  * @property {number} [step] - 步長。
- * @property {number} initValue - 初始值。
+ * @property {number} currValue - 初始值。
  * @property {string} [unit] - 單位。
  * @property {React.ReactNode} [prefix] - 前綴內容。
  * @property {React.ReactNode} [suffix] - 後綴內容。
@@ -29,7 +29,7 @@ export interface SliderControlProps {
   min?: number;
   max?: number;
   step?: number;
-  initValue: number;
+  currValue: number;
   label?: string;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -47,7 +47,7 @@ export interface SliderControlProps {
  * @param {number} [props.min=0] - 最小值
  * @param {number} [props.max=100] - 最大值
  * @param {number} [props.step=1] - 步長
- * @param {number} [props.initValue] - 初始值
+ * @param {number} [props.currValue] - 初始值
  * @param {string} [props.unit] - 單位
  * @param {React.ReactNode} [props.prefix] - 前綴
  * @param {React.ReactNode} [props.suffix] - 後綴
@@ -65,7 +65,7 @@ export const SliderControl: React.FC<SliderControlProps> = ({
   min = 0,
   max = 100,
   step = 1,
-  initValue = 0,
+  currValue = 0,
   label = '',
   isDisabled = false,
   className = '',
@@ -90,8 +90,8 @@ export const SliderControl: React.FC<SliderControlProps> = ({
   };
 
   useEffect(() => {
-    setValue(initValue);
-  }, [initValue]);
+    setValue(currValue);
+  }, [currValue]);
 
   return (
     <div className={`ded-slider-control ${className}`}>
@@ -112,7 +112,7 @@ export const SliderControl: React.FC<SliderControlProps> = ({
         isShowRange={false}
         isShowCurrValue
         isDisabled={isDisabled}
-        initValue={value}
+        currValue={value}
         onChange={handleChange}
       />
       <Button

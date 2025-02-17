@@ -3,13 +3,17 @@ import { action } from '@storybook/addon-actions';
 import { Select } from '@src/ui';
 import { SvgArrowDropDown } from '@src/assets/icons';
 import { useState } from 'react';
-import { ac } from 'react-router/dist/development/route-data-aSUFWnQ6';
+import { c } from 'vite/dist/node/types.d-aGj9QkWt';
 
 const options = [
   { value: '1', label: 'Option 1' },
   { value: '2', label: 'Option 2' },
   { value: '3', label: 'Option 3' },
 ];
+
+const IconComponents = {
+  SvgArrowDropDown: <SvgArrowDropDown />,
+};
 
 export default {
   title: 'Component/Select',
@@ -36,6 +40,8 @@ export default {
     },
     suffix: {
       description: '後綴圖示',
+      options: ['SvgArrowDropDown'],
+      mapping: IconComponents,
       table: {
         category: 'PROPS',
       },

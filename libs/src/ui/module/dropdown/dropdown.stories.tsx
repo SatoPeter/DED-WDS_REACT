@@ -4,25 +4,19 @@ import { Dropdown } from '../dropdown';
 
 const options = [
   {
-    content: {
-      label: 'Option1',
-      value: 'option1',
-      // href: '#',
-    },
+    label: 'Option1',
+    value: 'option1',
+    // href: '#',
   },
   {
-    content: {
-      label: 'Option2',
-      value: 'option2',
-      // href: '#',
-    },
+    label: 'Option2',
+    value: 'option2',
+    // href: '#',
   },
   {
-    content: {
-      label: 'Option3',
-      value: 'option3',
-      // href: '#',
-    },
+    label: 'Option3',
+    value: 'option3',
+    // href: '#',
   },
 ];
 

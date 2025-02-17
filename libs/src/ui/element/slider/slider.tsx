@@ -10,7 +10,7 @@ import React, { useState, useRef, useEffect } from 'react';
  * @property {number} [step] - 每次變動的步長。
  * @property {boolean} [isDisabled] - 是否禁用滑桿。
  * @property {string} [unit] - 值的單位。
- * @property {number} [initValue] - 初始值。
+ * @property {number} [currValue] - 初始值。
  * @property {string} [className] - 自訂樣式類名。
  * @property {(value: number) => void} [onChange] - 當值變動時的回調函數。
  */
@@ -27,7 +27,7 @@ export interface SliderProps {
   max: number;
   step?: number;
   label?: string;
-  initValue: number;
+  currValue: number;
   isShowRange?: boolean;
   isShowCurrValue?: boolean;
   isDisabled?: boolean;
@@ -46,7 +46,7 @@ export interface SliderProps {
  * @param {number} [props.max=100] - Slider 的最大值
  * @param {number} [props.step=1] - Slider 的步進值
  * @param {string} [props.unit='%'] - Slider 值的單位
- * @param {number} [props.initValue=0] - Slider 的初始值
+ * @param {number} [props.currValue=0] - Slider 的初始值
  * @param {string} [props.className] - 自定義 CSS 類名
  * @param {function} [props.onChange] - 當 Slider 值改變時的回調函數
  *
@@ -58,13 +58,13 @@ export const Slider: React.FC<SliderProps> = ({
   max = 100,
   step = 1,
   label = '',
-  initValue = 0,
+  currValue = 0,
   isShowRange = false,
   isShowCurrValue = false,
   onChange,
   className = '',
 }: SliderProps): JSX.Element => {
-  const [value, setValue] = useState<number>(initValue || min);
+  const [value, setValue] = useState<number>(currValue || min);
   const [labelPosition, setLabelPosition] = useState<number>(0);
   const [thumbPosition, setThumbPosition] = useState<number>(0);
   const rangeRef = useRef<HTMLInputElement>(null);
@@ -96,8 +96,8 @@ export const Slider: React.FC<SliderProps> = ({
   };
 
   useEffect(() => {
-    setValue(initValue);
-  }, [initValue]);
+    setValue(currValue);
+  }, [currValue]);
 
   useEffect(() => {
     updateRangeBackground(value);

@@ -12,6 +12,10 @@
   border-radius: $radius;
   padding-inline: 24px;
 
+  &:hover:has(.ded-tag-close) {
+    padding-inline: 16px 32px;
+  }
+
   &-text {
     display: flex;
     align-items: center;
@@ -24,17 +28,18 @@
     align-items: center;
     width: 18px;
     height: 18px;
+    margin-right: 2px;
   }
 
   &:hover {
     .ded-tag-close {
       display: block;
+      right: 12px;
     }
   }
 
   &-close {
     position: absolute;
-    right: 4px;
     width: 18px;
     height: 18px;
     cursor: pointer;

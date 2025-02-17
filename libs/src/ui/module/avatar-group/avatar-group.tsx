@@ -65,27 +65,16 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
         return {
           prefix: (
             <Avatar
-              size={size}
+              size="medium"
               shape="circle"
               userName={user.userName}
               caption={user.caption}
               src={user.imgSrc || ''}
             />
           ),
-          content: {
-            prefix: (
-              <Avatar
-                size="medium"
-                shape="circle"
-                userName={user.userName}
-                caption={user.caption}
-                src={user.imgSrc || ''}
-              />
-            ),
-            label: user.userName,
-            value: user.userName,
-            href: '',
-          },
+          label: user.userName,
+          value: user.userName,
+          href: '',
         };
       })
     );

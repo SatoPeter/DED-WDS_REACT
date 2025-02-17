@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             type="text"
             placeholder="Search"
             prefix={<SvgSearch width={20} height={20} />}
-            initValue={''}
+            currValue={''}
           />
         </form>
 

@@ -7,7 +7,7 @@ import { getHintClass, getCountClass, getBorderClass } from './styled';
  * @property {string} [label] - Textarea 的標籤。
  * @property {string} [placeholder] - Textarea 的佔位符。
  * @property {number} [limit] - 字數限制。
- * @property {string} [initValue] - 初始值。
+ * @property {string} [currValue] - 初始值。
  * @property {Object} [hint] - 提示訊息，包括錯誤訊息和描述。
  * @property {string} hint.error - 錯誤訊息。
  * @property {string} hint.description - 描述訊息。
@@ -21,7 +21,7 @@ export interface TextareaProps {
   isDisabled?: boolean;
   limit?: number;
   hint?: { error: string; description: string };
-  initValue: string;
+  currValue: string;
   className?: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
@@ -43,7 +43,7 @@ export const Textarea: React.FC<TextareaProps> = ({
   label,
   placeholder = 'Placeholder',
   limit = 30,
-  initValue,
+  currValue,
   hint = { error: '', description: '' },
   isDisabled = false,
   className = '',
@@ -52,8 +52,8 @@ export const Textarea: React.FC<TextareaProps> = ({
   const [value, setValue] = useState('');
 
   useEffect(() => {
-    setValue(initValue);
-  }, [initValue]);
+    setValue(currValue);
+  }, [currValue]);
 
   return (
     <div className={`ded-textarea-container ${className}`}>

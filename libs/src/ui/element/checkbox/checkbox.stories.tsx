@@ -20,7 +20,7 @@ export default {
       },
       required: true,
     },
-    initValue: {
+    currValue: {
       description: '選中的項目',
       table: {
         category: 'PROPS',
@@ -62,7 +62,7 @@ export default {
   },
   args: {
     dataSource: options,
-    initValue: ['option1', 'option3'],
+    currValue: ['option1', 'option3'],
     direction: 'row',
     size: 'medium',
     className: '',

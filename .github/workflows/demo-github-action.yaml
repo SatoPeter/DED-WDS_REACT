@@ -38,3 +38,13 @@ jobs:
           publish_dir: ./dist/storybook
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+
+  publish-package:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Publish Package 🚀
+        run: npm publish

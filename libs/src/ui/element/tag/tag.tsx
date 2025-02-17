@@ -63,7 +63,7 @@ export const Tag: React.FC<TagProps> = ({
 }) => {
   return (
     <div
-      className={`ded-tag 
+      className={`ded-tag
         ${
           isDisabled
             ? getDisableClass(variant)

@@ -55,7 +55,7 @@ export default {
         category: 'PROPS',
       },
     },
-    initValue: {
+    currValue: {
       description: '初始值',
       table: {
         category: 'PROPS',
@@ -141,9 +141,8 @@ export default {
     type: 'text',
     hasClear: true,
     placeholder: 'Placeholder',
-    prefix: IconComponents.SvgLock,
     size: 'medium',
-    initValue: '',
+    currValue: '',
     maxLimit: 0,
     hint: { error: '', description: 'Prompt message' },
     isDisabled: false,
@@ -155,14 +154,16 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {},
+  args: {
+    prefix: <SvgAccount />,
+  },
   render(args) {
     return <Input {...args} />;
   },
 };
 
-export const InputWithStatus: Story = {
-  name: '輸入框狀態',
+export const Type: Story = {
+  name: '輸入類型',
   argTypes: {
     isDisabled: {
       table: {
@@ -175,8 +176,50 @@ export const InputWithStatus: Story = {
     docs: {
       source: {
         code: `
-<Input {...args} label="Account" />
+<Input {...args} label="Account"  prefix={<SvgAccount />} />
 <Input {...args} label="Password" type={'password'} prefix={<Lock />} />
+<Input {...args} label="Number" type="number" />
+`,
+      },
+    },
+  },
+  render(args) {
+    return (
+      <>
+        <Input
+          {...args}
+          currValue="Account"
+          label="Account"
+          type="text"
+          prefix={<SvgAccount />}
+        />
+        <Input
+          {...args}
+          currValue="Password"
+          label="Password"
+          type="password"
+          prefix={<SvgLock />}
+        />
+        <Input {...args} currValue="12345" label="Amount" type="number" />
+      </>
+    );
+  },
+};
+
+export const InputWithStatus: Story = {
+  name: '提示訊息',
+  argTypes: {
+    isDisabled: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
 <Input {...args} label="Account" hint={{ error: 'Error message', description: '' }} />
 <Input {...args} label="Account" hint={{ error: '', description: 'Prompt message' }} />
 `,
@@ -185,14 +228,7 @@ export const InputWithStatus: Story = {
   },
   render(args) {
     return (
-      <div>
-        <Input {...args} label="Account" />
-        <Input
-          {...args}
-          label="Password"
-          type={'password'}
-          prefix={<SvgLock />}
-        />
+      <>
         <Input
           {...args}
           label="Account"
@@ -203,13 +239,7 @@ export const InputWithStatus: Story = {
           label="Account"
           hint={{ error: '', description: 'Prompt message' }}
         />
-        <Input
-          {...args}
-          label="Account"
-          isDisabled
-          hint={{ error: '', description: 'Prompt message' }}
-        />
-      </div>
+      </>
     );
   },
 };

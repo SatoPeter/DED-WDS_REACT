@@ -19,7 +19,7 @@ export default {
         category: 'PROPS',
       },
     },
-    initValue: {
+    currValue: {
       description: '預設值',
       table: {
         category: 'PROPS',
@@ -62,7 +62,7 @@ export default {
   args: {
     dataSource: options,
     direction: 'row',
-    initValue: 'option1',
+    currValue: 'option1',
     size: 'medium',
     className: '',
     onChange: action('onChange'),

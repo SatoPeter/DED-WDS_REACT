@@ -13,12 +13,10 @@ import React from 'react';
  * @property {string} [className] - 項目的 CSS 類名（可選）。
  */
 export interface ItemProps {
-  content: {
-    label: string;
-    prefix?: React.ReactNode;
-    value: string;
-    href?: string;
-  };
+  label: string;
+  prefix?: React.ReactNode;
+  value: string;
+  href?: string;
   isDisabled?: boolean;
   hasDivider?: boolean;
   onClick?: (value: string) => void;
@@ -40,7 +38,10 @@ export interface ItemProps {
  * @returns {JSX.Element} 返回渲染的項目。
  */
 export const Item: React.FC<ItemProps> = ({
-  content: { label = '', prefix = '', value = '', href = '' },
+  label = '',
+  prefix = '',
+  value = '',
+  href = '',
   isDisabled = false,
   hasDivider = false,
   onClick = () => ({}),

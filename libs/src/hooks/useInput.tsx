@@ -1,11 +1,11 @@
 import { useState, useEffect, ChangeEventHandler } from 'react';
 
 export const useInput = (
-  initValue: string,
+  currValue: string,
   type: string,
   onChange: ChangeEventHandler<HTMLInputElement> | undefined
 ) => {
-  const [value, setValue] = useState(initValue);
+  const [value, setValue] = useState(currValue);
   const [inputType, setInputType] = useState(type);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,8 +26,8 @@ export const useInput = (
   }, [type]);
 
   useEffect(() => {
-    setValue(initValue);
-  }, [initValue]);
+    setValue(currValue);
+  }, [currValue]);
 
   return {
     inputType,
