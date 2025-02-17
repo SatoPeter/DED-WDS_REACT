@@ -111,6 +111,11 @@ export const TextareaStatus: Story = {
         disable: true,
       },
     },
+    hint: {
+      table: {
+        disable: true,
+      },
+    },
   },
   args: {
     limit: 30,

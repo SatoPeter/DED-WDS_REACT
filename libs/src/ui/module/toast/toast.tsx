@@ -14,7 +14,7 @@ export interface ToastProps {
     | 'warning'
     | 'error';
   onClose?: () => void;
-  title?: string;
+  title: string;
   content: string;
   action?: ReactNode;
   prefix?: ReactNode;

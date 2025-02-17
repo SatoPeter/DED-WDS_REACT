@@ -32,6 +32,12 @@ export default {
       },
       required: true,
     },
+    placeholder: {
+      description: '輸入提示',
+      table: {
+        category: 'PROPS',
+      },
+    },
     label: {
       description: '標籤',
       table: {
@@ -63,6 +69,7 @@ export default {
   },
   args: {
     dataSource: options,
+    placeholder: 'Placeholder',
     label: 'Label',
     size: 'medium',
     className: '',

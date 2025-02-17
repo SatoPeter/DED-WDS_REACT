@@ -206,8 +206,8 @@ export const Width: Story = {
           const { args } = storyContext;
           return `
 <Divider {...args} type="solid">Solid</Divider>
-<Divider {...args} type="dotted">Dotted</Divider>
 <Divider {...args} type="dashed">Dashed</Divider>
+<Divider {...args} type="dotted">Dotted</Divider>
 `;
         },
       },
@@ -219,11 +219,11 @@ export const Width: Story = {
         <Divider {...args} type="solid">
           Solid
         </Divider>
-        <Divider {...args} type="dotted">
-          Dotted
-        </Divider>
         <Divider {...args} type="dashed">
           Dashed
+        </Divider>
+        <Divider {...args} type="dotted">
+          Dotted
         </Divider>
       </>
     );
