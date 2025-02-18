@@ -87,7 +87,7 @@ export default defineConfig({
 });
 ```
 
-- 在 TypeScript 的 tsconfig.app.json 中，compilerOptions.types 是用來指定要包含的型別定
+- 在 TypeScript 的 tsconfig.app.json 中，compilerOptions.types 是用來指定編譯所要包含的類別
 
 ```json
 "compilerOptions": {
