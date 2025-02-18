@@ -15,7 +15,6 @@ import {
 
 // icon 引入
 import {
-  SvgAuo,
   SvgHome,
   SvgBarChart,
   SvgCalendar,

@@ -1,5 +1,4 @@
 import {
-  SvgAuo,
   SvgHome,
   SvgBarChart,
   SvgCalendar,

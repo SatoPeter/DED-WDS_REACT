@@ -1,7 +1,6 @@
 import './style.scss';
-import { Layout, Navbar, SideNav } from '@src/ui';
+import { Layout, SideNav } from '@src/ui';
 import {
-  SvgAuo,
   SvgHome,
   SvgBarChart,
   SvgCalendar,
@@ -10,11 +9,6 @@ import {
   SvgDatabase,
   SvgUser,
   SvgLanguage,
-  SvgLocation,
-  SvgInfoCircle,
-  SvgMoreVert,
-  SvgSearch,
-  SvgSettings,
 } from '@src/assets/icons';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';

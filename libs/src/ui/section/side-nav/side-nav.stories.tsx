@@ -1,7 +1,6 @@
 import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import {
   SvgHome,
-  SvgAuo,
   SvgUser,
   SvgLanguage,
   SvgFavorite,

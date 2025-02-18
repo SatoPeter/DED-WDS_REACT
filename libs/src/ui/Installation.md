@@ -46,7 +46,7 @@ typescript
 cd my_project
 ```
 
-### 步驟二：安裝相依套件
+### 步驟二：安裝套件
 
 - 開啟建立的專案
 
@@ -57,10 +57,24 @@ cd my_project
 "vite-plugin-svgr": "^4.3.0"
 ```
 
-- 安裝 SASS 及 SVG 相關套件
+- 安裝初始相關套件
 
 ```shell
 npm install
+```
+
+- 建立 .npmrc 設定檔
+
+- 開啟 .npmrc 檔貼上 registry 路徑，並儲存
+
+```shell
+@ded-wds:registry=https://asia-east1-npm.pkg.dev/auo-ded/npm-hub/
+```
+
+- 執行 npm install 安裝 WDS 套件
+
+```shell
+npm install @ded-wds/ui@latest
 ```
 
 - 增加 vite config plugins svgr() 項目
@@ -81,25 +95,11 @@ export default defineConfig({
 }
 ```
 
-- 建立 .npmrc 設定檔
-
-- 開啟 .npmrc 檔貼上 registry 路徑，並儲存
-
-```shell
-@ded-wds:registry=https://asia-east1-npm.pkg.dev/auo-ded/npm-hub/
-```
-
-- 執行 npm install 安裝 WDS 套件
-
-```shell
-npm install @ded-wds/ui@latest
-```
-
 ### 步驟三：放入相關資源並引用 SCSS 檔
 
 - 下載 [source.zip](https://storage.googleapis.com/ded-wds-bucket/source.zip)
 
-- 移除專案預設樣式 (App.css、index.css)、移除預設匯入 css 檔
+- 移除專案預設樣式 (App.css、index.css)、移除預設匯入 css 檔 (App.css、index.css)
 
 - 複製 source 內相關資料夾至 src 資料夾並且取代
 
