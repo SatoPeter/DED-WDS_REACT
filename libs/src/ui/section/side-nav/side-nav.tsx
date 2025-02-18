@@ -230,7 +230,7 @@ export const SideNav: React.FC<SideNavProps> = ({
 
       {!isCollapsed && hasSearch && (
         <Input
-          initValue={searchValue}
+          currValue={searchValue}
           onChange={() => ({})}
           placeholder="Search..."
           prefix={<SvgSearch />}

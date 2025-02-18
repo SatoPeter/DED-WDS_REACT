@@ -7,7 +7,7 @@ import { getCombinedClassName } from '@src/utils/string';
  * @interface InputProps
  * @property {('primary' | 'secondary' |'neutral' | 'info' |  'success' | 'warning' | 'error')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 和 'info'。
  * @property {{ label: string; value: string; isDisabled: boolean }[]} [dataSource] - 選項列表，每個選項包含標籤和值。
- * @property {string} [initValue] - 初始選定值。
+ * @property {string} [currValue] - 初始選定值。
  * @property {('row' | 'column')} [direction] - 排列方向，可選值包括 'row' 和 'column'。
  * @property {string} [className] - 自訂樣式類別名稱。
  * @property {(value: string) => void} [onChange] - 當選定值改變時的回調函數。
@@ -15,7 +15,7 @@ import { getCombinedClassName } from '@src/utils/string';
 export interface RadioProps {
   dataSource: { label: string; value: string; isDisabled: boolean }[];
   direction?: 'row' | 'column';
-  initValue: string;
+  currValue: string;
   size?: 'small' | 'medium' | 'large';
   className?: string;
   onChange?: (value: string) => void;
@@ -26,7 +26,7 @@ export interface RadioProps {
  * @param {Object} props - 元件的屬性。
  * @param {string} [props.themeColor='primary'] - 元件的主題顏色。
  * @param {Array} [props.options=[]] - 元件的選項列表。
- * @param {string} [props.initValue=''] - 元件的初始值。
+ * @param {string} [props.currValue=''] - 元件的初始值。
  * @param {string} [props.direction='row'] - 元件的排列方向。
  * @param {string} [props.className] - 元件的類名。
  * @param {Function} [props.onChange] - 當值發生變化時的回調函數。
@@ -34,7 +34,7 @@ export interface RadioProps {
  */
 export const Radio: React.FC<RadioProps> = ({
   dataSource,
-  initValue,
+  currValue,
   direction = 'row',
   size = 'medium',
   className = '',
@@ -43,8 +43,8 @@ export const Radio: React.FC<RadioProps> = ({
   const [currOptions, setCurrOptions] = useState<string>('');
 
   useEffect(() => {
-    setCurrOptions(initValue || '');
-  }, [initValue]);
+    setCurrOptions(currValue || '');
+  }, [currValue]);
 
   return (
     <div

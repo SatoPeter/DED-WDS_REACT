@@ -2,7 +2,6 @@ import './style.scss';
 
 import { Layout, Navbar, SideNav } from '@src/ui';
 import {
-  SvgAuo,
   SvgHome,
   SvgBarChart,
   SvgCalendar,
@@ -11,11 +10,6 @@ import {
   SvgDatabase,
   SvgUser,
   SvgLanguage,
-  SvgLocation,
-  SvgInfoCircle,
-  SvgMoreVert,
-  SvgSearch,
-  SvgSettings,
 } from '@src/assets/icons';
 import { useNavigate } from 'react-router';
 
@@ -147,7 +141,8 @@ export const Lab1 = () => {
             className=""
             dataSource={SideNavItems}
             hasSearch
-            logo={<SvgAuo height={30} width={90} />}
+            desktopLogoSrc="https://storage.googleapis.com/ded-wds-bucket/AUO_LOGO_W.svg"
+            mobileLogoSrc="https://storage.googleapis.com/ded-wds-bucket/AUO_LOGO.svg"
             logoLink="https://www.auo.com"
             themeColor="#00467C"
           />

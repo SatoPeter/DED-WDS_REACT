@@ -1,5 +1,5 @@
 import 'vanillajs-datepicker/css/datepicker-foundation.css';
-import React, { useEffect, useRef, forwardRef } from 'react';
+import React, { useEffect, useRef, forwardRef, useState } from 'react';
 import { Datepicker, DateRangePicker } from 'vanillajs-datepicker';
 import { Input } from '@src/ui';
 import { SvgCalendar } from '@src/assets/icons';
@@ -25,9 +25,14 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     },
     ref
   ) => {
+    const [currValue, setCurrValue] = useState(value);
     const datepickerRef = useRef<Datepicker | DateRangePicker | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const divRangeRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      setCurrValue(value);
+    }, [value]);
 
     useEffect(() => {
       const inputElement =
@@ -49,6 +54,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         inputElement.addEventListener('changeDate', (e: any) => {
           if (onChange) {
             onChange(e.target.value);
+            setCurrValue(e.target.value);
           }
         });
       }
@@ -64,6 +70,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         divRangeElement.addEventListener('changeDate', (e: any) => {
           if (onChange) {
             onChange(e.target.value);
+            setCurrValue(e.target.value);
           }
         });
       }
@@ -79,7 +86,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
           <div className="ded-date-pick-range" ref={ref || divRangeRef}>
             <Input
               placeholder="Start Date"
-              initValue={value}
+              currValue={currValue}
               prefix={<SvgCalendar />}
               type="text"
               onChange={() => ({})}
@@ -87,7 +94,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             />
             <Input
               placeholder="End Date"
-              initValue={value}
+              currValue={currValue}
               prefix={<SvgCalendar />}
               type="text"
               onChange={() => ({})}
@@ -95,15 +102,17 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             />
           </div>
         ) : (
-          <Input
-            ref={ref || inputRef}
-            placeholder={placeholder}
-            initValue={value}
-            prefix={<SvgCalendar />}
-            type="text"
-            onChange={() => ({})}
-            className={className}
-          />
+          <>
+            <Input
+              ref={ref || inputRef}
+              placeholder={placeholder}
+              currValue={currValue}
+              prefix={<SvgCalendar />}
+              type="text"
+              onChange={() => ({})}
+              className={className}
+            />
+          </>
         )}
       </div>
     );

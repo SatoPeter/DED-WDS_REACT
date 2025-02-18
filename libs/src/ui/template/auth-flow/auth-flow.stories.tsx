@@ -115,7 +115,7 @@ export const Default: Story = {
                 className="text-primary"
                 type="text"
                 prefix={<SvgMail />}
-                initValue=""
+                currValue=""
                 label="Email"
                 placeholder="Email"
               />
@@ -126,7 +126,7 @@ export const Default: Story = {
                 className="text-primary"
                 type="password"
                 prefix={<SvgLock />}
-                initValue=""
+                currValue=""
                 label="Password"
                 placeholder="Password"
               />
@@ -142,7 +142,7 @@ export const Default: Story = {
               </Button>
 
               <Checkbox
-                initValue={[]}
+                currValue={[]}
                 dataSource={[
                   { label: 'Remember me', value: '1', isDisabled: false },
                 ]}
@@ -217,7 +217,7 @@ export const SignUp: Story = {
                 className="text-primary"
                 type="text"
                 prefix={<SvgMail />}
-                initValue=""
+                currValue=""
                 label="Email"
                 placeholder="type email"
               />
@@ -228,7 +228,7 @@ export const SignUp: Story = {
                 className="text-primary"
                 type="password"
                 prefix={<SvgLock />}
-                initValue=""
+                currValue=""
                 label="Password"
                 placeholder="type password"
               />
@@ -239,7 +239,7 @@ export const SignUp: Story = {
                 className="text-primary"
                 type="password"
                 prefix={<SvgLock />}
-                initValue=""
+                currValue=""
                 label="Password Confirm"
                 placeholder="type password"
               />
@@ -248,7 +248,7 @@ export const SignUp: Story = {
             <Column md={12}>
               <div className="flex flex-wrap items-center">
                 <Checkbox
-                  initValue={[]}
+                  currValue={[]}
                   dataSource={[{ label: '', value: '1', isDisabled: false }]}
                 />
                 <span className="ml-1 text-neutral-600">
@@ -347,7 +347,7 @@ export const Forgot: Story = {
                 className="text-primary"
                 type="text"
                 prefix={<SvgMail />}
-                initValue=""
+                currValue=""
                 label="Email Address"
                 placeholder="type email"
                 hint={{ description: 'Description', error: '' }}
@@ -392,7 +392,7 @@ export const Verify: Story = {
                   type="text"
                   hasClear={false}
                   maxLimit={1}
-                  initValue=""
+                  currValue=""
                   className="w-[44px] h-[44px] text-center text-primary text-xl"
                   placeholder=""
                 />
@@ -400,7 +400,7 @@ export const Verify: Story = {
                   type="text"
                   hasClear={false}
                   maxLimit={1}
-                  initValue=""
+                  currValue=""
                   className="w-[44px] h-[44px] text-center text-primary text-xl"
                   placeholder=""
                 />
@@ -408,7 +408,7 @@ export const Verify: Story = {
                   type="text"
                   hasClear={false}
                   maxLimit={1}
-                  initValue=""
+                  currValue=""
                   className="w-[44px] h-[44px] text-center text-primary text-xl"
                   placeholder=""
                 />
@@ -416,7 +416,7 @@ export const Verify: Story = {
                   type="text"
                   hasClear={false}
                   maxLimit={1}
-                  initValue=""
+                  currValue=""
                   className="w-[44px] h-[44px] text-center text-primary text-xl"
                   placeholder=""
                 />
@@ -424,7 +424,7 @@ export const Verify: Story = {
                   type="text"
                   hasClear={false}
                   maxLimit={1}
-                  initValue=""
+                  currValue=""
                   className="w-[44px] h-[44px] text-center text-primary text-xl"
                   placeholder=""
                 />
@@ -433,7 +433,7 @@ export const Verify: Story = {
                   type="text"
                   hasClear={false}
                   maxLimit={1}
-                  initValue=""
+                  currValue=""
                   className="w-[44px] h-[44px] text-center text-primary text-xl"
                   placeholder=""
                 />
@@ -481,7 +481,7 @@ export const Password: Story = {
                 className="text-primary"
                 type="password"
                 prefix={<SvgLock />}
-                initValue=""
+                currValue=""
                 label="Password"
                 placeholder="type password"
               />
@@ -492,7 +492,7 @@ export const Password: Story = {
                 className="text-primary"
                 type="password"
                 prefix={<SvgLock />}
-                initValue=""
+                currValue=""
                 label="Password Confirm"
                 placeholder="type password"
               />

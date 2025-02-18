@@ -1,5 +1,7 @@
 import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Divider } from './divider';
+import { log } from 'console';
+import { p } from 'react-router/dist/development/fog-of-war-DLtn2OLr';
 
 export default {
   title: 'Component/Divider',
@@ -70,6 +72,21 @@ export default {
     className: '',
     children: 'Divider',
   },
+  decorators: [
+    (Story, { args: { direction } }) => {
+      console.log(direction);
+      return (
+        <div
+          style={{
+            display: `${direction === 'horizontal' ? 'block' : 'flex'}`,
+            height: '100px',
+          }}
+        >
+          <Story />
+        </div>
+      );
+    },
+  ],
   parameters: {
     docs: {
       title: '分隔線',
@@ -92,11 +109,6 @@ export const Default: Story = {
 export const Align: Story = {
   name: '文字對齊',
   argTypes: {
-    direction: {
-      table: {
-        disable: true,
-      },
-    },
     align: {
       table: {
         disable: true,
@@ -194,8 +206,8 @@ export const Width: Story = {
           const { args } = storyContext;
           return `
 <Divider {...args} type="solid">Solid</Divider>
-<Divider {...args} type="dotted">Dotted</Divider>
 <Divider {...args} type="dashed">Dashed</Divider>
+<Divider {...args} type="dotted">Dotted</Divider>
 `;
         },
       },
@@ -207,11 +219,11 @@ export const Width: Story = {
         <Divider {...args} type="solid">
           Solid
         </Divider>
-        <Divider {...args} type="dotted">
-          Dotted
-        </Divider>
         <Divider {...args} type="dashed">
           Dashed
+        </Divider>
+        <Divider {...args} type="dotted">
+          Dotted
         </Divider>
       </>
     );

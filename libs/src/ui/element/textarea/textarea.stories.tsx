@@ -25,7 +25,7 @@ export default {
         category: 'PROPS',
       },
     },
-    initValue: {
+    currValue: {
       description: '輸入值',
       table: {
         category: 'PROPS',
@@ -61,7 +61,7 @@ export default {
     label: 'Label',
     placeholder: 'Placeholder',
     limit: 0,
-    initValue: 'Type something',
+    currValue: 'Type something',
     hint: { error: '', description: '' },
     isDisabled: false,
     className: '',
@@ -111,6 +111,11 @@ export const TextareaStatus: Story = {
         disable: true,
       },
     },
+    hint: {
+      table: {
+        disable: true,
+      },
+    },
   },
   args: {
     limit: 30,
@@ -119,8 +124,9 @@ export const TextareaStatus: Story = {
     docs: {
       source: {
         code: `
-<Textarea {...args} hint={{ error: 'Error', description: '' }} />
 <Textarea {...args} hint={{ error: '', description: 'Prompt message' }} />
+<Textarea {...args} hint={{ error: 'Error', description: '' }} />
+<Textarea {...args} isDisabled />
 `,
       },
     },
@@ -128,11 +134,12 @@ export const TextareaStatus: Story = {
   render(args) {
     return (
       <>
-        <Textarea {...args} hint={{ error: 'Error', description: '' }} />
         <Textarea
           {...args}
           hint={{ error: '', description: 'Prompt message' }}
         />
+        <Textarea {...args} hint={{ error: 'Error', description: '' }} />
+        <Textarea {...args} isDisabled />
       </>
     );
   },

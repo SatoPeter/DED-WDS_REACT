@@ -38,7 +38,7 @@ export const Search: React.FC<SearchProps> = ({
         size={size}
         type="text"
         placeholder={placeholder}
-        initValue={value}
+        currValue={value}
         prefix={<SvgSearch width={20} height={20} />}
         isDisabled={isDisabled}
         className="ded-search-input"

@@ -8,9 +8,10 @@ import { Card } from './section/card';
 import { CardSimple } from './section/card-simple';
 import { Checkbox } from './element/checkbox';
 import { CircleProgress, LineProgress } from './element/progress';
+import { Dropdown } from './module/dropdown';
 import { Dialog } from './module/dialog';
 import { Divider } from './element/divider';
-import { Grid } from './section/grid';
+import { Grid, Row, Column } from './section/grid';
 import { Image } from './element/image';
 import { Input } from './element/input';
 import { Item, List } from './module/list';
@@ -45,6 +46,8 @@ export {
   CardSimple,
   Checkbox,
   CircleProgress,
+  Column,
+  Dropdown,
   Dialog,
   Divider,
   Grid,
@@ -58,6 +61,7 @@ export {
   Navbar,
   Pagination,
   Radio,
+  Row,
   Search,
   Select,
   SideNav,

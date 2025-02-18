@@ -4,25 +4,19 @@ import { Dropdown } from '../dropdown';
 
 const options = [
   {
-    content: {
-      label: 'Option1',
-      value: 'option1',
-      // href: '#',
-    },
+    label: 'Option1',
+    value: 'option1',
+    // href: '#',
   },
   {
-    content: {
-      label: 'Option2',
-      value: 'option2',
-      // href: '#',
-    },
+    label: 'Option2',
+    value: 'option2',
+    // href: '#',
   },
   {
-    content: {
-      label: 'Option3',
-      value: 'option3',
-      // href: '#',
-    },
+    label: 'Option3',
+    value: 'option3',
+    // href: '#',
   },
 ];
 
@@ -37,6 +31,12 @@ export default {
         category: 'PROPS',
       },
       required: true,
+    },
+    placeholder: {
+      description: '輸入提示',
+      table: {
+        category: 'PROPS',
+      },
     },
     label: {
       description: '標籤',
@@ -69,6 +69,7 @@ export default {
   },
   args: {
     dataSource: options,
+    placeholder: 'Placeholder',
     label: 'Label',
     size: 'medium',
     className: '',

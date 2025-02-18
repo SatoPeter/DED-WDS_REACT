@@ -16,7 +16,7 @@ import { getCombinedClassName } from '@src/utils/string';
  * `InputProps` 介面定義了輸入元件的屬性。
  *
  * @property {ReactNode} [label] - 輸入框的標籤。
- * @property {string} [initValue] - 輸入框的值。
+ * @property {string} [currValue] - 輸入框的值。
  * @property {'text' | 'password' | 'email' | 'number'} type - 輸入框的類型。
  * @property {boolean} [hasClear] - 是否顯示清除按鈕。
  * @property {string} [placeholder] - 輸入框的佔位符。
@@ -34,7 +34,7 @@ export interface InputProps {
   placeholder?: string;
   prefix?: ReactNode;
   size?: 'small' | 'medium' | 'large';
-  initValue: string;
+  currValue: string;
   maxLimit?: number | undefined;
   hint?: { error: string; description: string };
   isDisabled?: boolean;
@@ -52,7 +52,7 @@ export interface InputProps {
  * @param {string} [props.placeholder='請輸入...'] - 輸入框的佔位符。
  * @param {React.ReactNode} [props.prefix] - 輸入框前綴圖標。
  * @param {string} [props.size='medium'] - 輸入框的大小。
- * @param {string} props.initValue - 輸入框的值。
+ * @param {string} props.currValue - 輸入框的值。
  * @param {Object} [props.hint={ error: '', description: '' }] - 提示信息。
  * @param {string} props.hint.error - 錯誤提示信息。
  * @param {string} props.hint.description - 描述提示信息。
@@ -69,7 +69,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       placeholder = 'Placeholder',
       prefix = <SvgAccount />,
       size = 'medium',
-      initValue,
+      currValue,
       maxLimit = 0,
       hint = { error: '', description: '' },
       isDisabled = false,
@@ -80,7 +80,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     const { inputType, value, onClear, onVisibility, handleInputChange } =
-      useInput(initValue, type, onChange);
+      useInput(currValue, type, onChange);
 
     return (
       <div className={`ded-input-container ${className}`}>

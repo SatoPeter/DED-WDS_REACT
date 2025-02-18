@@ -127,6 +127,21 @@ export const Theme: Story = {
         disable: true,
       },
     },
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+    prefix: {
+      table: {
+        disable: true,
+      },
+    },
   },
   args: {},
   render(args) {

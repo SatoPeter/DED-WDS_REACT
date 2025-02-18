@@ -5,28 +5,22 @@ import { SvgAccount } from '@src/assets/icons';
 
 const options = [
   {
-    content: {
-      label: 'Option1',
-      value: 'option1',
-      prefix: <SvgAccount />,
-    },
+    label: 'Option1',
+    value: 'option1',
+    prefix: <SvgAccount />,
     isDisabled: true,
   },
   {
-    content: {
-      label: 'Option2',
-      value: 'option2',
-      href: '#',
-      prefix: <SvgAccount />,
-    },
+    label: 'Option2',
+    value: 'option2',
+    href: '#',
+    prefix: <SvgAccount />,
   },
   {
-    content: {
-      label: 'Option3',
-      value: 'option3',
-      href: '#',
-      prefix: <SvgAccount />,
-    },
+    label: 'Option3',
+    value: 'option3',
+    href: '#',
+    prefix: <SvgAccount />,
   },
 ];
 
@@ -93,14 +87,6 @@ type Story = StoryObj<typeof List>;
 export const Default: Story = {
   name: '預設項目',
   args: {},
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<List {...args} />`,
-      },
-    },
-  },
   render(args) {
     return <List {...args} />;
   },

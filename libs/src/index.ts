@@ -8,9 +8,10 @@ import { Card } from './ui/section/card';
 import { CardSimple } from './ui/section/card-simple';
 import { Checkbox } from './ui/element/checkbox';
 import { CircleProgress, LineProgress } from './ui/element/progress';
+import { Dropdown } from './ui/module/dropdown';
 import { Dialog } from './ui/module/dialog';
 import { Divider } from './ui/element/divider';
-import { Grid } from './ui/section/grid';
+import { Grid, Row, Column } from './ui/section/grid';
 import { Image } from './ui/element/image';
 import { Input } from './ui/element/input';
 import { Item, List } from './ui/module/list';
@@ -45,6 +46,8 @@ export {
   CardSimple,
   Checkbox,
   CircleProgress,
+  Column,
+  Dropdown,
   Dialog,
   Divider,
   Grid,
@@ -58,6 +61,7 @@ export {
   Navbar,
   Pagination,
   Radio,
+  Row,
   Search,
   Select,
   SideNav,

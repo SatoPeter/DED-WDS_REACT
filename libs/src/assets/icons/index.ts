@@ -3,7 +3,6 @@ import SvgAdd from './add.svg?react';
 import SvgAir from './air-condition.svg?react';
 import SvgArrowDown from './arrow-down.svg?react';
 import SvgArrowDropDown from './arrow-drop-down.svg?react';
-import SvgAuo from './auo.svg?react';
 import SvgBarChart from './bar-chart.svg?react';
 import SvgBusy from './busy.svg?react';
 import SvgCalendar from './calendar.svg?react';
@@ -59,7 +58,6 @@ export {
   SvgAir,
   SvgArrowDown,
   SvgArrowDropDown,
-  SvgAuo,
   SvgBarChart,
   SvgBusy,
   SvgCalendar,

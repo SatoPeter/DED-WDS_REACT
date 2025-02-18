@@ -42,7 +42,7 @@ export default {
         category: 'PROPS',
       },
     },
-    initValue: {
+    currValue: {
       description: '初始值',
       table: {
         category: 'PROPS',
@@ -117,7 +117,7 @@ export default {
     min: -100,
     max: 100,
     step: 1,
-    initValue: 8,
+    currValue: 8,
     label: '℃',
     prefix: 'Decrease',
     suffix: 'Increase',

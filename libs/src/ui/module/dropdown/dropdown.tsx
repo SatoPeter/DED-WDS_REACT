@@ -7,6 +7,7 @@ import { ItemProps } from '@src/ui/module/list';
 
 interface DropdownProps {
   dataSource: ItemProps[];
+  placeholder?: string;
   label?: string;
   size?: 'small' | 'medium' | 'large';
   onSelect?: (value: string) => void;
@@ -14,6 +15,7 @@ interface DropdownProps {
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({
+  placeholder = 'Placeholder',
   label = '',
   size = 'medium',
   className = '',
@@ -61,8 +63,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
         onClick={handleClick}
       >
         <Input
+          placeholder={placeholder}
           size={size}
-          initValue={value}
+          currValue={value}
           isOpen={isVisible}
           type="text"
           className="ded-dropdown-input"

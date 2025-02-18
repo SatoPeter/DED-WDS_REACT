@@ -1,6 +1,6 @@
 {
   "name": "ded-wds-react",
-  "version": "1.0.5-beta",
+  "version": "1.0.8-beta",
   "description": "Web Design System",
   "license": "MIT",
   "homepage": "https://uedteam.github.io/DED-WDS_REACT",
@@ -91,7 +91,7 @@
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
-    "@testing-library/react": "15.0.6",
+    "@testing-library/react": "16.2.0",
     "@types/node": "18.16.9",
     "@types/react": "18.3.1",
     "@types/react-dom": "18.3.0",
