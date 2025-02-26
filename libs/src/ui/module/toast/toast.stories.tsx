@@ -118,7 +118,23 @@ export default {
           const { args } = storyContext;
 
           return `
-<Toast themeColor=${args.themeColor} title=${args.title} content=${args.content} prefix=${args.prefix} />
+const { addToast, ToastContainer } = useToast();
+
+const handleShowToast = () => {
+  addToast({
+    themeColor: '${args.themeColor}',
+    title: '${args.title}',
+    content: '${args.content}',
+    action: <div onClick={() => window.alert('action')}>Action</div>,
+    prefix: <SvgSuccessCircle width={18} height={18} />,
+    duration: ${args.duration},
+  });
+};
+
+<Button onClick={handleShowToast} variant="filled">
+  Open Toast
+</Button>
+<ToastContainer />
 `;
         },
       },
@@ -366,7 +382,7 @@ export const Demo: Story = {
     return (
       <>
         <Button onClick={handleShowToast} variant="filled">
-          Open Dialog
+          Open Toast
         </Button>
         <ToastContainer />
       </>

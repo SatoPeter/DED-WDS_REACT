@@ -68,13 +68,14 @@ npm install
 - 開啟 .npmrc 檔貼上 registry 路徑，並儲存
 
 ```shell
-@ded-wds:registry=https://asia-east1-npm.pkg.dev/auo-ded/npm-hub/
+@ded-wds-react:registry=https://asia-east1-npm.pkg.dev/auo-ded/npm-hub-uat/
+//asia-east1-npm.pkg.dev/auo-ded/npm-hub-uat/:always-auth=true
 ```
 
 - 執行 npm install 安裝 WDS 套件
 
 ```shell
-npm install @ded-wds/ui@latest
+npm install @ded-wds-react/ui@latest
 ```
 
 - 增加 vite config plugins svgr() 項目
@@ -97,11 +98,11 @@ export default defineConfig({
 
 ### 步驟三：放入相關資源並引用 SCSS 檔
 
-- 下載 [source.zip](https://storage.googleapis.com/ded-wds-bucket/source.zip)
+- 下載 [source.zip](https://storage.googleapis.com/ded-wds-bucket/uat/wds/source.zip)
 
 - 移除專案預設樣式 (App.css、index.css)、移除預設匯入 css 檔 (App.css、index.css)
 
-- 複製 source 內相關資料夾至 src 資料夾並且取代
+- 複製 source/react 內相關資料夾至 src 資料夾並且取代
 
 - 在進入點的檔案（App.tsx）引用「globals.scss」
 
@@ -132,6 +133,12 @@ Design system 為提供便利的功能，部分常見元件採用功能完善的
 - SASS CSS 預處理器： [SASS](https://sass-lang.com/)
 
 - SVGR: [vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr)
+
+## 第三方套件使用
+
+如需使用其他相關開發工具，請搭配適合的版本避免出現非預期的錯誤
+
+- TailwindCSS: [TailwindCSS v3.4.17](https://v3.tailwindcss.com/)
 
 ## 範例下載
 

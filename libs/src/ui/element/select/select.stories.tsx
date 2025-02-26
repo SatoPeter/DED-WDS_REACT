@@ -2,8 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Select } from '@src/ui';
 import { SvgArrowDropDown } from '@src/assets/icons';
-import { useState } from 'react';
-import { c } from 'vite/dist/node/types.d-aGj9QkWt';
+import { ChangeEvent, useState } from 'react';
 
 const options = [
   { value: '1', label: 'Option 1' },
@@ -102,9 +101,9 @@ export const Default: Story = {
   render: function (args) {
     const [selectedValue, setSelectedValue] = useState<string | number>('');
 
-    const handleChange = (value: string | number) => {
-      action('onChange')(value);
-      setSelectedValue(value);
+    const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+      action('onChange')(e.target.value);
+      setSelectedValue(e.target.value);
     };
 
     return <Select {...args} value={selectedValue} onChange={handleChange} />;

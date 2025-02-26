@@ -19,6 +19,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   label = '',
   size = 'medium',
   className = '',
+  onSelect,
   ...rest
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,6 +33,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   const handleSelected = (value: string) => {
     setValue(value);
+    onSelect && onSelect(value);
     setIsVisible(false);
   };
 

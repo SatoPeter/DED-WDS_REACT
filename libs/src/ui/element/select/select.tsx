@@ -12,7 +12,7 @@ export interface SelectProps {
   isDisabled?: boolean;
   suffix?: React.ReactNode;
   className?: string;
-  onChange?: (value: string | number) => void;
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export const Select: FC<SelectProps> = ({
@@ -23,11 +23,12 @@ export const Select: FC<SelectProps> = ({
   isDisabled = false,
   suffix,
   className = '',
+  ...props
 }) => {
   // 處理選擇變更
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     if (onChange) {
-      onChange(e.target.value);
+      onChange(e);
     }
   };
 
@@ -38,6 +39,7 @@ export const Select: FC<SelectProps> = ({
         onChange={handleChange}
         disabled={isDisabled}
         className={`ded-select ${isDisabled ? 'ded-select-disabled' : ''}`}
+        {...props}
       >
         <option value="" disabled hidden>
           {placeholder}

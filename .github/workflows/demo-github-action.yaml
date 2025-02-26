@@ -39,12 +39,12 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-  publish-package:
-    runs-on: ubuntu-latest
+  # publish-package:
+  #   runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
+  #   permissions:
+  #     contents: write
 
-    steps:
-      - name: Publish Package 🚀
-        run: npm publish
+  #   steps:
+  #     - name: Publish Package 🚀
+  #       run: npm publish

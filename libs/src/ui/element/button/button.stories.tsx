@@ -41,6 +41,16 @@ export default {
         category: 'PROPS',
       },
     },
+    type: {
+      description: '按鈕類型',
+      control: {
+        type: 'select',
+        options: ['button', 'submit', 'reset'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     isDisabled: {
       description: '是否禁用',
       table: {
@@ -141,6 +151,7 @@ export default {
   args: {
     themeColor: 'primary',
     variant: 'filled',
+    type: 'button',
     prefix: null,
     suffix: null,
     size: 'medium',

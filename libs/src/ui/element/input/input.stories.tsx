@@ -9,6 +9,7 @@ import {
   SvgClose,
   SvgLock,
 } from '@src/assets/icons';
+import { ChangeEvent } from 'react';
 
 const IconComponents = {
   SvgAccount: <SvgAccount />,
@@ -147,7 +148,7 @@ export default {
     hint: { error: '', description: 'Prompt message' },
     isDisabled: false,
     className: '',
-    onChange: (e: string) => action('changed')(e),
+    onChange: (e: ChangeEvent) => action('changed')(e.target),
   },
 } as Meta;
 type Story = StoryObj<typeof Input>;
@@ -158,7 +159,8 @@ export const Default: Story = {
     prefix: <SvgAccount />,
   },
   render(args) {
-    return <Input {...args} />;
+    const args2 = { test: '123', name: 'Kevin' };
+    return <Input {...args} {...args2} />;
   },
 };
 

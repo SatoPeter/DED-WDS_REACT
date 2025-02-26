@@ -1,6 +1,6 @@
 {
-  "name": "@ded-wds/ui",
-  "version": "1.0.8-beta",
+  "name": "@ded-wds-react/ui",
+  "version": "1.0.11-beta",
   "description": "Web Design System",
   "license": "MIT",
   "author": "Kevin Yang <kevin.kk.yang@auo.com>",
@@ -8,7 +8,7 @@
     "Amos Lee <amos.lee@auo.com>"
   ],
   "homepage": "https://uedteam.github.io/DED-WDS_REACT",
-  "main": "dist/lib/index.js",
+  "main": "dist/lib/index.umd.js",
   "types": "dist/lib/index.d.ts",
   "files": [
     "dist"

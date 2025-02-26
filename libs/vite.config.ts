@@ -29,19 +29,13 @@ export default defineConfig({
         'src/ui/**/*.ts',
         'src/ui/**/*.tsx',
         'src/ui/**/*.js',
-        'src/assets/*.ts',
-        'src/assets/*.tsx',
-        'src/assets/*.js',
+        'src/hooks/**/*.ts',
+        'src/hooks/**/*.tsx',
+        'src/hooks/**/*.js',
       ],
     }),
     svgr(),
   ],
-
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
-
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
@@ -54,19 +48,18 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: 'src/index.ts',
-      name: 'libs',
-      fileName: 'index',
-      formats: ['es', 'cjs'],
+      name: 'Libs',
+      fileName: (format) => `index.${format}.js`,
+      // formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      // external: ["'react'", "'react-dom'", "'react/jsx-runtime'"],
       external: ['react', 'react-dom'],
-      // output: {
-      //   globals: {
-      //     react: 'React',
-      //     'react-dom': 'ReactDOM',
-      //   },
-      // },
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
     },
   },
 });

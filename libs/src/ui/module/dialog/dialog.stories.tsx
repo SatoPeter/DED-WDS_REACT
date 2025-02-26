@@ -69,18 +69,41 @@ export default {
           const { args } = storyContext;
 
           return `
+const { isOpen, header, content, openDialog, closeDialog } = useDialog({
+isOpen: ${args?.isOpen || false},
+header: (
+  <Title themeColor="primary" level={2}>
+    Title
+  </Title>
+),
+content: (
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting
+    industry. Lorem Ipsum has been the industry's standard Lorem Ipsum is
+    simply dummy text of the printing and typesetting industry. Lorem Ipsum
+    has been the industry's standard
+  </p>
+),
+});
+
+<Button onClick={openDialog} variant="filled">
+  Open Dialog
+</Button>
 <Dialog
-  isOpen=${args?.isOpen || false}
-  hasClose=${args?.hasClose || false}
+  isOpen={isOpen}
+  hasClose={${args?.hasClose || false}}
   onClose={closeDialog}
-  title="${args?.title}"
-  content="${args?.content}"
+  header={header}
+  content={content}
   footer={
     <Grid fluid>
       <Row>
         <Column sm={4}>
           <Button
-            onClick={() => window.alert('ok')}
+            onClick={() => {
+              window.alert('ok')
+              closeDialog()
+            }}
             variant="filled"
             width="fluid"
           >
@@ -89,7 +112,10 @@ export default {
         </Column>
         <Column sm={4}>
           <Button
-            onClick={() => window.alert('cancel')}
+            onClick={() => {
+              window.alert('cancel')
+              closeDialog()
+            }}
             themeColor="primary"
             variant="soft"
             width="fluid"
@@ -100,7 +126,8 @@ export default {
       </Row>
     </Grid>
   }
-/>`;
+/>
+`;
         },
       },
     },
@@ -125,16 +152,6 @@ const DemoWithHook = (args: Story['args']) => {
       </p>
     ),
   });
-
-  const handleOK = () => {
-    window.alert('ok');
-    closeDialog();
-  };
-
-  const handleCancel = () => {
-    window.alert('cancel');
-    closeDialog();
-  };
 
   return (
     <>

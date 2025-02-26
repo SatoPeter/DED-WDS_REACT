@@ -1,14 +1,13 @@
-## V1.0.7-beta (2025/2/17)
+## V1.0.11-beta (2025/2/26)
 
 ✨ New Feature
 
 🆙 Update
 
-- Update the README file with detailed installation instructions and a troubleshooting section
-- Fix the typo in the Navbar component title
-- Add a new API endpoint for fetching user data
-- Update the color scheme across all components
-- Improve the performance of the search feature
-- Remove unused dependencies from the package.json file
+- Remove min-width: 250px from \_select.scss
+- Update the npm registry path in Installation.md for @ded-wds-react
+- Change the download link to source.zip in Installation.md
+- Modify the path of the copied folders in Installation.md
+- Add onSelect prop to Dropdown component in dropdown.tsx
 
 🪲 Bug Fix

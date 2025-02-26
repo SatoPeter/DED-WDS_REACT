@@ -8,6 +8,7 @@ import { getCombinedClassName } from '@src/utils/string';
  * @interface ButtonProps
  * @property {'primary' | 'secondary' |'neutral' | 'info' | 'success' | 'warning' | 'error'} [themeColor] - 按鈕的主題顏色。
  * @property {'filled' | 'soft' | 'ghost' | 'text'} variant - 按鈕的樣式變體。
+ * @property {'button' | 'submit' | 'reset'} [type] - 按鈕的類型。
  * @property {ReactNode} [prefix] - 按鈕前綴的圖標或元素。
  * @property {ReactNode} [suffix] - 按鈕後綴的圖標或元素。
  * @property {'small' | 'medium' | 'large'} [size] - 按鈕的大小。
@@ -27,6 +28,7 @@ export interface ButtonProps {
     | 'warning'
     | 'error';
   variant: 'filled' | 'soft' | 'ghost' | 'text';
+  type?: 'button' | 'submit' | 'reset';
   isDisabled?: boolean;
   prefix?: ReactNode;
   suffix?: ReactNode;
@@ -46,6 +48,7 @@ export interface ButtonProps {
  * @param {Object} props - 按鈕的屬性
  * @param {'primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error'} [props.themeColor] - 按鈕的主題顏色
  * @param {'filled' | 'soft' | 'ghost' | 'text'} props.variant - 按鈕的樣式變體
+ * @param {'button' | 'submit' | 'reset'} [props.type] - 按鈕的類型
  * @param {boolean} [props.isDisabled] - 按鈕是否禁用
  * @param {ReactNode} [props.prefix] - 按鈕前綴圖標
  * @param {ReactNode} [props.suffix] - 按鈕後綴圖標
@@ -59,6 +62,7 @@ export interface ButtonProps {
  */
 export const Button: React.FC<ButtonProps> = ({
   variant,
+  type = 'button',
   themeColor = 'primary',
   isDisabled = false,
   prefix,
@@ -91,6 +95,7 @@ export const Button: React.FC<ButtonProps> = ({
         ${getCombinedClassName('ded-button-radius', radius || '')}
         ${children ? '' : 'ded-button-only-icon'}
         ${className}`}
+      type={type}
       onClick={(e) => {
         e.currentTarget.blur();
         onClick(e);
